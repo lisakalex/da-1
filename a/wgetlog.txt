@@ -1,0 +1,1415 @@
+--2023-09-14 21:47:31--  https://cryptonews.com/
+Resolving cryptonews.com (cryptonews.com)... 172.67.69.61, 104.26.0.151, 104.26.1.151, ...
+Connecting to cryptonews.com (cryptonews.com)|172.67.69.61|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/index.html’
+
+     0K .......... .......... .......... .......... .......... 18.8M
+    50K .......... .......... .......... .......... .......... 3.10M
+   100K .......... .......... .......... .......... .......... 3.27M
+   150K .......... .......... .......... .......... .......... 38.3M
+   200K .......... .......... .......... .......... ..........  960K
+   250K .......... .......... .......... .......... .......... 15.8M
+   300K .......... .......... .......... .......... ..........  222M
+   350K .......... .......... .......... .......... .          10.9M=0.09s
+
+2023-09-14 21:47:32 (4.08 MB/s) - ‘cryptonews.com/index.html’ saved [400549]
+
+Loading robots.txt; please ignore errors.
+--2023-09-14 21:47:32--  https://cryptonews.com/robots.txt
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 81 [text/plain]
+Saving to: ‘cryptonews.com/robots.txt’
+
+     0K                                                       100% 44.0M=0s
+
+2023-09-14 21:47:32 (44.0 MB/s) - ‘cryptonews.com/robots.txt’ saved [81/81]
+
+--2023-09-14 21:47:32--  https://cryptonews.com/site.webmanifest?v=35Xks
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 579 [application/octet-stream]
+Saving to: ‘cryptonews.com/site.webmanifest?v=35Xks’
+
+     0K                                                       100%  419M=0s
+
+2023-09-14 21:47:32 (419 MB/s) - ‘cryptonews.com/site.webmanifest?v=35Xks’ saved [579/579]
+
+--2023-09-14 21:47:32--  https://cryptonews.com/news/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/news/index.html’
+
+     0K .......... .......... .......... .......... .......... 49.9M
+    50K .......... .......... .......... .......... ..........  178K
+   100K .......... .......... .......... .......... .......    2.72M=0.3s
+
+2023-09-14 21:47:33 (494 KB/s) - ‘cryptonews.com/news/index.html’ saved [151509]
+
+--2023-09-14 21:47:33--  https://cryptonews.com/news/bitcoin-news/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/bitcoin-news/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:34--  https://cryptonews.com/news/ethereum-news/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/ethereum-news/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:34--  https://cryptonews.com/news/nft-news/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/nft-news/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:34--  https://cryptonews.com/news/defi-news/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/defi-news/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:34--  https://cryptonews.com/news/altcoin-news/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/news/altcoin-news/index.html’
+
+     0K .......... .......... .......... .......... .......... 77.7M
+    50K .......... .......... .......... .......... ..........  764K
+   100K .......... .......... ..........                       3.26M=0.08s
+
+2023-09-14 21:47:35 (1.70 MB/s) - ‘cryptonews.com/news/altcoin-news/index.html’ saved [133909]
+
+--2023-09-14 21:47:35--  https://cryptonews.com/news/blockchain-news/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/news/blockchain-news/index.html’
+
+     0K .......... .......... .......... .......... ..........  135M
+    50K .......... .......... .......... .......... .......... 1.18M
+   100K .......... .......... .......... ..                    1007K=0.07s
+
+2023-09-14 21:47:35 (1.75 MB/s) - ‘cryptonews.com/news/blockchain-news/index.html’ saved [135321]
+
+--2023-09-14 21:47:35--  https://cryptonews.com/news/press-releases/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/news/press-releases/index.html’
+
+     0K .......... .......... .......... .......... ..........  100M
+    50K .......... .......... .......... .......... .......... 2.31M
+   100K .......... .......... ..                               2.95M=0.03s
+
+2023-09-14 21:47:35 (4.11 MB/s) - ‘cryptonews.com/news/press-releases/index.html’ saved [125594]
+
+--2023-09-14 21:47:35--  https://cryptonews.com/news/sponsored/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/sponsored/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:35--  https://cryptonews.com/news/cryptonews-deals/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/cryptonews-deals/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:36--  https://cryptonews.com/news/industry-talk/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/industry-talk/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:36--  https://cryptonews.com/news/ico-news/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/ico-news/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:36--  https://cryptonews.com/news/finance-news/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/finance-news/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:36--  https://cryptonews.com/news/technology-news/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/technology-news/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:36--  https://cryptonews.com/news/price-predictions/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/price-predictions/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:37--  https://cryptonews.com/exclusives/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/exclusives/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:37--  https://cryptonews.com/exclusives/features/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/exclusives/features/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:37--  https://cryptonews.com/exclusives/opinions/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/exclusives/opinions/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:37--  https://cryptonews.com/exclusives/people/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/exclusives/people/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:37--  https://cryptonews.com/exclusives/podcast/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/exclusives/podcast/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:38--  https://cryptonews.com/videos/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/videos/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:38--  https://cryptonews.com/videos/bitcoin/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/videos/bitcoin/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:38--  https://cryptonews.com/videos/ethereum/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/videos/ethereum/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:38--  https://cryptonews.com/videos/defi-videos/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/videos/defi-videos/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:38--  https://cryptonews.com/videos/altcoin/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/videos/altcoin/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:39--  https://cryptonews.com/videos/blockchain/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/videos/blockchain/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:39--  https://cryptonews.com/videos/market/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/videos/market/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:39--  https://cryptonews.com/videos/cryptosecurity/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/videos/cryptosecurity/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:39--  https://cryptonews.com/videos/trading/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/videos/trading/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:39--  https://cryptonews.com/videos/icos/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/videos/icos/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:40--  https://cryptonews.com/guides/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:40--  https://cryptonews.com/guides/bitcoin/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/bitcoin/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:40--  https://cryptonews.com/guides/ethereum/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/ethereum/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:40--  https://cryptonews.com/guides/nft/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/nft/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:41--  https://cryptonews.com/guides/defi-guides/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/defi-guides/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:41--  https://cryptonews.com/guides/altcoins/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/altcoins/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:41--  https://cryptonews.com/guides/blockchain/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/blockchain/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:41--  https://cryptonews.com/guides/cryptocurrency/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/cryptocurrency/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:41--  https://cryptonews.com/guides/deals/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/deals/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:42--  https://cryptonews.com/guides/icos/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/icos/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:42--  https://cryptonews.com/guides/trading-tools/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/trading-tools/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:42--  https://cryptonews.com/guides/wallet-guides/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/wallet-guides/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:42--  https://cryptonews.com/reviews/exchanges/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/reviews/exchanges/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:42--  https://cryptonews.com/coins/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/coins/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:43--  https://cryptonews.com/price-tracker/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/price-tracker/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:43--  https://cryptonews.com/events/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/events/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:43--  https://cryptonews.com/jobs/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/jobs/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:43--  https://cryptonews.com/news/best-crypto-to-buy.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/best-crypto-to-buy.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:43--  https://cryptonews.com/news/best-crypto-presales.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/best-crypto-presales.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:44--  https://cryptonews.com/news/new-cryptocurrency.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/new-cryptocurrency.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:44--  https://cryptonews.com/news/next-cryptocurrency-to-explode.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/next-cryptocurrency-to-explode.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:44--  https://cryptonews.com/news/best-crypto-icos.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/best-crypto-icos.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:44--  https://cryptonews.com/news/crypto-launches.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/crypto-launches.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:44--  https://cryptonews.com/news/best-bitcoin-betting-sites.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/best-bitcoin-betting-sites.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:45--  https://cryptonews.com/news/best-bitcoin-casinos.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/best-bitcoin-casinos.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:45--  https://cryptonews.com/news/best-bitcoin-gambling-sites.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/best-bitcoin-gambling-sites.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:45--  https://cryptonews.com/news/best-bitcoin-blackjack-sites.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/best-bitcoin-blackjack-sites.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:45--  https://cryptonews.com/news/best-bitcoin-slots-sites.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/best-bitcoin-slots-sites.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:45--  https://cryptonews.com/news/best-crash-gambling-sites.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/best-crash-gambling-sites.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:46--  https://cryptonews.com/news/best-bitcoin-esports-betting-sites.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/best-bitcoin-esports-betting-sites.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:46--  https://cryptonews.com/news/best-plinko-gambling-sites.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/best-plinko-gambling-sites.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:46--  https://cryptonews.com/news/best-anonymous-casinos.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/best-anonymous-casinos.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:46--  https://cryptonews.com/news/non-gamstop-casinos-uk.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/non-gamstop-casinos-uk.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:46--  https://cryptonews.com/news/solana-price-prediction-as-sol-bounces-4-overnight-is-the-sell-off-over.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/news/solana-price-prediction-as-sol-bounces-4-overnight-is-the-sell-off-over.htm’
+
+     0K .......... .......... .......... .......... .......... 1.73M
+    50K .......... .......... .......... .......... ..........  751K
+   100K .......... .......... .......... .......... .......... 1.36M
+   150K ..                                                     4.61T=0.1s
+
+2023-09-14 21:47:47 (1.14 MB/s) - ‘cryptonews.com/news/solana-price-prediction-as-sol-bounces-4-overnight-is-the-sell-off-over.htm’ saved [156133]
+
+--2023-09-14 21:47:47--  https://cryptonews.com/editors/joel-frank/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/editors/joel-frank/index.html’
+
+     0K .......... .......... .......... .......... ..........  150M
+    50K .......... .......... .......... .......... .......... 1.18M
+   100K .......... .........                                   2.19M=0.05s
+
+2023-09-14 21:47:47 (2.32 MB/s) - ‘cryptonews.com/editors/joel-frank/index.html’ saved [122353]
+
+--2023-09-14 21:47:47--  https://cryptonews.com/news/former-ftx-legal-chief-forms-new-law-firm-focused-crypto-regulation.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/former-ftx-legal-chief-forms-new-law-firm-focused-crypto-regulation.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:47--  https://cryptonews.com/editors/ruholamin-haqshanas/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/editors/ruholamin-haqshanas/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:48--  https://cryptonews.com/news/peter-thiel-backed-founders-fund-invests-in-layer-ns-ethereum-scaling-tech.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/peter-thiel-backed-founders-fund-invests-in-layer-ns-ethereum-scaling-tech.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:48--  https://cryptonews.com/editors/fredrik-vold/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/editors/fredrik-vold/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:48--  https://cryptonews.com/news/xrp-price-prediction-as-usd-coin-overtakes-xrp-market-capitalization-what-happens-next.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/xrp-price-prediction-as-usd-coin-overtakes-xrp-market-capitalization-what-happens-next.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:48--  https://cryptonews.com/news/hearing-date-set-for-binance-vs-sec-lawsuit-motions-ongoing-legal-battle-heres-what-you-need-know.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/hearing-date-set-for-binance-vs-sec-lawsuit-motions-ongoing-legal-battle-heres-what-you-need-know.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:48--  https://cryptonews.com/editors/hassan-shittu/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/editors/hassan-shittu/index.html’
+
+     0K .......... .......... .......... .......... .......... 80.2M
+    50K .......... .......... .......... .......... .......... 1.04M
+   100K .......... .........                                   58.0M=0.05s
+
+2023-09-14 21:47:49 (2.44 MB/s) - ‘cryptonews.com/editors/hassan-shittu/index.html’ saved [122699]
+
+--2023-09-14 21:47:49--  https://cryptonews.com/news/uniswap-class-action-dismissed-in-landmark-rulingfor-defi.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/uniswap-class-action-dismissed-in-landmark-rulingfor-defi.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:49--  https://cryptonews.com/news/rumors-sec-poised-to-approve-ethereum-futures-etf-after-crypto-prices-crash-ethbtc-bounces.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/rumors-sec-poised-to-approve-ethereum-futures-etf-after-crypto-prices-crash-ethbtc-bounces.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:49--  https://cryptonews.com/news/valkyrie-funds-looks-launch-ethereum-strategy-etf.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/valkyrie-funds-looks-launch-ethereum-strategy-etf.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:50--  https://cryptonews.com/news/privacy-breach-at-friendtech-wallet-addresses-usernames-of-101000-users-exposed.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/privacy-breach-at-friendtech-wallet-addresses-usernames-of-101000-users-exposed.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:50--  https://cryptonews.com/news/binance-ceo-cz-predicts-defi-outshine-cefi-upcoming-bull-run.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/binance-ceo-cz-predicts-defi-outshine-cefi-upcoming-bull-run.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:50--  https://cryptonews.com/news/decentralized-social-network-friendtech-surpasses-1-million-in-24-hour-fees-leaving-uniswap-and-bitcoin-behind.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/decentralized-social-network-friendtech-surpasses-1-million-in-24-hour-fees-leaving-uniswap-and-bitcoin-behind.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:50--  https://cryptonews.com/news/defi-lender-exactly-protocol-exploited-for-12-million.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/defi-lender-exactly-protocol-exploited-for-12-million.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:50--  https://cryptonews.com/news/despite-crypto-market-rout-in-the-us-clear-heads-will-prevail-says-ethereum-co-founder.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/despite-crypto-market-rout-in-the-us-clear-heads-will-prevail-says-ethereum-co-founder.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:51--  https://cryptonews.com/news/crypto-exchange-bybit-expected-leave-uk-market-amid-looming-regulations-whats-going-on.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/crypto-exchange-bybit-expected-leave-uk-market-amid-looming-regulations-whats-going-on.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:51--  https://cryptonews.com/news/canadian-bitcoin-exchange-strikes-local-currency-conversion-partnership-with-costa-ricas-payment-system.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/canadian-bitcoin-exchange-strikes-local-currency-conversion-partnership-with-costa-ricas-payment-system.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:51--  https://cryptonews.com/news/binance-ceo-singapores-approach-crypto-became-more-conservative-post-ftx-collapse.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/binance-ceo-singapores-approach-crypto-became-more-conservative-post-ftx-collapse.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:51--  https://cryptonews.com/videos/crypto-crash-why-wall-street-memes-is-the-secret-weapon-to-save-your-portfolio-in-september.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/videos/crypto-crash-why-wall-street-memes-is-the-secret-weapon-to-save-your-portfolio-in-september.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:51--  https://cryptonews.com/videos/elena-nadolinski-ceo-of-iron-fish-foundation-on-web3-privacy-zk-proofs-and-l1s-vs-l2s.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/videos/elena-nadolinski-ceo-of-iron-fish-foundation-on-web3-privacy-zk-proofs-and-l1s-vs-l2s.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:52--  https://cryptonews.com/videos/meke-protocol-new-lucrative-crypto-derivatives-dex-big-airdrop-dont-miss-this.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/videos/meke-protocol-new-lucrative-crypto-derivatives-dex-big-airdrop-dont-miss-this.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:52--  https://cryptonews.com/videos/septembers-hottest-crypto-picks-revealed-dont-miss-out-on-these-top-3-gems.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/videos/septembers-hottest-crypto-picks-revealed-dont-miss-out-on-these-top-3-gems.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:52--  https://cryptonews.com/news/today-in-crypto-deutsche-bank-partners-with-taurus-to-provide-crypto-custody-for-institutional-clients-btc-lender-delio-may-sue-skorean-regulator-ey-is-developing-ai-powered-platform.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/today-in-crypto-deutsche-bank-partners-with-taurus-to-provide-crypto-custody-for-institutional-clients-btc-lender-delio-may-sue-skorean-regulator-ey-is-developing-ai-powered-platform.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:52--  https://cryptonews.com/news/european-parliament-supports-dac8-crypto-tax-rule-by-an-overwhelming-margin.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/european-parliament-supports-dac8-crypto-tax-rule-by-an-overwhelming-margin.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:52--  https://cryptonews.com/news/web3-games-platform-tamadoge-3d-nft-presale-starts-today-14th-september-set-continue-tama-coin-price-surge.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/web3-games-platform-tamadoge-3d-nft-presale-starts-today-14th-september-set-continue-tama-coin-price-surge.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:53--  https://cryptonews.com/news/mobilecoin-appoints-new-ceo-for-global-expansion-of-crypto-payments.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/mobilecoin-appoints-new-ceo-for-global-expansion-of-crypto-payments.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:53--  https://cryptonews.com/news/cftc-targets-defi-protocols-opyn-zeroex-deridex-sweeping-crackdown.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/cftc-targets-defi-protocols-opyn-zeroex-deridex-sweeping-crackdown.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:53--  https://cryptonews.com/news/major-crypto-theft-24-million-drained-from-ethereum-wallet-phishing-scam.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/major-crypto-theft-24-million-drained-from-ethereum-wallet-phishing-scam.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:53--  https://cryptonews.com/news/casio-latest-japanese-firm-enter-nft-arena-more-follow.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/casio-latest-japanese-firm-enter-nft-arena-more-follow.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:53--  https://cryptonews.com/news/coinbase-pushes-toward-global-expansion-sets-sights-regulated-markets.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/coinbase-pushes-toward-global-expansion-sets-sights-regulated-markets.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:54--  https://cryptonews.com/news/fbi-identifies-north-korean-lazarus-group-as-culprit-behind-41-million-stake-casino-hack.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/fbi-identifies-north-korean-lazarus-group-as-culprit-behind-41-million-stake-casino-hack.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:54--  https://cryptonews.com/news/harry-potter-stars-clash-with-ripple-executive-over-london-home-renovation-plans-whats-going-on.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/harry-potter-stars-clash-with-ripple-executive-over-london-home-renovation-plans-whats-going-on.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:54--  https://cryptonews.com/guides/how-bitcoin-mining-works.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/how-bitcoin-mining-works.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:54--  https://cryptonews.com/guides/is-bitcoin-a-pyramid-scheme.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/is-bitcoin-a-pyramid-scheme.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:54--  https://cryptonews.com/guides/is-bitcoin-a-bubble.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/is-bitcoin-a-bubble.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:55--  https://cryptonews.com/guides/is-bitcoin-legal.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/is-bitcoin-legal.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:55--  https://cryptonews.com/guides/what-is-blockchain-technology.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/what-is-blockchain-technology.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:55--  https://cryptonews.com/guides/what-is-blockchain.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/what-is-blockchain.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:55--  https://cryptonews.com/guides/what-is-proof-of-work.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/what-is-proof-of-work.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:55--  https://cryptonews.com/guides/what-is-a-smart-contract.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/what-is-a-smart-contract.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:56--  https://cryptonews.com/guides/how-to-store-cryptocurrency-safely.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/how-to-store-cryptocurrency-safely.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:56--  https://cryptonews.com/guides/how-to-crypto-arbitrage.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/how-to-crypto-arbitrage.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:56--  https://cryptonews.com/guides/why-it-is-risky-to-leave-your-cryptocurrency-in-exchange.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/why-it-is-risky-to-leave-your-cryptocurrency-in-exchange.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:56--  https://cryptonews.com/guides/beginner-s-guide-to-crypto-trading-strategies.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/beginner-s-guide-to-crypto-trading-strategies.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:56--  https://cryptonews.com/guides/what-is-a-security-token-offering-sto.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/what-is-a-security-token-offering-sto.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:57--  https://cryptonews.com/guides/the-difference-between-ico-and-sto.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/the-difference-between-ico-and-sto.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:57--  https://cryptonews.com/guides/what-is-an-initial-exchange-offering.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/what-is-an-initial-exchange-offering.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:57--  https://cryptonews.com/guides/top-ieo-platforms-review.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/guides/top-ieo-platforms-review.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:57--  https://cryptonews.com/news/500000-bitcoin-fee-blunder-paxos-revealed-as-responsible-party.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/500000-bitcoin-fee-blunder-paxos-revealed-as-responsible-party.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:57--  https://cryptonews.com/news/bitcoin-price-prediction-as-daily-trading-volume-surges-past-10-billion-are-whales-buying-again.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/bitcoin-price-prediction-as-daily-trading-volume-surges-past-10-billion-are-whales-buying-again.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:58--  https://cryptonews.com/news/bitcoin-price-prediction-as-us-cpi-data-released-time-buy-dip.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/bitcoin-price-prediction-as-us-cpi-data-released-time-buy-dip.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:58--  https://cryptonews.com/news/coinbase-implement-bitcoin-lightning-network-for-faster-transactions-amid-growing-competition.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/coinbase-implement-bitcoin-lightning-network-for-faster-transactions-amid-growing-competition.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:58--  https://cryptonews.com/news/crypto-blunder-user-accidentally-pays-500000-fees-for-200-bitcoin-transfer.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/crypto-blunder-user-accidentally-pays-500000-fees-for-200-bitcoin-transfer.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:58--  https://cryptonews.com/news/bitcoin-price-prediction-as-btc-bounces-at-25000-support-is-the-sell-off-over.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/bitcoin-price-prediction-as-btc-bounces-at-25000-support-is-the-sell-off-over.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:58--  https://cryptonews.com/news/traditional-finance-giant-franklin-templeton-files-spot-bitcoin-etf-with-sec.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/traditional-finance-giant-franklin-templeton-files-spot-bitcoin-etf-with-sec.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:59--  https://cryptonews.com/news/former-paypal-president-davis-marcus-says-people-wont-use-btc-buy-things-heres-what-you-need-know.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/former-paypal-president-davis-marcus-says-people-wont-use-btc-buy-things-heres-what-you-need-know.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:59--  https://cryptonews.com/news/tornado-cash-co-founder-roman-storm-maintains-innocence-in-money-laundering-case-heres-the-latest.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/tornado-cash-co-founder-roman-storm-maintains-innocence-in-money-laundering-case-heres-the-latest.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:59--  https://cryptonews.com/news/ethereum-co-founder-vitalik-buterin-explores-privacy-protocol-amid-tornado-cash-concerns.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/ethereum-co-founder-vitalik-buterin-explores-privacy-protocol-amid-tornado-cash-concerns.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:47:59--  https://cryptonews.com/news/vitalik-buterin-ethereums-future-upgrades-could-bring-full-nodes-mobile-devices.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/vitalik-buterin-ethereums-future-upgrades-could-bring-full-nodes-mobile-devices.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:00--  https://cryptonews.com/news/major-ethereum-staking-providers-promise-not-own-more-than-22-of-validators.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/major-ethereum-staking-providers-promise-not-own-more-than-22-of-validators.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:00--  https://cryptonews.com/news/funds-unlocked-starkware-addresses-upgrade-related-lockouts-heres-what-happened.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/funds-unlocked-starkware-addresses-upgrade-related-lockouts-heres-what-happened.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:00--  https://cryptonews.com/news/arkham-investigation-reveals-robinhood-wallet-holds-25-billion-eth.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/arkham-investigation-reveals-robinhood-wallet-holds-25-billion-eth.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:00--  https://cryptonews.com/news/ethereum-staking-flourishes-while-value-of-defi-assets-shrinks-whats-going-on.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/ethereum-staking-flourishes-while-value-of-defi-assets-shrinks-whats-going-on.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:00--  https://cryptonews.com/news/six-asset-managers-file-fresh-sec-applications-launch-ethereum-futures-etfs-us.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/six-asset-managers-file-fresh-sec-applications-launch-ethereum-futures-etfs-us.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:01--  https://cryptonews.com/news/sec-fines-stoner-cats-nfts-creator-1-million-for-securities-violation.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/sec-fines-stoner-cats-nfts-creator-1-million-for-securities-violation.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:01--  https://cryptonews.com/news/italian-luxury-brand-panerai-to-include-nft-based-digital-passport-with-all-watches.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/italian-luxury-brand-panerai-to-include-nft-based-digital-passport-with-all-watches.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:01--  https://cryptonews.com/news/animoca-brands-secures-20m-funding-drive-ambitious-mocaverse-metaverse-project-nfts-making-comeback.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/animoca-brands-secures-20m-funding-drive-ambitious-mocaverse-metaverse-project-nfts-making-comeback.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:01--  https://cryptonews.com/news/axidents-nfts-turn-justin-biebers-company-into-royalty-investment.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/axidents-nfts-turn-justin-biebers-company-into-royalty-investment.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:02--  https://cryptonews.com/news/convicted-ex-opensea-manager-chooses-to-serve-jail-time-amid-pending-appeal.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/convicted-ex-opensea-manager-chooses-to-serve-jail-time-amid-pending-appeal.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:02--  https://cryptonews.com/news/nfts-metaverse-activewear-luxury-brands-embrace-web3-innovation.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/nfts-metaverse-activewear-luxury-brands-embrace-web3-innovation.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:02--  https://cryptonews.com/news/sports-platform-sorare-unveils-3d-digital-football-player-cards-with-ar-integration-launches-virtual-treasure-hunt.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/sports-platform-sorare-unveils-3d-digital-football-player-cards-with-ar-integration-launches-virtual-treasure-hunt.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:02--  https://cryptonews.com/news/china-unveils-new-crypto-game-metacene-revive-crypto-gaming-scene.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/china-unveils-new-crypto-game-metacene-revive-crypto-gaming-scene.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:02--  https://cryptonews.com/news/sec-chair-gensler-crypto-industry-plagued-by-misconduct-legal-challenges.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/sec-chair-gensler-crypto-industry-plagued-by-misconduct-legal-challenges.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:02--  https://cryptonews.com/news/sui-network-integrates-zklogin-feature-with-google-facebook-access-dapps.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/sui-network-integrates-zklogin-feature-with-google-facebook-access-dapps.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:03--  https://cryptonews.com/news/coinbase-ceo-brian-armstrong-advocates-for-defi-protocols-challenge-cftc-court.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/coinbase-ceo-brian-armstrong-advocates-for-defi-protocols-challenge-cftc-court.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:03--  https://cryptonews.com/news/sfc-warns-unregistered-crypto-exchange-jpex-of-potential-criminal-liability.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/sfc-warns-unregistered-crypto-exchange-jpex-of-potential-criminal-liability.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:03--  https://cryptonews.com/news/crypto-security-firm-certik-warns-over-40-of-telegram-bot-tokens-may-exit-scams.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/crypto-security-firm-certik-warns-over-40-of-telegram-bot-tokens-may-exit-scams.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:03--  https://cryptonews.com/news/brazilian-crypto-scam-firm-donated-122k-bolsonaro-election-campaign-lawmakers-told.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/brazilian-crypto-scam-firm-donated-122k-bolsonaro-election-campaign-lawmakers-told.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:04--  https://cryptonews.com/news/circle-partners-with-grab-test-web3-related-services-singapore.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/circle-partners-with-grab-test-web3-related-services-singapore.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:04--  https://cryptonews.com/news/monetary-authority-of-singapore-bans-3ac-founders-from-engaging-financial-markets.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/monetary-authority-of-singapore-bans-3ac-founders-from-engaging-financial-markets.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:04--  https://cryptonews.com/terms-and-conditions.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/terms-and-conditions.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:04--  https://cryptonews.com/about-us.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/about-us.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:04--  https://cryptonews.com/privacy-policy.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/privacy-policy.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:05--  https://cryptonews.com/disclaimer.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/disclaimer.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:05--  https://cryptonews.com/have-a-story.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/have-a-story.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:05--  https://cryptonews.com/advertising.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/advertising.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:05--  https://cryptonews.com/editors/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/editors/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:05--  https://cryptonews.com/contact-us.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/contact-us.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:06--  https://cryptonews.com/news/feed/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/news/feed/index.html’
+
+     0K .......... .......... ........                          160M=0s
+
+2023-09-14 21:48:06 (160 MB/s) - ‘cryptonews.com/news/feed/index.html’ saved [29633]
+
+--2023-09-14 21:48:06--  https://cryptonews.com/news/after-passing-3-million-presale-can-qube-pass-xrp-popularity.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/news/after-passing-3-million-presale-can-qube-pass-xrp-popularity.htm’
+
+     0K .......... .......... .......... .......... .......... 1.52M
+    50K .......... .......... .......... .......... ..........  583K
+   100K .......... .......... .......... .......... ........    998K=0.2s
+
+2023-09-14 21:48:06 (892 KB/s) - ‘cryptonews.com/news/after-passing-3-million-presale-can-qube-pass-xrp-popularity.htm’ saved [152266]
+
+--2023-09-14 21:48:06--  https://cryptonews.com/news/nigerian-influencers-join-crypto-experience-with-sportsbetio.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/news/nigerian-influencers-join-crypto-experience-with-sportsbetio.htm’
+
+     0K .......... .......... .......... .......... .......... 2.88M
+    50K .......... .......... .......... .......... .......... 1.02M
+   100K .......... .......... .......... .......... .........  1.45M=0.1s
+
+2023-09-14 21:48:07 (1.49 MB/s) - ‘cryptonews.com/news/nigerian-influencers-join-crypto-experience-with-sportsbetio.htm’ saved [153118]
+
+--2023-09-14 21:48:07--  https://cryptonews.com/news/bitcoin-sv-going-zero-bsv-price-falls-25-as-web3-utility-coin-lpx-sails-past-16-million-milestone.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/bitcoin-sv-going-zero-bsv-price-falls-25-as-web3-utility-coin-lpx-sails-past-16-million-milestone.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:07--  https://cryptonews.com/news/could-1000-bitcoin-bsc-make-you-millionaire-these-reasons-point-price-surge-1.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/could-1000-bitcoin-bsc-make-you-millionaire-these-reasons-point-price-surge-1.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:07--  https://cryptonews.com/news/b2prime-evolution-increased-regulation-enhanced-liquidity-improved-website.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/b2prime-evolution-increased-regulation-enhanced-liquidity-improved-website.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:07--  https://cryptonews.com/news/strange-smurf-token-sajlusaj-shoots-up-100000-viral-meme-coin-wsm-raises-more-than-25-million-will-new-coin-overtake-shiba-doge.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/strange-smurf-token-sajlusaj-shoots-up-100000-viral-meme-coin-wsm-raises-more-than-25-million-will-new-coin-overtake-shiba-doge.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:07--  https://cryptonews.com/news/inside-shibariums-launch-hiccups-how-shibarmy-battled-unprecedented-traffic-surge.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/inside-shibariums-launch-hiccups-how-shibarmy-battled-unprecedented-traffic-surge.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:08--  https://cryptonews.com/news/xrp-price-prediction-as-judge-torres-grants-secs-ripple-case-appeal-process-will-xrp-fall-1-cent.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/xrp-price-prediction-as-judge-torres-grants-secs-ripple-case-appeal-process-will-xrp-fall-1-cent.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:08--  https://cryptonews.com/news/us-rep-warren-davidson-claims-some-xrp-holders-so-hyper-defensive-of-ripples-cbdc-work.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/us-rep-warren-davidson-claims-some-xrp-holders-so-hyper-defensive-of-ripples-cbdc-work.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:08--  https://cryptonews.com/news/vitalik-buterin-offloads-makerdao-holdings-after-ceos-solana-blockchain-praise-whats-going-on.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/vitalik-buterin-offloads-makerdao-holdings-after-ceos-solana-blockchain-praise-whats-going-on.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:08--  https://cryptonews.com/news/biggest-crypto-gainers-today-dextools-ricky-dojo-emoti.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/biggest-crypto-gainers-today-dextools-ricky-dojo-emoti.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:08--  https://cryptonews.com/news/bitcoin-cash-price-prediction-as-bch-breaches-200-resistance-time-buy.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/bitcoin-cash-price-prediction-as-bch-breaches-200-resistance-time-buy.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:09--  https://cryptonews.com/news/gemini-earn-users-could-recover-almost-all-assets-as-part-of-new-agreement-heres-latest.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/gemini-earn-users-could-recover-almost-all-assets-as-part-of-new-agreement-heres-latest.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:09--  https://cryptonews.com/news/solana-price-prediction-as-sol-dips-following-court-approves-ftxs-request-liquidate-crypto-holdings.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/solana-price-prediction-as-sol-dips-following-court-approves-ftxs-request-liquidate-crypto-holdings.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:09--  https://cryptonews.com/news/rollbit-price-prediction-as-rlb-rockets-up-10-24-hours-will-rlb-reach-1-per-coin.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/rollbit-price-prediction-as-rlb-rockets-up-10-24-hours-will-rlb-reach-1-per-coin.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:09--  https://cryptonews.com/news/ethereum-price-prediction-as-10-billion-trading-volume-comes-can-btc-reach-10000.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/ethereum-price-prediction-as-10-billion-trading-volume-comes-can-btc-reach-10000.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:10--  https://cryptonews.com/news/growing-institutional-appetite-for-crypto-asia-amid-regulatory-developments.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/growing-institutional-appetite-for-crypto-asia-amid-regulatory-developments.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:10--  https://cryptonews.com/news/crypto-content-creator-bitboy-ben-armstrong-sues-former-colleagues-at-hit-network.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/crypto-content-creator-bitboy-ben-armstrong-sues-former-colleagues-at-hit-network.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:10--  https://cryptonews.com/news/incoming-boe-deputy-governor-discusses-cryptos-value-risks.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/incoming-boe-deputy-governor-discusses-cryptos-value-risks.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:10--  https://cryptonews.com/news/top-crypto-gainers.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/top-crypto-gainers.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:10--  https://cryptonews.com/news/more-chinese-firms-paying-workers-digital-yuan.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/more-chinese-firms-paying-workers-digital-yuan.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:11--  https://cryptonews.com/news/ben-bitboy-crypto-fired-from-his-own-company-in-coup-whats-going-on.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/ben-bitboy-crypto-fired-from-his-own-company-in-coup-whats-going-on.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:11--  https://cryptonews.com/news/48-of-asset-managers-hold-crypto-for-clients-coalition-greenwich-report.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/48-of-asset-managers-hold-crypto-for-clients-coalition-greenwich-report.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:11--  https://cryptonews.com/news/okx-crypto-exchange-and-circle-partner-to-introduce-fee-free-usdc-transactions.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/okx-crypto-exchange-and-circle-partner-to-introduce-fee-free-usdc-transactions.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:11--  https://cryptonews.com/news/sony-makes-blockchain-move-as-japanese-firms-flood-web3-space.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/sony-makes-blockchain-move-as-japanese-firms-flood-web3-space.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:11--  https://cryptonews.com/news/ftx-revises-crypto-asset-sale-proposal-amid-us-trustees-concerns.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/news/ftx-revises-crypto-asset-sale-proposal-amid-us-trustees-concerns.htm’
+
+     0K .......... .......... .......... .......... .......... 1.17M
+    50K .......... .......... .......... .......... ..........  687K
+   100K .......... .......... .......... .......... .......... 1.32M
+   150K ....                                                   40.8M=0.2s
+
+2023-09-14 21:48:12 (1019 KB/s) - ‘cryptonews.com/news/ftx-revises-crypto-asset-sale-proposal-amid-us-trustees-concerns.htm’ saved [158310]
+
+--2023-09-14 21:48:12--  https://cryptonews.com/news/ftx-co-founder-sam-bankman-fried-requests-juror-questions-ahead-of-trial-what-was-asked.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/ftx-co-founder-sam-bankman-fried-requests-juror-questions-ahead-of-trial-what-was-asked.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:12--  https://cryptonews.com/news/breaking-court-approves-ftxs-request-liquidate-crypto-assets-which-coins-will-impacted.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/breaking-court-approves-ftxs-request-liquidate-crypto-assets-which-coins-will-impacted.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:12--  https://cryptonews.com/news/opera-unveils-plans-for-non-custodial-stablecoin-wallet-integration-for-african-users.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/opera-unveils-plans-for-non-custodial-stablecoin-wallet-integration-for-african-users.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:13--  https://cryptonews.com/news/20-year-prison-term-for-onecoin-co-founder-karl-greenwood-in-landmark-crypto-fraud-case.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/20-year-prison-term-for-onecoin-co-founder-karl-greenwood-in-landmark-crypto-fraud-case.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:13--  https://cryptonews.com/news/judge-lewis-kaplan-rejects-sam-bankman-frieds-pre-trial-release-plea-heres-the-latest.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/judge-lewis-kaplan-rejects-sam-bankman-frieds-pre-trial-release-plea-heres-the-latest.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:13--  https://cryptonews.com/news/today-in-crypto-bnb-chain-developers-reveal-public-launch-of-opbnbs-mainnet-nansen-launches-new-ai-powered-version-ripple-will-do-80-of-hiring-this-year-outside-the-us.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/today-in-crypto-bnb-chain-developers-reveal-public-launch-of-opbnbs-mainnet-nansen-launches-new-ai-powered-version-ripple-will-do-80-of-hiring-this-year-outside-the-us.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:13--  https://cryptonews.com/news/huobi-crypto-exchange-rebrands-to-htx-to-mark-10-year-anniversary-heres-the-latest.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/huobi-crypto-exchange-rebrands-to-htx-to-mark-10-year-anniversary-heres-the-latest.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:13--  https://cryptonews.com/news/fight-climate-change-earn-rewards-chimpzees-new-sustainability-initiative-latest-crypto-sensation.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/fight-climate-change-earn-rewards-chimpzees-new-sustainability-initiative-latest-crypto-sensation.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:14--  https://cryptonews.com/news/hello-labs-hello-token-coming-ethereum.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/hello-labs-hello-token-coming-ethereum.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:14--  https://cryptonews.com/news/new-viral-based-meme-coin-rizz-monkey-set-for-explosive-10x-growth-with-huge-community-and-clever-tokenomics.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/new-viral-based-meme-coin-rizz-monkey-set-for-explosive-10x-growth-with-huge-community-and-clever-tokenomics.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:14--  https://cryptonews.com/news/chainlink-contender-raised-over-24m-could-it-just-beginning.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/chainlink-contender-raised-over-24m-could-it-just-beginning.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:14--  https://cryptonews.com/news/ai-sparks-crypto-frenzy-with-filecoin-polkadot-borroe-finance-reaping-benefits.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/ai-sparks-crypto-frenzy-with-filecoin-polkadot-borroe-finance-reaping-benefits.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:15--  https://cryptonews.com/news/newest-meme-coin-sonik-raises-175m-get-ready-for-claim-listing-thursday-7th-at-9am-utc.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/newest-meme-coin-sonik-raises-175m-get-ready-for-claim-listing-thursday-7th-at-9am-utc.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:15--  https://cryptonews.com/news/polygon-matic-awaits-pip-approval-vc-spectra-shiba-inu-announce-new-developments.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/polygon-matic-awaits-pip-approval-vc-spectra-shiba-inu-announce-new-developments.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:15--  https://cryptonews.com/news/as-bitcoin-dips-filecoin-emerging-ai-gem-gains-support-from-crypto-whales.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/as-bitcoin-dips-filecoin-emerging-ai-gem-gains-support-from-crypto-whales.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:15--  https://cryptonews.com/news/tron-trx-bulls-robust-despite-broader-sell-off-trx-inqubeta-qube-post-strong-gains-whats-behind-the-pump.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/tron-trx-bulls-robust-despite-broader-sell-off-trx-inqubeta-qube-post-strong-gains-whats-behind-the-pump.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:15--  https://cryptonews.com/news/can-shiba-inu-compete-with-dogecoin-vc-spectra-future.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/can-shiba-inu-compete-with-dogecoin-vc-spectra-future.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:16--  https://cryptonews.com/news/elon-musk-considers-developing-a-blockchain-based-social-media-platform-borroefinance-revolutionizes-defi.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/elon-musk-considers-developing-a-blockchain-based-social-media-platform-borroefinance-revolutionizes-defi.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:16--  https://cryptonews.com/news/crypto-hype-turns-qube-after-bitcoin-cashs-fall-august-inqubeta-presale-nears-3-million.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/crypto-hype-turns-qube-after-bitcoin-cashs-fall-august-inqubeta-presale-nears-3-million.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:16--  https://cryptonews.com/news/tamadoge-launches-3d-nft-presale-thursday-14th-september-after-trending-no1-coingecko-as-price-pumps-25.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/tamadoge-launches-3d-nft-presale-thursday-14th-september-after-trending-no1-coingecko-as-price-pumps-25.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:16--  https://cryptonews.com/news/orderly-network-revolutionizes-dex-development-unveils-omnichain-perpetual-futures-orderbook-for-developers.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/orderly-network-revolutionizes-dex-development-unveils-omnichain-perpetual-futures-orderbook-for-developers.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:16--  https://cryptonews.com/news/2509-participants-1m-raised-daily-passive-income-up-10000-usdt-scorp-presale-sensation-explained.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/2509-participants-1m-raised-daily-passive-income-up-10000-usdt-scorp-presale-sensation-explained.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:17--  https://cryptonews.com/news/can-pepe-regain-its-momentum-borroefinance-expands-its-user-base-hedera-drops.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/can-pepe-regain-its-momentum-borroefinance-expands-its-user-base-hedera-drops.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:17--  https://cryptonews.com/news/rising-ai-star-inqubeta-presale-brings-millions-as-investors-flock-from-pepe.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/rising-ai-star-inqubeta-presale-brings-millions-as-investors-flock-from-pepe.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:17--  https://cryptonews.com/news/as-pepe-takes-downturn-will-investors-buy-rising-crypto-star.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/as-pepe-takes-downturn-will-investors-buy-rising-crypto-star.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:17--  https://cryptonews.com/news/shiba-inu-shib-oversold-savvy-investors-turn-dogecoin-doge-borroefinance-roe.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/shiba-inu-shib-oversold-savvy-investors-turn-dogecoin-doge-borroefinance-roe.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:17--  https://cryptonews.com/news/chimpzees-vision-rewriting-crypto-narrative-with-charity-passive-gains.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/chimpzees-vision-rewriting-crypto-narrative-with-charity-passive-gains.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:18--  https://cryptonews.com/news/as-bitcoin-ethereum-face-rough-september-traders-point-new-ai-altcoin.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/as-bitcoin-ethereum-face-rough-september-traders-point-new-ai-altcoin.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:18--  https://cryptonews.com/news/shibarium-receives-major-boost-borroefinance-polkadot-gain-momentum.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/shibarium-receives-major-boost-borroefinance-polkadot-gain-momentum.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:18--  https://cryptonews.com/coins/sol-solana/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/coins/sol-solana/index.html’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:18--  https://cryptonews.com/tags/solana/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Cookie coming from cryptonews.com attempted to set domain to adm.cryptonews.com
+Cookie coming from cryptonews.com attempted to set domain to adm.cryptonews.com
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/tags/solana/index.html’
+
+     0K .......... .......... .......... .......... .......... 1.16M
+    50K .......... .......... ........                         3.02M=0.05s
+
+Last-modified header missing -- time-stamps turned off.
+2023-09-14 21:48:19 (1.50 MB/s) - ‘cryptonews.com/tags/solana/index.html’ saved [80523]
+
+--2023-09-14 21:48:19--  https://cryptonews.com/tags/sol/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Cookie coming from cryptonews.com attempted to set domain to adm.cryptonews.com
+Cookie coming from cryptonews.com attempted to set domain to adm.cryptonews.com
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/tags/sol/index.html’
+
+     0K .......... .......... .......... .......... .......... 2.30M
+    50K .......... .......... ........                         3.51M=0.03s
+
+Last-modified header missing -- time-stamps turned off.
+2023-09-14 21:48:19 (2.63 MB/s) - ‘cryptonews.com/tags/sol/index.html’ saved [80523]
+
+--2023-09-14 21:48:19--  https://cryptonews.com/tags/price-prediction/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Cookie coming from cryptonews.com attempted to set domain to adm.cryptonews.com
+Cookie coming from cryptonews.com attempted to set domain to adm.cryptonews.com
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/tags/price-prediction/index.html’
+
+     0K .......... .......... .......... .......... .......... 1.37M
+    50K .......... .......... ........                         2.77M=0.05s
+
+Last-modified header missing -- time-stamps turned off.
+2023-09-14 21:48:19 (1.67 MB/s) - ‘cryptonews.com/tags/price-prediction/index.html’ saved [80523]
+
+--2023-09-14 21:48:19--  https://cryptonews.com/tags/ftx/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Cookie coming from cryptonews.com attempted to set domain to adm.cryptonews.com
+Cookie coming from cryptonews.com attempted to set domain to adm.cryptonews.com
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/tags/ftx/index.html’
+
+     0K .......... .......... .......... .......... .......... 2.09M
+    50K .......... .......... ........                         2.54M=0.03s
+
+Last-modified header missing -- time-stamps turned off.
+2023-09-14 21:48:19 (2.24 MB/s) - ‘cryptonews.com/tags/ftx/index.html’ saved [80523]
+
+--2023-09-14 21:48:19--  https://cryptonews.com/news/bitcoin-mining-difficulty-hits-new-all-time-high-of-5564-trillion-hashes-why-this-is-bullish-for-the-btc-price.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/bitcoin-mining-difficulty-hits-new-all-time-high-of-5564-trillion-hashes-why-this-is-bullish-for-the-btc-price.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:20--  https://cryptonews.com/news/us-treasury-department-proposes-new-reporting-requirements-for-digital-asset-brokers-an-attempt-kill-crypto-adoption.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/us-treasury-department-proposes-new-reporting-requirements-for-digital-asset-brokers-an-attempt-kill-crypto-adoption.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:20--  https://cryptonews.com/news/fed-chair-powell-leaves-door-further-rate-hikes-open-here-how-crypto-markets-reacted.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/fed-chair-powell-leaves-door-further-rate-hikes-open-here-how-crypto-markets-reacted.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:20--  https://cryptonews.com/news/pepe-coin-price-prediction-as-pepe-slumps-15-amid-fud-over-strange-multisig-changes.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/pepe-coin-price-prediction-as-pepe-slumps-15-amid-fud-over-strange-multisig-changes.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:20--  https://cryptonews.com/news/can-kyc-and-permissionless-money-co-exist-not-according-to-this-crypto-influencer.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/can-kyc-and-permissionless-money-co-exist-not-according-to-this-crypto-influencer.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:20--  https://cryptonews.com/news/former-g2-ceo-at-carlosrs-new-meme-coin-shia-most-trending-cryptocurrency-dextools.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/former-g2-ceo-at-carlosrs-new-meme-coin-shia-most-trending-cryptocurrency-dextools.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:21--  https://cryptonews.com/news/chatgpt-reveals-when-shib-will-hit-1-also-gives-verdict-lpx-token.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/chatgpt-reveals-when-shib-will-hit-1-also-gives-verdict-lpx-token.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:21--  https://cryptonews.com/news/base-commits-decentralization-collective-growth-of-optimism-collectives-l2-ecosystem.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/base-commits-decentralization-collective-growth-of-optimism-collectives-l2-ecosystem.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:21--  https://cryptonews.com/news/biggest-crypto-gainers-today-dextools-babyshib-toad-shares.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/biggest-crypto-gainers-today-dextools-babyshib-toad-shares.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:21--  https://cryptonews.com/news/tornado-cash-developers-charged-with-money-laundering-sanctions-violations-that-facilitated-over-1-billion-illicit-transactions.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/tornado-cash-developers-charged-with-money-laundering-sanctions-violations-that-facilitated-over-1-billion-illicit-transactions.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:21--  https://cryptonews.com/exclusives/ftx-founder-sbf-pin-blame-for-ftx-collapse-bad-legal-advice-1.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/exclusives/ftx-founder-sbf-pin-blame-for-ftx-collapse-bad-legal-advice-1.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:22--  https://cryptonews.com/news/blue-chip-nfts-have-been-struggling-but-here-are-the-collections-bucking-the-trends.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/blue-chip-nfts-have-been-struggling-but-here-are-the-collections-bucking-the-trends.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:22--  https://cryptonews.com/news/solana-price-prediction-as-solana-pay-intergrates-with-shopify-online-marketplace-platform-can-sol-10x-from-here.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/solana-price-prediction-as-solana-pay-intergrates-with-shopify-online-marketplace-platform-can-sol-10x-from-here.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:22--  https://cryptonews.com/news/coinex-crypto-exchange-hit-by-28-million-exploit-four-hot-wallets-drained.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/coinex-crypto-exchange-hit-by-28-million-exploit-four-hot-wallets-drained.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:22--  https://cryptonews.com/news/ethereum-name-service-allegedly-hacked-by-siegedsec-heres-latest.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/ethereum-name-service-allegedly-hacked-by-siegedsec-heres-latest.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:23--  https://cryptonews.com/news/bitget-unveils-100m-fund-expand-ecosystem-foster-strategic-partnerships.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/bitget-unveils-100m-fund-expand-ecosystem-foster-strategic-partnerships.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:23--  https://cryptonews.com/news/floki-addresses-rumors-denies-association-with-petabytecapital-whats-going-on.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/floki-addresses-rumors-denies-association-with-petabytecapital-whats-going-on.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:23--  https://cryptonews.com/news/shocking-sybil-attack-uncovered-individual-controls-over-21000-wallets-zksync-network.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/shocking-sybil-attack-uncovered-individual-controls-over-21000-wallets-zksync-network.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:23--  https://cryptonews.com/news/friendtech-tvl-doubles-reach-over-20-million-after-being-pronounced-dead-1.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/friendtech-tvl-doubles-reach-over-20-million-after-being-pronounced-dead-1.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:23--  https://cryptonews.com/news/animoca-brands-secures-20-million-for-mocaverse-a-web3-native-gaming-tool-platform.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/animoca-brands-secures-20-million-for-mocaverse-a-web3-native-gaming-tool-platform.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:23--  https://cryptonews.com/news/us-authorities-reportedly-intensify-investigation-into-alleged-fraud-at-barry-silberts-dcg-following-winklevoss-claims.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/us-authorities-reportedly-intensify-investigation-into-alleged-fraud-at-barry-silberts-dcg-following-winklevoss-claims.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:24--  https://cryptonews.com/news/grayscale-revealed-as-second-largest-btc-entity-by-arkham-intelligence.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/grayscale-revealed-as-second-largest-btc-entity-by-arkham-intelligence.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:24--  https://cryptonews.com/news/genesis-sues-parent-firm-dcg-over-600-million-loan-repayment.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/genesis-sues-parent-firm-dcg-over-600-million-loan-repayment.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:24--  https://cryptonews.com/news/coinbase-launches-new-crypto-lending-service-for-institutional-us-clients.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/coinbase-launches-new-crypto-lending-service-for-institutional-us-clients.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:24--  https://cryptonews.com/news/synapse-token-price-plummets-as-nima-capital-dumps-9-million-sny-tokens-community-suspects-rug-pull.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/synapse-token-price-plummets-as-nima-capital-dumps-9-million-sny-tokens-community-suspects-rug-pull.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:25--  https://cryptonews.com/news/breaking-payments-firm-visa-begin-using-solana-blockchain-for-stablecoin-settlements.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/breaking-payments-firm-visa-begin-using-solana-blockchain-for-stablecoin-settlements.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:25--  https://cryptonews.com/news/crypto-casino-stake-opens-withdrawals-after-reported-40m-exploit.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/crypto-casino-stake-opens-withdrawals-after-reported-40m-exploit.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:25--  https://cryptonews.com/cdn-cgi/l/email-protection
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/cdn-cgi/l/email-protection’
+
+     0K ....                                                    701M=0s
+
+Last-modified header missing -- time-stamps turned off.
+2023-09-14 21:48:25 (701 MB/s) - ‘cryptonews.com/cdn-cgi/l/email-protection’ saved [4692]
+
+nofollow attribute found in cryptonews.com/cdn-cgi/l/email-protection. Will not follow any links on this page
+--2023-09-14 21:48:25--  https://cryptonews.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:25--  https://cryptonews.com/news/new-court-filing-ftx-holds-11-billion-sol-560-million-btc.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/new-court-filing-ftx-holds-11-billion-sol-560-million-btc.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:25--  https://cryptonews.com/news/ftx-teams-up-with-galaxy-strategically-manage-crypto-holdings-amid-bankruptcy.htm
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 304 Not Modified
+File ‘cryptonews.com/news/ftx-teams-up-with-galaxy-strategically-manage-crypto-holdings-amid-bankruptcy.htm’ not modified on server. Omitting download.
+
+--2023-09-14 21:48:25--  https://cryptonews.com/tags/us-trustess/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Cookie coming from cryptonews.com attempted to set domain to adm.cryptonews.com
+Cookie coming from cryptonews.com attempted to set domain to adm.cryptonews.com
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/tags/us-trustess/index.html’
+
+     0K .......... .......... .......... .......... .......... 2.38M
+    50K .......... .......... ........                         2.71M=0.03s
+
+Last-modified header missing -- time-stamps turned off.
+2023-09-14 21:48:26 (2.49 MB/s) - ‘cryptonews.com/tags/us-trustess/index.html’ saved [80523]
+
+--2023-09-14 21:48:26--  https://cryptonews.com/tags/creditors/
+Reusing existing connection to cryptonews.com:443.
+HTTP request sent, awaiting response... 200 OK
+Cookie coming from cryptonews.com attempted to set domain to adm.cryptonews.com
+Cookie coming from cryptonews.com attempted to set domain to adm.cryptonews.com
+Length: unspecified [text/html]
+Saving to: ‘cryptonews.com/tags/creditors/index.html’
+
+     0K .......... .......... .......... .......... .......... 1.03M
+    50K .......... .......... ........                         2.34M=0.06s
+
+Last-modified header missing -- time-stamps turned off.
+2023-09-14 21:48:26 (1.29 MB/s) - ‘cryptonews.com/tags/creditors/index.html’ saved [80523]
+
+FINISHED --2023-09-14 21:48:26--
+Total wall clock time: 55s
+Downloaded: 21 files, 2.2M in 1.5s (1.51 MB/s)
