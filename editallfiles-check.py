@@ -43,6 +43,6 @@ with open("wgetlog.txt") as file:
 #     replaceall(ka[0], ka[1])
 
 
-with open("huy-1.txt", "w") as file:
+with open("editallfiles-check.txt", "w") as file:
     for ka in kak1:
         file.write(ka)
