@@ -15,14 +15,15 @@ todaytime = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
 
 shutil.rmtree('./b/', ignore_errors=True)
 shutil.rmtree('./public_html', ignore_errors=True)
-shutil.copytree('./replace/', './b/', dirs_exist_ok=True)
 shutil.copytree('./a/cryptonews.com', './b/', dirs_exist_ok=True)
+shutil.copytree('./replace/', './b/', dirs_exist_ok=True)
 shutil.rmtree('./b/tags/', ignore_errors=True)
 shutil.rmtree('./b/events/', ignore_errors=True)
 shutil.rmtree('./b/jobs/', ignore_errors=True)
 shutil.rmtree('./b/price-tracker/', ignore_errors=True)
 shutil.rmtree('./b/videos/', ignore_errors=True)
 
+# fix exclusives
 if os.path.exists('./b/exclusives/index.html'):
     os.remove('./b/exclusives/index.html')
 else:
@@ -40,6 +41,18 @@ if breadcrumbs[2]:
 
 with open('./b/exclusives/index.html', "w") as file:
     file.write(str(soup))
+
+# fix Recommended to do
+# with open('./b/index.html', 'r') as file:
+#     soup = BeautifulSoup(file.read(), features="html.parser")
+#     breadcrumbs = soup.find('div', class_='breadcrumbs')
+#     breadcrumbs = breadcrumbs.findAll("a")
+#
+# if breadcrumbs[2]:
+#     breadcrumbs[2].decompose()
+#
+# with open('./b/exclusives/index.html', "w") as file:
+#     file.write(str(soup))
 
 
 def replace_header_footer(read_file1):
