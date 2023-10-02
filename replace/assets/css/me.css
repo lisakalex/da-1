@@ -54,7 +54,7 @@
     color: #012180;
     color: #fa4723;
     color: #b63d02;
-
+    color: var(--indigo);
 }
 
 *, :after, :before {
