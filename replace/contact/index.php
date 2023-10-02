@@ -189,14 +189,13 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
 <body>
 <header class="header" id="header">
     <a class="header__logo" href="/">
-        <img alt="Crypto News" src="/assets/images/logo.png"/>
+        <img alt="Crypto News" src="/assets/images/logo.svg"/>
     </a>
     <div class="header-menu">
         <div class="header-menu__trigger d-none d-lg-flex">
-            All
-            <svg height="7" viewbox="0 0 12 7" width="12" xmlns="http://www.w3.org/2000/svg">
+            <svg height="15" viewbox="0 0 12 7" width="20" xmlns="http://www.w3.org/2000/svg">
                 <g fill-rule="evenodd">
-                    <path d="M0 3.999L12 3.999 12 2.999 0 2.999zM0 7L12 7 12 6 0 6zM0 1L12 1 12 0 0 0z"></path>
+                    <path d="M0 3.999L12 3.999 12 2.999 0 2.999zM0 7L12 7 12 6 0 6zM0 1L12 1 12 0 0 0z" fill="#ffffff"></path>
                 </g>
             </svg>
         </div>
@@ -409,10 +408,9 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
     </div>
     <div class="header-search">
         <div class="header-menu__trigger d-md-none">
-            All
             <svg height="7" viewbox="0 0 12 7" width="12" xmlns="http://www.w3.org/2000/svg">
                 <g fill-rule="evenodd">
-                    <path d="M0 3.999L12 3.999 12 2.999 0 2.999zM0 7L12 7 12 6 0 6zM0 1L12 1 12 0 0 0z"></path>
+                    <path d="M0 3.999L12 3.999 12 2.999 0 2.999zM0 7L12 7 12 6 0 6zM0 1L12 1 12 0 0 0z" fill="#ffffff"></path>
                 </g>
             </svg>
         </div>
@@ -440,10 +438,10 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
         <div class="container">
             <div class="breadcrumbs mb-20">
                 <a href="/">Kumkanot</a>
-                <a href="/about-us.htm">About Us</a>
+                <a href="/contact/">Contact Us</a>
             </div>
             <div class="mb-80">
-                <h1 class="scrollspy" id="about-us"> About Us</h1>
+                <h1 class="scrollspy" id="about-us"> Contact Us</h1>
                 <div class="layout-size">
                     <p>Kumkanot.com offers original coverage of the global blockchain and cryptocurrency news, provides opinions, reviews, guides, introduces to Crypto people with an aim to help the general public understand and successfully use these technologies now and in the future. </p>
                     <p>We believe that the most important thing in the Blockchain revolution is the ability of people to understand and embrace the change. Our journalism standards - impartiality, truthfulness, transparency, and accuracy - will help you navigate this extremely dynamic world.</p>
@@ -494,39 +492,10 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
                                         </g>
                                     </svg>
                                 </div>
-                                <a href="mailto:info@cryptonews.com" class="d-inline-block"> info@cryptonews.com huy</a></div>
+                                <a href="mailto:support@amkamdam.com" class="d-inline-block">support@amkamdam.com</a></div>
                             <div class="mb-30">
-                                <div class="d-inline-block"> Blockwise media LTD <br> Trust Company Complex, Ajeltake Road <br> Ajeltake Island, Majuro <br> Republic of the Marshall Islands <br> MH 96960 <br></div>
+                                <div class="d-inline-block">Amkamdad LTD <br>52-60 Tabernacle Street<br>London<br>United Kingdom<br>EC2A 4NJ<br></div>
                             </div>
-                            <div class="socials socials--white socials--h-grey"><a href="https://www.facebook.com/cryptonewscom-720874761445956/" class="ssk ssk-facebook">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                                        <path fill="#CCC" d="M8.854 4.155H7.072V2.97c.131-1.119 1.981-.907 1.981-.907V.138H9.05C8.986.123 5.37-.735 4.653 2.017l-.001.002-.006.018c-.113.345-.105 1.92-.103 2.118H3v2.107h1.64v5.732h2.388V6.262h1.827l.205-2.107h-.205z"></path>
-                                    </svg>
-                                </a><a href="https://twitter.com/Cryptonews" class="ssk ssk-twitter">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                                        <path fill="#CCC" fill-rule="evenodd"
-                                              d="M10.771 3.429c.156 3.462-2.427 7.323-6.997 7.323-1.39 0-2.685-.407-3.774-1.107 1.306.155 2.609-.208 3.645-1.019-1.078-.019-1.987-.73-2.3-1.71.385.074.765.053 1.111-.042C1.272 6.637.454 5.57.482 4.43c.332.184.71.295 1.115.308C.5 4.005.19 2.557.835 1.45 2.05 2.94 3.863 3.92 5.91 4.022 5.55 2.482 6.718 1 8.308 1c.708 0 1.347.298 1.797.778.56-.112 1.087-.316 1.564-.599-.185.575-.576 1.059-1.083 1.363.498-.06.972-.192 1.413-.388-.33.494-.746.928-1.228 1.275"></path>
-                                    </svg>
-                                </a><a href="https://www.youtube.com/channel/UCq1LxxUw6DVELFN0wOmLLQw?disable_polymer=true" class="ssk ssk-youtube">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                                        <path fill="#CCC"
-                                              d="M4.55 8.219V4.447l3.618 1.886L4.55 8.219zm7.333-4.583c-.103-.876-.313-1.13-.46-1.247-.238-.185-.668-.25-1.243-.29C9.255 2.038 7.69 2 5.997 2c-1.695 0-3.258.038-4.182.1-.575.04-1.006.105-1.243.29-.148.116-.357.37-.462 1.246-.148 1.26-.148 4.134 0 5.395.104.874.313 1.129.46 1.245.238.187.669.25 1.244.29.924.062 2.487.1 4.182.1 1.695 0 3.258-.038 4.183-.1.575-.04 1.005-.103 1.243-.29.148-.116.357-.371.46-1.245.148-1.261.148-4.135 0-5.395z"
-                                              fill-rule="evenodd"></path>
-                                    </svg>
-                                </a><a href="https://www.linkedin.com/company/cryptonewscom/" class="ssk ssk-linkedin">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                                        <path d="M11.9939 12h-2.464V7.8c0-1.151-.438-1.794-1.349-1.794-.991 0-1.508.669-1.508 1.794V12h-2.375V4h2.375v1.078s.714-1.322 2.41-1.322c1.697 0 2.911 1.036 2.911 3.179V12zm-10.53-9.048c-.808 0-1.464-.66-1.464-1.476C-.0001.661.6559 0 1.4639 0c.809 0 1.465.661 1.465 1.476 0 .816-.656 1.476-1.465 1.476zM.2379 12h2.477V4H.2379v8z" fill="#CCC" fill-rule="evenodd"></path>
-                                    </svg>
-                                </a><a href="https://t.me/cryptonews_official" class="ssk ssk-telegram">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                                        <path fill="#CCC" d="M.558 5.152L11.196 1.05c.495-.178.925.12.765.868l.001-.001-1.81 8.532c-.134.605-.495.752-.998.467L6.395 8.883l-1.33 1.282c-.147.147-.272.27-.556.27l.196-2.805 5.111-4.62c.223-.194-.05-.305-.343-.11L3.156 6.879l-2.723-.85c-.59-.188-.603-.591.126-.876" fill-rule="evenodd"></path>
-                                    </svg>
-                                </a><a href="/contact-us.htm" class="ssk ssk-email">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                                        <path fill="#CCC" d="M0 2.727v6.854c0 .373.273.675.649.675h10.696c.376 0 .649-.306.649-.675V2.727c0-.409-.244-.727-.65-.727H.65C.23 2 0 2.326 0 2.727m.988.597c0-.165.099-.26.259-.26.099 0 3.986 2.463 4.22 2.607l.609.38c.193-.13.387-.24.587-.375.408-.26 4.038-2.612 4.138-2.612.16 0 .26.095.26.26 0 .174-.337.348-.557.482-1.378.841-2.756 1.757-4.122 2.628-.08.054-.233.17-.35.151-.128-.019-4.083-2.56-4.802-2.983-.108-.064-.242-.123-.242-.278"
-                                              fill-rule="evenodd"></path>
-                                    </svg>
-                                </a></div>
                         </div>
                     </div>
                 </div>
