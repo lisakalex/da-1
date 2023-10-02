@@ -223,8 +223,8 @@ def replace_text(read_file1):
     read_file1 = read_file1.replace('CryptoNews', 'Kumkanot')
     read_file1 = read_file1.replace('CRYPTONEWS', 'KUMKANOT')
     read_file1 = read_file1.replace('Crypto News', 'Kumkanot')
-    read_file1 = read_file1.replace('#930046', '#00b900')
-    read_file1 = read_file1.replace('#59008a', '#018001')
+    # read_file1 = read_file1.replace('#930046', '#00b900')
+    # read_file1 = read_file1.replace('#59008a', '#018001')
 
     return read_file1
 

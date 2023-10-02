@@ -45,7 +45,7 @@ change theirs button colors to our (green)
 ~~~
 fuck firefox
 
-da
+change header color (lines in frontend.css)
 1479
 4676
 1776
@@ -53,5 +53,8 @@ da
 1569
 1576
 
+fa4723
+b63d02
+fcc3b2
 
 

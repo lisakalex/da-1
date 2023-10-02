@@ -1478,7 +1478,7 @@ p:has(.selfcentered) {
 
 .header {
     align-items: center;
-    background-color: #fff;
+    background-color: #b63d02;
     border-bottom: 1px solid #ccc;
     display: flex;
     height: 75px;
@@ -1535,7 +1535,7 @@ p:has(.selfcentered) {
 
 .header-menu__trigger {
     align-items: center;
-    color: #212121;
+    color: #ffffff;
     cursor: pointer;
     display: flex;
     font-weight: 700;
@@ -1549,7 +1549,8 @@ p:has(.selfcentered) {
     display: inline-block;
     margin-left: 6px;
     margin-top: -2px;
-    vertical-align: middle
+    vertical-align: middle;
+    color: #ffffff;
 }
 
 @media (max-width: 991.98px) {
@@ -1564,11 +1565,12 @@ p:has(.selfcentered) {
 
 @media (min-width: 992px) {
     .header-menu__trigger:hover {
-        color: #b63d02
+        /*color: #b63d02*/
+        color: #fcc3b2
     }
 
     .header-menu__trigger:hover svg path {
-        fill: #b63d02
+        fill: #fcc3b2
     }
 }
 
@@ -1773,12 +1775,12 @@ p:has(.selfcentered) {
 }
 
 .header-search__trigger svg path {
-    fill: #212121;
+    fill: #ffffff;
     transition: .3s
 }
 
 .header-search__trigger:hover path {
-    fill: #b63d02
+    fill: #fcc3b2
 }
 
 .header-search__close {
@@ -4674,7 +4676,8 @@ figure table {
 }
 
 .menu_header > li > a {
-    color: #212121;
+    /*color: #212121;*/
+    color: #ffffff;
     display: inline-block;
     font-weight: 700;
     height: auto;
@@ -4690,7 +4693,8 @@ figure table {
 
 .menu_header > li > a:hover {
     background: none;
-    color: #b63d02;
+    /*color: #b63d02;*/
+    color: #fcc3b2;
     font-weight: 700
 }
 
