@@ -261,7 +261,7 @@ for fl in files:
         read_file = decompose_tags(read_file)
         read_file = replace_header_footer(read_file)
         read_file = insert_ads(read_file)
-        read_file = insert_cookie(read_file)
+        # read_file = insert_cookie(read_file)
 
         count_replace = count_replace + 1
 

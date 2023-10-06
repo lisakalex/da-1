@@ -29,7 +29,7 @@
 <body>
 <header class="header" id="header">
 <a class="header__logo" href="/">
-<img alt="Crypto News" src="/assets/images/logo-3.svg"/>
+<img alt="Crypto News" src="/assets/images/logo.svg"/>
 </a>
 <div class="header-menu">
 <div class="header-menu__trigger d-none d-lg-flex">
@@ -303,6 +303,7 @@
 <a class="mr-20" href="/contact/">Contact Us</a>
 <a class="mr-20" href="/privacy-policy.htm">Privacy Policy</a>
 <a class="mr-20" href="/disclaimer.htm">Disclaimer</a>
+<a class="replace" href="/"></a>
 </div>
 </div>
 <div class="footer-tags d-none d-md-block">
@@ -437,6 +438,15 @@
 </div>
 </div>
 </div>
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js"></script>
+<script defer="" src="/assets/js/cookieconsent-init.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+        $(function () {
+            $(".replace").load("/assets/text/Cryptonews.html");
+            document.getElementById("logo").src = '/assets/images/logo.svg';
+        });
+    </script>
 </footer>
-<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js"></script><script defer="" src="/assets/js/cookieconsent-init.js"></script></body>
+</body>
 </html>
