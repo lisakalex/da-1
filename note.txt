@@ -56,5 +56,29 @@ change header color (lines in frontend.css)
 fa4723
 b63d02
 fcc3b2
+http://intspeed.com/
+
+	Alias /assets "/var/www/intspeed.com/assets"
+
+	<Directory "/var/www/intspeed.com/assets">
+		Options Indexes FollowSymLinks MultiViews
+		Require all granted
+		AllowOverride None
+		Order allow,deny
+		Allow from all
+	</Directory>
+
+	Alias /assets "/var/www/da-1.com/assets"
+
+	<Directory "/var/www/da-1.com/assets">
+		Options Indexes FollowSymLinks MultiViews
+		Require all granted
+		AllowOverride None
+		Order allow,deny
+		Allow from all
+	</Directory>
+
+	       -t, --target-directory=DIRECTORY
+                  specify the DIRECTORY in which to create the links
 
 

@@ -189,7 +189,7 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
 <body>
 <header class="header" id="header">
     <a class="header__logo" href="/">
-        <img alt="Crypto News" src="/assets/images/logo.svg"/>
+        <img alt="Crypto News" src="/assets/images/logo-3.svg"/>
     </a>
     <div class="header-menu">
         <div class="header-menu__trigger d-none d-lg-flex">

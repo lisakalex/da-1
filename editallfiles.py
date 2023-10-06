@@ -42,6 +42,17 @@ if breadcrumbs[2]:
 with open('./b/exclusives/index.html', "w") as file:
     file.write(str(soup))
 
+# delete section guides in /index.html
+with open('./b/index.html', 'r') as file:
+    soup = BeautifulSoup(file.read(), features="html.parser")
+
+guides = soup.find('section', class_='container-fluid')
+if guides is not None:
+    guides.decompose()
+
+with open('./b/index.html', "w") as file:
+    file.write(str(soup))
+
 # fix Recommended to do
 # with open('./b/index.html', 'r') as file:
 #     soup = BeautifulSoup(file.read(), features="html.parser")
@@ -223,6 +234,12 @@ def replace_text(read_file1):
     read_file1 = read_file1.replace('CryptoNews', 'Kumkanot')
     read_file1 = read_file1.replace('CRYPTONEWS', 'KUMKANOT')
     read_file1 = read_file1.replace('Crypto News', 'Kumkanot')
+
+    # read_file1 = read_file1.replace('cryptonews', '<a class="replace-1"></a>')
+    # read_file1 = read_file1.replace('Cryptonews', '<a class="replace-2"></a>')
+    # read_file1 = read_file1.replace('CryptoNews', '<a class="replace-3"></a>')
+    # read_file1 = read_file1.replace('CRYPTONEWS', '<a class="replace-4"></a>')
+    # read_file1 = read_file1.replace('Crypto News', '<a class="replace-5"></a>')
     # read_file1 = read_file1.replace('#930046', '#00b900')
     # read_file1 = read_file1.replace('#59008a', '#018001')
 
