@@ -229,13 +229,13 @@ def insert_cookie(read_file1):
 
 
 def replace_text(read_file1):
-    read_file1 = read_file1.replace('cryptonews', 'kumkanot')
-    read_file1 = read_file1.replace('Cryptonews', 'Kumkanot')
-    read_file1 = read_file1.replace('CryptoNews', 'Kumkanot')
-    read_file1 = read_file1.replace('CRYPTONEWS', 'KUMKANOT')
-    read_file1 = read_file1.replace('Crypto News', 'Kumkanot')
+    # read_file1 = read_file1.replace('cryptonews', 'kumkanot')
+    # read_file1 = read_file1.replace('Cryptonews', 'Kumkanot')
+    # read_file1 = read_file1.replace('CryptoNews', 'Kumkanot')
+    # read_file1 = read_file1.replace('CRYPTONEWS', 'KUMKANOT')
+    # read_file1 = read_file1.replace('Crypto News', 'Kumkanot')
 
-    # read_file1 = read_file1.replace('cryptonews', '<a class="replace-1"></a>')
+    read_file1 = read_file1.replace('cryptonews', '<a class="replace-1"></a>')
     # read_file1 = read_file1.replace('Cryptonews', '<a class="replace-2"></a>')
     # read_file1 = read_file1.replace('CryptoNews', '<a class="replace-3"></a>')
     # read_file1 = read_file1.replace('CRYPTONEWS', '<a class="replace-4"></a>')

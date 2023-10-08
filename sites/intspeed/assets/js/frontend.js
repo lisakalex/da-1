@@ -5971,16 +5971,6 @@
             }))
         }
 
-        // function myFunction() {
-        //     // $(".replace").load("/assets/text/Cryptonews.html");
-        //     $(".replace-1").load("/assets/text/cryptonews.txt");
-        //     // document.getElementById("logo").src = '/assets/images/logo.svg';
-        //     const element = document.getElementsByClassName("header-menu__trigger");
-        //     debugger
-        //     element[0].remove(); // Removes the div with the 'div-02' id
-        //     element[1].remove(); // Removes the div with the 'div-02' id
-        // }
-
         B && (B.onsubmit = U), document.querySelectorAll(".accordion-table tr.view").forEach((function (e) {
             e.addEventListener("click", (function () {
                 this.classList.toggle("open"), this.nextElementSibling.classList.toggle("open")
@@ -6001,8 +5991,8 @@ $(function () {
     // $(".replace").load("/assets/text/Cryptonews.html");
     $(".replace-1").load("/assets/text/cryptonews.txt");
     // document.getElementById("logo").src = '/assets/images/logo.svg';
-    // const element = document.getElementsByClassName("header-menu__trigger");
-    // // debugger
-    // element[0].remove(); // Removes the div with the 'div-02' id
-    // element[1].remove(); // Removes the div with the 'div-02' id
+    const element = document.getElementsByClassName("header-menu__trigger");
+    // debugger
+    element[0].remove();
+    element[1].remove();
 });

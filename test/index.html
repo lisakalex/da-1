@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script>
-        $(function () {
-            $(".replace").load("/assets/text/Cryptonews.html");
-            document.getElementById("logo").src = '/assets/images/logo.svg';
-        });
-    </script>
 </head>
 <body>
 <div class="replace"></div>
 <!--<div id="logo"></div>-->
-<img id="logo" width="90%" height="100%" src="" alt="huy"/>
+<img id="logo" width="90%" height="100%" src="/assets/images/logo.svg" alt="huy"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $(".replace-1").load("/assets/text/cryptonews.txt");
+        // document.getElementById("logo").src = '/assets/images/logo.svg';
+    });
+</script>
 </body>
 </html>
