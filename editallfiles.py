@@ -53,6 +53,7 @@ if guides is not None:
 with open('./b/index.html', "w") as file:
     file.write(str(soup))
 
+
 # fix Recommended to do
 # with open('./b/index.html', 'r') as file:
 #     soup = BeautifulSoup(file.read(), features="html.parser")
@@ -207,42 +208,33 @@ def insert_ads(read_file1):
     return str(soup1)
 
 
-def insert_cookie(read_file1):
-    with open('me-index.html', 'r') as file1:
-        soup = BeautifulSoup(file1.read(), features="html.parser")
-
-    scripts = soup.body.findAll('script')
-    soup1 = BeautifulSoup(read_file1, features='html.parser')
-    try:
-        soup1.body.append(scripts[0])
-    except Exception as e:
-        print(e)
-        pass
-
-    try:
-        soup1.body.append(scripts[1])
-    except Exception as e:
-        print(e)
-        pass
-
-    return str(soup1)
+# def insert_cookie(read_file1):
+#     with open('me-index.html', 'r') as file1:
+#         soup = BeautifulSoup(file1.read(), features="html.parser")
+#
+#     scripts = soup.body.findAll('script')
+#     soup1 = BeautifulSoup(read_file1, features='html.parser')
+#     try:
+#         soup1.body.append(scripts[0])
+#     except Exception as e:
+#         print(e)
+#         pass
+#
+#     try:
+#         soup1.body.append(scripts[1])
+#     except Exception as e:
+#         print(e)
+#         pass
+#
+#     return str(soup1)
 
 
 def replace_text(read_file1):
-    # read_file1 = read_file1.replace('cryptonews', 'kumkanot')
-    # read_file1 = read_file1.replace('Cryptonews', 'Kumkanot')
-    # read_file1 = read_file1.replace('CryptoNews', 'Kumkanot')
-    # read_file1 = read_file1.replace('CRYPTONEWS', 'KUMKANOT')
-    # read_file1 = read_file1.replace('Crypto News', 'Kumkanot')
-
-    read_file1 = read_file1.replace('cryptonews', '<a class="replace-1"></a>')
-    # read_file1 = read_file1.replace('Cryptonews', '<a class="replace-2"></a>')
-    # read_file1 = read_file1.replace('CryptoNews', '<a class="replace-3"></a>')
-    # read_file1 = read_file1.replace('CRYPTONEWS', '<a class="replace-4"></a>')
-    # read_file1 = read_file1.replace('Crypto News', '<a class="replace-5"></a>')
-    # read_file1 = read_file1.replace('#930046', '#00b900')
-    # read_file1 = read_file1.replace('#59008a', '#018001')
-
+    read_file1 = read_file1.replace('cryptonews', '<data class="replace-1" value=""></data>')
+    read_file1 = read_file1.replace('Cryptonews', '<data class="replace-2" value=""></data>')
+    read_file1 = read_file1.replace('CryptoNews', '<data class="replace-3" value=""></data>')
+    read_file1 = read_file1.replace('CRYPTONEWS', '<data class="replace-4" value=""></data>')
+    read_file1 = read_file1.replace('Crypto News', '<data class="replace-5" value=""></data>')
     return read_file1
 
 
@@ -267,6 +259,15 @@ for fl in files:
 
         with open(filepath, "w") as file:
             file.write(read_file)
+
+# fix contact us
+with open('./b/contact/index.htm', 'r') as file:
+    contact = file.read()
+
+with open('./b/contact/index.php', "a") as file:
+    file.write(contact)
+
+os.remove('./b/contact/index.htm')
 
 shutil.copytree('./b/', './public_html/', dirs_exist_ok=True)
 finish_time = time.time() - start_time

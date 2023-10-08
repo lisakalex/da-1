@@ -5988,9 +5988,11 @@
 })();
 
 $(function () {
-    // $(".replace").load("/assets/text/Cryptonews.html");
     $(".replace-1").load("/assets/text/cryptonews.txt");
-    // document.getElementById("logo").src = '/assets/images/logo.svg';
+    $(".replace-2").load("/assets/text/Cryptonews.txt");
+    $(".replace-3").load("/assets/text/CryptoNews.txt");
+    $(".replace-4").load("/assets/text/CRYPTONEWS.txt");
+    $(".replace-5").load("/assets/text/Crypto_News.txt");
     const element = document.getElementsByClassName("header-menu__trigger");
     // debugger
     element[0].remove();

@@ -31,22 +31,9 @@
 }
 
 @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    /*src: url('/assets/fonts/Montserrat-Italic-VariableFont_wght.ttf');*/
-    src: url('/assets/fonts/Montserrat-VariableFont_wght.ttf');
-    /*src: local('Montserrat Regular'), local('Montserrat-Regular'),*/
-    /*url('../plugins/fonts/montserrat/montserrat-v12-latin-regular.eot%3F') format('embedded-opentype'),*/
-    /*url('../plugins/fonts/montserrat/montserrat-v12-latin-regular.woff2') format('woff2'),*/
-    /*url('../plugins/fonts/montserrat/montserrat-v12-latin-regular.woff') format('woff'),*/
-    /*url('../plugins/fonts/montserrat/montserrat-v12-latin-regular.ttf') format('truetype'),*/
-    /*url('../plugins/fonts/montserrat/montserrat-v12-latin-regular.svg') format('svg');*/
-}
-
-@font-face {
     font-family: 'Rajdhani';
     src: url('/assets/fonts/Rajdhani-Regular.ttf');
+    /*src: url('/assets/fonts/Rajdhani-Light.ttf');*/
 }
 
 /*change theirs button colors to our (green)*/
@@ -1679,7 +1666,7 @@ p:has(.selfcentered) {
 }
 
 .header-links > ul {
-    font-size: 14px;
+    font-size: 16px;
     list-style-type: none;
     margin: 0;
     padding: 0
