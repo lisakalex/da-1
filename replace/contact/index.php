@@ -1,12 +1,50 @@
 <?php
+require '../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php';
-include(__DIR__ . '/../a.php');
-$all_banners = all_banners();
+$ini = parse_ini_file('../../assets/app.ini');
+$secret = $ini['secret'];
+
+function turnstile($response)
+{
+    global $secret;
+    $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+    $curl = curl_init();
+    curl_setopt_array($curl, [
+        CURLOPT_URL => $url,
+        CURLOPT_HTTPHEADER => [
+            'Content-Type: application/json',
+        ],
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => 1,
+        CURLOPT_CONNECTTIMEOUT => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_POSTFIELDS => json_encode([
+            'secret' => $secret,
+            'response' => $response
+        ]),
+    ]);
+
+    $result = curl_exec($curl);
+    curl_close($curl);
+
+    $return_result = false;
+
+    if ($json = json_decode($result)) {
+        if ($json->success) {
+            $return_result = true;
+        } else {
+            $return_result = false;
+        }
+    }
+
+    return $return_result;
+}
+
 $mail = new PHPMailer(true);
 
 if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 'da-send-message') {
