@@ -661,7 +661,7 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
 <div class="col-12 col-md-6 text-center text-md-left mb-20 mb-md-0">
 <div class="fs-12 c-light-grey">© 2023
                         <data class="replace-2" value=""></data>
-                        . All rights reserved
+                        . All rights reserved kak
                     </div>
 </div>
 <div class="col-12 col-md-6 text-center text-md-right">
