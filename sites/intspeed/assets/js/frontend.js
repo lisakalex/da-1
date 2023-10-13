@@ -5988,13 +5988,30 @@
 })();
 
 $(function () {
-    $(".replace-1").load("/assets/text/cryptonews.txt");
-    $(".replace-2").load("/assets/text/Cryptonews.txt");
-    $(".replace-3").load("/assets/text/CryptoNews.txt");
-    $(".replace-4").load("/assets/text/CRYPTONEWS.txt");
-    $(".replace-5").load("/assets/text/Crypto_News.txt");
-    const element = document.getElementsByClassName("header-menu__trigger");
-    // debugger
-    element[0].remove();
-    element[1].remove();
-});
+        $(".replace-1").load("/assets/text/cryptonews.txt");
+        $(".replace-2").load("/assets/text/Cryptonews.txt");
+        $(".replace-3").load("/assets/text/CryptoNews.txt");
+        $(".replace-4").load("/assets/text/CRYPTONEWS.txt");
+        $(".replace-5").load("/assets/text/Crypto_News.txt");
+        document.title = "Intspeed";
+        document.getElementsByClassName("header-menu__trigger")[0].remove();
+        const mailto = '<a href="mailto:support@intspeed" class="d-inline-block" style="color:#fff">support@intspeed.com</a>';
+        const address = '<div class="d-inline-block">intspeed LTD <br>52-60 Tabernacle Street<br>London<br>United Kingdom<br>EC2A 4NJ<br></div>';
+        const cf_turnstile = '<div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light"></div>';
+
+        let m = document.querySelectorAll('.me-mailto');
+
+        m.forEach((e) => {
+            e.outerHTML = mailto;
+        });
+
+        let a = document.querySelectorAll('.me-address');
+
+        a.forEach((e) => {
+            e.outerHTML = address;
+        });
+
+        let cf = document.querySelector('.cf-turnstile');
+        cf.outerHTML = cf_turnstile;
+    }
+);

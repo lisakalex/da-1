@@ -98,13 +98,13 @@ def replace_links(read_file1):
     for link in links:
         href = link.get('href')
         if href:
-            if 'https://cryptonews.com' in href:
-                href = href.replace('https://cryptonews.com', '')
-                link['href'] = href
-
-            if 'https://kumkanot.com' in href:
-                href = href.replace('https://kumkanot.com', '')
-                link['href'] = href
+            # if 'https://cryptonews.com' in href:
+            #     href = href.replace('https://cryptonews.com', '')
+            #     link['href'] = href
+            #
+            # if 'https://kumkanot.com' in href:
+            #     href = href.replace('https://kumkanot.com', '')
+            #     link['href'] = href
 
             if '/ext/' in href:
                 href = href.replace('/ext/', 'https://cryptonews.com/ext/')
@@ -247,7 +247,7 @@ for fl in files:
         with open(filepath) as file:
             read_file = file.read()
 
-        download_json_files(read_file)
+        # download_json_files(read_file)
         read_file = replace_text(read_file)
         read_file = replace_links(read_file)
         read_file = decompose_tags(read_file)
