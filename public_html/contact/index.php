@@ -661,7 +661,7 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
 <div class="col-12 col-md-6 text-center text-md-left mb-20 mb-md-0">
 <div class="fs-12 c-light-grey">© 2023
                         <data class="replace-2" value=""></data>
-                        . All rights reserved contact
+                        . All rights reserved
                     </div>
 </div>
 <div class="col-12 col-md-6 text-center text-md-right">
@@ -673,6 +673,7 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
 <script defer="" src="/assets/js/cookieconsent-init.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script defer="" src="/assets/js/frontend.js"></script>
+<script async="" defer="" src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
 </footer>
 </body>
 </html>
