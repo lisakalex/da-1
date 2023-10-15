@@ -19,8 +19,9 @@ curl_setopt_array($curl, [
     CURLOPT_TIMEOUT => 30,
 ]);
 
-$curl_error = curl_error($curl);
+
 $contents = json_decode(curl_exec($curl));
+//$contents = '1x0000000000000000000000000000000AA';
 curl_close($curl);
 
 function turnstile($response)
@@ -40,9 +41,20 @@ function turnstile($response)
         CURLOPT_TIMEOUT => 30,
         CURLOPT_POSTFIELDS => json_encode([
             'secret' => $contents->secret,
+//            'secret' => $contents,
             'response' => $response
         ]),
     ]);
+
+    $curl_error = curl_error($curl);
+    $curlinfo_effective_url = curl_getinfo($curl, CURLINFO_EFFECTIVE_URL);
+
+    $myfile = fopen("newfile.txt", "a") or die("Unable to open file!");
+    $txt =$curl_error . '\n';
+    fwrite($myfile, $curlinfo_effective_url);
+    $txt = "Jane bDoe\n";
+    fwrite($myfile, $txt);
+    fclose($myfile);
 
     $result = curl_exec($curl);
     curl_close($curl);
@@ -235,6 +247,9 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
         window.sid = 1;
     </script>
     <link href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script defer="" src="/assets/js/frontend.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <header class="header" id="header">
@@ -528,6 +543,7 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
                                 <div class="col-12">
                                     <div class="checkbox mb-3" style="margin: 5px 0 5px 0">
                                         <div class="cf-turnstile"></div>
+<!--                                        <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light"></div>-->
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -569,14 +585,16 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
                 <div class="col-12 col-lg-5 col-xl-4 mb-lg-0 text-center text-md-left">
                     <div class="d-lg-flex mb-40">
                         <div class="footer-links d-md-inline-block text-center text-md-left align-self-center">
+                            <div>
+                                <a class="" href="/">
+                                    <data class="replace-2" value=""></data>
+                                </a>
+                            </div>
                             <a class="mr-20" href="/terms-and-conditions.htm">Terms &amp; Conditions</a>
                             <a class="mr-20" href="/about-us.htm">About Us</a>
                             <a class="mr-20" href="/contact/">Contact Us</a>
                             <a class="mr-20" href="/privacy-policy.htm">Privacy Policy</a>
                             <a class="mr-20" href="/disclaimer.htm">Disclaimer</a>
-                            <a class="" href="/">
-                                <data class="replace-2" value=""></data>
-                            </a>
                         </div>
                     </div>
                     <div class="d-none d-md-block" style="color:#fff;">
@@ -726,9 +744,6 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
     </div>
     <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js"></script>
     <script defer="" src="/assets/js/cookieconsent-init.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script defer="" src="/assets/js/frontend.js"></script>
-    <script async="" defer="" src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
 </footer>
 </body>
 </html>

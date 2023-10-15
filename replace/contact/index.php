@@ -5,12 +5,27 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-$ini = parse_ini_file('../../assets/app.ini');
-$secret = $ini['secret'];
+$url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/assets/a.json';
+
+$curl = curl_init();
+curl_setopt_array($curl, [
+    CURLOPT_URL => $url,
+    CURLOPT_HTTPHEADER => [
+        'Content-Type: application/json',
+    ],
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_FOLLOWLOCATION => 1,
+    CURLOPT_CONNECTTIMEOUT => 10,
+    CURLOPT_TIMEOUT => 30,
+]);
+
+$curl_error = curl_error($curl);
+$contents = json_decode(curl_exec($curl));
+curl_close($curl);
 
 function turnstile($response)
 {
-    global $secret;
+    global $contents;
     $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
     $curl = curl_init();
     curl_setopt_array($curl, [
@@ -24,7 +39,7 @@ function turnstile($response)
         CURLOPT_CONNECTTIMEOUT => 10,
         CURLOPT_TIMEOUT => 30,
         CURLOPT_POSTFIELDS => json_encode([
-            'secret' => $secret,
+            'secret' => $contents->secret,
             'response' => $response
         ]),
     ]);
@@ -153,16 +168,16 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
             //Server settings
             $mail->SMTPDebug = SMTP::DEBUG_OFF;                      //Enable verbose debug output: DEBUG_SERVER
             $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host = 'smtp.ionos.co.uk';                     //Set the SMTP server to send through
+            $mail->Host = $contents->Host;                     //Set the SMTP server to send through
             $mail->SMTPAuth = true;                                   //Enable SMTP authentication
-            $mail->Username = 'support@amkamdam.com';                     //SMTP username
-            $mail->Password = 'Zaichik1.&';                               //SMTP password
+            $mail->Username = $contents->Username;                     //SMTP username
+            $mail->Password = $contents->Password;                               //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
             $mail->Port = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
             $mail->setFrom($email, $name);
-            $mail->addAddress('support@amkamdam.com');     //Add a recipient
+            $mail->addAddress($contents->Username);     //Add a recipient
 //    $mail->addAddress('ellen@example.com');               //Name is optional
 //        $mail->addReplyTo('support@amkamdam.com', 'support');
 //        $mail->addCC('alexlisak@hotmail.com');
