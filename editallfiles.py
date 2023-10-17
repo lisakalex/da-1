@@ -200,33 +200,17 @@ def insert_ads(read_file1):
 
     soup1 = BeautifulSoup(read_file1, features='html.parser')
 
+    #  add page loading gif
+    se_pre_con = soup.find('div', class_='se-pre-con')
+    if soup1.body is not None:
+        soup1.body.insert(1, se_pre_con)
+
     for dslot in soup1.findAll('div', class_='dslot'):
         for medslot in soup.findAll('div', class_='dslot'):
             if dslot.get('did') == medslot.get('did'):
                 dslot.replace_with(medslot)
 
     return str(soup1)
-
-
-# def insert_cookie(read_file1):
-#     with open('me-index.html', 'r') as file1:
-#         soup = BeautifulSoup(file1.read(), features="html.parser")
-#
-#     scripts = soup.body.findAll('script')
-#     soup1 = BeautifulSoup(read_file1, features='html.parser')
-#     try:
-#         soup1.body.append(scripts[0])
-#     except Exception as e:
-#         print(e)
-#         pass
-#
-#     try:
-#         soup1.body.append(scripts[1])
-#     except Exception as e:
-#         print(e)
-#         pass
-#
-#     return str(soup1)
 
 
 def replace_text(read_file1):

@@ -6022,6 +6022,13 @@ $(function () {
         });
 
         let cf = document.querySelector('.cf-turnstile');
-        cf.outerHTML = cf_turnstile;
+        if (null !== cf) {
+            cf.outerHTML = cf_turnstile;
+        }
     }
 );
+// debugger
+// $(window).load(function() {
+//     // Animate loader off screen
+//     $(".se-pre-con").fadeOut("slow");
+// });
