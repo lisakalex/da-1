@@ -1,5 +1,6 @@
 @charset "UTF-8";
 :root {
+    --me-color: #e83e8c;
     --blue: #007bff;
     --indigo: #6610f2;
     --purple: #6f42c1;
@@ -27,33 +28,15 @@
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1360px;
     --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    /*--font-family-me-font-family: Rajdhani, sans-serif*/
 }
 
 @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    /*src: url('/assets/fonts/Montserrat-Italic-VariableFont_wght.ttf');*/
-    src: url('/assets/fonts/Montserrat-VariableFont_wght.ttf');
-    /*src: local('Montserrat Regular'), local('Montserrat-Regular'),*/
-    /*url('../plugins/fonts/montserrat/montserrat-v12-latin-regular.eot%3F') format('embedded-opentype'),*/
-    /*url('../plugins/fonts/montserrat/montserrat-v12-latin-regular.woff2') format('woff2'),*/
-    /*url('../plugins/fonts/montserrat/montserrat-v12-latin-regular.woff') format('woff'),*/
-    /*url('../plugins/fonts/montserrat/montserrat-v12-latin-regular.ttf') format('truetype'),*/
-    /*url('../plugins/fonts/montserrat/montserrat-v12-latin-regular.svg') format('svg');*/
+    font-family: 'Rajdhani';
+    /*font-style: normal;*/
+    /*font-weight: 400;*/
 }
-
-/*change theirs button colors to our (green)*/
-/*.huy {*/
-/*    color: #930046;*/
-/*    color: #59008a;*/
-/*    color: var(--indigo);*/
-/*    color: var(--indigo);*/
-/*    color: var(--indigo);*/
-/*    color: var(--indigo);*/
-
-/*}*/
 
 *, :after, :before {
     box-sizing: border-box
@@ -1064,7 +1047,7 @@ summary {
 }
 
 .c-purple {
-    color: var(--indigo)
+    color: var(--me-color)
 }
 
 .c-green {
@@ -1076,7 +1059,7 @@ summary {
 }
 
 .c-h-purple:hover {
-    color: var(--indigo)
+    color: var(--me-color)
 }
 
 .article__badge--has-star:before, .bg-img {
@@ -1086,7 +1069,7 @@ summary {
 }
 
 .badge, .bg-gradient, .exchanges .board > .list > div .rates > div > div[data-msg], .header-search__form, .tracker-rates__item-column[data-msg] {
-    background-image: linear-gradient(111deg, var(--indigo), var(--indigo))
+    background-image: linear-gradient(111deg, var(--me-color), var(--me-color))
 }
 
 .bg-white {
@@ -1213,14 +1196,15 @@ body {
     color: #252525;
     display: flex;
     flex-direction: column;
-    /*font-family: Noto Sans, sans-serif;*/
-    font-family: Montserrat, sans-serif;
+    font-family: Rajdhani, sans-serif;
+    /*font-family: me-font-family, sans-serif;*/
     font-size: 14px;
     font-weight: 400;
     line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
-    padding-top: 75px
+    padding-top: 75px;
+
 }
 
 @media (max-width: 991.98px) {
@@ -1343,7 +1327,7 @@ hr {
 }
 
 .form-control input[type=search]:focus, input[type=text]:focus, select:focus, textarea:focus {
-    border-bottom-color: var(--indigo)
+    border-bottom-color: var(--me-color)
 }
 
 textarea {
@@ -1398,7 +1382,7 @@ textarea {
 }
 
 .info-section {
-    background-image: linear-gradient(152deg, var(--indigo), var(--indigo));
+    background-image: linear-gradient(152deg, var(--me-color), var(--me-color));
     color: #fff;
     padding: 10px
 }
@@ -1478,8 +1462,8 @@ p:has(.selfcentered) {
 
 .header {
     align-items: center;
-    /*background-color: var(--indigo);*/
-    background-color: var(--indigo);
+    /*background-color: var(--me-color);*/
+    background-color: var(--me-color);
     border-bottom: 1px solid #ccc;
     display: flex;
     height: 75px;
@@ -1500,10 +1484,12 @@ p:has(.selfcentered) {
 .header__logo {
     display: inline-block;
     margin-right: 20px;
-    padding: 20px 20px 20px 50px;
-    font-size: 2em;
-    font-weight: bold;
-    color: #fff;
+    padding: 20px;
+    /*font-size: 2em;*/
+    /*font-weight: bold;*/
+    /*color: #fff;*/
+    /*background-image: url(/assets/images/logo-2.svg);*/
+    /*background-repeat: no-repeat;*/
 }
 
 .header__logo:hover {
@@ -1574,7 +1560,7 @@ p:has(.selfcentered) {
 
 @media (min-width: 992px) {
     .header-menu__trigger:hover {
-        /*color: var(--indigo)*/
+        /*color: var(--me-color)*/
         /*color: #fcc3b2*/
         color: #cccccc
     }
@@ -1716,12 +1702,12 @@ p:has(.selfcentered) {
 }
 
 .header-links__item:hover {
-    color: var(--indigo);
+    color: var(--me-color);
     text-decoration: none
 }
 
 .header-links__item--is-active:after {
-    background-image: linear-gradient(90deg, var(--indigo), var(--indigo));
+    background-image: linear-gradient(90deg, var(--me-color), var(--me-color));
     bottom: 0;
     content: "";
     display: block;
@@ -1762,12 +1748,12 @@ p:has(.selfcentered) {
 }
 
 .header-links__dropdown-list a:hover {
-    color: var(--indigo);
+    color: var(--me-color);
     text-decoration: none
 }
 
 .header-links__dropdown-list a.active {
-    color: var(--indigo);
+    color: var(--me-color);
     font-weight: 700
 }
 
@@ -1913,7 +1899,7 @@ p:has(.selfcentered) {
 }
 
 .header-lang__trigger:hover {
-    color: var(--indigo)
+    color: var(--me-color)
 }
 
 .header-lang__dropdown {
@@ -1937,17 +1923,17 @@ p:has(.selfcentered) {
 }
 
 .header-lang__dropdown a:hover {
-    color: var(--indigo);
+    color: var(--me-color);
     text-decoration: none
 }
 
 .header-lang__dropdown a.active {
-    color: var(--indigo);
+    color: var(--me-color);
     font-weight: 700
 }
 
 .footer {
-    background-color: var(--indigo);
+    background-color: var(--me-color);
     margin-top: auto
 }
 
@@ -2115,7 +2101,7 @@ body.rtl .list-dotted li:before {
 
 body.rtl .article-single__content blockquote {
     border-left: 0;
-    border-right: 2px solid var(--indigo);
+    border-right: 2px solid var(--me-color);
     margin-bottom: 40px;
     padding: 20px 28px 20px 0
 }
@@ -2603,7 +2589,7 @@ body.custom-price-tracker > #widget_container .next:before {
 }
 
 .button-more:active, .button-more:focus, .button-more:hover, .exchange .cta a:active, .exchange .cta a:focus, .exchange .cta a:hover {
-    color: var(--indigo);
+    color: var(--me-color);
     text-decoration: none
 }
 
@@ -2612,11 +2598,11 @@ body.custom-price-tracker > #widget_container .next:before {
 }
 
 .button-more:active svg path, .button-more:focus svg path, .button-more:hover svg path, .exchange .cta a:active svg path, .exchange .cta a:focus svg path, .exchange .cta a:hover svg path {
-    fill: var(--indigo)
+    fill: var(--me-color)
 }
 
 .button-more--gradient, .exchange .cta a {
-    background-image: linear-gradient(107deg, var(--indigo), var(--indigo));
+    background-image: linear-gradient(107deg, var(--me-color), var(--me-color));
     color: #fff
 }
 
@@ -2660,12 +2646,12 @@ body.custom-price-tracker > #widget_container .next:before {
 }
 
 .button-link:hover {
-    color: var(--indigo);
+    color: var(--me-color);
     text-decoration: none
 }
 
 .button-link:hover svg path {
-    fill: var(--indigo)
+    fill: var(--me-color)
 }
 
 .button-link svg {
@@ -2697,7 +2683,7 @@ body.custom-price-tracker > #widget_container .next:before {
 
 .button-group a.active, .button-group a:hover, .exchange header nav a.active, .exchange header nav a:hover, .exchanges header nav a.active, .exchanges header nav a:hover {
     /*background-color: rgba(89, 0, 138, .6);*/
-    background-color: var(--indigo);
+    background-color: var(--me-color);
     color: #fff
 }
 
@@ -2715,7 +2701,7 @@ button.cookieConsent__Button {
 }
 
 .article__badge {
-    color: var(--indigo);
+    color: var(--me-color);
     font-size: 12px;
     font-weight: 700;
     line-height: 1.33;
@@ -2723,7 +2709,7 @@ button.cookieConsent__Button {
 }
 
 .article__badge:hover {
-    color: var(--indigo);
+    color: var(--me-color);
     text-decoration: none
 }
 
@@ -2947,12 +2933,12 @@ button.cookieConsent__Button {
 }
 
 .article-single__content a:not(.button-more) {
-    color: var(--indigo)
+    color: var(--me-color)
 }
 
 .article-single__content blockquote {
-    border-left: 2px solid var(--indigo);
-    color: var(--indigo);
+    border-left: 2px solid var(--me-color);
+    color: var(--me-color);
     margin-bottom: 40px;
     padding: 20px 0 20px 28px
 }
@@ -3488,7 +3474,7 @@ button.cookieConsent__Button {
 }
 
 .tweet__link:hover svg path {
-    fill: var(--indigo)
+    fill: var(--me-color)
 }
 
 .tweet__author {
@@ -3521,7 +3507,7 @@ button.cookieConsent__Button {
 }
 
 .tweet__author-user a:hover {
-    color: var(--indigo)
+    color: var(--me-color)
 }
 
 .tweet__content a {
@@ -3640,7 +3626,7 @@ button.cookieConsent__Button {
 }
 
 .calendar .fc-daygrid-day--has-events .fc-daygrid-day-number {
-    color: var(--indigo);
+    color: var(--me-color);
     font-size: 18px;
     font-weight: 700;
     line-height: 1.33
@@ -3667,7 +3653,7 @@ button.cookieConsent__Button {
 }
 
 .calendar .fc-daygrid-event .title:hover {
-    color: var(--indigo)
+    color: var(--me-color)
 }
 
 .calendar .fc-daygrid-event .location {
@@ -3745,7 +3731,7 @@ button.cookieConsent__Button--Close {
 }
 
 .contact-form input[type=email]:focus, .contact-form input[type=text]:focus, .contact-form textarea:focus {
-    border-bottom-color: var(--indigo)
+    border-bottom-color: var(--me-color)
 }
 
 .contact-form textarea {
@@ -3761,13 +3747,13 @@ button.cookieConsent__Button--Close {
 
 @media (max-width: 767.98px) {
     .contact-sidebar {
-        background-image: linear-gradient(152deg, var(--indigo), var(--indigo))
+        background-image: linear-gradient(152deg, var(--me-color), var(--me-color))
     }
 }
 
 @media (min-width: 768px) {
     .contact-sidebar:before {
-        background-image: linear-gradient(152deg, var(--indigo), var(--indigo));
+        background-image: linear-gradient(152deg, var(--me-color), var(--me-color));
         content: "";
         display: block;
         height: 100%;
@@ -3841,7 +3827,7 @@ button.cookieConsent__Button--Close {
 }
 
 .sidebar:before {
-    background-image: linear-gradient(152deg, var(--indigo), var(--indigo));
+    background-image: linear-gradient(152deg, var(--me-color), var(--me-color));
     content: "";
     display: block;
     height: 100%;
@@ -4045,7 +4031,7 @@ button.cookieConsent__Button--Close {
 }
 
 .table-pagination button {
-    background-image: linear-gradient(107deg, var(--indigo), var(--indigo));
+    background-image: linear-gradient(107deg, var(--me-color), var(--me-color));
     color: #fff;
     margin: 3px;
     padding: 5px 15px
@@ -4081,7 +4067,7 @@ figure table {
 }
 
 .list-dotted li:before {
-    background-color: var(--indigo);
+    background-color: var(--me-color);
     border-radius: 100%;
     content: "";
     height: 8px;
@@ -4185,7 +4171,7 @@ figure table {
 }
 
 .socials a:hover svg path {
-    fill: var(--indigo)
+    fill: var(--me-color)
 }
 
 .socials a:last-child {
@@ -4348,7 +4334,7 @@ figure table {
 }
 
 .slick-dots li:after, .slick-dots li:before {
-    background: linear-gradient(135deg, var(--indigo), var(--indigo));
+    background: linear-gradient(135deg, var(--me-color), var(--me-color));
     border-radius: 100%;
     content: "";
     opacity: 0;
@@ -4538,7 +4524,7 @@ figure table {
 }
 
 .breadcrumbs a:last-child {
-    color: var(--indigo)
+    color: var(--me-color)
 }
 
 .breadcrumbs a:after, .breadcrumbs a:before {
@@ -4644,7 +4630,7 @@ figure table {
 }
 
 .newsletter .input-group button {
-    background-color: var(--indigo);
+    background-color: var(--me-color);
     border-radius: 3px !important;
     color: #fff;
     display: inline-block;
@@ -4705,7 +4691,7 @@ figure table {
 
 .menu_header > li > a:hover {
     background: none;
-    /*color: var(--indigo);*/
+    /*color: var(--me-color);*/
     /*color: #fcc3b2;*/
     color: #cccccc;
     font-weight: 700
@@ -4795,7 +4781,7 @@ figure table {
 
 .menu_header > li:not(:first-child) > ul li a:hover {
     background: none;
-    color: var(--indigo);
+    color: var(--me-color);
     line-height: normal;
     text-decoration: none
 }
@@ -5123,11 +5109,10 @@ figure table {
 }
 
 .material-symbols-outlined {
-    font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 24
+    font-variation-settings: 'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
 }
 
 @media (max-width: 1200px) {
@@ -5264,8 +5249,17 @@ figure table {
     }
 }
 
-.no-js #loader { display: none;  }
-.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.no-js #loader {
+    display: none;
+}
+
+.js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+}
+
 .se-pre-con {
     position: fixed;
     left: 0;
