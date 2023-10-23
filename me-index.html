@@ -7,13 +7,16 @@
     <meta content="me-cccc Crypto News: Bitcoin News, Ethereum News and Price Data" property="og:title"/>
     <meta content="We deliver up-to-date, breaking crypto news about the latest Bitcoin, Ethereum, Blockchain, NFTs, and Altcoin trends and happenings." name="og:description"/>
     <link href="/assets/images/favicon.png" rel="shortcut icon"/>
-    <link href="/assets/css/frontend.css" rel="stylesheet"/>
+        <link href="/assets/css/frontend.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css" rel="stylesheet"/>
     <script defer src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js"></script>
     <script defer src="/assets/js/cookieconsent-init.js"></script>
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
     <script defer src="/assets/js/frontend.js"></script>
 </head>
+
 <body>
 <div class="se-pre-con"></div>
 <header class="header" id="header">
@@ -469,6 +472,12 @@
             </div>
         </div>
     </div>
+    <script>
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");
+        });
+    </script>
 </footer>
 </body>
 </html>

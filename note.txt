@@ -83,4 +83,31 @@ http://intspeed.com/
 
 first commit after add-email-contact 926040c9e2afcd0204ffc1f6dd6a0e1c1687951e
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+<style>@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');</style>
+
+<style>@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates&display=swap');</style>
+
+font-family: 'Montserrat', sans-serif;
+font-family: 'Montserrat Alternates', sans-serif;
+
+Montserrat-6610f2
+Montserrat-Alternates-6610f2
+Rajdhani-e83e8c
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap');
+</style>
+<style>\n' +
+                '  @import url(\'https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap\');\n' +
+                '</style>
+
+
+
 

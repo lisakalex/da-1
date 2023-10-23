@@ -5989,18 +5989,32 @@
 
 $(function () {
         // debugger
-        let hostname = location.hostname.split('.')[0];
-        $(".se-pre-con").fadeOut("slow");
-        $(".replace-1").load("/assets/text/cryptonews.txt");
-        $(".replace-2").load("/assets/text/Cryptonews.txt");
-        $(".replace-3").load("/assets/text/CryptoNews.txt");
-        $(".replace-4").load("/assets/text/CRYPTONEWS.txt");
-        $(".replace-5").load("/assets/text/Crypto_News.txt");
-        document.title = hostname;
-        // debugger
-        const mailto = '<a href="mailto:support@da-1.com" class="d-inline-block" style="color:#fff">support@da-1.com</a>';
-        // const address = '<div class="d-inline-block">Da-1 LTD <br>52-60 Tabernacle Street<br>London<br>United Kingdom<br>EC2A 4NJ<br></div>';
-        // const cf_turnstile = '<div id="gandon" class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light"></div>';
+        let siteName = location.hostname.split('.')[0];
+        document.title = siteName;
+        // $(".se-pre-con").fadeOut("slow");
+
+        document.querySelectorAll('.replace-1').forEach((e) => {
+            e.innerHTML = siteName;
+        });
+
+        document.querySelectorAll('.replace-2').forEach((e) => {
+            e.innerHTML = siteName;
+        });
+
+        document.querySelectorAll('.replace-3').forEach((e) => {
+            e.innerHTML = siteName;
+        });
+
+        document.querySelectorAll('.replace-4').forEach((e) => {
+            e.innerHTML = siteName;
+        });
+
+        document.querySelectorAll('.replace-5').forEach((e) => {
+            e.innerHTML = siteName;
+        });
+        // debugge
+        // let mailto = '<a href="mailto:support@\"'.siteName.'\" class="d-inline-block" style="color:#fff">support@da-1.com</a>';
+        let mailto = '<a href="mailto:support@da-1.com" class="d-inline-block" style="color:#fff">support@da-1.com</a>';
 
         let m = document.querySelectorAll('.me-mailto');
 
@@ -6008,17 +6022,41 @@ $(function () {
             e.outerHTML = mailto;
         });
 
+        if (siteName === 'da-1') {
+            $('head').append('<style>@import url(\'https://fonts.googleapis.com/css2?family=Montserrat&display=swap\');</style>' +
+                '<link href="/assets/css/Montserrat-6610f2.css" rel="stylesheet"/>');
 
+            let cf = document.querySelector(".header__logo > img");
+            if (cf) {
+                cf.src = "/assets/images/logo.svg";
+            }
+        }
+
+        if (siteName === 'intspeed') {
+            $('head').append('<style>@import url(\'https://fonts.googleapis.com/css2?family=Rajdhani&display=swap\');</style>' +
+                '<link href="/assets/css/Rajdhani-e83e8c.css" rel="stylesheet"/>');
+
+            let cf = document.querySelector(".header__logo > img");
+            if (cf) {
+                cf.src = "/assets/images/logo-4.svg";
+            }
+        }
+
+        // if (siteName === 'intspeed') {
+        //     $('head').append('<style>@import url(\'https://fonts.googleapis.com/css2?family=Rajdhani&display=swap\');</style>' +
+        //         '<link href="/assets/css/Rajdhani-e83e8c.css" rel="stylesheet"/>');
+        // }
         // let a = document.querySelectorAll('.me-address');
         //
         // a.forEach((e) => {
         //     e.outerHTML = address;
         // });
-        //
-        // let cf = document.querySelector('.cf-turnstile');
-        // if (null !== cf) {
-        //     cf.outerHTML = cf_turnstile;
-        // }
+        //("div.user-panel.main input[name='login']");
+    // debugger
+    //     let cf = document.querySelector(".header__logo > img");
+    //     if (cf) {
+    //         cf.src = "/assets/images/logo-4.svg";
+    //     }
     }
 );
 
@@ -6034,3 +6072,9 @@ window.trans = {
 
 // do not know what this for, but removes undefined error
 window.sid = 1;
+
+// debugger
+// $(window).load(function() {
+//     // Animate loader off screen
+//     $(".se-pre-con").fadeOut("slow");
+// });
