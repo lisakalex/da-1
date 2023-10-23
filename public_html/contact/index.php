@@ -19,9 +19,8 @@ curl_setopt_array($curl, [
     CURLOPT_TIMEOUT => 30,
 ]);
 
-
+$curl_error = curl_error($curl);
 $contents = json_decode(curl_exec($curl));
-//$contents = '1x0000000000000000000000000000000AA';
 curl_close($curl);
 
 function turnstile($response)
@@ -41,20 +40,9 @@ function turnstile($response)
         CURLOPT_TIMEOUT => 30,
         CURLOPT_POSTFIELDS => json_encode([
             'secret' => $contents->secret,
-//            'secret' => $contents,
             'response' => $response
         ]),
     ]);
-
-    $curl_error = curl_error($curl);
-    $curlinfo_effective_url = curl_getinfo($curl, CURLINFO_EFFECTIVE_URL);
-
-    $myfile = fopen("newfile.txt", "a") or die("Unable to open file!");
-    $txt =$curl_error . '\n';
-    fwrite($myfile, $curlinfo_effective_url);
-    $txt = "Jane bDoe\n";
-    fwrite($myfile, $txt);
-    fclose($myfile);
 
     $result = curl_exec($curl);
     curl_close($curl);
@@ -228,10 +216,11 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
     <title id=""></title>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <meta content="Crypto News: Bitcoin News, Ethereum News and Price Data" property="og:title"/>
+    <meta content="me-cccc Crypto News: Bitcoin News, Ethereum News and Price Data" property="og:title"/>
     <meta content="We deliver up-to-date, breaking crypto news about the latest Bitcoin, Ethereum, Blockchain, NFTs, and Altcoin trends and happenings." name="og:description"/>
-    <link href="/assets/css/frontend.css" rel="stylesheet"/>
     <link href="/assets/images/favicon.png" rel="shortcut icon"/>
+    <link href="/assets/css/frontend.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css" rel="stylesheet"/>
     <script>
         window.trans = {
             ago: "ago",
@@ -246,12 +235,13 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
     <script>
         window.sid = 1;
     </script>
-    <link href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css" rel="stylesheet"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js"></script>
+    <script defer="" src="/assets/js/cookieconsent-init.js"></script>
+    <script defer="" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script defer="" src="/assets/js/frontend.js"></script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
+<!--<div class="se-pre-con"></div>-->
 <header class="header" id="header">
     <a class="header__logo" href="/">
         <img alt="Crypto News" src="/assets/images/logo.svg"/>
@@ -543,7 +533,6 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
                                 <div class="col-12">
                                     <div class="checkbox mb-3" style="margin: 5px 0 5px 0">
                                         <div class="cf-turnstile"></div>
-<!--                                        <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light"></div>-->
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -742,8 +731,6 @@ if (filter_input(INPUT_POST, 'send-message', FILTER_SANITIZE_SPECIAL_CHARS) === 
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js"></script>
-    <script defer="" src="/assets/js/cookieconsent-init.js"></script>
 </footer>
 </body>
 </html>

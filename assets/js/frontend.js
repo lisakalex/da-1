@@ -5997,35 +5997,65 @@
     })()
 })();
 
-$(function () {
-        $(".replace-1").load("/assets/text/cryptonews.txt");
-        $(".replace-2").load("/assets/text/Cryptonews.txt");
-        $(".replace-3").load("/assets/text/CryptoNews.txt");
-        $(".replace-4").load("/assets/text/CRYPTONEWS.txt");
-        $(".replace-5").load("/assets/text/Crypto_News.txt");
-        document.title = "da-1";
+$(async function () {
+        // $(".replace-1").load("/assets/text/cryptonews.txt");
+        // $(".replace-2").load("/assets/text/Cryptonews.txt");
+        // $(".replace-3").load("/assets/text/CryptoNews.txt");
+        // $(".replace-4").load("/assets/text/CRYPTONEWS.txt");
+        // $(".replace-5").load("/assets/text/Crypto_News.txt");
+        // document.title = "da-1";
         // debugger
-        const mailto = '<a href="mailto:support@da-1.com" class="d-inline-block" style="color:#fff">support@da-1.com</a>';
-        const address = '<div class="d-inline-block">Da-1 LTD <br>52-60 Tabernacle Street<br>London<br>United Kingdom<br>EC2A 4NJ<br></div>';
-        const cf_turnstile = '<div id="gandon" class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light"></div>';
+        const response = await fetch('/assets/js/head.html');
+        const me_head = await response.text();
 
-        let m = document.querySelectorAll('.me-mailto');
+        const response1 = await fetch('/assets/js/footer.html');
+        const me_footer = await response1.text();
 
-        m.forEach((e) => {
-            e.outerHTML = mailto;
-        });
+        const response2 = await fetch('/assets/js/header.html');
+        const me_header = await response2.text();
+        // const mailto = '<a href="mailto:support@da-1.com" class="d-inline-block" style="color:red">support@da-1.com</a>';
+        // const address = '<div class="d-inline-block">Da-1 LTD <br>52-60 Tabernacle Street<br>London<br>United Kingdom<br>EC2A 4NJ<br></div>';
+        // const cf_turnstile = '<div id="gandon" class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light"></div>';
+debugger
+        // const response = await fetch('head.html');
+        // const movies = await response.json();
+        // const me_head = await response.text();
+        // const me_head = '';
 
-        let a = document.querySelectorAll('.me-address');
+        // let m = document.querySelectorAll('.me-mailto');
+        //
+        // m.forEach((e) => {
+        //     e.outerHTML = mailto;
+        // });
+        //
+        // let a = document.querySelectorAll('.me-address');
+        //
+        // a.forEach((e) => {
+        //     e.outerHTML = address;
+        // });
+        //
+        // let cf = document.querySelector('.cf-turnstile');
+        // if (null !== cf) {
+        //     cf.outerHTML = cf_turnstile;
+        // }
+// debugger
+        let h = document.querySelector('head');
+        if (h) {
+            h.outerHTML = me_head;
+        }
 
-        a.forEach((e) => {
-            e.outerHTML = address;
-        });
+        let f = document.querySelector('footer');
+        if (f) {
+            f.outerHTML = me_footer;
+        }
 
-        let cf = document.querySelector('.cf-turnstile');
-        if (null !== cf) {
-            cf.outerHTML = cf_turnstile;
+        let h1 = document.querySelector('header');
+        if (h1) {
+            h1.outerHTML = me_header;
         }
     }
+
+
 );
 // debugger
 // $(window).load(function() {
