@@ -5989,6 +5989,7 @@
 
 $(function () {
         // debugger
+        let hostname = location.hostname;
         let siteName = location.hostname.split('.')[0];
         document.title = siteName;
         // $(".se-pre-con").fadeOut("slow");
@@ -6013,8 +6014,7 @@ $(function () {
             e.innerHTML = siteName;
         });
         // debugge
-        // let mailto = '<a href="mailto:support@\"'.siteName.'\" class="d-inline-block" style="color:#fff">support@da-1.com</a>';
-        let mailto = '<a href="mailto:support@da-1.com" class="d-inline-block" style="color:#fff">support@da-1.com</a>';
+        let mailto = '<a href="mailto:support@' + hostname + '" class="d-inline-block" style="color:#fff">support@' + hostname + '</a>';
 
         let m = document.querySelectorAll('.me-mailto');
 
@@ -6023,40 +6023,17 @@ $(function () {
         });
 
         if (siteName === 'da-1') {
-            $('head').append('<style>@import url(\'https://fonts.googleapis.com/css2?family=Montserrat&display=swap\');</style>' +
-                '<link href="/assets/css/Montserrat-6610f2.css" rel="stylesheet"/>');
+            document.querySelector(".header__logo > img").src = "/assets/images/logo.svg";
+            document.documentElement.style.setProperty('--me-color', 'green');
+            document.documentElement.style.setProperty('--me-font-family', 'Kanit');
 
-            let cf = document.querySelector(".header__logo > img");
-            if (cf) {
-                cf.src = "/assets/images/logo.svg";
-            }
         }
 
         if (siteName === 'intspeed') {
-            $('head').append('<style>@import url(\'https://fonts.googleapis.com/css2?family=Rajdhani&display=swap\');</style>' +
-                '<link href="/assets/css/Rajdhani-e83e8c.css" rel="stylesheet"/>');
-
-            let cf = document.querySelector(".header__logo > img");
-            if (cf) {
-                cf.src = "/assets/images/logo-4.svg";
-            }
+            document.querySelector(".header__logo > img").src = "/assets/images/logo-4.svg";
+            document.documentElement.style.setProperty('--me-color', 'red');
+            document.documentElement.style.setProperty('--me-font-family', 'Oswald');
         }
-
-        // if (siteName === 'intspeed') {
-        //     $('head').append('<style>@import url(\'https://fonts.googleapis.com/css2?family=Rajdhani&display=swap\');</style>' +
-        //         '<link href="/assets/css/Rajdhani-e83e8c.css" rel="stylesheet"/>');
-        // }
-        // let a = document.querySelectorAll('.me-address');
-        //
-        // a.forEach((e) => {
-        //     e.outerHTML = address;
-        // });
-        //("div.user-panel.main input[name='login']");
-    // debugger
-    //     let cf = document.querySelector(".header__logo > img");
-    //     if (cf) {
-    //         cf.src = "/assets/images/logo-4.svg";
-    //     }
     }
 );
 
@@ -6072,9 +6049,3 @@ window.trans = {
 
 // do not know what this for, but removes undefined error
 window.sid = 1;
-
-// debugger
-// $(window).load(function() {
-//     // Animate loader off screen
-//     $(".se-pre-con").fadeOut("slow");
-// });

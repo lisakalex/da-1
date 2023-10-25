@@ -1504,6 +1504,7 @@ p:has(.selfcentered) {
     display: inline-block;
     margin-right: 20px;
     padding: 20px;
+    background-color: #fff;
     /*font-size: 2em;*/
     /*font-weight: bold;*/
     /*color: #fff;*/
