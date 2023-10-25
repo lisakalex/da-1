@@ -108,6 +108,11 @@ Rajdhani-e83e8c
                 '  @import url(\'https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap\');\n' +
                 '</style>
 
+font-family: 'Cormorant Garamond', serif;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Rajdhani', sans-serif;
+font-family: 'Rubik', sans-serif;
+
 
 
 
