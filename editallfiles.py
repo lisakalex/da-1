@@ -98,14 +98,6 @@ def replace_links(read_file1):
     for link in links:
         href = link.get('href')
         if href:
-            # if 'https://cryptonews.com' in href:
-            #     href = href.replace('https://cryptonews.com', '')
-            #     link['href'] = href
-            #
-            # if 'https://kumkanot.com' in href:
-            #     href = href.replace('https://kumkanot.com', '')
-            #     link['href'] = href
-
             if '/ext/' in href:
                 href = href.replace('/ext/', 'https://cryptonews.com/ext/')
                 link['href'] = href
@@ -219,17 +211,6 @@ def replace_text(read_file1):
     read_file1 = read_file1.replace('CryptoNews', '<data class="replace-3" value=""></data>')
     read_file1 = read_file1.replace('CRYPTONEWS', '<data class="replace-4" value=""></data>')
     read_file1 = read_file1.replace('Crypto News', '<data class="replace-5" value=""></data>')
-
-    # with open(read_file1, 'r') as file1:
-    # with open('me-index.html', 'r') as file1:
-    #     soup = BeautifulSoup(file1.read(), features="html.parser")
-    #
-    # frontend = soup.find('link', href='/assets/css/frontend.css')
-    # soup1 = BeautifulSoup(read_file1, features="html.parser")
-    #
-    # if soup1.head is not None:
-    #     # soup.body.insert(1, '<link href="/assets/css/frontend.css" rel="stylesheet"/>')
-    #     soup1.head.insert(0, frontend)
     return read_file1
 
 
@@ -242,27 +223,16 @@ for fl in files:
         with open(filepath) as file:
             read_file = file.read()
 
-        # download_json_files(read_file)
+        download_json_files(read_file)
         read_file = replace_text(read_file)
         read_file = replace_links(read_file)
         read_file = decompose_tags(read_file)
         read_file = replace_header_footer(read_file)
         read_file = insert_ads(read_file)
-        # read_file = insert_cookie(read_file)
-
         count_replace = count_replace + 1
 
         with open(filepath, "w") as file:
             file.write(read_file)
-
-# fix contact us
-with open('./b/contact/index.htm', 'r') as file:
-    contact = file.read()
-
-with open('./b/contact/index.php', "a") as file:
-    file.write(contact)
-
-os.remove('./b/contact/index.htm')
 
 shutil.copytree('./b/', './public_html/', dirs_exist_ok=True)
 finish_time = time.time() - start_time
