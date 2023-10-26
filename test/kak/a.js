@@ -1,7 +1,7 @@
 /*! For license information please see frontend.js.LICENSE.txt */
 (() => {
     var e, t, n, i = {
-        687: () => {
+        10687: () => {
             !function () {
                 "use strict";
 
@@ -608,7 +608,7 @@
                 var t = $(this).parent().parent().find(".header-menu__dropdown-children");
                 t.hasClass("header-menu__dropdown-children--is-active") ? t.removeClass("header-menu__dropdown-children--is-active") : ($(".header-menu__dropdown-children").removeClass("header-menu__dropdown-children--is-active"), t.addClass("header-menu__dropdown-children--is-active"))
             }))
-        }, 4252: () => {
+        }, 34252: () => {
             var e = function () {
                 var e, t, n = /(twitter|facebook|google-plus|pinterest|tumblr|telegram|vk|linkedin|buffer|email)/, i = "*|*";
 
@@ -815,7 +815,7 @@
                 }
             }();
             window.SocialShareKit = e
-        }, 600: () => {
+        }, 50600: () => {
             function e() {
                 var e = document.querySelector(".scrollspy").querySelectorAll("h1, h2, h3, h4, h5, h6"), t = {};
                 Array.prototype.forEach.call(e, (function (e) {
@@ -837,7 +837,7 @@
                 activeLinkClass: "active",
                 linkClass: "category"
             })), $(".sidebar-wrap").stick_in_parent({inner_scrolling: !1, parent: ".sidebar", recalc_every: 100, offset_top: 75})
-        }, 2269: () => {
+        }, 42269: () => {
             $("#topSlider").slick({infinite: !1, speed: 500, slidesToShow: 1, slidesToScroll: 1, fade: !0, arrows: !1, autoplay: !0, autoplaySpeed: 4e3, dots: !0, draggable: !1, appendDots: "#topDots"}), $(".guide-slider").slick({
                 infinite: !1,
                 speed: 300,
@@ -850,13 +850,13 @@
                 src: "src",
                 itemSelector: ".item img"
             }), $(".tracker-rates").slick({infinite: !1, speed: 300, slidesToShow: 5, slidesToScroll: 1, arrows: !0, dots: !1, draggable: !0, prevArrow: $(".tracker-rates__arrow--prev"), nextArrow: $(".tracker-rates__arrow--next"), responsive: [{breakpoint: 1360, settings: {slidesToShow: 4, slidesToScroll: 4}}, {breakpoint: 991, settings: {slidesToShow: 3, slidesToScroll: 3}}, {breakpoint: 767, settings: {slidesToShow: 2, slidesToScroll: 2}}]})
-        }, 8274: () => {
+        }, 88274: () => {
             SocialShareKit.init()
-        }, 3670: (e, t, n) => {
+        }, 63670: (e, t, n) => {
             "use strict";
-            var i;
+            var i, o;
 
-            function o(e, t) {
+            function r(e, t) {
                 var n = Object.keys(e);
                 if (Object.getOwnPropertySymbols) {
                     var i = Object.getOwnPropertySymbols(e);
@@ -867,50 +867,50 @@
                 return n
             }
 
-            function r(e) {
+            function s(e) {
                 for (var t = 1; t < arguments.length; t++) {
                     var n = null != arguments[t] ? arguments[t] : {};
-                    t % 2 ? o(Object(n), !0).forEach((function (t) {
-                        s(e, t, n[t])
-                    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : o(Object(n)).forEach((function (t) {
+                    t % 2 ? r(Object(n), !0).forEach((function (t) {
+                        a(e, t, n[t])
+                    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : r(Object(n)).forEach((function (t) {
                         Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(n, t))
                     }))
                 }
                 return e
             }
 
-            function s(e, t, n) {
+            function a(e, t, n) {
                 return t in e ? Object.defineProperty(e, t, {value: n, enumerable: !0, configurable: !0, writable: !0}) : e[t] = n, e
             }
 
-            n.d(t, {Z: () => d, v: () => l});
-            var a = {"Content-Type": "application/json", Accept: "application/json", "X-Requested-With": "XMLHttpRequest"}, l = null !== (i = "https://a2.cryptonews.com") ? i : "https://rapi.cryptonews.com", c = function (e) {
-                return (e = "".concat(l, "/").concat(e)).replace(/([^:]\/)\/+/g, "$1")
+            n.d(t, {Z: () => u, v: () => c});
+            var l = {"Content-Type": "application/json", Accept: "application/json", "X-Requested-With": "XMLHttpRequest", "S-Id": window.sid}, c = null !== (i = null !== (o = window.burl) && void 0 !== o ? o : "https://a2.cryptonews.com") && void 0 !== i ? i : "https://rapi.cryptonews.com", d = function (e) {
+                return (e = "".concat(c, "/").concat(e)).replace(/([^:]\/)\/+/g, "$1")
             };
-            const d = {
+            const u = {
                 get: function (e) {
-                    return fetch(c(e), {headers: a, credentials: "include"}).then((function (e) {
+                    return fetch(d(e), {headers: l, credentials: "include"}).then((function (e) {
                         if (e.ok) return e.json();
                         var t = new Error("HTTP status code: " + e.status);
                         throw t.response = e, t.status = e.status, t
                     }))
                 }, post: function (e, t) {
-                    return fetch(c(e), {method: "POST", headers: a, credentials: "include", body: JSON.stringify(r({}, t))}).then((function (e) {
+                    return fetch(d(e), {method: "POST", headers: l, credentials: "include", body: JSON.stringify(s({}, t))}).then((function (e) {
                         if (e.ok) return e.json();
                         var t = new Error("HTTP status code: " + e.status);
                         throw t.response = e, t.status = e.status, t
                     }))
                 }
             }
-        }, 6936: (e, t, n) => {
+        }, 96936: (e, t, n) => {
             "use strict";
             n.d(t, {Z: () => r});
-            var i = n(3645), o = n.n(i)()((function (e) {
+            var i = n(23645), o = n.n(i)()((function (e) {
                 return e[1]
             }));
             o.push([e.id, '.cookieConsentToggle{background:#fff;border:0;border-radius:50%;bottom:20px;box-shadow:0 0 10px rgba(0,0,0,.3);height:40px;opacity:1;padding:9px;position:fixed;right:20px;transition:.2s;width:40px;will-change:transform;z-index:99980}.cookieConsentToggle:hover{background:#000;color:#fff}.cookieConsentToggle *{fill:currentColor}.cookieConsentWrapper{background:#000;bottom:0;color:#fff;left:0;padding:20px;position:fixed;right:0;transition:.2s;z-index:99990}.cookieConsent{display:flex;justify-content:space-between;margin:0 auto}.cookieConsent__Content{margin-right:40px}.cookieConsent__Title{font-weight:700;margin:0}.cookieConsent__Description{margin:10px 0 0}.cookieConsent__Description a{color:#fff;text-decoration:underline}.cookieConsent__Description a:hover{text-decoration:none}.cookieConsent__Right{align-items:flex-end;display:flex}.cookieConsentOperations{background:rgba(0,0,0,.8);bottom:0;display:flex;left:0;position:fixed;right:0;top:0;transition:.3s;will-change:transform;z-index:99999}.cookieConsentOperations .cookieConsentOperations__List{transform:scale(1)}.cookieConsentOperations__List{background:#fff;box-sizing:border-box;color:#000;margin:auto;max-height:100vh;max-width:500px;overflow-y:auto;padding:40px;transform:scale(.95);transition:transform .2s;will-change:transform}.cookieConsentOperations__Item{display:block;margin-bottom:20px;padding-left:60px}.cookieConsentOperations__Item.disabled{color:#999}.cookieConsentOperations__Item.disabled label:after{opacity:.3}.cookieConsentOperations__Item input{display:none}.cookieConsentOperations__Item label{align-items:center;display:block;font-size:22px;font-weight:700;position:relative}.cookieConsentOperations__Item label:before{background:#dedede;border-radius:20px;content:"";display:block;height:20px;left:-60px;position:absolute;top:50%;transform:translateY(-50%);width:40px}.cookieConsentOperations__Item label:after{background:#000;border-radius:50%;content:"";display:block;height:16px;left:-58px;position:absolute;top:50%;transform:translateY(-50%);transition:.2s;width:16px}.cookieConsentOperations__Item input:checked+label:after{transform:translate(20px,-50%)}.cookieConsent__Button{background:#fff;border:0;color:#000;cursor:pointer;display:block;font-size:16px;margin-left:10px;padding:15px 40px;transition:.2s;white-space:nowrap}.cookieConsent__Button--Close{background:#000;color:#fff;margin:40px 0 0 60px;padding:15px 60px}.cookieConsent__Button:hover{opacity:.6}@media only screen and (max-width:900px){.cookieConsent{display:block}.cookieConsent__Right{margin-top:20px}.cookieConsent__Button{margin:0 10px 10px 0}.cookieConsent__Button--Close{margin:40px 0 0}}', ""]);
             const r = o
-        }, 3645: e => {
+        }, 23645: e => {
             "use strict";
             e.exports = function (e) {
                 var t = [];
@@ -932,7 +932,7 @@
                     }
                 }, t
             }
-        }, 2998: function (e, t, n) {
+        }, 12998: function (e, t, n) {
             "use strict";
             var i, o;
             i = function () {
@@ -1381,7 +1381,7 @@
                     }
                 }, e
             }, void 0 === (o = "function" == typeof i ? i.call(t, n, t, e) : i) || (e.exports = o)
-        }, 9755: function (e, t) {
+        }, 19755: function (e, t) {
             var n;
             !function (t, n) {
                 "use strict";
@@ -1515,7 +1515,7 @@
                             var n = "0x" + e.slice(1) - 65536;
                             return t || (n < 0 ? String.fromCharCode(n + 65536) : String.fromCharCode(n >> 10 | 55296, 1023 & n | 56320))
                         }, ie = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\0-\x1f\x7f-\uFFFF\w-]/g, oe = function (e, t) {
-                            return t ? "\0" === e ? "�" : e.slice(0, -1) + "\\" + e.charCodeAt(e.length - 1).toString(16) + " " : "\\" + e
+                            return t ? "\0" === e ? "ï¿½" : e.slice(0, -1) + "\\" + e.charCodeAt(e.length - 1).toString(16) + " " : "\\" + e
                         }, re = function () {
                             p()
                         }, se = we((function (e) {
@@ -3731,7 +3731,7 @@
                     return i.$ === T && (i.$ = Jt), e && i.jQuery === T && (i.jQuery = Kt), T
                 }, void 0 === o && (i.jQuery = i.$ = T), T
             }))
-        }, 7090: e => {
+        }, 77090: e => {
             !function (t, n) {
                 var i = function (e, t, n) {
                     "use strict";
@@ -3890,11 +3890,11 @@
                 }(t, t.document, Date);
                 t.lazySizes = i, e.exports && (e.exports = i)
             }("undefined" != typeof window ? window : {})
-        }, 1770: (e, t, n) => {
+        }, 31770: (e, t, n) => {
             var i, o, r;
             !function (s, a) {
                 if (s) {
-                    a = a.bind(null, s, s.document), e.exports ? a(n(7090)) : (o = [n(7090)], void 0 === (r = "function" == typeof (i = a) ? i.apply(t, o) : i) || (e.exports = r))
+                    a = a.bind(null, s, s.document), e.exports ? a(n(77090)) : (o = [n(77090)], void 0 === (r = "function" == typeof (i = a) ? i.apply(t, o) : i) || (e.exports = r))
                 }
             }("undefined" != typeof window ? window : 0, (function (e, t, n) {
                 "use strict";
@@ -3926,10 +3926,10 @@
                     }))
                 }
             }))
-        }, 82: (e, t, n) => {
+        }, 90082: (e, t, n) => {
             var i, o, r;
             !function (s, a) {
-                a = a.bind(null, s, s.document), e.exports ? a(n(7090)) : (o = [n(7090)], void 0 === (r = "function" == typeof (i = a) ? i.apply(t, o) : i) || (e.exports = r))
+                a = a.bind(null, s, s.document), e.exports ? a(n(77090)) : (o = [n(77090)], void 0 === (r = "function" == typeof (i = a) ? i.apply(t, o) : i) || (e.exports = r))
             }(window, (function (e, t, n) {
                 "use strict";
                 var i, o, r = {};
@@ -3968,7 +3968,7 @@
                     }
                 }), !1))
             }))
-        }, 7229: (e, t, n) => {
+        }, 47229: (e, t, n) => {
             var i;
             !function (e) {
                 var t, n, i, o, r, s, a, l = navigator.userAgent;
@@ -4236,11 +4236,11 @@
                     }, n.src = t, "pending"
                 }("image/webp", "data:image/webp;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAABBxAR/Q9ERP8DAABWUDggGAAAADABAJ0BKgEAAQADADQlpAADcAD++/1QAA=="))
             }(window, document)
-        }, 9154: (e, t, n) => {
+        }, 29154: (e, t, n) => {
             var i, o, r;
             !function (s) {
                 "use strict";
-                o = [n(9755)], i = function (e) {
+                o = [n(19755)], i = function (e) {
                     var t = window.Slick || {};
                     (t = function () {
                         var t = 0;
@@ -4758,7 +4758,7 @@
                     }
                 }, void 0 === (r = "function" == typeof i ? i.apply(t, o) : i) || (e.exports = r)
             }()
-        }, 4449: () => {
+        }, 54449: () => {
             "use strict";
             !function (e) {
                 var t, n;
@@ -4893,7 +4893,7 @@
                     }))
                 }
             }(jQuery)
-        }, 9293: function () {
+        }, 79293: function () {
             (function () {
                 var e, t;
                 e = this.jQuery || window.jQuery, t = e(window), e.fn.stick_in_parent = function (n) {
@@ -4933,7 +4933,7 @@
                     return this
                 }
             }).call(this)
-        }, 3379: (e, t, n) => {
+        }, 93379: (e, t, n) => {
             "use strict";
             var i, o = function () {
                 return void 0 === i && (i = Boolean(window && document && document.all && !window.atob)), i
@@ -5045,7 +5045,7 @@
                     }
                 }
             }
-        }, 1557: e => {
+        }, 41557: e => {
             e.exports = function (e) {
                 var t, n = [].forEach, i = [].some, o = document.body, r = !0, s = " ";
 
@@ -5126,7 +5126,7 @@
                     }
                 }
             }
-        }, 1340: e => {
+        }, 11340: e => {
             e.exports = {
                 tocSelector: ".js-toc",
                 contentSelector: ".js-toc-content",
@@ -5166,11 +5166,11 @@
                 basePath: "",
                 disableTocScrollSync: !1
             }
-        }, 2866: function (e, t, n) {
+        }, 92866: function (e, t, n) {
             var i, o, r, s;
             s = void 0 !== n.g ? n.g : this.window || this.global, o = [], i = function (e) {
                 "use strict";
-                var t, i, o, r = n(1340), s = {}, a = {}, l = n(1557), c = n(9620), d = n(3693), u = !!(e && e.document && e.document.querySelector && e.addEventListener);
+                var t, i, o, r = n(11340), s = {}, a = {}, l = n(41557), c = n(39620), d = n(43693), u = !!(e && e.document && e.document.querySelector && e.addEventListener);
                 if ("undefined" != typeof window || u) {
                     var p = Object.prototype.hasOwnProperty;
                     return a.destroy = function () {
@@ -5178,7 +5178,7 @@
                         null !== e && (s.skipRendering || e && (e.innerHTML = ""), s.scrollContainer && document.querySelector(s.scrollContainer) ? (document.querySelector(s.scrollContainer).removeEventListener("scroll", this._scrollListener, !1), document.querySelector(s.scrollContainer).removeEventListener("resize", this._scrollListener, !1), t && document.querySelector(s.scrollContainer).removeEventListener("click", this._clickListener, !1)) : (document.removeEventListener("scroll", this._scrollListener, !1), document.removeEventListener("resize", this._scrollListener, !1), t && document.removeEventListener("click", this._clickListener, !1)))
                     }, a.init = function (e) {
                         if (u) {
-                            s = f(r, e || {}), this.options = s, this.state = {}, s.scrollSmooth && (s.duration = s.scrollSmoothDuration, s.offset = s.scrollSmoothOffset, a.scrollSmooth = n(764).initSmoothScrolling(s)), t = l(s), i = c(s), this._buildHtml = t, this._parseContent = i, this._headingsArray = o, a.destroy();
+                            s = f(r, e || {}), this.options = s, this.state = {}, s.scrollSmooth && (s.duration = s.scrollSmoothDuration, s.offset = s.scrollSmoothOffset, a.scrollSmooth = n(30764).initSmoothScrolling(s)), t = l(s), i = c(s), this._buildHtml = t, this._parseContent = i, this._headingsArray = o, a.destroy();
                             var p = m(s);
                             if (null !== p) {
                                 var v = g(s);
@@ -5237,7 +5237,7 @@
                     }
                 }
             }(s), void 0 === (r = "function" == typeof i ? i.apply(t, o) : i) || (e.exports = r)
-        }, 9620: e => {
+        }, 39620: e => {
             e.exports = function (e) {
                 var t = [].reduce;
 
@@ -5279,7 +5279,7 @@
                     }
                 }
             }
-        }, 764: (e, t) => {
+        }, 30764: (e, t) => {
             t.initSmoothScrolling = function (e) {
                 var t = e.duration, n = e.offset, i = location.hash ? o(location.href) : location.href;
 
@@ -5316,7 +5316,7 @@
                     })
                 }), !1)
             }
-        }, 3693: e => {
+        }, 43693: e => {
             e.exports = function (e) {
                 var t = e.tocElement || document.querySelector(e.tocSelector);
                 if (t && t.scrollHeight > t.clientHeight) {
@@ -5352,74 +5352,75 @@
     }, r.d = (e, t) => {
         for (var n in t) r.o(t, n) && !r.o(e, n) && Object.defineProperty(e, n, {enumerable: !0, get: t[n]})
     }, r.f = {}, r.e = e => Promise.all(Object.keys(r.f).reduce(((t, n) => (r.f[n](e, t), t)), [])), r.u = e => "js/chunks/" + e + "-" + {
-        270: "1ff1a1534c2a65ed",
-        363: "5a94a7daeb629fb1",
-        381: "9d39d747178b07b1",
-        1092: "664357bc754d4fa2",
-        1247: "7c3882a853c5727e",
-        1299: "55d2a39bd97b7168",
-        1736: "e1600f3127d15df2",
-        1787: "7c06e77ca451b807",
-        1910: "587f4959c8d30ea6",
-        1992: "b9864f62e9085025",
-        2003: "07ab63549f8a5422",
-        2123: "3664f8cbcb181f5c",
-        2182: "33be94bc6115945e",
-        2389: "c2744084b22cb9df",
-        2475: "504affa7c1b9f21b",
-        2578: "7c21f2df2f42546a",
-        2871: "8dd3c885f8ca534a",
-        3169: "51f348bec9747750",
-        3301: "35cafe74490f9a7b",
-        3652: "7aa67dcced99eb6c",
-        3925: "7202356530218470",
-        3948: "ffffd3773120ef60",
-        3984: "34d7e6f9ab235183",
-        4311: "00bc29be0146e005",
-        4415: "1b95ed168220b94c",
+        32: "ff87be36b3bdcc1f",
+        270: "265b81f307798b13",
+        363: "1f357277aa7fe3b7",
+        381: "a682b940d8bbc816",
+        1092: "3e17d8373dc30411",
+        1299: "2ca8536ec2ffdcb2",
+        1455: "2afd53b2af6416a5",
+        1736: "f21133dfd7a21497",
+        1787: "3a64b5de650549dc",
+        1910: "e8df250dd8dacde5",
+        1992: "42d0fd03f6f07dc7",
+        2003: "10b842790ed5e537",
+        2182: "63431ef5b4946266",
+        2389: "ba0310c77b341e1d",
+        2475: "818d4d0555a48508",
+        2578: "50f4cf8b0e37f919",
+        2871: "aafb161b43d5a87b",
+        3169: "2924509454d056bc",
+        3301: "bf43d8c3fb4e016d",
+        3586: "3bd48dc723ecb608",
+        3652: "db7fbd37a60e1921",
+        3925: "e94994ab6b444d7f",
+        3948: "59237bee9edc8bd5",
+        3984: "58fe00afb60016ab",
+        4311: "65313fe58e1fdf46",
+        4415: "ff8a8448759928bf",
         4452: "bffbde637d6620e7",
-        4496: "739f8197a87a0366",
-        4513: "69f5d01c0b48742c",
-        4530: "f9ddb0fe5c679c9c",
-        4987: "f85603945ef50ecd",
-        5013: "7dc331884c997f77",
+        4496: "d4c942896b315fb1",
+        4513: "5b2be03499f9655c",
+        4530: "191cec0eab880216",
+        4987: "abce76d61f203ee9",
+        5013: "c7ee4d4fab77457e",
         5132: "f82ccb7b26a11e40",
-        5349: "c7cdbacc2302c379",
-        5731: "3b3fa523329a2583",
-        5899: "57060bb1dd491b01",
-        5948: "f40b01e260168a75",
+        5349: "ba3995969b09095e",
+        5731: "497662f7609c8538",
+        5899: "859701f98500142b",
+        5948: "fec0c182c856f16f",
         6079: "9bcf8ca50468ebac",
-        6110: "86a2f86898268d4a",
-        6308: "3119618ed389672e",
-        6395: "b86d53c9ed3a1ff9",
-        6397: "0f6de5f52cc67582",
-        6514: "8738d858b3b8ea1d",
+        6110: "9856eb08f0ce7104",
+        6308: "9d74de308b74f08d",
+        6395: "6eb159b4ccd9e0d2",
+        6514: "6d2477d01547c211",
         6524: "26db4e6ea9096aea",
-        6602: "ea012f45ddd02a5b",
-        6670: "fc09a73e5018a3d3",
-        6844: "17c7f7516b8310dd",
-        6889: "0f22dd0053722f85",
-        7055: "cb7a0e507ed745a0",
-        7521: "bbaceab2a90c01d3",
-        7541: "8e28e5b5935f42f7",
-        7611: "8a0fdc8205824bbe",
-        7620: "0a69d6d078b52281",
-        7679: "f623a5055ac993f3",
+        6602: "397c826e16bc37aa",
+        6670: "448123e7bbefb6ad",
+        6844: "c5cd1342fc7232fe",
+        6889: "5ccd98b33b04f5bc",
+        7055: "be190f0213c5259f",
+        7521: "aa1c8a27ce862ee4",
+        7541: "ac4c58e4d8004be4",
+        7611: "883bfa292bfa6054",
+        7620: "40a9b2b712d7672d",
+        7679: "5f59521b44ee07f2",
         7840: "9fa581fe24f9c082",
-        7935: "1ea7521d2cfa796a",
-        8034: "7178c0c9af15282c",
-        8246: "df66694f3c5142c0",
-        8469: "e29770f0811393c6",
-        8908: "45aa67223545b086",
-        8990: "934ea7f0a6c0ddb6",
-        9318: "9ca3d5e2d142758d",
-        9365: "7e30aa31d7b4a377",
-        9399: "6aed2fc8e2d51f07",
-        9440: "504237e477b0bbe5",
-        9586: "f662b6b60f70a26e",
-        9636: "8e3929e407dfffc5",
-        9778: "6c7ccf6977c0dffe",
-        9971: "cdd67de3ee455cb1"
+        7935: "cb1e8b9341edc9f0",
+        7960: "f66e4bd1ed6c9ee1",
+        8034: "931ffd1b87a412b1",
+        8469: "c2b81a0b6162cf59",
+        8908: "7c4de4e591d8662d",
+        8935: "d79da6279324bb1a",
+        8990: "723031a80d3c5e86",
+        9318: "f5596bc11f357b60",
+        9365: "49519a795ebe66a8",
+        9399: "0f47dd86c280404d",
+        9440: "7d26982722832179",
+        9586: "b302ea3f73256813",
+        9636: "657ee93ffb3d8d26",
+        9778: "c3124ae2fd55878e",
+        9971: "e1ee511525e2ff14"
     }[e] + ".js", r.miniCssF = e => {
     }, r.g = function () {
         if ("object" == typeof globalThis) return globalThis;
@@ -5448,7 +5449,7 @@
         }
     }, r.r = e => {
         "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {value: "Module"}), Object.defineProperty(e, "__esModule", {value: !0})
-    }, r.p = "https://v2.cimg.co/", (() => {
+    }, r.p = "https://cimg.co/", (() => {
         var e = {5568: 0};
         r.f.j = (t, n) => {
             var i = r.o(e, t) ? e[t] : void 0;
@@ -5475,7 +5476,7 @@
         n.forEach(t.bind(null, 0)), n.push = t.bind(null, n.push.bind(n))
     })(), r.nc = void 0, (() => {
         "use strict";
-        r(7229);
+        r(47229);
         var e = "undefined" != typeof globalThis && globalThis || "undefined" != typeof self && self || void 0 !== e && e, t = "URLSearchParams" in e, n = "Symbol" in e && "iterator" in Symbol, i = "FileReader" in e && "Blob" in e && function () {
             try {
                 return new Blob, !0
@@ -5721,10 +5722,10 @@
         }
 
         T.polyfill = !0, e.fetch || (e.fetch = T, e.Headers = p, e.Request = b, e.Response = k);
-        var S = r(2998), E = r.n(S), A = (r(7090), r(1770), r(82), r(687), r(3379)), $ = r.n(A), L = r(6936), _ = {insert: "head", singleton: !1};
+        var S = r(12998), E = r.n(S), A = (r(77090), r(31770), r(90082), r(10687), r(93379)), $ = r.n(A), L = r(96936), _ = {insert: "head", singleton: !1};
         $()(L.Z, _);
         L.Z.locals;
-        var O = r(9755), j = r.n(O), D = r(3670);
+        var O = r(19755), j = r.n(O), D = r(63670);
 
         function N(e, t) {
             var n = "undefined" != typeof Symbol && e[Symbol.iterator] || e["@@iterator"];
@@ -5782,26 +5783,21 @@
             }
         }
 
-        // function R() {
-        //     if (0 == window.rcploaded) {
-        //         var e = window.document.getElementsByTagName("head")[0], t = document.createElement("script");
-        //         t.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LeV0tkfAAAAAANWBbmC5180xwf49pKxgExDAUMu"), t.async = !1, e.appendChild(t), window.rcploaded = 1
-        //     }
-        // }
+        function R() {
+            if (0 == window.rcploaded) {
+                var e = window.document.getElementsByTagName("head")[0], t = document.createElement("script");
+                t.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LeV0tkfAAAAAANWBbmC5180xwf49pKxgExDAUMu"), t.async = !1, e.appendChild(t), window.rcploaded = 1
+            }
+        }
 
-        window.Embedo = E(), window.$ = window.jQuery = j(), r(9154), r(4449), r(9293), r(2866), j()(document).ready((function () {
-            r(2269), r(4252), r(4924), r(600), r(8274)
+        window.Embedo = E(), window.$ = window.jQuery = j(), r(29154), r(54449), r(79293), r(92866), j()(document).ready((function () {
+            r(42269), r(34252), r(4924), r(50600), r(88274)
         })), window.addEventListener("DOMContentLoaded", (function (e) {
             window.gdproptions && (window.gdproptions.categories.necessary = function () {
             }, GdprConsent.attachBanner(window.document.body, window.gdproptions)), window.rcploaded = 0;
             var t = document.getElementById("newsletter-home");
             if (I(t) && R(), window.addEventListener("scroll", (function () {
-                I(t) && R(), setTimeout((function () {
-                    var e;
-                    e = "newsletter", document.cookie.split(" ").map((function (e) {
-                        return e.split("=")[0]
-                    })).includes(e) || (R(), document.getElementById("newsletter-popup-img").removeAttribute("hidden"), z("newsletter-modal"))
-                }), 5e3)
+                I(t) && R()
             })), window.innerWidth < 992) {
                 var n, i = N(document.querySelectorAll(".sub-menu"));
                 try {
@@ -5833,14 +5829,10 @@
             var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 30, n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 0;
             setTimeout((function () {
                 document.getElementById(e).classList.remove("active")
-            }), n), M("newsletter", 1, t)
+            }), n), z("newsletter", 1, t)
         }
 
-        function z(e) {
-            document.getElementById(e).classList.add("active")
-        }
-
-        function M(e, t, n) {
+        function z(e, t, n) {
             var i = new Date;
             i.setTime(i.getTime() + 24 * n * 60 * 60 * 1e3);
             var o = "expires=" + i.toUTCString();
@@ -5848,36 +5840,35 @@
         }
 
         window.addEventListener("DOMContentLoaded", (function () {
-            var e;
             window.Embedo = E(), window.load_more_counter = 0, window.last_file = 0;
-            var t = window.$(".dslot_huy").map((function () {
-                return j()(this).attr("did_huy")
-            })).get().join(), n = "/api/view/" + window.sid + "/" + window.cid;
-            t && t.length > 0 && (n += "/" + t), void 0 === window.cid && (window.cid = 0), D.Z.get(n).then((function (e) {
-                var t = window.$(".dslot_huy");
+            var e = window.$(".dslot").map((function () {
+                return j()(this).attr("did")
+            })).get().join(), t = "/api/view/" + window.sid + "/" + window.cid;
+            e && e.length > 0 && (t += "/" + e), void 0 === window.cid && (window.cid = 0), D.Z.get(t).then((function (e) {
+                var t = window.$(".dslot");
                 1 != window.no_ads ? t.each((function () {
-                    var t = j()(this).attr("did_huy");
+                    var t = j()(this).attr("did");
                     void 0 === e.data[t] ? j()(this).remove() : j()(this).append(e.data[t])
                 })) : t.each((function () {
                     j()(this).remove()
                 }))
             })).catch((function (e) {
             }));
-            var i = window.document.getElementsByClassName("vapp");
-            i && i.length > 0 && r.e(7541).then(r.bind(r, 7541)).then((function (e) {
+            var n = window.document.getElementsByClassName("vapp");
+            n && n.length > 0 && r.e(7541).then(r.bind(r, 67541)).then((function (e) {
             }));
-            var o = window.document.getElementsByClassName("infogram-embed");
-            o && o.length > 0 && function (e, t, n, i) {
+            var i = window.document.getElementsByClassName("infogram-embed");
+            i && i.length > 0 && function (e, t, n, i) {
                 var o = "InfogramEmbeds", r = e.getElementsByTagName("script")[0];
                 if (window[o] && window[o].initialized) window[o].process && window[o].process(); else if (!e.getElementById(n)) {
                     var s = e.createElement("script");
                     s.async = 1, s.id = n, s.src = "https://e.infogram.com/js/dist/embed-loader-min.js", r.parentNode.insertBefore(s, r)
                 }
             }(window.document, 0, "infogram-async");
-            var s, a = window.document.getElementById("market_info");
-            if (a && load_market(a), window.document.getElementById("coin_info")) {
-                var l = window.location.pathname.replace(new RegExp("[/]+$"), "");
-                "coins.htm" === (l = l.substring(l.lastIndexOf("/") + 1)) && (l = "bitcoin"), s = l, D.Z.get("/api/coindata/" + s).then((function (e) {
+            var o, s = window.document.getElementById("market_info");
+            if (s && load_market(s), window.document.getElementById("coin_info")) {
+                var a = window.location.pathname.replace(new RegExp("[/]+$"), "");
+                "coins.htm" === (a = a.substring(a.lastIndexOf("/") + 1)) && (a = "bitcoin"), o = a, D.Z.get("/api/coindata/" + o).then((function (e) {
                     if (!e.data) throw new Error("Coin not found");
                     var t, n, i;
                     window.document.title = e.data.coin_name, Array.from(window.document.getElementsByClassName("coinname")).forEach((function (t) {
@@ -5896,13 +5887,13 @@
                     window.document.getElementsByTagName("h1")[0].innerHTML = "Not Found"
                 }))
             }
-            var c = j()("#load_more").attr("loadmoretype");
-            !c || c.length < 2 || window.fetch("/paged/" + c + "-1.json", {method: "GET", headers: {"X-Requested-With": "XMLHttpRequest"}}).then((function (e) {
+            var l = j()("#load_more").attr("loadmoretype");
+            !l || l.length < 2 || window.fetch("/paged/" + l + "-1.json", {method: "GET", headers: {"X-Requested-With": "XMLHttpRequest"}}).then((function (e) {
                 return e.json()
             })).then((function (e) {
                 window.more_articles = e, window.last_file = 1
             })), window.$("#load_more").click((function () {
-                if (["tags", "recent-404"].includes(c)) {
+                if (["tags", "recent-404"].includes(l)) {
                     var e = window.more_articles.slice(window.load_more_counter, window.load_more_counter + 21);
                     window.load_more_counter = window.load_more_counter + 21, e.forEach((function (e, t) {
                         window.$("#load_more_target").append(e)
@@ -5924,7 +5915,7 @@
                 }(new Date(t)), i = window.trans.ago, o = window.trans.ago_long;
                 o = o.split(",");
                 var r = n.split(" "), s = 1 === parseInt(r[0]) ? o[6] ? o[6] : "second" : o[7] ? o[7] : "seconds", a = 1 === parseInt(r[0]) ? o[0] : o[1], l = 1 === parseInt(r[0]) ? o[2] : o[3], c = 1 === parseInt(r[0]) ? o[4] : o[5];
-                i && l && c && (n = (n = (n = (n = (n = n.replace("[ago]", i)).replace("[minutes]", a)).replace("[hours]", l)).replace("[days]", c)).replace("[seconds]", s)), e.innerHTML = "• " + n
+                i && l && c && (n = (n = (n = (n = (n = n.replace("[ago]", i)).replace("[minutes]", a)).replace("[hours]", l)).replace("[days]", c)).replace("[seconds]", s)), e.innerHTML = "â€¢ " + n
             })), document.querySelectorAll("span[data-utctimelocale]").forEach((function (e) {
                 var t = new Date(e.getAttribute("data-utctimelocale")), n = e.getAttribute("data-utctimelocale").replace(/\s/g, "T") + "Z", i = new Date(n), o = new Date(t);
                 o.setDate(o.getDate() - 1);
@@ -5934,7 +5925,20 @@
                 i.getDate() == o.getDate() && (s = e.getAttribute("data-previousDate")), i.getDate() == r.getDate() && (s = e.getAttribute("data-nextDate"));
                 var a = i.toLocaleTimeString("default", {hour: "2-digit", minute: "2-digit", timeZoneName: "short"});
                 e.innerHTML = s + " " + a
-            })), null === (e = window.document.getElementById("dropdown-menu")) || void 0 === e || e.removeAttribute("hidden")
+            }));
+            var c = [];
+            document.querySelectorAll("[data-handle]").forEach((function (e) {
+                c.push(e.getAttribute("data-handle"))
+            })), c.length && D.Z.get("/api/geo-handles/" + c.join(",")).then((function (e) {
+                c.forEach((function (t) {
+                    document.querySelectorAll('[data-handle="'.concat(t, '"]')).forEach((function (n) {
+                        var i = e.data.find((function (e) {
+                            return e.handle === t
+                        }));
+                        i ? n.innerHTML = i.content : n.remove()
+                    }))
+                }))
+            }))
         })), window.htmlencode = function (e) {
             var t = document.createElement("div");
             return t.appendChild(document.createTextNode(e)), t.innerHTML
@@ -5944,11 +5948,11 @@
         }, document.addEventListener("click", (function (e) {
             j()(e.target).hasClass("hide-modal") && H(e.target.getAttribute("data-id")), j()(e.target).is("#newsletter-modal") && H("newsletter-modal")
         }));
-        var q = document.getElementById("newsletter-form");
-        q && (q.onsubmit = U);
-        var B = document.getElementById("newsletter-home");
+        var M = document.getElementById("newsletter-form");
+        M && (M.onsubmit = B);
+        var q = document.getElementById("newsletter-home");
 
-        function U(e) {
+        function B(e) {
             var t = e.target.id, n = document.querySelector("#".concat(t, " #newsletter-signup"));
             e.preventDefault(), R();
             var i = document.querySelector("#".concat(t, " [name=email]")).value;
@@ -5971,7 +5975,7 @@
             }))
         }
 
-        B && (B.onsubmit = U), document.querySelectorAll(".accordion-table tr.view").forEach((function (e) {
+        q && (q.onsubmit = B), document.querySelectorAll(".accordion-table tr.view").forEach((function (e) {
             e.addEventListener("click", (function () {
                 this.classList.toggle("open"), this.nextElementSibling.classList.toggle("open")
             }))
@@ -5979,39 +5983,12 @@
             e.addEventListener("click", (function (e) {
                 !function (e) {
                     D.Z.get("api/jobs/".concat(e)).then((function (e) {
-                        document.getElementById("job-details").innerHTML = e.data, z("job-modal")
+                        document.getElementById("job-details").innerHTML = e.data, function (e) {
+                            document.getElementById(e).classList.add("active")
+                        }("job-modal")
                     }))
                 }(e.target.getAttribute("data-id"))
             }))
         }))
     })()
 })();
-
-$(function () {
-        $(".replace-1").load("/assets/text/cryptonews.txt");
-        $(".replace-2").load("/assets/text/Cryptonews.txt");
-        $(".replace-3").load("/assets/text/CryptoNews.txt");
-        $(".replace-4").load("/assets/text/CRYPTONEWS.txt");
-        $(".replace-5").load("/assets/text/Crypto_News.txt");
-        document.title = "Intspeed";
-        document.getElementsByClassName("header-menu__trigger")[0].remove();
-        const mailto = '<a href="mailto:support@intspeed" class="d-inline-block" style="color:#fff">support@intspeed.com</a>';
-        const address = '<div class="d-inline-block">intspeed LTD <br>52-60 Tabernacle Street<br>London<br>United Kingdom<br>EC2A 4NJ<br></div>';
-        const cf_turnstile = '<div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light"></div>';
-
-        let m = document.querySelectorAll('.me-mailto');
-
-        m.forEach((e) => {
-            e.outerHTML = mailto;
-        });
-
-        let a = document.querySelectorAll('.me-address');
-
-        a.forEach((e) => {
-            e.outerHTML = address;
-        });
-
-        let cf = document.querySelector('.cf-turnstile');
-        cf.outerHTML = cf_turnstile;
-    }
-);

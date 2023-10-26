@@ -6013,14 +6013,15 @@ $(function () {
         document.querySelectorAll('.replace-5').forEach((e) => {
             e.innerHTML = siteName;
         });
-        // debugge
-        let mailto = '<a href="mailto:support@' + hostname + '" class="d-inline-block" style="color:#fff">support@' + hostname + '</a>';
 
-        let m = document.querySelectorAll('.me-mailto');
+        const mailto = '<a href="mailto:support@' + hostname + '" class="d-inline-block" style="color:#fff">support@' + hostname + '</a>';
+        const address = '<div class="d-inline-block">Da-1 LTD <br>52-60 Tabernacle Street<br>London<br>United Kingdom<br>EC2A 4NJ<br></div>';
 
-        m.forEach((e) => {
+        document.querySelectorAll('.me-mailto').forEach((e) => {
             e.outerHTML = mailto;
         });
+
+        document.querySelector('.me-address').outerHTML = address;
 
         if (siteName === 'da-1') {
             document.querySelector(".header__logo > img").src = "/assets/images/logo.svg";
