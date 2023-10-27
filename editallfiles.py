@@ -55,16 +55,16 @@ with open('./b/index.html', "w") as file:
 
 
 # fix Recommended to do
-with open('./me-index.html', 'r') as file:
-    soup = BeautifulSoup(file.read(), features="html.parser")
-    recommended = soup.find('a', class_='heading')
-    breadcrumbs = recommended.findAll("a")
-
-if breadcrumbs[2]:
-    breadcrumbs[2].decompose()
-
-with open('./b/exclusives/index.html', "w") as file:
-    file.write(str(soup))
+# with open('./me-index.html', 'r') as file:
+#     soup = BeautifulSoup(file.read(), features="html.parser")
+#     recommended = soup.find('a', class_='heading')
+#     breadcrumbs = recommended.findAll("a")
+#
+# if breadcrumbs[2]:
+#     breadcrumbs[2].decompose()
+#
+# with open('./b/exclusives/index.html', "w") as file:
+#     file.write(str(soup))
 
 
 def replace_header_footer(read_file1):

@@ -5987,6 +5987,12 @@
     })()
 })();
 
+function setSite(color, font, site, firstLine, city, country, postCode) {
+    document.documentElement.style.setProperty('--me-color', color);
+    document.documentElement.style.setProperty('--me-font-family', font);
+    document.querySelector('.me-address').outerHTML = '<div class="d-inline-block">' + site + '<br>' + firstLine + '<br>' + city + '<br>' + country + '<br>' + postCode + '<br></div>';
+}
+
 $(function () {
         // debugger
         let hostname = location.hostname;
@@ -6014,26 +6020,26 @@ $(function () {
             e.innerHTML = siteName;
         });
 
-        const mailto = '<a href="mailto:support@' + hostname + '" class="d-inline-block" style="color:#fff">support@' + hostname + '</a>';
-        const address = '<div class="d-inline-block">Da-1 LTD <br>52-60 Tabernacle Street<br>London<br>United Kingdom<br>EC2A 4NJ<br></div>';
+        // const mailto = '<a href="mailto:support@' + hostname + '" class="d-inline-block" style="color:#fff">support@' + hostname + '</a>';
+        // const address = '<div class="d-inline-block">Da-1 LTD <br>52-60 Tabernacle Street<br>London<br>United Kingdom<br>EC2A 4NJ<br></div>';
 
         document.querySelectorAll('.me-mailto').forEach((e) => {
-            e.outerHTML = mailto;
+            e.outerHTML = '<a href="mailto:support@' + hostname + '" class="d-inline-block" style="color:#fff">support@' + hostname + '</a>';
         });
 
-        document.querySelector('.me-address').outerHTML = address;
+        // document.querySelector('.me-address').outerHTML = address;
+        document.querySelector(".header__logo > img").src = "/assets/images/" + hostname + ".svg";
 
-        if (siteName === 'da-1') {
-            document.querySelector(".header__logo > img").src = "/assets/images/logo.svg";
-            document.documentElement.style.setProperty('--me-color', 'green');
-            document.documentElement.style.setProperty('--me-font-family', 'Kanit');
-
+        if (hostname === 'da-1.com' || hostname === 'intspeed.com' || hostname === 'xxx.xx') {
+            setSite('green', 'Kanit', siteName, '52-60 Tabernacle Street', 'London', 'United Kingdom', 'EC2A 4NJ')
         }
 
-        if (siteName === 'intspeed') {
-            document.querySelector(".header__logo > img").src = "/assets/images/logo-4.svg";
-            document.documentElement.style.setProperty('--me-color', 'red');
-            document.documentElement.style.setProperty('--me-font-family', 'Oswald');
+        if (hostname === 'huy.com' || hostname === 'xxx.xx' || hostname === 'xxx.xx') {
+            setSite('pink', 'Oswald', siteName, '1 Ku Tabernacle Street', 'London', 'United Kingdom', 'EC2A 4NJ')
+        }
+
+        if (hostname === 'huy-1.com' || hostname === 'xxx.xx' || hostname === 'xxx.xx') {
+            setSite('red', 'Playfair Display', siteName, '23 Lady Gaga Street', 'London', 'United Kingdom', 'EC2A 4NJ')
         }
     }
 );
