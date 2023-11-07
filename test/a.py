@@ -8,25 +8,49 @@ import subprocess
 from pathlib import Path
 from bs4 import BeautifulSoup
 
+# fix Recommended to do
+with open('./b/index.html', 'r') as f:
+    soup = BeautifulSoup(f.read(), features="html.parser")
 
-# with open('./index.htm', 'r') as file:
-#     contact = file.read()
-#
-# with open('./index.php', "a") as file:
-#     file.write(contact)
+recommended = soup.findAll('ul', class_="header-menu__dropdown-children")
+recommended = recommended[4]
 
-# def insert_load_tag(read_file1):
-# with open('me-index.html', 'r') as file1:
-with open('/var/www/da-1.com/me-index.html') as file:
-    soup = BeautifulSoup(file, features='html.parser')
+recommended_1 = soup.findAll('ul', class_="sub-menu")
+recommended_1 = recommended_1[5]
 
-with open('a.html') as file:
-    soup1 = BeautifulSoup(file, features='html.parser')
+footer = soup.findAll('div', class_="header-menu__dropdown-children")
+footer = footer[5]
 
-se_pre_con = soup.find('div', class_='se-pre-con')
-soup1.body.insert(1, se_pre_con)
+with open('./me-index.html', 'r') as ff:
+    soup1 = BeautifulSoup(ff.read(), features="html.parser")
 
-with open('a.html', "w") as file:
+editorsPicks = soup1.findAll('ul', class_="header-menu__dropdown-children")
+editorsPicks = editorsPicks[3]
+
+editorsPicks_1 = soup1.findAll('ul', class_="sub-menu")
+editorsPicks_1 = editorsPicks_1[3]
+
+editorsPicks_footer = soup1.findAll('div', class_="header-menu__dropdown-children")
+editorsPicks_footer = editorsPicks_footer[3]
+
+if recommended and editorsPicks:
+    editorsPicks.replace_with(recommended)
+
+if recommended_1 and editorsPicks_1:
+    editorsPicks_1.replace_with(recommended_1)
+
+if footer and editorsPicks_footer:
+    editorsPicks_footer.replace_with(footer)
+
+# links = soup1.findAll('a')
+for link in soup1.findAll('a'):
+    href = link.get('href')
+    if href:
+        if 'https://cryptonews.com' in href:
+            href = href.replace('https://cryptonews.com', '')
+            link['href'] = href
+
+with open('./me-index.html', "w") as file:
     file.write(str(soup1))
 
 huy = None
