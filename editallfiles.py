@@ -28,23 +28,23 @@ shutil.rmtree('./b/wp-includes/', ignore_errors=True)
 shutil.rmtree('./b/wp-json/', ignore_errors=True)
 
 # fix exclusives
-if os.path.exists('./b/exclusives/index.html'):
-    os.remove('./b/exclusives/index.html')
-else:
-    print("The file does not exist")
-
-shutil.copyfile('./b/exclusives/features/index.html', './b/exclusives/index.html')
-
-with open('./b/exclusives/index.html', 'r') as file:
-    soup = BeautifulSoup(file.read(), features="html.parser")
-    breadcrumbs = soup.find('div', class_='breadcrumbs')
-    breadcrumbs = breadcrumbs.findAll("a")
-
-if breadcrumbs[2]:
-    breadcrumbs[2].decompose()
-
-with open('./b/exclusives/index.html', "w") as file:
-    file.write(str(soup))
+# if os.path.exists('./b/exclusives/index.html'):
+#     os.remove('./b/exclusives/index.html')
+# else:
+#     print("The file does not exist")
+#
+# shutil.copyfile('./b/exclusives/features/index.html', './b/exclusives/index.html')
+#
+# with open('./b/exclusives/index.html', 'r') as file:
+#     soup = BeautifulSoup(file.read(), features="html.parser")
+#     breadcrumbs = soup.find('div', class_='breadcrumbs')
+#     breadcrumbs = breadcrumbs.findAll("a")
+#
+# if breadcrumbs[2]:
+#     breadcrumbs[2].decompose()
+#
+# with open('./b/exclusives/index.html', "w") as file:
+#     file.write(str(soup))
 
 # delete section guides in /index.html
 with open('./b/index.html', 'r') as file:
@@ -249,6 +249,7 @@ def insert_ads(read_file1):
     return str(soup1)
 
 
+# get rid of lazy loading and replace cryptonews's empty image
 def no_lazy_loading(read_file1):
     soup = BeautifulSoup(read_file1, features="html.parser")
 
