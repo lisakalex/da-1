@@ -57,49 +57,50 @@ if guides is not None:
 with open('./b/index.html', "w") as file:
     file.write(str(soup))
 
+# /html/body/header/div[1]/ul/li[9]/ul
 # fix Recommended
-# with open('./b/index.html', 'r') as f:
-#     soup = BeautifulSoup(f.read(), features="html.parser")
-#
-# recommended = soup.findAll('ul', class_="sub-menu")
-# recommended = recommended[5]
-#
+with open('./b/index.html', 'r') as f:
+    soup = BeautifulSoup(f.read(), features="html.parser")
+
+recommended = soup.findAll('ul', class_="sub-menu")
+recommended = recommended[5]
+
 # recommended_1 = soup.findAll('ul', class_="sub-menu")
 # recommended_1 = recommended_1[12]
 #
 # footer = soup.findAll('div', class_="header-menu__dropdown-children")
 # footer = footer[3]
-#
-# with open('./me-index.html', 'r') as ff:
-#     soup1 = BeautifulSoup(ff.read(), features="html.parser")
-#
-# editorsPicks = soup1.findAll('ul', class_="header-menu__dropdown-children")
-# editorsPicks = editorsPicks[3]
-#
+
+with open('./me-index.html', 'r') as ff:
+    soup1 = BeautifulSoup(ff.read(), features="html.parser")
+
+editorsPicks = soup1.findAll('ul', class_="sub-menu")
+editorsPicks = editorsPicks[3]
+
 # editorsPicks_1 = soup1.findAll('ul', class_="sub-menu")
 # editorsPicks_1 = editorsPicks_1[3]
 #
 # editorsPicks_footer = soup1.findAll('div', class_="header-menu__dropdown-children")
 # editorsPicks_footer = editorsPicks_footer[3]
-#
-# if recommended and editorsPicks:
-#     editorsPicks.replace_with(recommended)
-#
+
+if recommended and editorsPicks:
+    editorsPicks.replace_with(recommended)
+
 # if recommended_1 and editorsPicks_1:
 #     editorsPicks_1.replace_with(recommended_1)
 #
 # if footer and editorsPicks_footer:
 #     editorsPicks_footer.replace_with(footer)
-#
-# for link in soup1.findAll('a'):
-#     href = link.get('href')
-#     if href:
-#         if 'https://cryptonews.com' in href:
-#             href = href.replace('https://cryptonews.com', '')
-#             link['href'] = href
-#
-# with open('./me-index.html', "w") as file:
-#     file.write(str(soup1))
+
+for link in soup1.findAll('a'):
+    href = link.get('href')
+    if href:
+        if 'https://cryptonews.com' in href:
+            href = href.replace('https://cryptonews.com', '')
+            link['href'] = href
+
+with open('./me-index.html', "w") as file:
+    file.write(str(soup1))
 
 
 def replace_header_footer(read_file1):
@@ -144,33 +145,33 @@ def replace_links(read_file1):
     return str(soup)
 
 
-def download_files(url, path, file1):
-    time.sleep(1)
-
-    try:
-        headers = {'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36'}
-        source = requests.get(url, headers=headers, timeout=None)
-
-        Path(path).mkdir(parents=True, exist_ok=True)
-        with open(path + file1, "w") as f:
-            f.write(source.text)
-
-    except Exception as e:
-        print(e)
-        pass
-
-
-def download_json_files(read_file1):
-    soup = BeautifulSoup(read_file1, features="html.parser")
-    soup1 = soup.find_all("a")
-    for link in soup1:
-        loadmoretype = link.get('loadmoretype')
-        if loadmoretype:
-            url = 'https://cryptonews.com/paged/' + loadmoretype + '-1.json'
-            print(url)
-            path = './b/paged/'
-            file1 = loadmoretype + '-1.json'
-            download_files(url, path, file1)
+# def download_files(url, path, file1):
+#     time.sleep(1)
+#
+#     try:
+#         headers = {'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36'}
+#         source = requests.get(url, headers=headers, timeout=None)
+#
+#         Path(path).mkdir(parents=True, exist_ok=True)
+#         with open(path + file1, "w") as f:
+#             f.write(source.text)
+#
+#     except Exception as e:
+#         print(e)
+#         pass
+#
+#
+# def download_json_files(read_file1):
+#     soup = BeautifulSoup(read_file1, features="html.parser")
+#     soup1 = soup.find_all("a")
+#     for link in soup1:
+#         loadmoretype = link.get('loadmoretype')
+#         if loadmoretype:
+#             url = 'https://cryptonews.com/paged/' + loadmoretype + '-1.json'
+#             print(url)
+#             path = './b/paged/'
+#             file1 = loadmoretype + '-1.json'
+#             download_files(url, path, file1)
 
 
 def decompose_tags(read_file1):
@@ -188,10 +189,10 @@ def decompose_tags(read_file1):
     if newsletter_modal:
         newsletter_modal.decompose()
 
-    iframes = soup.findAll('iframe')
-    for iframe in iframes:
-        if iframe:
-            iframe.parent.decompose()
+    # iframes = soup.findAll('iframe')
+    # for iframe in iframes:
+    #     if iframe:
+    #         iframe.parent.decompose()
 
     widget_containers = soup.findAll('div', id='widget_container')
     for widget_container in widget_containers:
@@ -248,6 +249,28 @@ def insert_ads(read_file1):
     return str(soup1)
 
 
+def no_lazy_loading(read_file1):
+    soup = BeautifulSoup(read_file1, features="html.parser")
+
+    lazy = soup.findAll('img')
+    for la in lazy:
+        if la.has_attr('data-src'):
+            if la['data-src'] == 'https://cimg.co/p/assets/empty-cryptonews.jpg':
+                la['data-src'] = '/assets/images/empty-kak.jpg'
+                la['src'] = '/assets/images/empty-kak.jpg'
+            else:
+                la['src'] = la['data-src']
+
+        if la.has_attr('data-lazy-src'):
+            if la['data-lazy-src'] == 'https://cimg.co/p/assets/empty-cryptonews.jpg':
+                la['data-lazy-src'] = '/assets/images/empty-kak.jpg'
+                la['src'] = '/assets/images/empty-kak.jpg'
+            else:
+                la['src'] = la['data-lazy-src']
+
+    return str(soup)
+
+
 def replace_text(read_file1):
     read_file1 = read_file1.replace('cryptonews', '<data class="replace-1" value=""></data>')
     read_file1 = read_file1.replace('Cryptonews', '<data class="replace-2" value=""></data>')
@@ -272,6 +295,7 @@ for fl in files:
         read_file = decompose_tags(read_file)
         read_file = insert_ads(read_file)
         read_file = replace_header_footer(read_file)
+        read_file = no_lazy_loading(read_file)
         count_replace = count_replace + 1
 
         with open(filepath, "w") as file:

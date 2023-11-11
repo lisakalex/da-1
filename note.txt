@@ -113,6 +113,12 @@ font-family: 'Josefin Sans', sans-serif;
 font-family: 'Rajdhani', sans-serif;
 font-family: 'Rubik', sans-serif;
 
+<!--    <script type="rocketlazyloadscript" data-rocket-src='https://cryptonews.com/wp-content/themes/cryptonews/assets/js/frontend.js?ver=1.1688466991' id='frontend-js-js' defer></script>-->
+    <script type="rocketlazyloadscript" data-rocket-src='/assets/js/new/frontend-1.js' id='frontend-js-js' defer></script>
 
+<!--    <link data-minify="1" rel='stylesheet' id='style-css-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/style.css?ver=1698672909' media='all'/>-->
+    <link data-minify="1" rel='stylesheet' id='style-css-css' href='/assets/css/new/style-1.css' media='all'/>
+
+    http://huy-1.com/
 
 
