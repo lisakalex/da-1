@@ -5952,29 +5952,6 @@
         M && (M.onsubmit = B);
         var q = document.getElementById("newsletter-home");
 
-        // function B(e) {
-        //     var t = e.target.id, n = document.querySelector("#".concat(t, " #newsletter-signup"));
-        //     e.preventDefault(), R();
-        //     var i = document.querySelector("#".concat(t, " [name=email]")).value;
-        //     console.log("#".concat(t, " #newsletter-response"));
-        //     var o = document.querySelectorAll(".response-msg");
-        //     window.grecaptcha.ready((function () {
-        //         window.grecaptcha.execute("6LeV0tkfAAAAAANWBbmC5180xwf49pKxgExDAUMu", {action: "submit"}).then((function (e) {
-        //             n.disabled = !0, D.Z.post("/api/newsletter/subscribe", {email: i, token: e, sid: window.sid}).then((function (e) {
-        //                 o.forEach((function (t) {
-        //                     t.innerHTML = e.message
-        //                 })), H("newsletter-modal", 365, 2e3), n.disabled = !1
-        //             })).catch((function (e) {
-        //                 n.disabled = !1, e.response.text().then((function (e) {
-        //                     e = JSON.parse(e), o.forEach((function (e) {
-        //                         e.innerHTML = response.message
-        //                     }))
-        //                 }))
-        //             }))
-        //         }))
-        //     }))
-        // }
-
         q && (q.onsubmit = B), document.querySelectorAll(".accordion-table tr.view").forEach((function (e) {
             e.addEventListener("click", (function () {
                 this.classList.toggle("open"), this.nextElementSibling.classList.toggle("open")
@@ -6004,15 +5981,17 @@ $(function () {
         let hostname = location.hostname;
         let siteName = location.hostname.split('.')[0];
         document.title = siteName;
-        debugger
-        let breadcrumbs = document.querySelector(".breadcrumbs").children[0];
-        if (breadcrumbs) {
-            breadcrumbs.textContent = siteName
+
+        try {
+            document.querySelector(".breadcrumbs").children[0].textContent = siteName
+        } catch (err) {
+
         }
 
-        let copyright = document.querySelector("#copyright");
-        if (copyright) {
-            copyright.textContent = '© 2023 ' + siteName + '. All rights reserved';
+        try {
+            document.querySelector("#copyright").textContent = '© 2023 ' + siteName + '. All rights reserved';
+        } catch (err) {
+
         }
 
         document.querySelectorAll('.replace-1').forEach((e) => {
