@@ -57,19 +57,15 @@ if guides is not None:
 with open('./b/index.html', "w") as file:
     file.write(str(soup))
 
-# /html/body/header/div[1]/ul/li[9]/ul
 # fix Recommended
 with open('./b/index.html', 'r') as f:
     soup = BeautifulSoup(f.read(), features="html.parser")
 
 recommended = soup.findAll('ul', class_="sub-menu")
-recommended = recommended[5]
+recommended = recommended[12]
 
-# recommended_1 = soup.findAll('ul', class_="sub-menu")
-# recommended_1 = recommended_1[12]
-#
-# footer = soup.findAll('div', class_="header-menu__dropdown-children")
-# footer = footer[3]
+recommended_footer = soup.findAll('ul', class_="sub-menu")
+recommended_footer = recommended_footer[19]
 
 with open('./me-index.html', 'r') as ff:
     soup1 = BeautifulSoup(ff.read(), features="html.parser")
@@ -77,20 +73,14 @@ with open('./me-index.html', 'r') as ff:
 editorsPicks = soup1.findAll('ul', class_="sub-menu")
 editorsPicks = editorsPicks[3]
 
-# editorsPicks_1 = soup1.findAll('ul', class_="sub-menu")
-# editorsPicks_1 = editorsPicks_1[3]
-#
-# editorsPicks_footer = soup1.findAll('div', class_="header-menu__dropdown-children")
-# editorsPicks_footer = editorsPicks_footer[3]
+editorsPicks_footer = soup1.findAll('ul', class_="sub-menu")
+editorsPicks_footer = editorsPicks_footer[7]
 
 if recommended and editorsPicks:
     editorsPicks.replace_with(recommended)
 
-# if recommended_1 and editorsPicks_1:
-#     editorsPicks_1.replace_with(recommended_1)
-#
-# if footer and editorsPicks_footer:
-#     editorsPicks_footer.replace_with(footer)
+if recommended_footer and editorsPicks_footer:
+    editorsPicks_footer.replace_with(recommended_footer)
 
 for link in soup1.findAll('a'):
     href = link.get('href')
@@ -142,6 +132,9 @@ def replace_links(read_file1):
                 href = href.replace('/ext/', 'https://cryptonews.com/ext/')
                 link['href'] = href
 
+            if '/tags/' in href or 'twitter' in href:
+                link.decompose()
+
     return str(soup)
 
 
@@ -189,10 +182,9 @@ def decompose_tags(read_file1):
     if newsletter_modal:
         newsletter_modal.decompose()
 
-    # iframes = soup.findAll('iframe')
-    # for iframe in iframes:
-    #     if iframe:
-    #         iframe.parent.decompose()
+    iframes = soup.findAll('iframe')
+    if iframes:
+        iframes[0].parent.decompose()
 
     widget_containers = soup.findAll('div', id='widget_container')
     for widget_container in widget_containers:
@@ -213,12 +205,6 @@ def decompose_tags(read_file1):
     for t in twitter:
         if 'Twitter' in t.text:
             t.decompose()
-
-    tags_links = soup.find_all("a")
-    for t in tags_links:
-        if t.has_attr('href'):
-            if '/tags/' in t['href']:
-                t.decompose()
 
     videos = soup.find_all("section")
     for v in videos:
@@ -273,12 +259,19 @@ def no_lazy_loading(read_file1):
 
 
 def replace_text(read_file1):
-    read_file1 = read_file1.replace('cryptonews', '<data class="replace-1" value=""></data>')
-    read_file1 = read_file1.replace('Cryptonews', '<data class="replace-2" value=""></data>')
-    read_file1 = read_file1.replace('CryptoNews', '<data class="replace-3" value=""></data>')
-    read_file1 = read_file1.replace('CRYPTONEWS', '<data class="replace-4" value=""></data>')
-    read_file1 = read_file1.replace('Crypto News', '<data class="replace-5" value=""></data>')
-    return read_file1
+    soup = BeautifulSoup(read_file1, features="html.parser")
+    soup.find(text="cryptonews").replace_with('<data class="replace-1" value=""></data>')
+    soup.find(text="Cryptonews").replace_with('<data class="replace-2" value=""></data>')
+    soup.find(text="CryptoNews").replace_with('<data class="replace-3" value=""></data>')
+    soup.find(text="CRYPTONEWS").replace_with('<data class="replace-4" value=""></data>')
+    # soup.find(text="Crypto News").replace_with('<data class="replace-5" value=""></data>')
+
+    # read_file1 = read_file1.replace('cryptonews', '<data class="replace-1" value=""></data>')
+    # read_file1 = read_file1.replace('Cryptonews', '<data class="replace-2" value=""></data>')
+    # read_file1 = read_file1.replace('CryptoNews', '<data class="replace-3" value=""></data>')
+    # read_file1 = read_file1.replace('CRYPTONEWS', '<data class="replace-4" value=""></data>')
+    # read_file1 = read_file1.replace('Crypto News', '<data class="replace-5" value=""></data>')
+    return str(soup)
 
 
 files = ['html', 'htm']
