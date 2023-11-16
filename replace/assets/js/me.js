@@ -6,24 +6,36 @@ function setSite(color, font, site, firstLine, city, country, postCode) {
 
 $(function () {
 
-        let gg = location.href
-        let ggg = location.origin
-        let gggg = location.pathname
+        let href = location.href
+        let origin = location.origin
+        let pathname = location.pathname
         let hostname = location.hostname;
         let siteName = location.hostname.split('.')[0];
         document.title = siteName;
-        document.querySelector('[data-clickout-type="native_table_box_processed"]').remove();
-        document.querySelector(".container-fluid").remove();
-        document.querySelector("#style-css-css").remove();
-        // document.querySelector("head").append('<link href="/assets/css/style.css" rel="stylesheet"/>')
-        $("head").append("<link href=\"/assets/css/style.css\" rel=\"stylesheet\"/>" +
-            "<link href=\"/assets/images/favicon.png\" rel=\"shortcut icon\"/>" +
+
+        try {
+            document.querySelector('[data-clickout-type="native_table_box_processed"]').remove();
+        } catch (err) {
+        }
+
+        try {
+            document.querySelector(".container-fluid").remove();
+        } catch (err) {
+        }
+
+        try {
+            document.querySelector("#style-css-css").remove();
+        } catch (err) {
+        }
+
+        $("head").prepend("<link href=\"/assets/images/favicon.png\" rel=\"shortcut icon\"/>" +
             "<link href=\"https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css\" rel=\"stylesheet\"/>" +
             "<script defer=\"\" src=\"https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js\"></script>" +
             "<script defer=\"\" src=\"/assets/js/cookieconsent-init.js\"></script>");
 
-        $(".header").load("/me-index.html .header > *");
-        $(".footer").load("/me-index.html .footer > *");
+        // $(".body").prepend("<div class=\"se-pre-con\"></div>");
+        // $(".header").load("/me-index.html .header > *");
+        // $(".footer").load("/me-index.html .footer > *");
 
 
         if (location.pathname === '/exclusives/') {
@@ -43,33 +55,17 @@ $(function () {
 
         }
 
-        // document.querySelectorAll('.replace-1').forEach((e) => {
-        //     e.innerHTML = siteName;
-        // });
-        //
-        // document.querySelectorAll('.replace-2').forEach((e) => {
-        //     e.innerHTML = siteName;
-        // });
-        //
-        // document.querySelectorAll('.replace-3').forEach((e) => {
-        //     e.innerHTML = siteName;
-        // });
-        //
-        // document.querySelectorAll('.replace-4').forEach((e) => {
-        //     e.innerHTML = siteName;
-        // });
-        //
-        // document.querySelectorAll('.replace-5').forEach((e) => {
-        //     e.innerHTML = siteName;
-        // });
+        try {
+            document.querySelectorAll('.me-mailto').forEach((e) => {
+                e.outerHTML = '<a href="mailto:support@' + hostname + '" class="d-inline-block" style="color:#fff">support@' + hostname + '</a>';
+            });
+        } catch (err) {
+        }
 
-
-        document.querySelectorAll('.me-mailto').forEach((e) => {
-            e.outerHTML = '<a href="mailto:support@' + hostname + '" class="d-inline-block" style="color:#fff">support@' + hostname + '</a>';
-        });
-
-        // document.querySelector('.me-address').outerHTML = address;
-        document.querySelector(".header__logo > img").src = "/assets/images/" + hostname + ".svg";
+        try {
+            document.querySelector(".header__logo > img").src = "/assets/images/" + hostname + ".svg";
+        } catch (err) {
+        }
 
         if (hostname === 'da-1.com' || hostname === 'intspeed.com' || hostname === 'xxx.xx') {
             setSite('green', 'Kanit', siteName, '52-60 Tabernacle Street', 'London', 'United Kingdom', 'EC2A 4NJ')
@@ -89,19 +85,14 @@ $(function () {
             e.innerHTML = e.innerHTML.replace(/CryptoNews/g, siteName);
         }
 
-        let elems = document.body.querySelectorAll('.layout-size').forEach(setSi);
+        try {
+            document.body.querySelectorAll('.layout-size').forEach(setSi);
+        } catch (err) {
+        }
     }
 );
 
-// top menu (All) not working without it
-window.trans = {
-    ago: "ago",
-    ago_long: "minute, minutes, hour, hours, day, days",
-    time_seconds_ago: "[time] [seconds] [ago]",
-    time_minutes_ago: "[time] [minutes] [ago]",
-    time_hours_ago: "[time] [hours] [ago]",
-    time_days_ago: "[time] [days] [ago]",
-}
-
-// do not know what this for, but removes undefined error
-window.sid = 1;
+$(window).load(function () {
+    // Animate loader off screen
+    $(".se-pre-con").fadeOut("slow");
+});
