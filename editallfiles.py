@@ -12,20 +12,32 @@ import os
 
 start_time = time.time()
 todaytime = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+source = None
+
+# try:
+#     headers = {'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36'}
+#     source = requests.get('https://cryptonews.com/', headers=headers, timeout=None)
+#
+# except Exception as e:
+#     print(e)
+#     pass
+#
+# with open('./a/cryptonews.com/index.html', "w") as file:
+#     file.write(source.text)
 
 shutil.rmtree('./b/', ignore_errors=True)
 shutil.rmtree('./public_html', ignore_errors=True)
 shutil.copytree('./a/cryptonews.com', './b/', dirs_exist_ok=True)
 shutil.copytree('./replace/', './b/', dirs_exist_ok=True)
-shutil.rmtree('./b/tags/', ignore_errors=True)
-shutil.rmtree('./b/events/', ignore_errors=True)
-shutil.rmtree('./b/jobs/', ignore_errors=True)
-shutil.rmtree('./b/price-tracker/', ignore_errors=True)
-shutil.rmtree('./b/videos/', ignore_errors=True)
-shutil.rmtree('./b/video_categories/', ignore_errors=True)
-shutil.rmtree('./b/wp-content/', ignore_errors=True)
-shutil.rmtree('./b/wp-includes/', ignore_errors=True)
-shutil.rmtree('./b/wp-json/', ignore_errors=True)
+# shutil.rmtree('./b/tags/', ignore_errors=True)
+# shutil.rmtree('./b/events/', ignore_errors=True)
+# shutil.rmtree('./b/jobs/', ignore_errors=True)
+# shutil.rmtree('./b/price-tracker/', ignore_errors=True)
+# shutil.rmtree('./b/videos/', ignore_errors=True)
+# shutil.rmtree('./b/video_categories/', ignore_errors=True)
+# shutil.rmtree('./b/wp-content/', ignore_errors=True)
+# shutil.rmtree('./b/wp-includes/', ignore_errors=True)
+# shutil.rmtree('./b/wp-json/', ignore_errors=True)
 
 # fix exclusives
 # if os.path.exists('./b/exclusives/index.html'):
@@ -47,50 +59,50 @@ shutil.rmtree('./b/wp-json/', ignore_errors=True)
 #     file.write(str(soup))
 
 # delete section guides in /index.html
-with open('./b/index.html', 'r') as file:
-    soup = BeautifulSoup(file.read(), features="html.parser")
-
-guides = soup.find('section', class_='container-fluid')
-if guides is not None:
-    guides.decompose()
-
-with open('./b/index.html', "w") as file:
-    file.write(str(soup))
+# with open('./b/index.html', 'r') as file:
+#     soup = BeautifulSoup(file.read(), features="html.parser")
+#
+# guides = soup.find('section', class_='container-fluid')
+# if guides is not None:
+#     guides.decompose()
+#
+# with open('./b/index.html', "w") as file:
+#     file.write(str(soup))
 
 # fix Recommended
-with open('./b/index.html', 'r') as f:
-    soup = BeautifulSoup(f.read(), features="html.parser")
-
-recommended = soup.findAll('ul', class_="sub-menu")
-recommended = recommended[12]
-
-recommended_footer = soup.findAll('ul', class_="sub-menu")
-recommended_footer = recommended_footer[19]
-
-with open('./me-index.html', 'r') as ff:
-    soup1 = BeautifulSoup(ff.read(), features="html.parser")
-
-editorsPicks = soup1.findAll('ul', class_="sub-menu")
-editorsPicks = editorsPicks[3]
-
-editorsPicks_footer = soup1.findAll('ul', class_="sub-menu")
-editorsPicks_footer = editorsPicks_footer[7]
-
-if recommended and editorsPicks:
-    editorsPicks.replace_with(recommended)
-
-if recommended_footer and editorsPicks_footer:
-    editorsPicks_footer.replace_with(recommended_footer)
-
-for link in soup1.findAll('a'):
-    href = link.get('href')
-    if href:
-        if 'https://cryptonews.com' in href:
-            href = href.replace('https://cryptonews.com', '')
-            link['href'] = href
-
-with open('./me-index.html', "w") as file:
-    file.write(str(soup1))
+# with open('./b/index.html', 'r') as f:
+#     soup = BeautifulSoup(f.read(), features="html.parser")
+#
+# recommended = soup.findAll('ul', class_="sub-menu")
+# recommended = recommended[12]
+#
+# recommended_footer = soup.findAll('ul', class_="sub-menu")
+# recommended_footer = recommended_footer[19]
+#
+# with open('./me-index.html', 'r') as ff:
+#     soup1 = BeautifulSoup(ff.read(), features="html.parser")
+#
+# editorsPicks = soup1.findAll('ul', class_="sub-menu")
+# editorsPicks = editorsPicks[3]
+#
+# editorsPicks_footer = soup1.findAll('ul', class_="sub-menu")
+# editorsPicks_footer = editorsPicks_footer[7]
+#
+# if recommended and editorsPicks:
+#     editorsPicks.replace_with(recommended)
+#
+# if recommended_footer and editorsPicks_footer:
+#     editorsPicks_footer.replace_with(recommended_footer)
+#
+# for link in soup1.findAll('a'):
+#     href = link.get('href')
+#     if href:
+#         if 'https://cryptonews.com' in href:
+#             href = href.replace('https://cryptonews.com', '')
+#             link['href'] = href
+#
+# with open('./me-index.html', "w") as file:
+#     file.write(str(soup1))
 
 
 def replace_header_footer(read_file1):
@@ -122,8 +134,9 @@ def replace_links(read_file1):
     soup = BeautifulSoup(read_file1, features="html.parser")
     links = soup.find_all('a')
     for link in links:
-        href = link.get('href')
-        if href:
+        try:
+            href = link.get('href')
+
             if 'https://cryptonews.com' in href:
                 href = href.replace('https://cryptonews.com', '')
                 link['href'] = href
@@ -134,6 +147,9 @@ def replace_links(read_file1):
 
             if '/tags/' in href or 'twitter' in href:
                 link.decompose()
+        except Exception as e:
+            print(e)
+            pass
 
     return str(soup)
 
@@ -191,10 +207,10 @@ def decompose_tags(read_file1):
         if widget_container:
             widget_container.decompose()
 
-    scripts = soup.findAll('script')
-    for script in scripts:
-        if script:
-            script.decompose()
+    # scripts = soup.findAll('script')
+    # for script in scripts:
+    #     if script:
+    #         script.decompose()
 
     socials = soup.findAll('div', class_='socials')
     for social in socials:
@@ -235,6 +251,8 @@ def insert_ads(read_file1):
     return str(soup1)
 
 
+
+
 # get rid of lazy loading and replace cryptonews's empty image
 def no_lazy_loading(read_file1):
     soup = BeautifulSoup(read_file1, features="html.parser")
@@ -258,20 +276,33 @@ def no_lazy_loading(read_file1):
     return str(soup)
 
 
-def replace_text(read_file1):
-    soup = BeautifulSoup(read_file1, features="html.parser")
-    soup.find(text="cryptonews").replace_with('<data class="replace-1" value=""></data>')
-    soup.find(text="Cryptonews").replace_with('<data class="replace-2" value=""></data>')
-    soup.find(text="CryptoNews").replace_with('<data class="replace-3" value=""></data>')
-    soup.find(text="CRYPTONEWS").replace_with('<data class="replace-4" value=""></data>')
-    # soup.find(text="Crypto News").replace_with('<data class="replace-5" value=""></data>')
+# def replace_text(read_file1):
+#     soup = BeautifulSoup(read_file1, features="html.parser")
+#     soup.find(text="cryptonews").replace_with('<data class="replace-1" value=""></data>')
+#     soup.find(text="Cryptonews").replace_with('<data class="replace-2" value=""></data>')
+#     soup.find(text="CryptoNews").replace_with('<data class="replace-3" value=""></data>')
+#     soup.find(text="CRYPTONEWS").replace_with('<data class="replace-4" value=""></data>')
+# soup.find(text="Crypto News").replace_with('<data class="replace-5" value=""></data>')
 
-    # read_file1 = read_file1.replace('cryptonews', '<data class="replace-1" value=""></data>')
-    # read_file1 = read_file1.replace('Cryptonews', '<data class="replace-2" value=""></data>')
-    # read_file1 = read_file1.replace('CryptoNews', '<data class="replace-3" value=""></data>')
-    # read_file1 = read_file1.replace('CRYPTONEWS', '<data class="replace-4" value=""></data>')
-    # read_file1 = read_file1.replace('Crypto News', '<data class="replace-5" value=""></data>')
-    return str(soup)
+# read_file1 = read_file1.replace('cryptonews', '<data class="replace-1" value=""></data>')
+# read_file1 = read_file1.replace('Cryptonews', '<data class="replace-2" value=""></data>')
+# read_file1 = read_file1.replace('CryptoNews', '<data class="replace-3" value=""></data>')
+# read_file1 = read_file1.replace('CRYPTONEWS', '<data class="replace-4" value=""></data>')
+# read_file1 = read_file1.replace('Crypto News', '<data class="replace-5" value=""></data>')
+# return str(soup)
+
+def insert_in_head(read_file1):
+    soup = BeautifulSoup("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js\"></script>", features='html.parser')
+    script = soup.script
+    soup = BeautifulSoup("<script defer src=\"/assets/js/me.js\"></script>", features='html.parser')
+    script1 = soup.script
+    soup1 = BeautifulSoup(read_file1, features='html.parser')
+
+    if soup1.head is not None:
+        soup1.head.insert(100, script)
+        soup1.head.insert(101, script1)
+
+    return str(soup1)
 
 
 files = ['html', 'htm']
@@ -285,11 +316,13 @@ for fl in files:
 
         # download_json_files(read_file)
         # read_file = replace_text(read_file)
-        read_file = replace_links(read_file)
-        read_file = decompose_tags(read_file)
-        read_file = insert_ads(read_file)
-        read_file = replace_header_footer(read_file)
-        read_file = no_lazy_loading(read_file)
+        # download_files()
+        # read_file = replace_links(read_file)
+        # read_file = decompose_tags(read_file)
+        # read_file = insert_ads(read_file)
+        # read_file = replace_header_footer(read_file)
+        # read_file = no_lazy_loading(read_file)
+        read_file = insert_in_head(read_file)
         count_replace = count_replace + 1
 
         with open(filepath, "w") as file:

@@ -1,4 +1,5 @@
 /*! For license information please see frontend.js.LICENSE.txt */
+
 (() => {
     var e, t, n, i = {
         10687: () => {
@@ -5973,14 +5974,28 @@
 function setSite(color, font, site, firstLine, city, country, postCode) {
     document.documentElement.style.setProperty('--me-color', color);
     document.documentElement.style.setProperty('--me-font-family', font);
-    document.querySelector('.me-address').outerHTML = '<div class="d-inline-block">' + site + '<br>' + firstLine + '<br>' + city + '<br>' + country + '<br>' + postCode + '<br></div>';
+    // document.querySelector('.me-address').outerHTML = '<div class="d-inline-block">' + site + '<br>' + firstLine + '<br>' + city + '<br>' + country + '<br>' + postCode + '<br></div>';
 }
 
+// debugger
+// var fs = require('fs');
 $(function () {
-        // debugger
+
+// debugger
+        let gg = location.href
+        let ggg = location.origin
+        let gggg = location.pathname
         let hostname = location.hostname;
         let siteName = location.hostname.split('.')[0];
         document.title = siteName;
+        document.querySelectorAll("script")[20].remove();
+        let aa = document.querySelectorAll("a");
+        debugger
+        if (location.pathname === '/exclusives/') {
+            $("body > div.main > main > div:nth-child(2)").load("/exclusives/features/ .pt-20");
+            $("body > div.main > main > section").load("/exclusives/features/ .mb-80");
+        }
+
 
         try {
             document.querySelector(".breadcrumbs").children[0].textContent = siteName
@@ -5994,25 +6009,25 @@ $(function () {
 
         }
 
-        document.querySelectorAll('.replace-1').forEach((e) => {
-            e.innerHTML = siteName;
-        });
-
-        document.querySelectorAll('.replace-2').forEach((e) => {
-            e.innerHTML = siteName;
-        });
-
-        document.querySelectorAll('.replace-3').forEach((e) => {
-            e.innerHTML = siteName;
-        });
-
-        document.querySelectorAll('.replace-4').forEach((e) => {
-            e.innerHTML = siteName;
-        });
-
-        document.querySelectorAll('.replace-5').forEach((e) => {
-            e.innerHTML = siteName;
-        });
+        // document.querySelectorAll('.replace-1').forEach((e) => {
+        //     e.innerHTML = siteName;
+        // });
+        //
+        // document.querySelectorAll('.replace-2').forEach((e) => {
+        //     e.innerHTML = siteName;
+        // });
+        //
+        // document.querySelectorAll('.replace-3').forEach((e) => {
+        //     e.innerHTML = siteName;
+        // });
+        //
+        // document.querySelectorAll('.replace-4').forEach((e) => {
+        //     e.innerHTML = siteName;
+        // });
+        //
+        // document.querySelectorAll('.replace-5').forEach((e) => {
+        //     e.innerHTML = siteName;
+        // });
 
         // const mailto = '<a href="mailto:support@' + hostname + '" class="d-inline-block" style="color:#fff">support@' + hostname + '</a>';
         // const address = '<div class="d-inline-block">Da-1 LTD <br>52-60 Tabernacle Street<br>London<br>United Kingdom<br>EC2A 4NJ<br></div>';
@@ -6035,6 +6050,15 @@ $(function () {
         if (hostname === 'huy-1.com' || hostname === 'xxx.xx' || hostname === 'xxx.xx') {
             setSite('red', 'Playfair Display', siteName, '23 Lady Gaga Street', 'London', 'United Kingdom', 'EC2A 4NJ')
         }
+
+        function setSi(e) {
+            // debugger
+            e.innerHTML = e.innerHTML.replace(/cryptonews/g, siteName);
+            e.innerHTML = e.innerHTML.replace(/Cryptonews/g, siteName);
+            e.innerHTML = e.innerHTML.replace(/CryptoNews/g, siteName);
+        }
+
+        document.body.querySelectorAll('.layout-size').forEach(setSi);
     }
 );
 

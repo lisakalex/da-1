@@ -51,3 +51,44 @@ window.addEventListener('LazyLoad::Initialized', function (e) {
         observer.observe(b, config)
     }
 }, !1)
+
+function setSi(e) {
+    debugger
+    // let crypton = e.innerHTML;
+    // let crypton1 = e.className;
+    // try {
+    // let className = e.className;
+    // let tagName = e.tagName;
+    // } catch (err) {
+    //
+    // }
+    //  if (e.className !== 'img-fluid') {
+    let kak = e.innerText;
+    if (e.innerText.includes("PODCAST")) {
+        e.remove();
+    }
+    // e.innerHTML = e.innerHTML.replace(/CryptoNews/g, siteName);
+    // e.innerHTML = e.innerHTML.replace(/da-1/g, 'cryptonews');
+    // e.innerHTML = e.innerHTML.replace(/Cryptonews/g, siteName);
+    // e.textContent = e.textContent.replace(/Cryptonews.com/g, hostname);
+}
+
+// let crypton = e.textContent;
+// let crypton = e.innerHTML.text.replace(/CryptoNews/g, siteName);
+// let crypton = e.innerHTML.text;
+// e.innerHTML = crypton.replace(/CryptoNews/g, siteName);
+// }
+
+// debugger
+document.body.innerHTML = document.body.innerHTML.replace(/cryptonews/g, siteName);
+document.body.innerHTML = document.body.innerHTML.replace(/Cryptonews/g, siteName);
+document.body.innerHTML = document.body.innerHTML.replace(/CryptoNews/g, siteName);
+// let elems = document.body.getElementsByClassName('img-fluid');
+// // elems.forEach(setSi);
+// for (let e of elems) {
+//     e.innerHTML = e.innerHTML.replace(/da-1/g, 'cryptonews');
+// }
+//     let elems = document.body.querySelectorAll('.article-item');
+//     elems.forEach(setSi);
+// }
+);
