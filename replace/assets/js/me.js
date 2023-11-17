@@ -19,7 +19,7 @@ $(function () {
         }
 
         try {
-            document.querySelector(".container-fluid").remove(); // Guides front page
+            document.querySelector("body > div.main > main > section.container-fluid.bg-gradient").remove(); // Guides front page
         } catch (err) {
         }
 
@@ -29,7 +29,7 @@ $(function () {
         }
 
         try {
-            document.querySelector(".container.pb-20.pt-sm-60").remove(); // newsletter
+            document.querySelector("body > div.main > main > section.container.pb-20.pt-sm-60").remove(); // newsletter
         } catch (err) {
         }
 
@@ -84,13 +84,35 @@ $(function () {
             "<script defer=\"\" src=\"/assets/js/cookieconsent.js\"></script>" +
             "<script defer=\"\" src=\"/assets/js/cookieconsent-init.js\"></script>");
 
-        $("#menu-header > li:nth-child(10) > ul").load("/kak-index.html #menu-header > li:nth-child(9) > ul > li"); // fix recommended
-        $("#menu-item-119744 > ul").load("/kak-index.html #menu-item-119744 > ul > li"); // fix recommended footer
+        $("#menu-header > li:nth-child(10) > ul").load("/kak-index.html #menu-header > li:nth-child(9) > ul > li", function () { // fix recommended
+            try {
+                document.querySelectorAll("a").forEach((e) => { // edit links
+                    e.href = e.href.replace("https://cryptonews.com", "");
+                });
+            } catch (err) {
+            }
+        });
 
-        if (location.pathname === '/exclusives/') {
-            $("body > div.main > main > div:nth-child(2)").load("/exclusives/features/ .pt-20");
-            $("body > div.main > main > section").load("/exclusives/features/ .mb-80");
+        $("#menu-item-119744 > ul").load("/kak-index.html #menu-item-119744 > ul > li", function () {
+            try {
+                document.querySelectorAll("a").forEach((e) => { // edit links
+                    e.href = e.href.replace("https://cryptonews.com", "");
+                });
+            } catch (err) {
+            }
+        });
+
+        try {
+            let ha = document.querySelectorAll("a.button-more").forEach((e) => { // remove links in exchanges, couldn't replace them back to cryptonews
+                e.remove();
+            });
+        } catch (err) {
         }
+
+        // if (location.pathname === '/exclusives/') {
+        //     $("body > div.main > main > div:nth-child(2)").load("/exclusives/features/ .pt-20");
+        //     $("body > div.main > main > section").load("/exclusives/features/ .mb-80");
+        // }
 
         try {
             document.querySelector(".breadcrumbs").children[0].textContent = siteName

@@ -145,7 +145,7 @@ Traceback (most recent call last):
 AttributeError: 'NoneType' object has no attribute 'get'
 
 ~~~
-editors pick
+editors pick --
 edit links
 insert ads
 replace empty image
@@ -154,3 +154,33 @@ replace empty image
 #menu-header > li:nth-child(9) > ul
 document.querySelector("#menu-header > li:nth-child(9) > ul")
 //*[@id="menu-header"]/li[9]/ul
+
+~~~
+The main difference is in this example:
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Yandex</title>
+
+</head>
+<body>
+    <a href="((http://yandex.ru))">Яндекс</a>,
+    <a href="((http://yandex.com))">Yandex</a>
+</body>
+<script>
+
+var elems1 = document.getElementsByTagName('a'), // return 2 lements, elems1.length = 2
+    elems2 = document.querySelectorAll("a");  // return 2 elements, elems2.length = 2
+
+document.body.appendChild(document.createElement("a"));
+
+console.log(elems1.length, elems2.length);  // now elems1.length = 3!
+                                            // while elems2.length = 2
+</script>
+</html>
+Because querySelectorAll returns a static (not live) list of elements.
+
+~~~
+
