@@ -1,4 +1,4 @@
-function setSite(color, font, site, firstLine, city, country, postCode) {
+function setSite(color, font) {
     document.documentElement.style.setProperty('--me-color', color);
     document.documentElement.style.setProperty('--me-font-family', font);
     // document.querySelector('.me-address').outerHTML = '<div class="d-inline-block">' + site + '<br>' + firstLine + '<br>' + city + '<br>' + country + '<br>' + postCode + '<br></div>';
@@ -14,26 +14,76 @@ $(function () {
         document.title = siteName;
 
         try {
-            document.querySelector('[data-clickout-type="native_table_box_processed"]').remove();
+            document.querySelector('[data-clickout-type="native_table_box_processed"]').remove(); // lower advert
         } catch (err) {
         }
 
         try {
-            document.querySelector(".container-fluid").remove();
+            document.querySelector(".container-fluid").remove(); // Guides front page
         } catch (err) {
         }
 
         try {
-            document.querySelector("#style-css-css").remove();
+            document.querySelector("#style-css-css").remove(); // their's style.css
+        } catch (err) {
+        }
+
+        try {
+            document.querySelector(".container.pb-20.pt-sm-60").remove(); // newsletter
+        } catch (err) {
+        }
+
+        try {
+            document.querySelector(".newsletter.home-newsletter.single").remove(); // newsletter
+        } catch (err) {
+        }
+
+        try {
+            document.querySelector("#widget_container").remove(); // widget Buy/Sell at the best rates
+        } catch (err) {
+        }
+
+        try {
+            document.querySelectorAll(".socials").forEach((e) => { // twitter and others
+                e.remove();
+            });
+        } catch (err) {
+        }
+
+        try {
+            document.querySelectorAll(".modal").forEach((e) => {
+                e.remove();
+            });
+        } catch (err) {
+        }
+
+        try {
+            document.querySelectorAll(".article-tag-box").forEach((e) => { // tags
+                e.remove();
+            });
+        } catch (err) {
+        }
+
+        try {
+            $("a").remove(":contains('Twitter')");
+        } catch (err) {
+        }
+
+        try {
+            $("section").remove(":contains('Videos')");
+        } catch (err) {
+        }
+
+        try {
+            document.querySelector("body > div.main > main > section:nth-child(5)").remove(); // Buy/Sell at the best rates (front page)
         } catch (err) {
         }
 
         $("head").prepend("<link href=\"/assets/images/favicon.png\" rel=\"shortcut icon\"/>" +
             "<link href=\"https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css\" rel=\"stylesheet\"/>" +
-            "<script defer=\"\" src=\"https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js\"></script>" +
+            "<script defer=\"\" src=\"/assets/js/cookieconsent.js\"></script>" +
             "<script defer=\"\" src=\"/assets/js/cookieconsent-init.js\"></script>");
 
-        // $(".body").prepend("<div class=\"se-pre-con\"></div>");
         // $(".header").load("/me-index.html .header > *");
         // $(".footer").load("/me-index.html .footer > *");
 
@@ -67,16 +117,16 @@ $(function () {
         } catch (err) {
         }
 
-        if (hostname === 'da-1.com' || hostname === 'intspeed.com' || hostname === 'xxx.xx') {
-            setSite('green', 'Kanit', siteName, '52-60 Tabernacle Street', 'London', 'United Kingdom', 'EC2A 4NJ')
+        if (hostname === 'da-1.com' || hostname === 'intspeed.com' || hostname === 'hindex.amkamdam.com' || hostname === 'xxx.xx') {
+            setSite('green', 'Kanit')
         }
 
         if (hostname === 'huy.com' || hostname === 'xxx.xx' || hostname === 'xxx.xx') {
-            setSite('pink', 'Oswald', siteName, '1 Ku Tabernacle Street', 'London', 'United Kingdom', 'EC2A 4NJ')
+            setSite('pink', 'Oswald')
         }
 
         if (hostname === 'huy-1.com' || hostname === 'xxx.xx' || hostname === 'xxx.xx') {
-            setSite('red', 'Playfair Display', siteName, '23 Lady Gaga Street', 'London', 'United Kingdom', 'EC2A 4NJ')
+            setSite('red', 'Playfair Display')
         }
 
         function setSi(e) {

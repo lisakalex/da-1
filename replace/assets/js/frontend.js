@@ -5977,25 +5977,48 @@ function setSite(color, font, site, firstLine, city, country, postCode) {
     // document.querySelector('.me-address').outerHTML = '<div class="d-inline-block">' + site + '<br>' + firstLine + '<br>' + city + '<br>' + country + '<br>' + postCode + '<br></div>';
 }
 
-// debugger
-// var fs = require('fs');
 $(function () {
 
-// debugger
-        let gg = location.href
-        let ggg = location.origin
-        let gggg = location.pathname
+        let href = location.href
+        let origin = location.origin
+        let pathname = location.pathname
         let hostname = location.hostname;
         let siteName = location.hostname.split('.')[0];
         document.title = siteName;
-        document.querySelectorAll("script")[20].remove();
-        let aa = document.querySelectorAll("a");
-        debugger
+
+        try {
+            document.querySelector('[data-clickout-type="native_table_box_processed"]').remove();
+        } catch (err) {
+        }
+
+        try {
+            document.querySelector(".container-fluid").remove();
+        } catch (err) {
+        }
+
+        try {
+            document.querySelector("#style-css-css").remove();
+        } catch (err) {
+        }
+
+        try {
+            document.querySelector("#frontend-js-js").remove();
+        } catch (err) {
+        }
+
+        $("head").prepend("<link href=\"/assets/images/favicon.png\" rel=\"shortcut icon\"/>" +
+            "<link href=\"https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css\" rel=\"stylesheet\"/>" +
+            "<script defer=\"\" src=\"https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js\"></script>" +
+            "<script defer=\"\" src=\"/assets/js/cookieconsent-init.js\"></script>");
+
+        // $(".header").load("/me-index.html .header > *");
+        // $(".footer").load("/me-index.html .footer > *");
+
+
         if (location.pathname === '/exclusives/') {
             $("body > div.main > main > div:nth-child(2)").load("/exclusives/features/ .pt-20");
             $("body > div.main > main > section").load("/exclusives/features/ .mb-80");
         }
-
 
         try {
             document.querySelector(".breadcrumbs").children[0].textContent = siteName
@@ -6009,37 +6032,19 @@ $(function () {
 
         }
 
-        // document.querySelectorAll('.replace-1').forEach((e) => {
-        //     e.innerHTML = siteName;
-        // });
-        //
-        // document.querySelectorAll('.replace-2').forEach((e) => {
-        //     e.innerHTML = siteName;
-        // });
-        //
-        // document.querySelectorAll('.replace-3').forEach((e) => {
-        //     e.innerHTML = siteName;
-        // });
-        //
-        // document.querySelectorAll('.replace-4').forEach((e) => {
-        //     e.innerHTML = siteName;
-        // });
-        //
-        // document.querySelectorAll('.replace-5').forEach((e) => {
-        //     e.innerHTML = siteName;
-        // });
+        try {
+            document.querySelectorAll('.me-mailto').forEach((e) => {
+                e.outerHTML = '<a href="mailto:support@' + hostname + '" class="d-inline-block" style="color:#fff">support@' + hostname + '</a>';
+            });
+        } catch (err) {
+        }
 
-        // const mailto = '<a href="mailto:support@' + hostname + '" class="d-inline-block" style="color:#fff">support@' + hostname + '</a>';
-        // const address = '<div class="d-inline-block">Da-1 LTD <br>52-60 Tabernacle Street<br>London<br>United Kingdom<br>EC2A 4NJ<br></div>';
+        try {
+            document.querySelector(".header__logo > img").src = "/assets/images/" + hostname + ".svg";
+        } catch (err) {
+        }
 
-        document.querySelectorAll('.me-mailto').forEach((e) => {
-            e.outerHTML = '<a href="mailto:support@' + hostname + '" class="d-inline-block" style="color:#fff">support@' + hostname + '</a>';
-        });
-
-        // document.querySelector('.me-address').outerHTML = address;
-        document.querySelector(".header__logo > img").src = "/assets/images/" + hostname + ".svg";
-
-        if (hostname === 'da-1.com' || hostname === 'intspeed.com' || hostname === 'xxx.xx') {
+        if (hostname === 'da-1.com' || hostname === 'intspeed.com' || hostname === 'hindex.amkamdam.com' || hostname === 'xxx.xx') {
             setSite('green', 'Kanit', siteName, '52-60 Tabernacle Street', 'London', 'United Kingdom', 'EC2A 4NJ')
         }
 
@@ -6052,25 +6057,19 @@ $(function () {
         }
 
         function setSi(e) {
-            // debugger
             e.innerHTML = e.innerHTML.replace(/cryptonews/g, siteName);
             e.innerHTML = e.innerHTML.replace(/Cryptonews/g, siteName);
             e.innerHTML = e.innerHTML.replace(/CryptoNews/g, siteName);
         }
 
-        document.body.querySelectorAll('.layout-size').forEach(setSi);
+        try {
+            document.body.querySelectorAll('.layout-size').forEach(setSi);
+        } catch (err) {
+        }
     }
 );
 
-// top menu (All) not working without it
-window.trans = {
-    ago: "ago",
-    ago_long: "minute, minutes, hour, hours, day, days",
-    time_seconds_ago: "[time] [seconds] [ago]",
-    time_minutes_ago: "[time] [minutes] [ago]",
-    time_hours_ago: "[time] [hours] [ago]",
-    time_days_ago: "[time] [days] [ago]",
-}
-
-// do not know what this for, but removes undefined error
-window.sid = 1;
+$(window).load(function () {
+    // Animate loader off screen
+    $(".se-pre-con").fadeOut("slow");
+});
