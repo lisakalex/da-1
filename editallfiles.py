@@ -335,6 +335,7 @@ for fl in files:
             file.write(read_file)
 
 shutil.copytree('./b/', './public_html/', dirs_exist_ok=True)
+shutil.copyfile('./a/cryptonews.com/index.html', './public_html/kak-index.html')
 finish_time = time.time() - start_time
 finish_time = round(finish_time / 60, 2)
 

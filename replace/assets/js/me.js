@@ -84,9 +84,8 @@ $(function () {
             "<script defer=\"\" src=\"/assets/js/cookieconsent.js\"></script>" +
             "<script defer=\"\" src=\"/assets/js/cookieconsent-init.js\"></script>");
 
-        // $(".header").load("/me-index.html .header > *");
-        // $(".footer").load("/me-index.html .footer > *");
-
+        $("#menu-header > li:nth-child(10) > ul").load("/kak-index.html #menu-header > li:nth-child(9) > ul > li"); // fix recommended
+        $("#menu-item-119744 > ul").load("/kak-index.html #menu-item-119744 > ul > li"); // fix recommended footer
 
         if (location.pathname === '/exclusives/') {
             $("body > div.main > main > div:nth-child(2)").load("/exclusives/features/ .pt-20");
