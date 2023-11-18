@@ -109,12 +109,6 @@ $(function () {
         } catch (err) {
         }
 
-        // when fix exclusives links remain cryptonews - do not fix exclusives
-        // if (location.pathname === '/exclusives/') {
-        //     $("body > div.main > main > div:nth-child(2)").load("/exclusives/features/ .pt-20");
-        //     $("body > div.main > main > section").load("/exclusives/features/ .mb-80");
-        // }
-
         try {
             document.querySelectorAll('.me-mailto').forEach((e) => {
                 e.outerHTML = '<a href="mailto:support@' + hostname + '" class="d-inline-block" style="color:#fff">support@' + hostname + '</a>';
@@ -187,6 +181,12 @@ $(function () {
         $("body > div.main > main > div > div.mb-50.c-black > coinlist > div.mb-60.dslot").load('/me-index.html #1160x90 > a');
         $("body > div.main > div > div > main > div.row > div.scrollspy.col-lg-9.col-md-9.col-sm-12 > div:nth-child(2) > div > div > div").load('/me-index.html [did="5"] > a');
         $('.dslot').removeClass('dslot').addClass('huyslot');
+
+        // disable theirs cookies
+        try {
+            document.querySelectorAll('script[type="rocketlazyloadscript"]')[3].remove();
+        } catch (err) {
+        }
     }
 );
 

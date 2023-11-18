@@ -232,23 +232,23 @@ def replace_header_footer(read_file1):
 #     return str(soup)
 
 
-def insert_ads(read_file1):
-    with open('me-index.html', 'r') as file1:
-        soup = BeautifulSoup(file1.read(), features="html.parser")
-
-    soup1 = BeautifulSoup(read_file1, features='html.parser')
+# def insert_ads(read_file1):
+#     with open('me-index.html', 'r') as file1:
+#         soup = BeautifulSoup(file1.read(), features="html.parser")
+#
+#     soup1 = BeautifulSoup(read_file1, features='html.parser')
 
     #  add page loading gif
     # se_pre_con = soup.find('div', class_='se-pre-con')
     # if soup1.body is not None:
     #     soup1.body.insert(1, se_pre_con)
 
-    for dslot in soup1.findAll('div', class_='dslot'):
-        for medslot in soup.findAll('div', class_='dslot'):
-            if dslot.get('did') == medslot.get('did'):
-                dslot.replace_with(medslot)
-
-    return str(soup1)
+    # for dslot in soup1.findAll('div', class_='dslot'):
+    #     for medslot in soup.findAll('div', class_='dslot'):
+    #         if dslot.get('did') == medslot.get('did'):
+    #             dslot.replace_with(medslot)
+    #
+    # return str(soup1)
 
 
 

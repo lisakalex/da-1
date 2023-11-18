@@ -147,7 +147,7 @@ AttributeError: 'NoneType' object has no attribute 'get'
 ~~~
 editors pick --
 edit links --
-insert ads
+insert ads --
 replace empty image
 
 ~~~

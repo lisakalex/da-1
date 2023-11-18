@@ -1758,7 +1758,7 @@ p:has(>.selfcentered) {
     align-items: center;
     display: flex;
     margin-left: auto;
-    padding-right: 100px
+    padding-right: 30px
 }
 
 .header-search__trigger {
