@@ -4730,7 +4730,8 @@ figure table {
 
 .menu_header > li:not(:first-child) > ul {
     background-color: #fff;
-    box-shadow: 0 6px 10px 0 rgba(89, 0, 138, .1);
+    /*box-shadow: 0 6px 10px 0 rgba(89, 0, 138, .1);*/
+    box-shadow: 0 6px 10px 0 rgba(107, 107, 107, 0.3);
     display: none;
     left: 0;
     list-style: none;

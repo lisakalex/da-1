@@ -14,16 +14,16 @@ start_time = time.time()
 todaytime = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
 source = None
 
-# try:
-#     headers = {'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36'}
-#     source = requests.get('https://cryptonews.com/', headers=headers, timeout=None)
-#
-# except Exception as e:
-#     print(e)
-#     pass
-#
-# with open('./a/cryptonews.com/index.html', "w") as file:
-#     file.write(source.text)
+try:
+    headers = {'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36'}
+    source = requests.get('https://cryptonews.com/', headers=headers, timeout=None)
+
+except Exception as e:
+    print(e)
+    pass
+
+with open('./a/cryptonews.com/index.html', "w") as file:
+    file.write(source.text)
 
 shutil.rmtree('./b/', ignore_errors=True)
 shutil.rmtree('./public_html', ignore_errors=True)
@@ -130,28 +130,28 @@ def replace_header_footer(read_file1):
     return str(soup1)
 
 
-def replace_links(read_file1):
-    soup = BeautifulSoup(read_file1, features="html.parser")
-    links = soup.find_all('a')
-    for link in links:
-        try:
-            href = link.get('href')
-
-            if 'https://cryptonews.com' in href:
-                href = href.replace('https://cryptonews.com', '')
-                link['href'] = href
-
-            if '/ext/' in href:
-                href = href.replace('/ext/', 'https://cryptonews.com/ext/')
-                link['href'] = href
-
-            if '/tags/' in href or 'twitter' in href:
-                link.decompose()
-        except Exception as e:
-            print(e)
-            pass
-
-    return str(soup)
+# def replace_links(read_file1):
+#     soup = BeautifulSoup(read_file1, features="html.parser")
+#     links = soup.find_all('a')
+#     for link in links:
+#         try:
+#             href = link.get('href')
+#
+#             if 'https://cryptonews.com' in href:
+#                 href = href.replace('https://cryptonews.com', '')
+#                 link['href'] = href
+#
+#             if '/ext/' in href:
+#                 href = href.replace('/ext/', 'https://cryptonews.com/ext/')
+#                 link['href'] = href
+#
+#             if '/tags/' in href or 'twitter' in href:
+#                 link.decompose()
+#         except Exception as e:
+#             print(e)
+#             pass
+#
+#     return str(soup)
 
 
 # def download_files(url, path, file1):
@@ -183,53 +183,53 @@ def replace_links(read_file1):
 #             download_files(url, path, file1)
 
 
-def decompose_tags(read_file1):
-    soup = BeautifulSoup(read_file1, features='html.parser')
-
-    newsletter = soup.find('div', class_='newsletter home-newsletter')
-    if newsletter:
-        newsletter.decompose()
-
-    newsletter = soup.find('div', class_='newsletter home-newsletter single')
-    if newsletter:
-        newsletter.decompose()
-
-    newsletter_modal = soup.find('div', class_='modal')
-    if newsletter_modal:
-        newsletter_modal.decompose()
-
-    iframes = soup.findAll('iframe')
-    if iframes:
-        iframes[0].parent.decompose()
-
-    widget_containers = soup.findAll('div', id='widget_container')
-    for widget_container in widget_containers:
-        if widget_container:
-            widget_container.decompose()
-
-    # scripts = soup.findAll('script')
-    # for script in scripts:
-    #     if script:
-    #         script.decompose()
-
-    socials = soup.findAll('div', class_='socials')
-    for social in socials:
-        if social:
-            social.decompose()
-
-    twitter = soup.find_all("h2")
-    for t in twitter:
-        if 'Twitter' in t.text:
-            t.decompose()
-
-    videos = soup.find_all("section")
-    for v in videos:
-        videosh2 = v.find("h2")
-        if videosh2 is not None:
-            if 'Videos' in videosh2.text:
-                v.decompose()
-
-    return str(soup)
+# def decompose_tags(read_file1):
+#     soup = BeautifulSoup(read_file1, features='html.parser')
+#
+#     newsletter = soup.find('div', class_='newsletter home-newsletter')
+#     if newsletter:
+#         newsletter.decompose()
+#
+#     newsletter = soup.find('div', class_='newsletter home-newsletter single')
+#     if newsletter:
+#         newsletter.decompose()
+#
+#     newsletter_modal = soup.find('div', class_='modal')
+#     if newsletter_modal:
+#         newsletter_modal.decompose()
+#
+#     iframes = soup.findAll('iframe')
+#     if iframes:
+#         iframes[0].parent.decompose()
+#
+#     widget_containers = soup.findAll('div', id='widget_container')
+#     for widget_container in widget_containers:
+#         if widget_container:
+#             widget_container.decompose()
+#
+#     # scripts = soup.findAll('script')
+#     # for script in scripts:
+#     #     if script:
+#     #         script.decompose()
+#
+#     socials = soup.findAll('div', class_='socials')
+#     for social in socials:
+#         if social:
+#             social.decompose()
+#
+#     twitter = soup.find_all("h2")
+#     for t in twitter:
+#         if 'Twitter' in t.text:
+#             t.decompose()
+#
+#     videos = soup.find_all("section")
+#     for v in videos:
+#         videosh2 = v.find("h2")
+#         if videosh2 is not None:
+#             if 'Videos' in videosh2.text:
+#                 v.decompose()
+#
+#     return str(soup)
 
 
 def insert_ads(read_file1):
@@ -239,9 +239,9 @@ def insert_ads(read_file1):
     soup1 = BeautifulSoup(read_file1, features='html.parser')
 
     #  add page loading gif
-    se_pre_con = soup.find('div', class_='se-pre-con')
-    if soup1.body is not None:
-        soup1.body.insert(1, se_pre_con)
+    # se_pre_con = soup.find('div', class_='se-pre-con')
+    # if soup1.body is not None:
+    #     soup1.body.insert(1, se_pre_con)
 
     for dslot in soup1.findAll('div', class_='dslot'):
         for medslot in soup.findAll('div', class_='dslot'):
@@ -254,26 +254,26 @@ def insert_ads(read_file1):
 
 
 # get rid of lazy loading and replace cryptonews's empty image
-def no_lazy_loading(read_file1):
-    soup = BeautifulSoup(read_file1, features="html.parser")
-
-    lazy = soup.findAll('img')
-    for la in lazy:
-        if la.has_attr('data-src'):
-            if la['data-src'] == 'https://cimg.co/p/assets/empty-cryptonews.jpg':
-                la['data-src'] = '/assets/images/empty-kak.jpg'
-                la['src'] = '/assets/images/empty-kak.jpg'
-            else:
-                la['src'] = la['data-src']
-
-        if la.has_attr('data-lazy-src'):
-            if la['data-lazy-src'] == 'https://cimg.co/p/assets/empty-cryptonews.jpg':
-                la['data-lazy-src'] = '/assets/images/empty-kak.jpg'
-                la['src'] = '/assets/images/empty-kak.jpg'
-            else:
-                la['src'] = la['data-lazy-src']
-
-    return str(soup)
+# def no_lazy_loading(read_file1):
+#     soup = BeautifulSoup(read_file1, features="html.parser")
+#
+#     lazy = soup.findAll('img')
+#     for la in lazy:
+#         if la.has_attr('data-src'):
+#             if la['data-src'] == 'https://cimg.co/p/assets/empty-cryptonews.jpg':
+#                 la['data-src'] = '/assets/images/empty-kak.jpg'
+#                 la['src'] = '/assets/images/empty-kak.jpg'
+#             else:
+#                 la['src'] = la['data-src']
+#
+#         if la.has_attr('data-lazy-src'):
+#             if la['data-lazy-src'] == 'https://cimg.co/p/assets/empty-cryptonews.jpg':
+#                 la['data-lazy-src'] = '/assets/images/empty-kak.jpg'
+#                 la['src'] = '/assets/images/empty-kak.jpg'
+#             else:
+#                 la['src'] = la['data-lazy-src']
+#
+#     return str(soup)
 
 
 # def replace_text(read_file1):

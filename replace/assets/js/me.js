@@ -1,7 +1,6 @@
 function setSite(color, font) {
     document.documentElement.style.setProperty('--me-color', color);
     document.documentElement.style.setProperty('--me-font-family', font);
-    // document.querySelector('.me-address').outerHTML = '<div class="d-inline-block">' + site + '<br>' + firstLine + '<br>' + city + '<br>' + country + '<br>' + postCode + '<br></div>';
 }
 
 $(function () {
@@ -93,7 +92,7 @@ $(function () {
             }
         });
 
-        $("#menu-item-119744 > ul").load("/kak-index.html #menu-item-119744 > ul > li", function () {
+        $("#menu-item-119744 > ul").load("/kak-index.html #menu-item-119744 > ul > li", function () { // fix recommended footer
             try {
                 document.querySelectorAll("a").forEach((e) => { // edit links
                     e.href = e.href.replace("https://cryptonews.com", "");
@@ -102,29 +101,19 @@ $(function () {
             }
         });
 
+        // remove links in exchanges, couldn't replace them back to cryptonews
         try {
-            let ha = document.querySelectorAll("a.button-more").forEach((e) => { // remove links in exchanges, couldn't replace them back to cryptonews
+            let ha = document.querySelectorAll("a.button-more").forEach((e) => {
                 e.remove();
             });
         } catch (err) {
         }
 
+        // when fix exclusives links remain cryptonews - do not fix exclusives
         // if (location.pathname === '/exclusives/') {
         //     $("body > div.main > main > div:nth-child(2)").load("/exclusives/features/ .pt-20");
         //     $("body > div.main > main > section").load("/exclusives/features/ .mb-80");
         // }
-
-        try {
-            document.querySelector(".breadcrumbs").children[0].textContent = siteName
-        } catch (err) {
-
-        }
-
-        try {
-            document.querySelector("#copyright").textContent = '© 2023 ' + siteName + '. All rights reserved';
-        } catch (err) {
-
-        }
 
         try {
             document.querySelectorAll('.me-mailto').forEach((e) => {
@@ -150,16 +139,54 @@ $(function () {
             setSite('red', 'Playfair Display')
         }
 
+        // change to site name
+        try {
+            document.querySelector(".breadcrumbs").children[0].textContent = siteName
+        } catch (err) {
+
+        }
+
+        // change to site name
+        try {
+            document.querySelector("#copyright").textContent = '© 2023 ' + siteName + '. All rights reserved';
+        } catch (err) {
+
+        }
+
         function setSi(e) {
             e.innerHTML = e.innerHTML.replace(/cryptonews/g, siteName);
             e.innerHTML = e.innerHTML.replace(/Cryptonews/g, siteName);
             e.innerHTML = e.innerHTML.replace(/CryptoNews/g, siteName);
         }
 
+        // change to site name
         try {
             document.body.querySelectorAll('.layout-size').forEach(setSi);
         } catch (err) {
         }
+
+        // insert ads
+        // index.html
+        $("body > div.main > main > section:nth-child(2) > div > div > div.col-12.col-lg-9 > div.dslot.pb-20.d-md-none").load('/me-index.html [did="16"] > a');
+        $("body > div.main > main > section:nth-child(2) > div > div > div.col-12.col-lg-9 > div.dslot.pb-20.d-none.d-md-block").load('/me-index.html [did="11"] > a');
+        $("body > div.main > main > section:nth-child(2) > div > div > div.col-12.col-lg-3 > div.dslot").load('/me-index.html [did="1"] > a');
+        $("body > div.main > main > section:nth-child(5) > div > div").load('/me-index.html [did="2"] > a');
+
+        //news/index.html
+        $("body > div.main > main > div:nth-child(2) > div > div > div.col-12.col-lg-3 > div.dslot").load('/me-index.html [did="4"] > a');
+
+        // news/*.htm
+        $("body > div.main > div:nth-child(1) > div:nth-child(2) > main > div > div.col-12.col-md-9.mb-40 > div.article-single__content.category_contents_details > div.dslot.text-right").load('/me-index.html [did="9"] > a');
+        $("body > div.main > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(1)").load('/me-index.html [did="6"] > a');
+        $("body > div.main > div:nth-child(1) > div:nth-child(2) > main > div > div.col-12.col-md-9.mb-40 > div.article-single__content.category_contents_details > div:nth-child(16)").load('/me-index.html [did="12"] > a');
+        $("body > div.main > div:nth-child(2) > div:nth-child(2) > main > div > div.col-12.col-md-9.mb-40 > div.article-single__content.category_contents_details > div:nth-child(15)").load('/me-index.html [did="12"] > a');
+        $("body > div.main > div:nth-child(1) > div:nth-child(2) > main > div > div.col-12.col-md-9.mb-40 > div.article-single__content.category_contents_details > div.dslot.row.mb-20").load('/me-index.html [did="5"] > a');
+        $("body > div.main > div:nth-child(1) > div:nth-child(2) > div > div:nth-child(4)").load('/me-index.html [did="7"] > a');
+        $("body > div.main > main > div > div > div.col-12.col-lg-9 > div.scrollspy > div").load('/me-index.html [did="5"] > a');
+        $("#altcoins > div > div.dslot").load('/me-index.html [did="5"] > a');
+        $("body > div.main > main > div > div.mb-50.c-black > coinlist > div.mb-60.dslot").load('/me-index.html #1160x90 > a');
+        $("body > div.main > div > div > main > div.row > div.scrollspy.col-lg-9.col-md-9.col-sm-12 > div:nth-child(2) > div > div > div").load('/me-index.html [did="5"] > a');
+        $('.dslot').removeClass('dslot').addClass('huyslot');
     }
 );
 
