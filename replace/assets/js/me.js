@@ -86,7 +86,9 @@ $(function () {
         $("#menu-header > li:nth-child(10) > ul").load("/kak-index.html #menu-header > li:nth-child(9) > ul > li", function () { // fix recommended
             try {
                 document.querySelectorAll("a").forEach((e) => { // edit links
-                    e.href = e.href.replace("https://cryptonews.com", "");
+                    if (e.href.search('/ext/') === -1) {
+                        e.href = e.href.replace("https://cryptonews.com", "");
+                    }
                 });
             } catch (err) {
             }
@@ -95,19 +97,21 @@ $(function () {
         $("#menu-item-119744 > ul").load("/kak-index.html #menu-item-119744 > ul > li", function () { // fix recommended footer
             try {
                 document.querySelectorAll("a").forEach((e) => { // edit links
-                    e.href = e.href.replace("https://cryptonews.com", "");
+                    if (e.href.search('/ext/') === -1) {
+                        e.href = e.href.replace("https://cryptonews.com", "");
+                    }
                 });
             } catch (err) {
             }
         });
 
         // remove links in exchanges, couldn't replace them back to cryptonews
-        try {
-            let ha = document.querySelectorAll("a.button-more").forEach((e) => {
-                e.remove();
-            });
-        } catch (err) {
-        }
+        // try {
+        //     let ha = document.querySelectorAll("a.button-more").forEach((e) => {
+        //         e.remove();
+        //     });
+        // } catch (err) {
+        // }
 
         try {
             document.querySelectorAll('.me-mailto').forEach((e) => {
@@ -122,7 +126,7 @@ $(function () {
         }
 
         if (hostname === 'da-1.com' || hostname === 'intspeed.com' || hostname === 'hindex.amkamdam.com' || hostname === 'xxx.xx') {
-            setSite('green', 'Kanit')
+            setSite('#025360', 'Kanit')
         }
 
         if (hostname === 'huy.com' || hostname === 'xxx.xx' || hostname === 'xxx.xx') {
