@@ -183,6 +183,18 @@ $(function () {
         $("body > div.main > main > div > div.mb-50.c-black > coinlist > div.mb-60.dslot").load('/me-index.html #1160x90 > a');
         $("body > div.main > div > div > main > div.row > div.scrollspy.col-lg-9.col-md-9.col-sm-12 > div:nth-child(2) > div > div > div").load('/me-index.html [did="5"] > a');
         $('.dslot').removeClass('dslot').addClass('huyslot');
+
+        // replace cryptonews's empty image
+        try {
+            document.querySelectorAll("img").forEach((e) => {
+                if (e.dataset.src === 'https://cimg.co/p/assets/empty-cryptonews.jpg' || e.dataset.lazySrc === 'https://cimg.co/p/assets/empty-cryptonews.jpg') {
+                    e.dataset.src = "/assets/images/empty-kak-1.jpg";
+                    e.dataset.lazySrc = "/assets/images/empty-kak-1.jpg";
+                    e.src = "/assets/images/empty-kak-1.jpg";
+                }
+            });
+        } catch (err) {
+        }
     }
 );
 
