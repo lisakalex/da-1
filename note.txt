@@ -149,7 +149,7 @@ editors pick --
 edit links --
 insert ads --
 fix cookies --
-replace empty image
+replace empty image --
 
 ~~~
 #menu-header > li:nth-child(9) > ul
@@ -182,6 +182,26 @@ console.log(elems1.length, elems2.length);  // now elems1.length = 3!
 </script>
 </html>
 Because querySelectorAll returns a static (not live) list of elements.
+
+~~~
+Using data attributes
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
+
+<article
+  id="electric-cars"
+  data-columns="3"
+  data-index-number="12314"
+  data-parent="cars">
+  …
+</article>
+
+const article = document.querySelector("#electric-cars");
+// The following would also work:
+// const article = document.getElementById("electric-cars")
+
+article.dataset.columns; // "3"
+article.dataset.indexNumber; // "12314"
+article.dataset.parent; // "cars"
 
 ~~~
 

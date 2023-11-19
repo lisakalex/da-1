@@ -29,6 +29,8 @@ shutil.rmtree('./b/', ignore_errors=True)
 shutil.rmtree('./public_html', ignore_errors=True)
 shutil.copytree('./a/cryptonews.com', './b/', dirs_exist_ok=True)
 shutil.copytree('./replace/', './b/', dirs_exist_ok=True)
+
+
 # shutil.rmtree('./b/tags/', ignore_errors=True)
 # shutil.rmtree('./b/events/', ignore_errors=True)
 # shutil.rmtree('./b/jobs/', ignore_errors=True)
@@ -238,19 +240,17 @@ def replace_header_footer(read_file1):
 #
 #     soup1 = BeautifulSoup(read_file1, features='html.parser')
 
-    #  add page loading gif
-    # se_pre_con = soup.find('div', class_='se-pre-con')
-    # if soup1.body is not None:
-    #     soup1.body.insert(1, se_pre_con)
+#  add page loading gif
+# se_pre_con = soup.find('div', class_='se-pre-con')
+# if soup1.body is not None:
+#     soup1.body.insert(1, se_pre_con)
 
-    # for dslot in soup1.findAll('div', class_='dslot'):
-    #     for medslot in soup.findAll('div', class_='dslot'):
-    #         if dslot.get('did') == medslot.get('did'):
-    #             dslot.replace_with(medslot)
-    #
-    # return str(soup1)
-
-
+# for dslot in soup1.findAll('div', class_='dslot'):
+#     for medslot in soup.findAll('div', class_='dslot'):
+#         if dslot.get('did') == medslot.get('did'):
+#             dslot.replace_with(medslot)
+#
+# return str(soup1)
 
 
 # get rid of lazy loading and replace cryptonews's empty image

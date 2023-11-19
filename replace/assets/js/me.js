@@ -83,6 +83,14 @@ $(function () {
         } catch (err) {
         }
 
+        // get rid ot nasty button of their colour when clicked get security warning /home/al/Pictures/Screenshots/Screenshot from 2023-11-19 20-48-50.png
+        try {
+            document.querySelectorAll(".raw-html-embed").forEach((e) => { // tags
+                e.remove();
+            });
+        } catch (err) {
+        }
+
         $("head").append("<link href=\"/assets/images/favicon.png\" rel=\"shortcut icon\"/>" +
             "<link href=\"https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css\" rel=\"stylesheet\"/>" +
             "<script defer=\"\" src=\"/assets/js/cookieconsent.js\"></script>" +
