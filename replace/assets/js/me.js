@@ -13,6 +13,11 @@ $(function () {
         document.title = siteName;
 
         try {
+            document.querySelector("#frontend-js-js").remove();
+        } catch (err) {
+        }
+
+        try {
             document.querySelector('[data-clickout-type="native_table_box_processed"]').remove(); // lower advert
         } catch (err) {
         }
@@ -78,10 +83,11 @@ $(function () {
         } catch (err) {
         }
 
-        $("head").prepend("<link href=\"/assets/images/favicon.png\" rel=\"shortcut icon\"/>" +
+        $("head").append("<link href=\"/assets/images/favicon.png\" rel=\"shortcut icon\"/>" +
             "<link href=\"https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css\" rel=\"stylesheet\"/>" +
             "<script defer=\"\" src=\"/assets/js/cookieconsent.js\"></script>" +
-            "<script defer=\"\" src=\"/assets/js/cookieconsent-init.js\"></script>");
+            "<script defer=\"\" src=\"/assets/js/cookieconsent-init.js\"></script>" +
+            "<script defer=\"\" src=\"/assets/js/frontend.js\"></script>");
 
         $("#menu-header > li:nth-child(10) > ul").load("/kak-index.html #menu-header > li:nth-child(9) > ul > li", function () { // fix recommended
             try {
@@ -104,14 +110,6 @@ $(function () {
             } catch (err) {
             }
         });
-
-        // remove links in exchanges, couldn't replace them back to cryptonews
-        // try {
-        //     let ha = document.querySelectorAll("a.button-more").forEach((e) => {
-        //         e.remove();
-        //     });
-        // } catch (err) {
-        // }
 
         try {
             document.querySelectorAll('.me-mailto').forEach((e) => {
@@ -185,12 +183,6 @@ $(function () {
         $("body > div.main > main > div > div.mb-50.c-black > coinlist > div.mb-60.dslot").load('/me-index.html #1160x90 > a');
         $("body > div.main > div > div > main > div.row > div.scrollspy.col-lg-9.col-md-9.col-sm-12 > div:nth-child(2) > div > div > div").load('/me-index.html [did="5"] > a');
         $('.dslot').removeClass('dslot').addClass('huyslot');
-
-        // disable theirs cookies
-        try {
-            document.querySelectorAll('script[type="rocketlazyloadscript"]')[3].remove();
-        } catch (err) {
-        }
     }
 );
 

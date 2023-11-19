@@ -306,7 +306,7 @@ def insert_in_head(read_file1):
     if soup1.head is not None:
         soup1.head.insert(100, script)
         soup1.head.insert(101, script1)
-        soup1.head.insert(1, script2)
+        soup1.head.insert(102, script2)
 
     return str(soup1)
 
