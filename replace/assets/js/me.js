@@ -83,7 +83,7 @@ $(function () {
         } catch (err) {
         }
 
-        // get rid ot nasty button of their colour when clicked get security warning /home/al/Pictures/Screenshots/Screenshot from 2023-11-19 20-48-50.png
+        // get rid ot nasty button of their colour when clicked get security warning /home/al/Pictures/Screenshots/Screenshot from 2023-11-19 21-08-05.png
         try {
             document.querySelectorAll(".raw-html-embed").forEach((e) => { // tags
                 e.remove();
@@ -210,3 +210,16 @@ $(window).load(function () {
     // Animate loader off screen
     $(".se-pre-con").fadeOut("slow");
 });
+
+// it is in every file but not working must be the lazy loading
+window.sid = "1"
+window.burl = "https://a2.cryptonews.com"
+window.cid = 1
+window.trans = {
+    ago: "ago",
+    ago_long: "minute, minutes, hour, hours, day, days",
+    time_seconds_ago: "[time] [seconds] [ago]",
+    time_minutes_ago: "[time] [minutes] [ago]",
+    time_hours_ago: "[time] [hours] [ago]",
+    time_days_ago: "[time] [days] [ago]",
+}
