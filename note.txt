@@ -1,6 +1,6 @@
 12581 ./a/cryptonews.com/news/best-nft-gambling-sites.htm
 <a href="/" class="header__logo">
-
+/home/al/books/other/www.gnu.org/software/wget/manual/wget.html
 index.html
 did="16" 300X250-mobile.jpg
 did="11" 970x250.jpg
@@ -204,4 +204,18 @@ article.dataset.indexNumber; // "12314"
 article.dataset.parent; // "cars"
 
 ~~~
+ssh al@82.165.5.243
 
+on local machine copy from remote
+al@da:~$ scp al@82.165.5.243:~/syslog .
+
+~~~
+/var/www/da.com/a - now is used for downloading with download.txt
+/var/www/da.com/c - moved a here
+
+~~~
+download multiple URLs using wget using a single command
+https://stackoverflow.com/questions/14578264/how-to-download-multiple-urls-using-wget-using-a-single-command
+wget https://cryptonews.com/ -i download.txt
+
+~~~

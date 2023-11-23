@@ -8,8 +8,10 @@ $(function () {
         let href = location.href
         let origin = location.origin
         let pathname = location.pathname
-        let hostname = location.hostname;
-        let siteName = location.hostname.split('.')[0];
+        let hostname = location.hostname.replace("www.", "");
+        // hostname = hostname.replace("www.", "")
+        let siteName = hostname.split('.')[0];
+
         document.title = siteName;
 
         try {
@@ -28,7 +30,7 @@ $(function () {
         }
 
         try {
-            document.querySelector("#style-css-css").remove(); // their's style.css
+            document.querySelector("#style-css-css").remove(); // theirs style.css
         } catch (err) {
         }
 
@@ -85,7 +87,7 @@ $(function () {
 
         // get rid ot nasty button of their colour when clicked get security warning /home/al/Pictures/Screenshots/Screenshot from 2023-11-19 21-08-05.png
         try {
-            document.querySelectorAll(".raw-html-embed").forEach((e) => { // tags
+            document.querySelectorAll(".raw-html-embed").forEach((e) => {
                 e.remove();
             });
         } catch (err) {
@@ -131,7 +133,7 @@ $(function () {
         } catch (err) {
         }
 
-        if (hostname === 'da-1.com' || hostname === 'intspeed.com' || hostname === 'hindex.amkamdam.com' || hostname === 'xxx.xx') {
+        if (hostname === 'da-1.com' || hostname === 'intspeed.com' || hostname === 'amkamdam.com' || hostname === 'xxx.xx') {
             setSite('#025360', 'Kanit')
         }
 
