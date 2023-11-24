@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="da-1">
+  <component name="PublishConfigData" autoUpload="Always" serverName="amkamdam">
     <serverData>
-      <paths name="da-1">
+      <paths name="amkamdam">
         <serverdata>
           <mappings>
-            <mapping deploy="/var/www/hindex/" local="$PROJECT_DIR$/public_html/" web="/" />
+            <mapping deploy="/var/www/" local="$PROJECT_DIR$/" web="/" />
           </mappings>
         </serverdata>
       </paths>
