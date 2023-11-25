@@ -9,6 +9,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from stem.control import Controller
 from stem import Signal
+import time
 
 
 def get_current_ip():
@@ -18,8 +19,8 @@ def get_current_ip():
     userAgent = ua.random
     options = Options()
     options.add_argument('user-agent={}'.format(userAgent))
-    # PROXY = "socks5://localhost:9050"
-    # options.add_argument('--proxy-server=%s' % PROXY)
+    PROXY = "socks5://localhost:9050"
+    options.add_argument('--proxy-server=%s' % PROXY)
     options.headless = True
 
     # driver = webdriver.Chrome(options=options, executable_path="/var/www/da-1.com/html/test/click-iframe/chromedriver")
@@ -46,5 +47,5 @@ def renew_tor_ip():
 if __name__ == "__main__":
     for i in range(3):
         get_current_ip()
-        # renew_tor_ip()
-        # time.sleep(10)
+        renew_tor_ip()
+        time.sleep(10)
