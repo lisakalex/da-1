@@ -219,3 +219,29 @@ https://stackoverflow.com/questions/14578264/how-to-download-multiple-urls-using
 wget https://cryptonews.com/ -i download.txt
 
 ~~~
+my ip 82.43.108.150
+
+~~~
+Clear RAM Memory Cache, Buffer and Swap Space on Linux
+sudo sync; echo 3 > /proc/sys/vm/drop_caches
+
+~~~
+remote server
+install chrome
+https://tecadmin.net/how-to-install-google-chrome-on-ubuntu-22-04/
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+
+error: cannot copy extracted data for './opt/google/chrome/icudtl.dat' to '/opt/google/chrome/icudtl.dat.dpkg-new': unexpected end of file or stream
+delete google-chrome-stable_current_amd64.deb
+run sudo apt-get clean
+download again google-chrome-stable_current_amd64.deb
+
+sudo apt install xvfb
+sudo apt install xvfbwrapper
+pip install selenium
+pip install stem
+pip install fake-useragent
+
+
+
