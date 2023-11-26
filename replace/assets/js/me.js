@@ -81,6 +81,11 @@ $(function () {
         }
 
         try {
+            $("script").remove(":contains('googletagmanager')");
+        } catch (err) {
+        }
+
+        try {
             document.querySelector("body > div.main > main > section:nth-child(5)").remove(); // Buy/Sell at the best rates (front page)
         } catch (err) {
         }
@@ -93,7 +98,16 @@ $(function () {
         } catch (err) {
         }
 
-        $("head").append("<link href=\"/assets/images/favicon.png\" rel=\"shortcut icon\"/>" +
+
+        $("head").prepend("<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-0WB7KX709G\"></script>" +
+            "<script>\n" +
+            "  window.dataLayer = window.dataLayer || [];\n" +
+            "  function gtag(){dataLayer.push(arguments);}\n" +
+            "  gtag('js', new Date());\n" +
+            "\n" +
+            "  gtag('config', 'G-0WB7KX709G');\n" +
+            "</script>" +
+            "<link href=\"/assets/images/favicon.png\" rel=\"shortcut icon\"/>" +
             "<link href=\"https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css\" rel=\"stylesheet\"/>" +
             "<script defer=\"\" src=\"/assets/js/cookieconsent.js\"></script>" +
             "<script defer=\"\" src=\"/assets/js/cookieconsent-init.js\"></script>" +

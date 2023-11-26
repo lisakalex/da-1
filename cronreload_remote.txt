@@ -1,2 +1,14 @@
-#0 7 * * * cd /var/www/html/a/ && wget https://cryptonews.com/
-#0 19 * * * cd /var/www/html/ && ./editallfiles.py
+0 7 * * * /var/www/hindex/sh/get_hyip_seeds.py
+* * * * * /var/www/hindex/sh/get_top.py
+* * * * * /var/www/hindex/sh/seed1.sh
+* * * * * /var/www/hindex/sh/monitor.sh
+* * * * * /var/www/hindex/sh/hyip.sh
+* * * * * /var/www/hindex/sh/hyip1.sh
+* * * * * /var/www/hindex/sh/rate.sh
+0 19 * * * /usr/bin/php8.1 /var/www/hindex/sh/copyall.php
+* * * * * /usr/bin/php8.1 /var/www/hindex/pay_cron.php
+* * * * * /bin/bash -l -c 'date > ~/cron-test.txt'
+#0 7 * * * cd /var/www/a/ && wget https://cryptonews.com/
+#0 19 * * * cd /var/www/ && ./editallfiles.py
+* * * * * cd /var/www/ && ./tor.py
+#* * * * * DISPLAY=:0 cd /var/www/ && ./tor.py

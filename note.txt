@@ -243,5 +243,66 @@ pip install selenium
 pip install stem
 pip install fake-useragent
 
+~~~
+free up disk space on an Ubuntu
+https://webdock.io/en/docs/how-guides/system-maintenance/how-free-disk-space-ubuntu-nginx-or-apache-web-server
+
+sudo df -h
+sudo du -h --max-depth=1 /var 2>/dev/null
+
+this saved 1G of memory
+sudo journalctl --vacuum-size=1M
+
+sudo rm /var/log/*.gz
+
+~~~
+crontab /var/www/da-1.com/cronreload.txt
+* * * * * cd /var/www/da-1.com/ && ./tor.py
+
+remote
+crontab /var/www/cronreload_remote.txt
+* * * * * cd /var/www/ && ./tor.py
+
+0 * * * *  DISPLAY=:0 python my_script.py
+
+~~~
+mysql -u root -p
+
+huy g h
+
+~~~
+al@da:~$ ssh al@82.165.5.243
+sign_and_send_pubkey: signing failed for ED25519 "/home/al/.ssh/id_ed25519" from agent: agent refused operation
+al@82.165.5.243's password:
+
+~~~
+amkamdam.com works from crontab without DISPLAY=:0, (* * * * * cd /var/www/ && ./tor.py).
+The .py has "from xvfbwrapper import Xvfb"
+ (xvfb and xvfbwrapper both installed )
+     display = Xvfb()
+     display.start()
+
+load average: 0.26, 0.43, 0.30
+mysql stopped
+tor is on
+
+crontab:
+0 7 * * * /var/www/hindex/sh/get_hyip_seeds.py
+* * * * * /var/www/hindex/sh/get_top.py
+* * * * * /var/www/hindex/sh/seed1.sh
+* * * * * /var/www/hindex/sh/monitor.sh
+* * * * * /var/www/hindex/sh/hyip.sh
+* * * * * /var/www/hindex/sh/hyip1.sh
+* * * * * /var/www/hindex/sh/rate.sh
+0 19 * * * /usr/bin/php8.1 /var/www/hindex/sh/copyall.php
+* * * * * /usr/bin/php8.1 /var/www/hindex/pay_cron.php
+* * * * * /bin/bash -l -c 'date > ~/cron-test.txt'
+#0 7 * * * cd /var/www/a/ && wget https://cryptonews.com/
+#0 19 * * * cd /var/www/ && ./editallfiles.py
+* * * * * cd /var/www/ && ./tor.py
+#* * * * * DISPLAY=:0 cd /var/www/ && ./tor.py
+
+
+
 
 

@@ -10,6 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from stem.control import Controller
 from stem import Signal
 import time
+from datetime import datetime
 
 
 def get_current_ip():
@@ -24,11 +25,14 @@ def get_current_ip():
     options.headless = True
 
     # driver = webdriver.Chrome(options=options, executable_path="/var/www/da-1.com/html/test/click-iframe/chromedriver")
-    driver = webdriver.Chrome(options=options, executable_path="/var/www/html/test/click-iframe/chromedriver")
+    driver = webdriver.Chrome(options=options, executable_path="./chromedriver")
     # driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
+    print(datetime.today().strftime('%H:%M:%S'))
+    with open('zuy1', "w") as file:
+        file.write(datetime.today().strftime('%Y-%m-%d %H:%M:%S') + ' tor\n')
 
-    # url = "http://da-1.com/test/click-iframe/a.html"
-    url = "https://www.amkamdam.com/test/click-iframe/a.html"
+    url = "http://da-1.com/test/click-iframe/a.html"
+    # url = "https://www.amkamdam.com/test/click-iframe/a.html"
     driver.get(url)
     try:
         driver.switch_to.frame('google_ads_iframe')
@@ -48,4 +52,4 @@ if __name__ == "__main__":
     for i in range(3):
         get_current_ip()
         renew_tor_ip()
-        time.sleep(10)
+        time.sleep(3)
