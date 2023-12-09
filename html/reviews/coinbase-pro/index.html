@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head><meta charset="utf-8"/><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.4",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let r=e.getAttribute("data-rocket-src");if(r&&0!==r.indexOf("data:")){0===r.indexOf("//")&&(r=location.protocol+r);try{let i=new URL(r).origin;i!==location.origin&&t.push({src:i,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(n){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){if(await this._littleBreath(),!0===t.noModule&&"noModule"in HTMLScriptElement.prototype){t.setAttribute("data-rocket-status","skipped");return}return new Promise(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(){let t={};function e(e,r){!function e(r){!t[r]&&(t[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.remove.apply(r,arguments)});function i(e){return t[r].eventsToRewrite.indexOf(e)>=0?"rocket-"+e:e}}(e),t[e].eventsToRewrite.push(r)}function r(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}e(document,"DOMContentLoaded"),e(window,"DOMContentLoaded"),e(window,"load"),e(window,"pageshow"),e(document,"readystatechange"),r(document,"onreadystatechange"),r(window,"onload"),r(window,"onpageshow")}_delayJQueryReady(t){let e;function r(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}function i(i){if(i&&i.fn&&!t.allJQueries.includes(i)){i.fn.ready=i.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(i):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(i)),i([])};let n=i.fn.on;i.fn.on=i.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=r(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{let e=arguments[0][t];delete arguments[0][t],arguments[0][r(t)]=e})),n.apply(this,arguments),this},t.allJQueries.push(i)}e=i}i(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){i(t)}})}async _pendingWebpackRequests(t){let e=document.querySelector("script[data-webpack]");async function r(){return new Promise(t=>{e.addEventListener("load",t),e.addEventListener("error",t)})}e&&(await r(),await t._requestAnimFrame(),await t._pendingWebpackRequests(t))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="1101440706625691" property="fb:app_id"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="/favicon-192x192.png" rel="icon" sizes="192x192"/>
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon"/>
+<link href="/favicon.ico" rel="shortcut icon"/>
+<meta content="ee7282c3169a3e01fc91c812fc84096b69c8f74b" name="naver-site-verification"/>
+<link href="https://gmpg.org/xfn/11" rel="profile"/>
+<!--    <title>--><!-- | --><!--</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" /></noscript>-->
+<script data-rocket-src="https://cimg.co/p/manifest.js" data-rocket-type="application/javascript" defer="" type="rocketlazyloadscript"></script>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots">
+<!-- This site is optimized with the Yoast SEO Premium plugin v20.0 (Yoast SEO v21.5) - https://yoast.com/wordpress/plugins/seo/ -->
+<title>Coinbase Pro Review (2022) | Coinbase Vs Coinbase Pro Exchange Review</title>
+<meta content="Coinbase Pro (formerly known as GDAX) is an advanced cryptocurrency trading platform owned and operated by popular cryptocurrency exchange Coinbase." name="description">
+<link href="https://cryptonews.com/reviews/coinbase-pro/" rel="canonical"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="article" property="og:type"/>
+<meta content="Coinbase Pro" property="og:title"/>
+<meta content="Coinbase Pro (formerly known as GDAX) is an advanced cryptocurrency trading platform owned and operated by popular cryptocurrency exchange Coinbase." property="og:description"/>
+<meta content="https://cryptonews.com/reviews/coinbase-pro/" property="og:url"/>
+<meta content="Cryptonews" property="og:site_name"/>
+<meta content="2023-10-23T16:44:31+00:00" property="article:modified_time"/>
+<meta content="https://cryptonews.com/wp-content/uploads/2023/11/1.jpg" property="og:image"/>
+<meta content="1669" property="og:image:width"/>
+<meta content="874" property="og:image:height"/>
+<meta content="image/jpeg" property="og:image:type"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Coinbase Pro Review (2022) | Coinbase Vs Coinbase Pro Exchange Review" name="twitter:title"/>
+<meta content="Coinbase Pro (formerly known as GDAX) is an advanced cryptocurrency trading platform owned and operated by popular cryptocurrency exchange Coinbase." name="twitter:description"/>
+<meta content="https://cimg.co/review/186/14646/5a74b67605901.png" name="twitter:image"/>
+<meta content="@Cryptonews" name="twitter:site"/>
+<!-- / Yoast SEO Premium plugin. -->
+<link href="//cryptonews.com" rel="dns-prefetch"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://cryptonews.com/feed/" rel="alternate" title="Cryptonews » Feed" type=""/>
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/style.css?ver=1701684400" id="style-css-css" media="all" rel="stylesheet"/>
+<link href="https://cryptonews.com/wp-includes/css/dist/block-library/style.min.css?ver=6.4.1" id="wp-block-library-css" media="all" rel="stylesheet">
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/assets/css/search.css?ver=1701684400" id="search-css" media="all" rel="stylesheet">
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/brand-management-plugin/public/css/brand-management-public.css?ver=1701684400" id="brand-management-public-css" media="all" rel="stylesheet">
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptopresales-brand-management-plugin/public/css/crypto-bm-public.css?ver=1701684400" id="crypto-bm-public-css" media="all" rel="stylesheet">
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/brand-management.css?ver=1701684400" id="brand-management-css" media="all" rel="stylesheet">
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/custom.css?ver=1701684400" id="custom-css" media="all" rel="stylesheet"/>
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/presale-toplist.css?ver=1701684400" id="presale-toplist-css" media="all" rel="stylesheet"/>
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews-post-blocks/assets/css/style.css?ver=1701684400" id="post-blocks-style-css" media="all" rel="stylesheet"/>
+<style id="rocket-lazyload-inline-css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://cryptonews.com/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<script id="brand-management-ajax-handler-js-extra">
+var likes_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php","nonce":"c4904c03d2","fail_text":"You have already voted."};
+</script>
+<script id="crypto-bm-ajax-handler-js-extra">
+var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php","nonce":"8d5e914c72"};
+</script>
+<link href="https://cryptonews.com/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript> <script type="rocketlazyloadscript">
+        window.sid = "1"
+                window.burl = "https://a2.cryptonews.com"
+                window.cid = 1
+        window.trans = {
+            ago: "ago",
+            ago_long: "minute, minutes, hour, hours, day, days",
+            time_seconds_ago: "[time] [seconds] [ago]",
+            time_minutes_ago: "[time] [minutes] [ago]" ,
+            time_hours_ago: "[time] [hours] [ago]",
+            time_days_ago: "[time] [days] [ago]",
+        }
+    </script>
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MBDCFGN');</script>
+</link></link></link></link></link></meta></meta></link><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><script defer="" src="/assets/js/me.js"></script><link href="/assets/css/style.css" rel="stylesheet"/></head>
+<body class="reviews-template-default single single-reviews postid-186 single-format-standard wp-custom-logo">
+<header class="header" id="header">
+<div class="se-pre-con"></div>
+<a class="header__logo" href="/">
+<img alt="Crypto News" src="/assets/images/logo.svg"/>
+</a>
+<div class="header-links d-none d-lg-flex header-menu__dropdown">
+<ul class="menu_header" id="menu-header">
+<li></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/news/press-releases/">Press Releases</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/news/">News<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/bitcoin-news/">Bitcoin News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/ethereum-news/">Ethereum News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/nft-news/">NFT News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/defi-news/">DeFi News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/altcoin-news/">Altcoin News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/blockchain-news/">Blockchain News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/press-releases/">Press Releases</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/sponsored/">Sponsored</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/industry-talk/">Industry Talk</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/ico-news/">ICO news</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/finance-news/">Finance News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/technology-news/">Technology News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/price-predictions/">Price Predictions</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/guides/">Guides<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/bitcoin/">Bitcoin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/ethereum/">Ethereum</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/nft/">NFT</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/defi-guides/">Defi Guides</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/altcoins/">Altcoins</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/blockchain/">Blockchain</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/cryptocurrency/">Cryptocurrency</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/icos/">ICOs / STOs / IEOs</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/trading-tools/">Trading Tools</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/wallet-guides/">Wallet Guides</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/review_categories/exchanges/">Exchanges</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/coins/">Market Cap</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/industry-talk/">Industry Talk</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/exclusives/features/">Features</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/exclusives/opinions/">Opinions</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/exclusives/people/">People In Crypto</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#">Editors’ picks<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/best-crypto-to-buy.htm">Best Crypto to Buy Now</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/best-crypto-presales.htm">Best Crypto Presales to Invest in</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="header-search">
+<div class="header-menu__trigger d-md-none">
+<svg height="7" viewbox="0 0 12 7" width="12" xmlns="http://www.w3.org/2000/svg">
+<g fill-rule="evenodd">
+<path d="M0 3.999L12 3.999 12 2.999 0 2.999zM0 7L12 7 12 6 0 6zM0 1L12 1 12 0 0 0z"></path>
+</g>
+</svg>
+</div>
+</div>
+</header><!-- #masthead -->
+<div class="main">
+<div class="modal" id="newsletter-modal">
+<div class="modal__content text-white">
+<div class="close__icon hide-modal" data-id="newsletter-modal">X</div>
+<div class="modal__body newsletter">
+<div class="left-side">
+<div class="h1">
+<em>
+            Enter your email for our Free Daily Newsletter        </em>
+</div>
+<p> A quick 3min read about today's crypto news!</p>
+<form id="newsletter-form">
+<div class="input-group">
+<div><input id="newsletter_email" name="email" placeholder="Email" required="" type="email"/></div>
+<div><button id="newsletter-signup" type="submit">Sign Up</button></div>
+</div>
+</form>
+<span class="response-msg" id="newsletter-response"></span>
+</div>
+<div class="img-box">
+<img alt="Image" class="img" data-lazy-src="https://cimg.co/p/ml-300.jpeg" id="newsletter-popup-img" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"/><noscript><img alt="Image" class="img" id="newsletter-popup-img" src="https://cimg.co/p/ml-300.jpeg"/></noscript>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-12 col-lg-8">
+<div class="breadcrumbs mb-25">
+<a href="/">Cryptonews</a>
+<a href="/reviews/">Reviews</a>
+<a href="">
+            Coinbase Pro        </a>
+</div>
+<main>
+<div class="col-12 mt-20 d-md-none d-block">
+<div class="row col-12">
+</div>
+</div>
+<div class="row">
+<div class="col-12 col-lg-3">
+<div class="d-none d-md-block mb-30">
+<img alt="Coinbase Pro" class="img-fluid img-circle author__image author__image--has-bg mb-15" data-lazy-src="https://cimg.co/reviewlogo/6/5dcab04fee043.png" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"/><noscript><img alt="Coinbase Pro" class="img-fluid img-circle author__image author__image--has-bg mb-15" src="https://cimg.co/reviewlogo/6/5dcab04fee043.png"/></noscript>
+<div>
+<a class="c-black" href="#"><b>
+                                    Coinbase Pro                                </b></a>
+<a class="button-more cta-btn" href="https://cryptonews.com/ext/coinbase-pro/" rel="nofollow noindex" target="_blank">Open Account <svg height="6" viewbox="0 0 20 6" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 0L1 5 0 6 1.414 6 19.999 6 19.999 5 2.413 5 6 1.415z" fill="#6C7473" fill-rule="evenodd" transform="matrix(-1 0 0 1 19.999 0)"></path>
+</svg></a> <div class="fs-12"></div>
+</div>
+</div>
+<!-- <div class="pt-60">
+
+                    </div> -->
+</div>
+<div class="col-12 col-lg-9 article-single__content category_contents_details mb-60 scrollspy" id="review_content">
+<h1 id="coinbase-pro">
+                        Coinbase Pro                    </h1>
+<p>Coinbase Pro (formerly known as GDAX) is an advanced cryptocurrency trading platform owned and operated by popular cryptocurrency exchange Coinbase. Launched as a part of Coinbase exchange, it benefits from many of the same advantages as Coinbase itself, including ease of use, solid security, and great liquidity. It is designed for more experienced retail and professional traders and allows a range of advanced, high-volume trades. Its trading fees are not the lowest out there, but Coinbase Pro doesn’t charge anything for cryptocurrency deposits or withdrawals. All of this makes a very good exchange for both retail and institutional traders, and the latter can open a dedicated corporate account at Coinbase Prime.</p><h2>Coinbase Pro Review Summary</h2><span class="replacer"></span><p>Coinbase Pro cryptocurrency exchange is one of the top platforms if you want to buy and sell bitcoin or simply trade cryptocurrencies. The platform is a branch of cryptocurrency exchange Coinbase and is designed for more experienced professional and retail traders.</p><div class="scrollspy" id="general-information"><h2 class="heading--has-offset" id="general-info">General info</h2><div class="row"><div class="col-12 col-md-6"><table class="table table--list"><tbody><tr><td>Web address:</td><td><b><a class="c-purple" href="https://rapi.cryptonews.com/ext/coinbase-pro/en_US" https:="" rel="nofollow" target="_blank&gt;coinbase-pro&lt;/a&gt;&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Support contact:&lt;/td&gt;&lt;td&gt;&lt;b&gt;&lt;a href=">Link</a></b></td></tr><tr><td>Main location:</td><td><b>San Francisco, US</b></td></tr><tr><td>Daily volume:</td><td><b>85941.0 BTC</b></td></tr><tr><td>Mobile app available:</td><td><b>Yes</b></td></tr><tr><td>Is decentralized:</td><td><b>No</b></td></tr></tbody></table></div><div class="col-12 col-md-6"><table class="table table--list"><tbody><tr><td>Parent Company:</td><td><b>Coinbase, Inc.</b></td></tr><tr><td>Transfer types:</td><td><b>Bank Transfer, Crypto Transfer, </b></td></tr><tr><td>Supported fiat:</td><td><b>USD, EUR, GBP</b></td></tr><tr><td>Supported pairs:</td><td><b>57</b></td></tr><tr><td>Has token:</td><td><b>USDC<tr><td>Fees:</td><td><b>High(<a href="/price-tracker/">Compare rates</a>)</b></td></tr></b></td></tr></tbody></table></div></div><div class="scrollspy mb-30" id="screenshots"><div class="d-flex align-items-center"><div class="col-6"> <h2 class="heading--has-offset">Screenshots</h2> </div><div class="col-6"><div class="reviews-slider__arrows text-right"></div></div></div><div class="row slick-slider" id="review_slider"><div class="pl-15 pr-15 item"><img alt="" class="img-fluid" data-lazy-src="https://cimg.co/review/186/14646/5a74b67605901.png" data-lazy-srcset="https://cimg.co/review/186/14646/responsive-images/5a74b67605901___media_library_original_1440_803.png 1440w, https://cimg.co/review/186/14646/responsive-images/5a74b67605901___media_library_original_1200_669.png 1200w, https://cimg.co/review/186/14646/responsive-images/5a74b67605901___media_library_original_900_501.png 900w, https://cimg.co/review/186/14646/responsive-images/5a74b67605901___media_library_original_720_401.png 720w, https://cimg.co/review/186/14646/responsive-images/5a74b67605901___media_library_original_600_334.png 600w, https://cimg.co/review/186/14646/responsive-images/5a74b67605901___media_library_original_300_167.png 300w, " src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20620%200'%3E%3C/svg%3E" width="620"/><noscript><img alt="" class="img-fluid" loading="auto" src="https://cimg.co/review/186/14646/5a74b67605901.png" srcset="https://cimg.co/review/186/14646/responsive-images/5a74b67605901___media_library_original_1440_803.png 1440w, https://cimg.co/review/186/14646/responsive-images/5a74b67605901___media_library_original_1200_669.png 1200w, https://cimg.co/review/186/14646/responsive-images/5a74b67605901___media_library_original_900_501.png 900w, https://cimg.co/review/186/14646/responsive-images/5a74b67605901___media_library_original_720_401.png 720w, https://cimg.co/review/186/14646/responsive-images/5a74b67605901___media_library_original_600_334.png 600w, https://cimg.co/review/186/14646/responsive-images/5a74b67605901___media_library_original_300_167.png 300w, " width="620"/></noscript></div></div></div></div><p>The key features of the platform include:</p><ul><li><strong>Access to 29 cryptocurrencies.</strong> Cryptocurrency traders can buy and sell <a href="https://cryptonews.com/news/bitcoin-news/">bitcoin</a> on Coinbase Pro. Also, you can trade altcoins like <a href="https://cryptonews.com/tags/bitcoin-cash/">bitcoin cash</a>, <a href="https://cryptonews.com/tags/litecoin/">litecoin</a>, and <a href="https://cryptonews.com/tags/ethereum/">ethereum</a>, as well as other new coins listed on Coinbase Pro in a seamless and secure way.</li><li><strong>Smooth transition between Coinbase and Coinbase Pro.</strong> If you already have a <a href="https://cryptonews.com/reviews/coinbase/">Coinbase account</a>, you can use the same login credentials on Coinbase Pro and transfer your funds between Coinbase and Coinbase Pro wallets <strong>instantly</strong> and <strong>for free</strong>.</li><li><strong>Coinbase Prime.</strong> Institutional cryptocurrency investors are recommended to open a Coinbase Prime account, which is much like the Coinbase Pro but tailored for corporate professionals.</li><li><strong>Secure exchange.</strong> Coinbase is well-known for its security measures. It employs highest-level security standards and has never been hacked before. The exchange also runs <strong>Coinbase Custody</strong> service for institutional clients seeking the highest level cold storage security for their crypto assets.</li><li><strong>Excellent liquidity.</strong> Coinbase Pro has one of the largest cryptocurrency trading volumes in terms of USD, which makes it a great option for selling cryptocurrencies.</li><li><strong>Margin trading.</strong> From February 2020, Coinbase Pro offers up to <strong>3x leverage</strong> for its USD-quoted books. The feature is not available in all states and countries just yet.</li><li><strong>Coinbase Earn.</strong> Coinbase lets you earn cryptocurrency for learning about it. At pixel time, you can get over <i>USD 150 worth of crypto</i> just by completing Coinbaseâ€™s courses.</li></ul><figure class="image"></figure><p>Source: Coinbase.com</p><p>Unsurprisingly, Coinbase Proâ€™s most prominent features are its security, reliability, accessibility, and firm regulatory footing. In contrast with other exchanges, it has a limited number of crypto assets, but it is due to the fact that the projects listed on it must undergo a vigorous vetting process.</p><figure class="image"></figure><p>Source: Coinbase Pro website.</p><p>All in all, Coinbase Pro is an excellent trading platform for more advanced retail and institutional investors.</p><h2>Exchange History and Background</h2><span class="replacer"></span><p>Launched in January 2015, Coinbase Pro is a progeny of San Francisco-based Coinbase but designed for professional retail and institutional traders. Coinbase itself was founded in July 2011 by <a href="https://twitter.com/brian_armstrong">Brian Armstrong</a> and <a href="https://twitter.com/FEhrsam">Fred Ehrsam</a>. The company launched its services in October 2012 and quickly became one of the top bitcoin trading platforms in the United States.</p><p>In its first years of existence, Coinbase Pro was known as <strong>GDAX</strong> and had a separate office in Chicago. However, in May of 2018, Coinbase announced it was eliminating the GDAX brand, office, and will transfer all of its clients to Coinbase Pro.</p><figure class="image"></figure><p>Source: Coinbase.com</p><p>Ever since Coinbase Pro has become one of the largest U.S. exchanges in terms of both popularity and trading volume. In 2010, it was even recognized as one of a few exchanges that report reliable trading volume by <a href="https://www.sec.gov/comments/sr-nysearca-2019-01/srnysearca201901-5164833-183434.pdf">Bitwise</a>.</p><p>In October 2019, Coinbase Pro announced a new fee structure, which made its services more expensive for small trading volume accounts and lowered them for large volume trades. The changes prompted <a href="https://cryptonews.com/news/coinbase-pro-increases-fees-what-could-go-wrong-4797.htm">a wave of criticism</a> online, though the new fee structure remains in effect.</p><p>Earlier in 2019, Coinbase received lots of heat for acquiring the infamous â€œHacking Teamâ€ and <a href="https://cryptonews.com/news/coinbase-a-series-of-unfortunate-events-3441.htm">other strategic decisions</a>.</p><p>During the crypto boom in December 2017, its Coinbase app became the number one most downloaded app on Appleâ€™s App Store and remained one of the most popular mobile trading apps to this day.</p><h3>Regulation</h3><p>Just like Coinbase, Coinbase Pro is fully licensed and regulated in the U.S. and other supported countries. Due to the nature of its business and current regulatory environment, Coinbase is required to comply with <strong>The Bank Secrecy Act</strong>, <strong>The USA Patriot Act</strong>, and other local money transmission laws. Besides, Coinbase is registered as a <strong>Money Services Business with FinCEN</strong>.</p><p>As a result, Coinbase Pro users must pass strict <strong>Know Your Customer (KYC)</strong> and <strong>Anti-Money Laundering (AML)</strong> checks. These typically require you to submit the following documents:</p><ul><li>State ID, passport or driver license.</li><li>Complete a set of verification questions.</li><li>Proof of residential address – a utility bill, bank statement, or a credit card statement (no older than three months).</li><li>Photo of your face.</li></ul><p>According to Coinbase, the verification process takes up to 3 minutes, but it is likely to take longer at busy times. Also, note that verification is not available using Coinbase Pro mobile app.</p><p>As usual, the process requires more documents and takes longer for corporate accounts.</p><h3>Coinbase Pro Supported Countries</h3><p>Today, Coinbase Pro is available in more than 70 countries worldwide. Mind that Coinbase Pro users can only trade pairs permitted by local regulators in your jurisdiction. For instance, Australian, Canadian, or Singaporean versions of the exchange may offer somewhat different features and trading pairs than their European or American counterparts.</p><p><strong>Fiat-to-crypto and crypto-to-crypto trading supported countries:</strong></p><ul><li><strong>The United States</strong> (excluding Hawaii and with some exceptions in the state of New York).</li><li><strong>Europe:</strong> The United Kingdom, Andorra, Austria, Belgium, Bulgaria, Croatia, Cyprus, Czechia, Denmark, Estonia, Finland, France, Germany, Greece, Guernsey, Hungary, Iceland, Ireland, Isle of Man, Italy, Jersey, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Monaco, Netherlands, Norway, Poland, Portugal, San Marino, Slovakia, Spain, Sweden, and Switzerland.</li></ul><p><strong>Crypto-to-crypto trading supported countries:</strong></p><ul><li><strong>Asia:</strong> Bahrain, Hong Kong, India, Indonesia, Jordan, Kazakhstan, Kuwait, Mongolia, Oman, Philippines, Singapore, South Korea, Taiwan, Uzbekistan.</li><li><strong>Africa:</strong> Ghana, Kenya, South Africa, Tunisia, Uganda.</li><li><strong>Europe:</strong> Serbia, Turkey.</li><li><strong>North America:</strong> Canada.</li><li><strong>South America:</strong> Argentina, Brazil, Chile, Colombia, Ecuador, Peru, Uruguay.</li><li><strong>Central America:</strong> British Virgin Islands, Cayman Islands, Costa Rica, Dominican Republic, Guatemala, Jamaica, Mexico, and Panama.</li><li><strong>Australia</strong> and <strong>New Zealand</strong>.</li></ul><p>The latest list of Coinbase Pro supported countries can be found <a href="https://help.coinbase.com/en/pro/trading-and-funding/cryptocurrency-trading-pairs/locations-and-trading-pairs.html">here</a>.</p><h2>Coinbase vs. Coinbase Pro</h2><span class="replacer"></span><p>Bitcoin and cryptocurrencies can be an overwhelming experience for those looking to enter the space. Coinbase was created as an exchange for those who merely want to buy or sell bitcoin. Hence, it is an excellent site to refer to when you talk to newbies interested in entering the space. The platform makes it easy to register and buy cryptocurrency within minutes after completing account verification.</p><p>You can read our <a href="https://cryptonews.com/reviews/coinbase/">full review of Coinbase here.</a></p><p>Meanwhile, Coinbase Pro is designed for more experienced retail and professional investors. It offers a wider variety of cryptocurrencies, more types of trade orders, lower fees, and a more advanced interface. And while itâ€™s a great platform for trading, it may be too complicated for complete beginners in the space.</p><figure class="image"></figure><p>Source: Coinbase.com</p><p>Essentially, opening an account on Coinbase also means opening an account on Coinbase Pro. Both exchanges rely on the same infrastructure, security mechanisms, and order book, which makes it easy to transition from the former to the latter and vice versa. Also, the transfers between both exchanges are free of charge. However, convenience comes at a cost, so Coinbase fees are somewhat higher.</p><p>In sum, Coinbase Pro is better suited for traders and investors looking for a place to buy and sell larger quantities of bitcoin and other 28 cryptocurrencies, while Coinbase is designed for simpler crypto operations.</p><h2>Coinbase Pro Fees</h2><span class="replacer"></span><p>Fees on Coinbase Pro are sort of a mixed bag. On one hand, the platform does not charge any fees for crypto asset deposits and withdrawals. On the other hand, its trading fees for low-volume traders are higher than its competitors.</p><p>With bitcoin, those who buy or sell cryptocurrency from an existing order on the book (i.e., â€œtakersâ€) pay a <strong>0.5% fee</strong>. The same goes for those who are placing a new order in the order book (aka â€œmakers). However, the fee does go lower by more than half if you exchange more than <strong>USD 100,000 per month.</strong></p><figure class="table"><table><tbody><tr><th><strong>User 30-Day Volume</strong></th><th><strong>Taker Fee</strong></th><th><strong>Maker Fee</strong></th></tr><tr><th><strong>&lt; USD 10,000</strong></th><th>0.50%</th><th>0.50%</th></tr><tr><th><strong>USD 10,000 – 50,000</strong></th><th>0.35%</th><th>0.35%</th></tr><tr><th><strong>USD 50,000 – 100,000</strong></th><th>0.25%</th><th>0.15%</th></tr><tr><th><strong>USD 100,000 – 1 million</strong></th><th>0.20%</th><th>0.10%</th></tr><tr><th><strong>USD 1 million – 10 million</strong></th><th>0.18%</th><th>0.08%</th></tr><tr><th><strong>USD 10 million – 50 million</strong></th><th>0.15%</th><th>0.05%</th></tr><tr><th><strong>USD 50 million – 100 million</strong></th><th>0.10%</th><th>0.00%</th></tr><tr><th><strong>USD 100 million – 300 million</strong></th><th>0.07%</th><th>0.00%</th></tr><tr><th><strong>USD 300 million – 500 million</strong></th><th>0.06%</th><th>0.00%</th></tr><tr><th><strong>USD 500 million – 1 billion</strong></th><th>0.05%</th><th>0.00%</th></tr><tr><th><strong>&gt; USD 1 billion</strong></th><th>0.04%</th><th>0.00%</th></tr></tbody></table></figure><p>As you can see, trading on Coinbase Pro is not the cheapest option to sell or buy bitcoin for low volume investors. By comparison, users who trade less than USD 50,00 per month pay only 0.16% for market-making orders and 0.26% for market taking transactions at <a href="https://cryptonews.com/reviews/kraken/"><strong>Kraken</strong></a>. The fees are even lower at <a href="https://cryptonews.com/reviews/bittrex/"><strong>Bittrex</strong></a>, where both low volume makers and takers pay a 0.2% fee per trade.</p><p>Trading fees on Coinbase Pro remain proportionally higher than at competing exchanges for higher volume traders unless you trade more than USD 100 million per month.</p><p>As for <strong>deposits and withdrawals</strong>, these are both entirely free if the user is transferring cryptocurrency or making an ACH deposit or withdrawal. Otherwise, Coinbase Pro charges its users the following flat fees:</p><figure class="table"><table><tbody><tr><th><strong>Transfer type</strong></th><th><strong>Deposit Fee</strong></th><th><strong>Withdrawal Fee</strong></th></tr><tr><th><strong>Cryptocurrencies</strong></th><th>Free</th><th>Free</th></tr><tr><th><strong>ACH</strong></th><th>Free</th><th>Free</th></tr><tr><th><strong>Wire (USD)</strong></th><th>USD 10</th><th>USD 25</th></tr><tr><th><strong>SEPA (EUR)</strong></th><th>EUR 0.15</th><th>EUR 0.15</th></tr><tr><th><strong>Swift (GBP)</strong></th><th>Free</th><th>GBP 5</th></tr><tr><th><strong>Bank card (via Coinbase)</strong></th><th>3.99%</th><th>–</th></tr></tbody></table></figure><p>Unfortunately, Coinbase Pro does not have an integrated instant buy/sell option that would allow you to deposit funds directly into your Coinbase <a href="https://cryptonews.com/guides/best-crypto-wallets.htm">crypto wallet</a> using a credit or debit card.</p><p>There is a workaround, though, as you can buy bitcoin or other cryptocurrencies with a credit or debit card via <a href="https://cryptonews.com/ext/coinbase/"><strong>Coinbase</strong></a> and transfer it directly to Coinbase Pro <strong>for free</strong>. For every instant crypto purchase via bank card on Coinbase charges you <strong>3.99%</strong> per transaction.</p><p>As such, Coinbase Pro has the best fees in the industry when it comes to deposits and withdrawals.</p><p>Last but not least, Coinbase Pro recently introduced its <strong>margin trading</strong> feature. As for now, it is available in a limited number of jurisdictions and for approved accounts only. The exchange charges an <strong>annualized interest rate of 8% for both open and filled orders.</strong> It is calculated hourly and is charged daily for all hours in which you used leverage.</p><p>All in all, Coinbase Pro is pricier when it comes to trading cryptocurrency, but charges slightly cheaper fees when it comes to crypto and fiat deposits and withdrawals.</p><p><div><a class="button-more cta-btn" href="https://cryptonews.com/ext/coinbase-pro/" rel="nofollow noindex" target="_blank">Trade On Coinbase Pro</a></div></p><h2>Coinbase Pro Security</h2><span class="replacer"></span><p>As stated above, security is one of Coinbase Pro strong points. Only 2% of its customers’ cryptocurrency funds are held online, and these are insured in the case of loss.</p><p>Meanwhile, the exchange adopts a variety of measures to ensure that its system remains secure:</p><ul><li><strong>Two-factor authentication</strong> is used on all accounts</li><li>All website traffic is encrypted using the <strong>SSL</strong> (secure sockets layer) cryptographic protocol</li><li>All wallets and wallet keys are encrypted using <strong>AES-256 encryption</strong></li><li>98% of all crypto assets are held in secure <a href="https://cryptonews.com/guides/bitcoin-cold-storage.htm">cold storage</a>.</li><li>All employees have to undergo a security check and must encrypt their hard drives</li></ul><p>Perhaps most reassuringly of all, Coinbase Pro has a registered BitLicense with the New York Department of Financial Services. This requires it to submit annual financial audits, which demonstrate that the exchange has sufficient liquidity and remains soundly managed. Besides, the platform is running Coinbase Custody, a cryptocurrency wallet and digital asset security service for corporations, which is also titled as â€œthe worldâ€™s most trusted cold storage.â€</p><p>Coinbaseâ€™s security is well-recognized by other industry players, too. For example, <a href="https://www.cryptocompare.com/external/research/exchange-ranking/">CryptoCompareâ€™s Exchange Benchmark</a> rates itâ€™s security the best possible 19.9 out of max 20 points, which is the highest rating in the entire industry.</p><figure class="image"></figure><p>Source: Coinbase.com</p><p>As a result, Coinbase Pro has never suffered any kind of hack before. The exchange employs some of the best security practices in the industry, and you can get a goodnightâ€™s sleep keeping your cryptocurrency on Coinbase (<a href="https://cryptonews.com/guides/how-to-store-cryptocurrency-safely.htm">even though thatâ€™s not a good crypto security practice</a>).</p><h2>Coinbase Pro Design and Usability</h2><span class="replacer"></span><p>Coinbase Pro may be the exchange for professional traders, yet itâ€™s one of the easiest to use and navigate.</p><figure class="image"></figure><p>Source: Coinbase.com</p><p>Currently, you can use Coinbase Pro to:</p><ul><li>Buy and sell 29 cryptocurrencies for USD, EUR, or GBP. Currently supported cryptocurrencies include <a href="https://cryptonews.com/coins/bitcoin/">bitcoin (BTC)</a>, <a href="https://cryptonews.com/coins/ethereum/">ethereum (ETH)</a>, <a href="https://cryptonews.com/coins/ripple/">XRP</a>, <a href="https://cryptonews.com/coins/litecoin/">litecoin</a>, <a href="https://cryptonews.com/coins/bitcoin-cash/">bitcoin cash (BCH)</a>, <a href="https://cryptonews.com/coins/eos/">EOS</a>, <a href="https://cryptonews.com/coins/cosmos-2/">cosmos (ATOM)</a>, <a href="https://cryptonews.com/coins/basic-attention-token/">basic attention token (BAT)</a>, <a href="https://cryptonews.com/coins/bitcoin-sv/">bitcoin SV (BSV)</a>, <a href="https://cryptonews.com/coins/civic/">civic (CVC)</a>, <a href="https://cryptonews.com/coins/dai/">DAI</a>, <a href="https://cryptonews.com/coins/dash/">DASH</a>, <a href="https://cryptonews.com/coins/district0x/">district0x (DNT)</a>, <a href="https://cryptonews.com/coins/ethereum-classic/">ethereum classic (ETC)</a>, <a href="https://cryptonews.com/coins/golem-network-tokens/">golem (GNT)</a>, <a href="https://cryptonews.com/coins/kyber-network/">kyber network (KNC)</a>, <a href="https://cryptonews.com/coins/chainlink/">chainlink (LINK)</a>, <a href="https://cryptonews.com/coins/loom-network/">loom network (LOOM)</a>, <a href="https://cryptonews.com/coins/decentraland/">decentraland (MANA)</a>, <a href="https://cryptonews.com/coins/maker/">maker (MKR)</a>, orchid (OXT), <a href="https://cryptonews.com/coins/augur/">augur (REP)</a>, <a href="https://cryptonews.com/coins/usd-coin/">USD coin (USDC)</a>, <a href="https://cryptonews.com/coins/stellar/">stellar (XLM)</a>, <a href="https://cryptonews.com/coins/tezos/">tezos (XTZ)</a>, <a href="https://cryptonews.com/coins/zcash/">zcash (ZEC)</a>, and <a href="https://cryptonews.com/coins/0x/">0x (ZRX)</a>.</li><li>Conduct crypto-to-crypto trades in more than <strong>57 markets</strong>.</li><li>Place advanced orders like market, limit, good â€˜til canceled, stop orders, and more.</li><li>Margin trade with up to <strong>3x leverage</strong> (only for certain jurisdictions).</li><li>Make use of the <strong>Coinbase API</strong>. Coinbase Pro has a WebSocket feed for fetching real-time market data, so you can use it to program all sorts of secure trading bots for trading on Coinbase.</li><li>Construct different portfolios. Coinbase Pro allows customers to segment their funds into different portfolios, which makes it easier to test multiple strategies and manage risk.</li></ul><p>In terms of design, all the trading info a user needs is laid out on its dashboard, which is cleanly designed, responsive, and easily understood. Making trades is quick and painless, with the trading sidebar on the dashboard letting users choose and execute their desired trade with the click of a couple of buttons.</p><p>Besides, you can access the platform via Coinbase Pro mobile app for iOS and Android. Coinbase app lets you use all the same features as on the web-based Coinbase platform, except for the account verification option, which must be performed via the web browser.</p><figure class="image"></figure><p>Margin trading on Coinbase Pro mobile app. Source: Coinbase.com</p><p>When it comes to account limits, you can withdraw up to USD 10,000 or its equivalent daily. Corporate accounts can take out up to USD 50,000 per day. Besides, it is possible to request a higher withdrawal limit by contacting the exchanges support, though there is no guarantee that your request will be approved.</p><h2>Coinbase Prime</h2><span class="replacer"></span><p>Institutional investors can open a Coinbase Prime account, which was specifically made for them. It works on the same Coinbase Pro platform but includes institutional trading capabilities like <strong>margin finance</strong>, <strong>high-touch execution OTC (over the counter) trading</strong>, <strong>execution algorithms</strong>, access via <strong>professional third-party platforms</strong> such as TT, <strong>dedicated institutional coverage</strong>, and much more.</p><figure class="image"></figure><p>Source: Coinbase.com</p><h3>Customer Support</h3><p>Perhaps the only downside to Coinbase Proâ€™s usability is its customer support, which can take time to respond to your inquiry. Even so, there are multiple channels for you to reach out for help:</p><ol><li><a href="https://help.coinbase.com/en/pro.html">Extensive knowledge center</a> filled with tutorials, educational information, and other handy articles.</li><li>Coinbase Pro live support chat.</li><li><a href="https://help.coinbase.com/en/contact-us.html">Contact us form</a> at the help center.</li><li>Mobile phone support in case your account was compromised.</li></ol><figure class="image"></figure><p>Source: Coinbase.com</p><p>The platformâ€™s support pages are informative enough, but the support team can sometimes take several days to respond to requests, especially during busy periods. That said, this is a common complaint with popular cryptocurrency exchanges, and Coinbase Pro is certainly not worse than other platforms that have a reputation for being slow and unresponsive in helping their customers, such as <a href="https://cryptonews.com/reviews/hitbtc/">HitBTC</a> or <a href="https://cryptonews.com/reviews/localbitcoins/">LocalBitcoins</a>.</p><h2>Deposit and Withdrawal Methods</h2><span class="replacer"></span><p>Depositing funds into a Coinbase Pro account is generally straightforward. Euros can be deposited directly using a SEPA bank transfer, while US dollars can be deposited using a standard bank wire or via an ACH deposit. Great Britain Pounds (GBP) are added via SWIFT transfer.</p><p>The deposit and withdrawal fees for fiat currencies are specified in the fees section above. Cryptocurrency deposits and withdrawals on the Coinbase Pro platform are <strong>free of charge</strong>.</p><p>Users looking to deposit or buy digital currency with bank cards can make use of Coinbase Proâ€™s linkage with Coinbase. It means that Coinbase users with a verified account can, in fact, deposit any fiat currencies (or cryptocurrencies) they have to Coinbase Pro without paying any fee. The same is true of withdrawals, although in this case, these are limited by Coinbase Proâ€™s daily withdrawal limit, which begins at $10,000.</p><p>As for withdrawals of fiat currencies into bank accounts, these work in the same way as deposits. Euros can once again be withdrawn using a SEPA transfer, which takes one to two days to complete. US dollars can be withdrawn using an ACH transfer or a bank wire, while withdrawals in British pounds are made via SWIFT settlement.</p><p><div><a class="button-more cta-btn" href="https://cryptonews.com/ext/coinbase-pro/" rel="nofollow noindex" target="_blank">Open A Free Account</a></div></p><h2>Conclusion</h2><span class="replacer"></span><p>Coinbase Pro exchange is geared more towards professional traders than its more accessible stablemate Coinbase. It allows for a wider variety of order types, ranging from the essential limit and stop orders to advanced orders such as good â€˜til canceled. Also, it is stepping into margin trading, and compared to other advanced exchanges lets you trade a decent range of cryptocurrencies, including top coins like bitcoin btc, bitcoin cash litecoin and ethereum. Most importantly, it does give users the ability to trade their US dollars, euros, and pounds directly for cryptocurrencies.</p><figure class="image"></figure><p>Source: Coinbase.com</p><p>Perhaps unsurprisingly for an exchange thatâ€™s paired with Coinbase, its security is generally very strong, as 98% of customer digital currency funds are held offline. At the same time, 2% held online are insured, meaning that any customers who lost money as the result of a hack would receive full compensation. Added to this, the pairing with Coinbase provides an added degree of convenience and simplicity, in that users whoâ€™ve already registered and verified an account with Coinbase will not need to do the same with Coinbase Pro.</p><p>Putting all of these things into consideration, it becomes clear why Coinbase Pro is one of the leading cryptocurrency exchanges in the industry.</p><p> </p>
+</div>
+</div>
+</main>
+</div>
+<div class="col-12 col-lg-4 d-none d-lg-block">
+<div class="review-price">
+<h2>Exchange rates</h2>
+<iframe class="lazyload" data-src="https://rapi.cryptonews.com/review-price-track/1/7" frameborder="0" style="width: 100%;height:330px;"></iframe>
+</div>
+<div class="sidebar">
+<div class="sidebar-wrap">
+<div class="sidebar-search mb-20">
+<form action="">
+<input class="remove-outline" id="filterResults" placeholder="Or search here" type="search"/>
+</form>
+</div>
+<div class="sidebar-list sidebar-list--toc pl-30 pb-20"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="footer-top pt-60 pb-30">
+<div class="row">
+<div class="col-12 col-lg-5 col-xl-4 mb-lg-0 text-center text-md-left">
+<div class="d-lg-flex mb-40">
+<div class="footer-links d-md-inline-block text-center text-md-left align-self-center">
+<a class="mr-20" href="/terms-and-conditions.htm">Terms &amp; Conditions </a>
+<a class="mr-20" href="/about-us.htm">About Us </a>
+<a class="mr-20" href="/privacy-policy.htm">Privacy Policy </a>
+<a class="mr-20" href="/disclaimer.htm">Disclaimer </a>
+</div>
+</div>
+<div class="d-none d-md-block" style="color:#fff;">
+<div class="mb-30">
+<div class="d-inline-block mr-10 align-top">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(-1095 -1243) translate(295 1103) translate(770 35) translate(30 100) translate(0 5) translate(0 2)">
+<path d="M11.063 6.797c0 .13-.106.234-.235.234H1.172c-.13 0-.234-.105-.234-.234V1.321l4.81 3.06c.154.097.35.097.503 0l4.811-3.06v5.476zM9.918.938L6 3.43 2.08.94h7.84zM10.83 0H1.17C.531 0 0 .521 0 1.172v5.625C0 7.443.525 7.97 1.17 7.97h9.658c.646 0 1.17-.526 1.17-1.172V1.172C12 .53 11.476 0 10.83 0z" fill="#FFF"></path>
+</g>
+</svg>
+</div>
+<a class="me-mailto"></a>
+<!--                            <div class="mb-30">-->
+<!--                                <div class="d-inline-block me-address"></div>-->
+<!--                            </div>-->
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-7 col-xl-8 footer-links text-md-left">
+<div class="row d-none d-md-block" style="justify-content: flex-end">
+<div class="col-12">
+<ul class="menu_footer" id="menu-footer">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119702" id="menu-item-119702"><a class="header-links__item fs-16" href="/news/">News</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119703" id="menu-item-119703"><a class="header-links__item fs-16" href="/news/bitcoin-news/">Bitcoin News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119704" id="menu-item-119704"><a class="header-links__item fs-16" href="/news/ethereum-news/">Ethereum News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119705" id="menu-item-119705"><a class="header-links__item fs-16" href="/news/nft-news/">NFT News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119706" id="menu-item-119706"><a class="header-links__item fs-16" href="/news/defi-news/">DeFi News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119707" id="menu-item-119707"><a class="header-links__item fs-16" href="/news/altcoin-news/">Altcoin News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119708" id="menu-item-119708"><a class="header-links__item fs-16" href="/news/blockchain-news/">Blockchain News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119709" id="menu-item-119709"><a class="header-links__item fs-16" href="/news/press-releases/">Press Releases</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119710" id="menu-item-119710"><a class="header-links__item fs-16" href="/news/sponsored/">Sponsored</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119712" id="menu-item-119712"><a class="header-links__item fs-16" href="/news/industry-talk/">Industry Talk</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119713" id="menu-item-119713"><a class="header-links__item fs-16" href="/news/ico-news/">ICO news</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119714" id="menu-item-119714"><a class="header-links__item fs-16" href="/news/finance-news/">Finance News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119715" id="menu-item-119715"><a class="header-links__item fs-16" href="/news/technology-news/">Technology News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119716" id="menu-item-119716"><a class="header-links__item fs-16" href="/news/price-predictions/">Price Predictions</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119732" id="menu-item-119732"><a class="header-links__item fs-16" href="/guides/">Guides</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119733" id="menu-item-119733"><a class="header-links__item fs-16" href="/guide_categories/bitcoin/">Bitcoin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119734" id="menu-item-119734"><a class="header-links__item fs-16" href="/guide_categories/ethereum/">Ethereum</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119735" id="menu-item-119735"><a class="header-links__item fs-16" href="/guide_categories/nft/">NFT</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119736" id="menu-item-119736"><a class="header-links__item fs-16" href="/guide_categories/defi-guides/">Defi Guides</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119737" id="menu-item-119737"><a class="header-links__item fs-16" href="/guide_categories/altcoins/">Altcoins</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119738" id="menu-item-119738"><a class="header-links__item fs-16" href="/guide_categories/blockchain/">Blockchain</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119739" id="menu-item-119739"><a class="header-links__item fs-16" href="/guide_categories/cryptocurrency/">Cryptocurrency</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119741" id="menu-item-119741"><a class="header-links__item fs-16" href="/guide_categories/icos/">ICOs / STOs / IEOs</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119742" id="menu-item-119742"><a class="header-links__item fs-16" href="/guide_categories/trading-tools/">Trading Tools</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119743" id="menu-item-119743"><a class="header-links__item fs-16" href="/guide_categories/wallet-guides/">Wallet Guides</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119744" id="menu-item-119744"><a class="header-links__item fs-16" href="#">Editors’ picks</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119745" id="menu-item-119745"><a class="header-links__item fs-16" href="https://cryptonews.com/news/best-crypto-to-buy.htm">Best Crypto to Buy Now</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119746" id="menu-item-119746"><a class="header-links__item fs-16" href="https://cryptonews.com/news/best-crypto-presales.htm">Best Crypto Presales to Invest in</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119747" id="menu-item-119747"><a class="header-links__item fs-16" href="https://cryptonews.com/news/new-cryptocurrency.htm">New Cryptocurrency</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119761" id="menu-item-119761">
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119763"><a class="header-links__item fs-16" href="/news/press-releases/">Press Releases</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119763"><a class="header-links__item fs-16" href="/review_categories/exchanges/">Exchanges</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119764"><a class="header-links__item fs-16" href="/coins/">Market Cap</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119765"><a class="header-links__item fs-16" href="/news/industry-talk/">Industry Talk</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119765"><a class="header-links__item fs-16" href="/exclusives/features/">Features</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119765"><a class="header-links__item fs-16" href="/exclusives/opinions/">Opinions</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119765"><a class="header-links__item fs-16" href="/exclusives/people/">People In Crypto</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="row d-block d-md-none footer_menu_mob">
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/news/press-releases/">Press Releases</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/news/"><b>News</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/exclusives/"><b>Exclusives</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/guides/"><b>Guides</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/review_categories/exchanges/"><b>Exchanges</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/coins/"><b>Market Cap</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/news/industry-talk/">Industry Talk</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/exclusives/features/">Features</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/exclusives/opinions/">Opinions</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/exclusives/people/">People In Crypto</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="#"><b>Editors’ picks</b></a></div>
+</div>
+</div>
+<div class="col-12 col-lg-5 col-xl-4 mb-lg-0 text-center d-md-none d-block mt-20">
+</div>
+</div>
+</div>
+<div class="footer-bottom pt-30 pb-30">
+<div class="row">
+<div class="col-12 col-md-6 text-center text-md-left mb-20 mb-md-0">
+<div class="fs-12 c-light-grey" id="copyright">© 2023 Cryptonews. All rights reserved</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script type="rocketlazyloadscript">
+    window.gdproptions = {
+
+            cookieName: 'gdpr',
+            cookieConfig: {
+                domain: window.location.hostname,
+                path: '/'
+            },
+            heading: "GDPR Notice",
+            description: `We use cookies to offer a better browsing experience, analyze site traffic, personalize content, and serve targeted advertisements.By clicking accept, you consent to our privacy policy &amp; use of cookies.`+' (<a href="https://cryptonews.com/privacy-policy.htm" >Privacy Policy</a>)',
+            acceptLabel: "Confirm all",
+            settingsLabel: "Preferences",
+            closeLabel: 'Close Window',
+            choices: {
+                necessary: {
+                    label: "Required",
+                    description:
+                        '',
+                    value: true
+                },
+                analytics: false,
+                tracking: false,
+                marketing: false,
+
+            },
+            showEditIcon: false,
+            categories: {
+
+                necessary: function() {
+                }
+            }
+        }
+    </script>
+<script type="rocketlazyloadscript">
+            window.cid = 186        </script>
+<script data-rocket-src="https://cryptonews.com/wp-content/themes/cryptonews/assets/js/frontend.js?ver=1.1688466991" defer="" id="frontend-js-js" type="rocketlazyloadscript"></script>
+<script id="rocket-browser-checker-js-after" type="rocketlazyloadscript">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/cryptonews.com","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script id="rocket-preload-links-js-after" type="rocketlazyloadscript">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script id="ajax-data-load-js-extra">
+var site_vars = {"url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php"};
+</script>
+<script data-rocket-src="https://cryptonews.com/wp-content/themes/cryptonews/js/ajax-data-load.js?ver=6.4.1" defer="" id="ajax-data-load-js" type="rocketlazyloadscript"></script>
+<!-- Shortcodes Ultimate custom CSS - start -->
+<style type="text/css">
+.su-column-pros p{
+	margin-bottom:5px;
+}
+
+.su-column-pros ul{
+	padding-left:25px;
+}
+</style>
+<!-- Shortcodes Ultimate custom CSS - end -->
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script async="" data-no-minify="1" src="https://cryptonews.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script><script type="rocketlazyloadscript">
+    window.addEventListener('load', function() {
+
+        if(document.getElementsByTagName('oembed').length){
+            console.log('loading oembed');
+            new Embedo({
+                twitter: true,  // Enable twitter SDK
+                instagram: true,  // Enable instagram SDK
+                pinterest: true  // Enable pinterest SDK,
+            });
+        }
+
+    })
+</script>
+<script async="" data-rocket-src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" type="rocketlazyloadscript"></script><script type="rocketlazyloadscript">
+            window.onesignal_app_id ='7433c474-47ca-421e-88a6-dad515cf9aab';
+            var OneSignal = window.OneSignal || [];
+            OneSignal.push(function() {
+              OneSignal.init({
+                appId: '7433c474-47ca-421e-88a6-dad515cf9aab',
+              });
+            });
+    </script></div>
+<script type="application/ld+json">{
+    "@context": "http://schema.org/",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Cryptonews",
+                "item": "https://cryptonews.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Reviews",
+                "item": "https://cryptonews.com/reviews"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Coinbase Pro",
+                "item": "https://cryptonews.com/reviews/coinbase-pro/"
+            }
+        ]
+    ]
+}</script><script type="application/ld+json">{
+    "@context": "http://schema.org/",
+    "@type": "Review",
+    "itemReviewed": {
+        "@type": "Organization",
+        "name": "Coinbase Pro",
+        "brand": {
+            "@type": "Brand",
+            "name": "Coinbase Pro"
+        },
+        "image": "https://cimg.co/reviewlogo/6/5dcab04fee043.png",
+        "description": "",
+        "url": "https://cryptonews.com/reviews/coinbase-pro/"
+    },
+    "positiveNotes": [],
+    "negativeNotes": [],
+    "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 4.5
+    },
+    "headline": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "url": "https://cryptonews.com/reviews/coinbase-pro/",
+        "@id": "https://cryptonews.com/reviews/coinbase-pro/"
+    },
+    "datePublished": "2018-01-29T18:20:00+00:00",
+    "dateModified": "2023-10-23T16:44:31+00:00",
+    "author": {
+        "@type": "Organization",
+        "name": "Cryptonews",
+        "url": "https://cryptonews.com",
+        "logo": "https://cimg.co/p/crypto-news-logo-full.svg"
+    },
+    "sourceOrganization": {
+        "@type": "Organization",
+        "name": "Cryptonews",
+        "url": "https://cryptonews.com",
+        "logo": "https://cimg.co/p/crypto-news-logo-full.svg"
+    },
+    "image": "https://cimg.co/reviewlogo/6/5dcab04fee043.png",
+    "description": ""
+}</script><script data-clickout-type="native_table_box" defer="" src="https://bs_48ce1097.cryptonewsdom.care/sdk.js"></script></body>
+</html>
+<!--
+Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com
+
+Retrieved 9496 objects (768 KB) from Redis using PhpRedis (v5.3.7).
+-->

@@ -1,0 +1,955 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.4",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let r=e.getAttribute("data-rocket-src");if(r&&0!==r.indexOf("data:")){0===r.indexOf("//")&&(r=location.protocol+r);try{let i=new URL(r).origin;i!==location.origin&&t.push({src:i,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(n){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){if(await this._littleBreath(),!0===t.noModule&&"noModule"in HTMLScriptElement.prototype){t.setAttribute("data-rocket-status","skipped");return}return new Promise(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(){let t={};function e(e,r){!function e(r){!t[r]&&(t[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.remove.apply(r,arguments)});function i(e){return t[r].eventsToRewrite.indexOf(e)>=0?"rocket-"+e:e}}(e),t[e].eventsToRewrite.push(r)}function r(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}e(document,"DOMContentLoaded"),e(window,"DOMContentLoaded"),e(window,"load"),e(window,"pageshow"),e(document,"readystatechange"),r(document,"onreadystatechange"),r(window,"onload"),r(window,"onpageshow")}_delayJQueryReady(t){let e;function r(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}function i(i){if(i&&i.fn&&!t.allJQueries.includes(i)){i.fn.ready=i.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(i):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(i)),i([])};let n=i.fn.on;i.fn.on=i.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=r(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{let e=arguments[0][t];delete arguments[0][t],arguments[0][r(t)]=e})),n.apply(this,arguments),this},t.allJQueries.push(i)}e=i}i(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){i(t)}})}async _pendingWebpackRequests(t){let e=document.querySelector("script[data-webpack]");async function r(){return new Promise(t=>{e.addEventListener("load",t),e.addEventListener("error",t)})}e&&(await r(),await t._requestAnimFrame(),await t._pendingWebpackRequests(t))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+    
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0">
+    <meta property="fb:app_id" content="1101440706625691" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" sizes="192x192" href="/favicon-192x192.png"  />
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="naver-site-verification" content="ee7282c3169a3e01fc91c812fc84096b69c8f74b" />
+
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    
+    <!--    <title>--><!-- | --><!--</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" /></noscript>-->
+    <script type="rocketlazyloadscript" data-rocket-type="application/javascript" data-rocket-src="https://cimg.co/p/manifest.js" defer></script>
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v20.0 (Yoast SEO v21.5) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>LetsExchange.io Review (2021) - Instant, Non-Custodial Crypto Swaps</title>
+	<link rel="canonical" href="https://cryptonews.com/reviews/letsexchange/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="LetsExchange" />
+	<meta property="og:url" content="https://cryptonews.com/reviews/letsexchange/" />
+	<meta property="og:site_name" content="Cryptonews" />
+	<meta property="article:modified_time" content="2023-02-08T17:55:01+00:00" />
+	<meta property="og:image" content="https://cimg.co/w/rw-attachments/1/611/cf64845cee.png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="LetsExchange.io Review (2021) - Instant, Non-Custodial Crypto Swaps" />
+	<meta name="twitter:image" content="https://cimg.co/review/57505/20419/610a3ca372288.png" />
+	<meta name="twitter:site" content="@Cryptonews" />
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//cryptonews.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="" title="Cryptonews &raquo; Feed" href="https://cryptonews.com/feed/" />
+<link data-minify="1" rel='stylesheet' id='style-css-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/style.css?ver=1701944354' media='all' />
+<link rel='stylesheet' id='wp-block-library-css' href='https://cryptonews.com/wp-includes/css/dist/block-library/style.min.css?ver=6.4.1' media='all' />
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel='stylesheet' id='search-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/assets/css/search.css?ver=1701944354' media='all' />
+<link data-minify="1" rel='stylesheet' id='brand-management-public-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/brand-management-plugin/public/css/brand-management-public.css?ver=1701944354' media='all' />
+<link data-minify="1" rel='stylesheet' id='crypto-bm-public-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptopresales-brand-management-plugin/public/css/crypto-bm-public.css?ver=1701944354' media='all' />
+<link data-minify="1" rel='stylesheet' id='brand-management-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/brand-management.css?ver=1701944354' media='all' />
+<link rel='stylesheet' id='custom-css' href='https://cryptonews.com/wp-content/plugins/cryptonews/assets/css/custom.css?ver=1.1701870935' media='all' />
+<link data-minify="1" rel='stylesheet' id='presale-toplist-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/presale-toplist.css?ver=1701944354' media='all' />
+<link data-minify="1" rel='stylesheet' id='post-blocks-style-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews-post-blocks/assets/css/style.css?ver=1701944354' media='all' />
+<style id='rocket-lazyload-inline-css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://cryptonews.com/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<script id="brand-management-ajax-handler-js-extra">
+var likes_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php","nonce":"0aafff186e","fail_text":"You have already voted."};
+</script>
+<script id="crypto-bm-ajax-handler-js-extra">
+var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php","nonce":"76a4730e73"};
+</script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://cryptonews.com/xmlrpc.php?rsd" />
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>    <script type="rocketlazyloadscript">
+        window.sid = "1"
+                window.burl = "https://a2.cryptonews.com"
+                window.cid = 1
+        window.trans = {
+            ago: "ago",
+            ago_long: "minute, minutes, hour, hours, day, days",
+            time_seconds_ago: "[time] [seconds] [ago]",
+            time_minutes_ago: "[time] [minutes] [ago]" ,
+            time_hours_ago: "[time] [hours] [ago]",
+            time_days_ago: "[time] [days] [ago]",
+        }
+    </script>
+            <script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MBDCFGN');</script>
+    </head>
+<body class="reviews-template-default single single-reviews postid-57505 single-format-standard wp-custom-logo">
+<header class="header" id="header">
+    <a href="/" class="header__logo">
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Crypto News" data-lazy-src="https://cimg.co/p/crypto-news-logo-full.svg"><noscript><img src="https://cimg.co/p/crypto-news-logo-full.svg " alt="Crypto News"></noscript>
+    </a>
+    <div class="header-links d-none d-lg-flex header-menu__dropdown">
+        <ul id="menu-header" class="menu_header"><li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="">All<span class="menu_icon"><span></span></span></a>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/news/">News<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+	<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/bitcoin-news/">Bitcoin News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/ethereum-news/">Ethereum News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/nft-news/">NFT News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/defi-news/">DeFi News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/altcoin-news/">Altcoin News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/blockchain-news/">Blockchain News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/press-releases/">Press Releases</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/sponsored/">Sponsored</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/cryptonews-deals/">Cryptonews Deals</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/industry-talk/">Industry Talk</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/ico-news/">ICO news</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/finance-news/">Finance News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/technology-news/">Technology News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/price-predictions/">Price Predictions</a></li>
+	</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/exclusives/">Exclusives<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+	<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/features/">Features</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/opinions/">Opinions</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/people/">People In Crypto</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/podcast/">Podcast</a></li>
+	</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/videos/">Videos<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+	<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/bitcoin/">Bitcoin Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/ethereum/">Ethereum Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/defi-videos/">DeFi Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/altcoin/">Altcoin Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/blockchain/">Blockchain Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/market/">Market Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/cryptosecurity/">Security Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/trading/">Trading Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/icos/">ICO Videos</a></li>
+	</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/guides/">Guides<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+	<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/bitcoin/">Bitcoin</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/ethereum/">Ethereum</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/nft/">NFT</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/defi-guides/">Defi Guides</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/altcoins/">Altcoins</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/blockchain/">Blockchain</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/cryptocurrency/">Cryptocurrency</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/deals/">Deals</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/icos/">ICOs / STOs / IEOs</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/trading-tools/">Trading Tools</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/wallet-guides/">Wallet Guides</a></li>
+	</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="#">Recommended<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+	<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crypto-to-buy.htm">Best Crypto to Buy Now</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crypto-presales.htm">Best Crypto Presales to Invest in</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/new-cryptocurrency.htm">New Cryptocurrency</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/next-cryptocurrency-to-explode.htm">Next Cryptocurrency to Explode</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crypto-icos.htm">Best Crypto ICOs</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/crypto-launches.htm">Crypto Launches</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-betting-sites.htm">Crypto Betting</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-casinos.htm">Bitcoin Casinos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-gambling-sites.htm">Bitcoin Gambling Sites</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-blackjack-sites.htm">Bitcoin Blackjack</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-slots-sites.htm">Best Bitcoin Slots</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crash-gambling-sites.htm">Crash Gambling Games</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-anonymous-casinos.htm">Anonymous Casinos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/non-gamstop-casinos-uk.htm">Best Casinos Not on Gamstop</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-telegram-casinos.htm">Best Telegram Casinos</a></li>
+	</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/jobs/">Jobs<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+	<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/review_categories/exchanges/">Exchanges</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/coins/">Market Cap</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/price-tracker/">Price Tracker</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/events/">Events</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/podcast/">Podcast</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/news/">News<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/bitcoin-news/">Bitcoin News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/ethereum-news/">Ethereum News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/nft-news/">NFT News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/defi-news/">DeFi News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/altcoin-news/">Altcoin News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/blockchain-news/">Blockchain News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/press-releases/">Press Releases</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/sponsored/">Sponsored</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/cryptonews-deals/">Cryptonews Deals</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/industry-talk/">Industry Talk</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/ico-news/">ICO news</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/finance-news/">Finance News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/technology-news/">Technology News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/price-predictions/">Price Predictions</a></li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/exclusives/">Exclusives<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/features/">Features</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/opinions/">Opinions</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/people/">People In Crypto</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/podcast/">Podcast</a></li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/videos/">Videos<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/bitcoin/">Bitcoin Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/ethereum/">Ethereum Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/defi-videos/">DeFi Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/altcoin/">Altcoin Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/blockchain/">Blockchain Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/market/">Market Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/cryptosecurity/">Security Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/trading/">Trading Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/icos/">ICO Videos</a></li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/guides/">Guides<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/bitcoin/">Bitcoin</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/ethereum/">Ethereum</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/nft/">NFT</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/defi-guides/">Defi Guides</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/altcoins/">Altcoins</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/blockchain/">Blockchain</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/cryptocurrency/">Cryptocurrency</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/deals/">Deals</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/icos/">ICOs / STOs / IEOs</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/trading-tools/">Trading Tools</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/wallet-guides/">Wallet Guides</a></li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/review_categories/exchanges/">Exchanges</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/podcast/">Podcast</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="#">Tools<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/price-tracker/">Price Tracker</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/coins/">Market Cap</a></li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="#">Recommended<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crypto-to-buy.htm">Best Crypto to Buy Now</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crypto-presales.htm">Best Crypto Presales to Invest in</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/new-cryptocurrency.htm">New Cryptocurrency</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/next-cryptocurrency-to-explode.htm">Next Cryptocurrency to Explode</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crypto-icos.htm">Best Crypto ICOs</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/crypto-launches.htm">Crypto Launches</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-betting-sites.htm">Crypto Betting</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-casinos.htm">Bitcoin Casinos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-gambling-sites.htm">Bitcoin Gambling Sites</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-blackjack-sites.htm">Bitcoin Blackjack</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-slots-sites.htm">Best Bitcoin Slots</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crash-gambling-sites.htm">Crash Gambling Games</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-anonymous-casinos.htm">Anonymous Casinos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/non-gamstop-casinos-uk.htm">Best Casinos Not on Gamstop</a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-post'><a href="https://cryptonews.com/news/best-instant-withdrawal-bitcoin-casinos.htm">Fastest Payout Online Casino</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-telegram-casinos.htm">Best Telegram Casinos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/casino-utan-svensk-licens.htm">Casino Utan Svensk Licens</a></li>
+</ul>
+</li>
+</ul>            <ul class="menu_header mob">
+                <li></li>
+                <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                    <a href="#">US <span class="menu_icon"></span></a>
+                    <span class="menu_icon mob"></span>
+                                            <ul class="sub-menu">
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//cryptonews.com" class="">
+                                        English                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//de.cryptonews.com" class="">
+                                        Deutsch                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//fr.cryptonews.com" class="">
+                                        Français                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//ru.cryptonews.com" class="">
+                                        Русский                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//tr.cryptonews.com" class="">
+                                        Türkçe                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//jp.cryptonews.com" class="">
+                                        日本語                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//nl.cryptonews.com" class="">
+                                        Nederlands                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//it.cryptonews.com" class="">
+                                        Italiano                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//ar.cryptonews.com" class="">
+                                        العربية                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//fa.cryptonews.com" class="">
+                                        فارسی                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//cn.cryptonews.com" class="">
+                                        中文                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//es.cryptonews.com" class="">
+                                        Español                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//pt.cryptonews.com" class="">
+                                        Português                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//se.cryptonews.com" class="">
+                                        Svenska                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//dk.cryptonews.com" class="">
+                                        Dansk                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//no.cryptonews.com" class="">
+                                        Norsk Bokmål                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//fi.cryptonews.com" class="">
+                                        Suomi                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//kr.cryptonews.com" class="">
+                                        한국어                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//id.cryptonews.com" class="">
+                                        Indonesia                                    </a>
+                                </li>
+                                                    </ul>
+                                    </li>
+            </ul>
+            </div>
+    <div class="header-search ">
+        <div class="header-menu__trigger d-md-none">
+            All <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7">
+                <g fill-rule="evenodd">
+                    <path d="M0 3.999L12 3.999 12 2.999 0 2.999zM0 7L12 7 12 6 0 6zM0 1L12 1 12 0 0 0z"></path>
+                </g>
+            </svg>
+        </div>
+        <div class="header-search__trigger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                <path fill="#212121" fill-rule="evenodd" d="M6 11c-2.757 0-5-2.243-5-5 0-1.198.441-2.284 1.146-3.146.212-.26.448-.495.708-.708C3.716 1.441 4.802 1 6 1c2.757 0 5 2.243 5 5 0 1.198-.441 2.284-1.146 3.146-.212.26-.448.496-.708.708C8.284 10.559 7.198 11 6 11zm4.579-1.128C11.464 8.827 12 7.477 12 6c0-3.313-2.687-6-6-6-1.477 0-2.827.536-3.872 1.421-.255.216-.491.452-.707.707C.536 3.173 0 4.523 0 6c0 3.313 2.687 6 6 6 1.477 0 2.827-.536 3.872-1.421L13.293 14l.707-.707-3.421-3.421z"></path>
+            </svg>
+        </div>
+                <form action="/" class="header-search__form">
+            <input type="search" name="s" class="remove-outline" placeholder="What are you searching for?" aria-label="search">
+            <div class="header-search__close">
+                <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512">
+                    <g>
+                        <polygon points="512,28.308 483.692,0 256,227.692 28.308,0 0,28.308 227.692,256 0,483.692 28.308,512 256,284.308 483.692,512
+    512,483.692 284.308,256">
+                        </polygon>
+                    </g>
+                </svg>
+            </div>
+        </form>
+    </div>
+    <div class="header-lang d-none d-lg-flex">
+        <div class="header-lang__trigger">
+            US+
+        </div>
+                    <div class="header-lang__dropdown">
+                                    <a href="//cryptonews.com" class="">
+                        English                    </a>
+                                    <a href="//de.cryptonews.com" class="">
+                        Deutsch                    </a>
+                                    <a href="//fr.cryptonews.com" class="">
+                        Français                    </a>
+                                    <a href="//ru.cryptonews.com" class="">
+                        Русский                    </a>
+                                    <a href="//tr.cryptonews.com" class="">
+                        Türkçe                    </a>
+                                    <a href="//jp.cryptonews.com" class="">
+                        日本語                    </a>
+                                    <a href="//nl.cryptonews.com" class="">
+                        Nederlands                    </a>
+                                    <a href="//it.cryptonews.com" class="">
+                        Italiano                    </a>
+                                    <a href="//ar.cryptonews.com" class="">
+                        العربية                    </a>
+                                    <a href="//fa.cryptonews.com" class="">
+                        فارسی                    </a>
+                                    <a href="//cn.cryptonews.com" class="">
+                        中文                    </a>
+                                    <a href="//es.cryptonews.com" class="">
+                        Español                    </a>
+                                    <a href="//pt.cryptonews.com" class="">
+                        Português                    </a>
+                                    <a href="//se.cryptonews.com" class="">
+                        Svenska                    </a>
+                                    <a href="//dk.cryptonews.com" class="">
+                        Dansk                    </a>
+                                    <a href="//no.cryptonews.com" class="">
+                        Norsk Bokmål                    </a>
+                                    <a href="//fi.cryptonews.com" class="">
+                        Suomi                    </a>
+                                    <a href="//kr.cryptonews.com" class="">
+                        한국어                    </a>
+                                    <a href="//id.cryptonews.com" class="">
+                        Indonesia                    </a>
+                            </div>
+            </div>
+</header><!-- #masthead -->
+<div class="main">
+    <div class="modal" id="newsletter-modal">
+    <div class="modal__content text-white">
+        <div class="close__icon hide-modal" data-id="newsletter-modal">X</div>
+        <div class="modal__body newsletter">
+            <div class="left-side">
+    <div class="h1">
+        <em>Enter your email for our Free Daily Newsletter</em>
+    </div>
+    <p> A quick 3min read about today's crypto news!</p>
+    <form id="newsletter-form">
+        <div class="input-group">
+            <div><input name="email" id="newsletter_email" type="email" placeholder="Email" required=""></div>
+            <div>
+                <button type="submit" id="newsletter-signup">Sign Up</button>
+            </div>
+        </div>
+    </form>
+    <span class="response-msg" id="newsletter-response"></span>
+    <div class="recaptcha-text">
+        This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+    </div>
+</div>
+<div class="img-box">
+    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Image" class="img" id="newsletter-popup-img" data-lazy-src="https://cimg.co/p/ml-300.jpeg"><noscript><img src="https://cimg.co/p/ml-300.jpeg" alt="Image" class="img" id="newsletter-popup-img"></noscript>
+</div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-8">
+         <div class="breadcrumbs mb-25">
+        <a href="/">Cryptonews</a>
+            <a href="/reviews/">Reviews</a>
+            <a href="">
+            LetsExchange        </a>
+        </div>
+            <main>
+            <div class="col-12 mt-20 d-md-none d-block">
+                <div class="row col-12">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-3">
+                    <div class="d-none d-md-block mb-30">
+                                                <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="LetsExchange" class="img-fluid img-circle author__image author__image--has-bg mb-15" data-lazy-src="https://cimg.co/reviewlogo/75/61082a6f406a0.png" /><noscript><img src="https://cimg.co/reviewlogo/75/61082a6f406a0.png" alt="LetsExchange" class="img-fluid img-circle author__image author__image--has-bg mb-15" /></noscript>
+                        
+                        <div>
+                            <a href="#" class="c-black"><b>
+                                    LetsExchange                                </b></a>
+                                <a href="https://cryptonews.com/ext/letsexchange/" target="_blank"  class="button-more cta-btn" rel="nofollow noindex">Open Account <svg xmlns="http://www.w3.org/2000/svg" width="20" height="6" viewBox="0 0 20 6">
+                                    <path fill="#6C7473" fill-rule="evenodd" d="M6 0L1 5 0 6 1.414 6 19.999 6 19.999 5 2.413 5 6 1.415z" transform="matrix(-1 0 0 1 19.999 0)" />
+                                </svg></a>                            <div class="fs-12"></div>
+                        </div>
+
+                        <div class="review-cta-text"></div>
+
+                    </div>
+                    <!-- <div class="pt-60">
+
+                    </div> -->
+                </div>
+                <div class="col-12 col-lg-9 article-single__content category_contents_details mb-60 scrollspy" id="review_content">
+
+                    <h1 id="letsexchange" >
+                        LetsExchange                    </h1>
+                    <p>LetsExchange is an instant crypto-to-crypto exchange with a simple interface that lets you perform crypto swaps without registration. It provides a way for you to only use your private wallet with all its anonymity, privacy, and security, and no registration and KYC are required to start trading. Unlike other exchanges whose access comes at the expense of your anonymity and privacy, LetsExchange gives you a way to trade 210+ coins with your privacy intact. Besides, it has a detailed receipt system that keeps track of user transactions, which helps the service to fill a unique niche in the crypto industry.</p><h2>Key Features</h2><span class="replacer"></span><figure class="image"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="letsexchange review" data-lazy-srcset="https://cimg.co/w/rw-attachments/1/611/cf64845cee.png 300w, https://cimg.co/w/rw-attachments/2/611/cf64845cee.png 600w, https://cimg.co/w/rw-attachments/3/611/cf64845cee.png 720w, https://cimg.co/w/rw-attachments/4/611/cf64845cee.png 900w, https://cimg.co/w/rw-attachments/0/611/cf64845cee.png 1456w" data-lazy-sizes="100vw" data-lazy-src="https://cimg.co/w/rw-attachments/1/611/cf64845cee.png"><noscript><img decoding="async" src="https://cimg.co/w/rw-attachments/1/611/cf64845cee.png" alt="letsexchange review" srcset="https://cimg.co/w/rw-attachments/1/611/cf64845cee.png 300w, https://cimg.co/w/rw-attachments/2/611/cf64845cee.png 600w, https://cimg.co/w/rw-attachments/3/611/cf64845cee.png 720w, https://cimg.co/w/rw-attachments/4/611/cf64845cee.png 900w, https://cimg.co/w/rw-attachments/0/611/cf64845cee.png 1456w" sizes="100vw"></noscript></figure><p>LetsExchange.io is a project with the simple premise of instant, effortless crypto exchanges. With no Know Your Customer (KYC) or registration required and using <strong>SmartRate</strong> technology that selects the most profitable rate across multiple exchange platforms, LetsExchange.io is a great choice that does the most important aspects of crypto extremely well – it executes swaps efficiently, securely, and privately.</p><ul><li><strong>Instant, effortless crypto-to-crypto swaps.</strong> Registration-free, easy-to-use, with a fully automated exchange service, LetsExchange does one thing really well: seamless crypto exchanges, with more coming soon.</li><li><strong>Extremely varied cryptocurrency options.</strong> With over 210+ cryptocurrency coins to exchange, you have a vast array of cryptocurrency trading options at your disposal.</li><li><strong>Limitless Trading.</strong> It provides both fixed and floating rate options, and doesn’t apply upper transaction limits. As a result, it is suitable for crypto traders of any preferences and trading turnovers.</li><li><strong>Security.</strong> LetsExchange doesn’t store users’ funds or personal data with its non-custodial system. All coins are validated and all data is encrypted. The website has an SSL certificate and DDoS protection.</li><li><strong>SmartRate technology.</strong> For every swap, LetsExchange instantly selects the most profitable rate across multiple major exchange platforms. It also uses its own inventory of coins.</li><li><strong>Transparency.</strong> The exchange process is clear and transparent at every step, and the user can request a receipt with full transaction details.</li><li><strong>Real-time support.</strong> Available 24/7. It comes with a chat bubble on the right corner, where you can list out your problems and concerns.</li><li><strong>Fixed and floating rates.</strong> Users can select the Fixed Rate option to get the exact amount they see when starting a trade. The classic exchange flow with floating rates is also available.</li></ul><p><div><a href="https://cryptonews.com/ext/letsexchange/" target="_blank"  class="button-more cta-btn" rel="nofollow noindex">Visit LetsExchange </a></div></p><h3>LetsExchange History</h3><p>Founded in 2020, LetsExchange.io completed its full-fledged platform launch on March 1, 2021. Although new, it has already developed into a fully functional application with a simple, easy-to-use interface that will only be adding more in the future.</p><div class="scrollspy" id="general-information"><h2 id="general-info" class="heading--has-offset">General info</h2><div class="row"><div class="col-12 col-md-6"><table class="table table--list"><tbody><tr><td>Web address:</td><td><b><a href="https://rapi.cryptonews.com/ext/letsexchange/en_US" class="c-purple" target="_blank>letsexchange</a></b></td></tr><tr><td>Support contact:</td><td><b><a href=" https: rel="nofollow">Link</a></b></td></tr><tr><td>Main location:</td><td><b>Seychelles</b></td></tr><tr><td>Daily volume:</td><td><b>0.0 BTC</b></td></tr><tr><td>Mobile app available:</td><td><b>No</b></td></tr><tr><td>Is decentralized:</td><td><b>No</b></td></tr></tbody></table></div><div class="col-12 col-md-6"><table class="table table--list"><tbody><tr><td>Parent Company:</td><td><b>LetsExchange</b></td></tr><tr><td>Transfer types:</td><td><b>Crypto Transfer, </b></td></tr><tr><td>Supported fiat:</td><td><b>-</b></td></tr><tr><td>Supported pairs:</td><td><b>210</b></td></tr><tr><td>Has token:</td><td><b>-<tr><td>Fees:</td><td><b>Medium(<a href="/price-tracker/">Compare rates</a>)</b></td></tr></b></td></tr></tbody></table></div></div><div class="scrollspy" id="pros-and-cons">
+                           <h2>Pros & Cons</h2>
+                           <div class="row">
+                               <div class="col-12 col-md-6 mb-30">
+                                   <ul class="list--pros"><li>Instant, straightforward swaps Excellent support with transactions receipts No KYC or verification required to swap SmartRate technology for automatic best swap rate Non-custodial exchange 24/7 customer support</li></ul>
+                               </div>
+                               <div class="col-12 col-md-6 mb-30">
+                                   <ul class="list--cons"><li>Only crypto-to-crypto swaps</li></ul>
+                               </div>
+                           </div>
+                       </div><div class="scrollspy mb-30" id="screenshots"><div class="d-flex align-items-center"><div class="col-6"> <h2 class="heading--has-offset">Screenshots</h2> </div><div class="col-6"><div class="reviews-slider__arrows text-right"></div></div></div><div class="row slick-slider" id="review_slider"><div class="pl-15 pr-15 item"><img alt="" class="img-fluid" data-lazy-srcset="https://cimg.co/review/57505/20419/responsive-images/610a3ca372288___media_library_original_634_364.png 634w, https://cimg.co/review/57505/20419/responsive-images/610a3ca372288___media_library_original_600_344.png 600w, https://cimg.co/review/57505/20419/responsive-images/610a3ca372288___media_library_original_300_172.png 300w, " src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20620%200'%3E%3C/svg%3E" width="620" data-lazy-src="https://cimg.co/review/57505/20419/610a3ca372288.png"><noscript><img alt="" class="img-fluid" loading="auto" srcset="https://cimg.co/review/57505/20419/responsive-images/610a3ca372288___media_library_original_634_364.png 634w, https://cimg.co/review/57505/20419/responsive-images/610a3ca372288___media_library_original_600_344.png 600w, https://cimg.co/review/57505/20419/responsive-images/610a3ca372288___media_library_original_300_172.png 300w, " src="https://cimg.co/review/57505/20419/610a3ca372288.png" width="620"></noscript></div></div></div></div><p>The beginning stage of the LetsExchange upgrade is complete and more features and benefits for crypto traders and investors are on their way. Although the layout looks simple now, detailed exchange statistics, analytics, portfolio management tools are coming soon along with other updates. Any fan of the exchange will greatly appreciate the additions that are forthcoming.</p><p>On top of the multitude of cryptocurrencies already available, LetsExchange is looking to add an array of coins, reaching near 300 cryptocurrencies for traders to use. The exchange has also announced new language versions of the website so that users across the world will be able to use the platform.</p><p>And if you have a network of crypto enthusiasts, you can be a part of their affiliate program and have a wider range of ways to utilize the LetsExchange and increase your earnings, especially with a variety of integration options that are coming onto an affiliate program.</p><p>You can expect additional features added on as the exchange continues its growth.</p><h3>Regulations, licenses, jurisdiction and supported countries</h3><p>There are no verification requirements or account tiers with LetsExchange, making it one of the easiest exchanges to use with instant feedback on your crypto.</p><p>Since it has no Know-Your-Customer (KYC) verification needed in order to get started, LetsExchange is only limited by whatever the jurisdictions of a user’s country as no personal information is taken. Theoretically, anyone in the world can use LetsExchange, making it convenient for anyone having trouble solidifying their crypto assets through other means.</p><h3>LetsExchange Design and Usability</h3><p>The design has the visual of a decentralized application with a simplified interface. This simplicity has its charm and utility. The user intuitively knows how it functions with how neat everything looks. The words for the process, Details, Deposit, Exchange, are large and supported by a white background. It’s very clear where you should enter your crypto address. The exchange button, like in a decentralized exchange, is shown in big bold letters, making it able for anyone to use.</p><p>Overall, the design is minimal, emphasizing the streamlined process that LetsExchange is proud of.</p><p>Its ease of use can be demonstrated by exchanging any designated currency pair in clear, concise steps. First, select which trading pair you want to exchange.</p><figure class="image"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="letsexchange review guide" data-lazy-srcset="https://cimg.co/w/rw-attachments/1/611/cf6a79def2.png 300w, https://cimg.co/w/rw-attachments/2/611/cf6a79def2.png 600w, https://cimg.co/w/rw-attachments/3/611/cf6a79def2.png 720w, https://cimg.co/w/rw-attachments/4/611/cf6a79def2.png 900w, https://cimg.co/w/rw-attachments/0/611/cf6a79def2.png 1280w" data-lazy-sizes="100vw" data-lazy-src="https://cimg.co/w/rw-attachments/1/611/cf6a79def2.png"><noscript><img decoding="async" src="https://cimg.co/w/rw-attachments/1/611/cf6a79def2.png" alt="letsexchange review guide" srcset="https://cimg.co/w/rw-attachments/1/611/cf6a79def2.png 300w, https://cimg.co/w/rw-attachments/2/611/cf6a79def2.png 600w, https://cimg.co/w/rw-attachments/3/611/cf6a79def2.png 720w, https://cimg.co/w/rw-attachments/4/611/cf6a79def2.png 900w, https://cimg.co/w/rw-attachments/0/611/cf6a79def2.png 1280w" sizes="100vw"></noscript></figure><p>After that is done, you input the wallet address that you’ll use to receive the currency you want.</p><figure class="image"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="letsexchange review flow" data-lazy-srcset="https://cimg.co/w/rw-attachments/1/611/cf6c50f359.png 300w, https://cimg.co/w/rw-attachments/2/611/cf6c50f359.png 600w, https://cimg.co/w/rw-attachments/3/611/cf6c50f359.png 720w, https://cimg.co/w/rw-attachments/4/611/cf6c50f359.png 900w, https://cimg.co/w/rw-attachments/0/611/cf6c50f359.png 1280w" data-lazy-sizes="100vw" data-lazy-src="https://cimg.co/w/rw-attachments/1/611/cf6c50f359.png"><noscript><img decoding="async" src="https://cimg.co/w/rw-attachments/1/611/cf6c50f359.png" alt="letsexchange review flow" srcset="https://cimg.co/w/rw-attachments/1/611/cf6c50f359.png 300w, https://cimg.co/w/rw-attachments/2/611/cf6c50f359.png 600w, https://cimg.co/w/rw-attachments/3/611/cf6c50f359.png 720w, https://cimg.co/w/rw-attachments/4/611/cf6c50f359.png 900w, https://cimg.co/w/rw-attachments/0/611/cf6c50f359.png 1280w" sizes="100vw"></noscript></figure><p>After that, you will choose whether you are okay with slippage, meaning if you are fine with the price deviating a little bit from the one set. Once you check and confirm the exchange details, the exchange will prompt you to put in your deposit address, the address you will take money out of in order to complete the exchange.</p><figure class="image"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="letsexchange tutorial" data-lazy-srcset="https://cimg.co/w/rw-attachments/1/611/cf6e1076c0.png 300w, https://cimg.co/w/rw-attachments/2/611/cf6e1076c0.png 600w, https://cimg.co/w/rw-attachments/3/611/cf6e1076c0.png 720w, https://cimg.co/w/rw-attachments/4/611/cf6e1076c0.png 900w, https://cimg.co/w/rw-attachments/0/611/cf6e1076c0.png 1280w" data-lazy-sizes="100vw" data-lazy-src="https://cimg.co/w/rw-attachments/1/611/cf6e1076c0.png"><noscript><img decoding="async" src="https://cimg.co/w/rw-attachments/1/611/cf6e1076c0.png" alt="letsexchange tutorial" srcset="https://cimg.co/w/rw-attachments/1/611/cf6e1076c0.png 300w, https://cimg.co/w/rw-attachments/2/611/cf6e1076c0.png 600w, https://cimg.co/w/rw-attachments/3/611/cf6e1076c0.png 720w, https://cimg.co/w/rw-attachments/4/611/cf6e1076c0.png 900w, https://cimg.co/w/rw-attachments/0/611/cf6e1076c0.png 1280w" sizes="100vw"></noscript></figure><p>After that, you are all set! Simple. Also, you can request a receipt or sign up if needed.</p><figure class="image"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="letsexchange review tutorial" data-lazy-srcset="https://cimg.co/w/rw-attachments/1/611/cf6f697080.png 300w, https://cimg.co/w/rw-attachments/2/611/cf6f697080.png 600w, https://cimg.co/w/rw-attachments/3/611/cf6f697080.png 720w, https://cimg.co/w/rw-attachments/4/611/cf6f697080.png 900w, https://cimg.co/w/rw-attachments/0/611/cf6f697080.png 1280w" data-lazy-sizes="100vw" data-lazy-src="https://cimg.co/w/rw-attachments/1/611/cf6f697080.png"><noscript><img decoding="async" src="https://cimg.co/w/rw-attachments/1/611/cf6f697080.png" alt="letsexchange review tutorial" srcset="https://cimg.co/w/rw-attachments/1/611/cf6f697080.png 300w, https://cimg.co/w/rw-attachments/2/611/cf6f697080.png 600w, https://cimg.co/w/rw-attachments/3/611/cf6f697080.png 720w, https://cimg.co/w/rw-attachments/4/611/cf6f697080.png 900w, https://cimg.co/w/rw-attachments/0/611/cf6f697080.png 1280w" sizes="100vw"></noscript></figure><p>As demonstrated, LetsExchange is one of the easiest-to-use exchanges, with its clean, minimal design. Not only that, there is a receipt system that keeps track of your transactions. And with the excellent customer support the platform has, you can expect to hear back from any problems you might encounter.</p><p>This receipt system is what makes LetsExchange unique, which is not what you would find in other exchanges. Traditional centralized exchanges usually need a whole array of personal information from you in order to have you purchase crypto. On the flip side, decentralized exchanges, although fast and with no KYC, provide very little support, since smart contracts govern the entire protocol. LetsExchange mixes some of the best qualities of these worlds, the simplicity and ease of decentralized protocols with support like centralized exchanges.</p><p>Perhaps the main draw of LetsExchange is in how usable it is with its 210+ cryptocurrencies. To make hefty profits in crypto trading, you need to be quick in how you react to the market. Peaks may turn into dips and vice-versa…in a matter of hours.</p><p>If there is a new, hyped coin that you want to buy right here, it can be a difficult task to buy. Although only a few exchanges support the coin, you still have to register an account, documents, and wait for all the KYC details to be approved. When it’s finally done, the price might not be in your favor. And with most exchanges other than LetsExchange, you have transaction limits or at least a tiered system you need to go through in order to have the full freedom to make all of your transactions.</p><p>Without extensive sign-up hassles, the ability to trade immediately, and have no trading limits on the trades you execute, LetsExchange looks to fill a unique niche in the crypto trading world, especially when you consider the receipt system, which has already given users a bit of breathing room, giving LetsExchange traders the peace-of-mind that their transactions are tracked.</p><p>Along with these functions, LetsExchange comes with some data on the rates that are out during the time of your trades.</p><figure class="image"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="letsexchange review 5" data-lazy-srcset="https://cimg.co/w/rw-attachments/1/610/a3b97bf10e.png 300w, https://cimg.co/w/rw-attachments/2/610/a3b97bf10e.png 600w, https://cimg.co/w/rw-attachments/3/610/a3b97bf10e.png 720w, https://cimg.co/w/rw-attachments/4/610/a3b97bf10e.png 900w, https://cimg.co/w/rw-attachments/0/610/a3b97bf10e.png 1299w" data-lazy-sizes="100vw" data-lazy-src="https://cimg.co/w/rw-attachments/1/610/a3b97bf10e.png"><noscript><img decoding="async" src="https://cimg.co/w/rw-attachments/1/610/a3b97bf10e.png" alt="letsexchange review 5" srcset="https://cimg.co/w/rw-attachments/1/610/a3b97bf10e.png 300w, https://cimg.co/w/rw-attachments/2/610/a3b97bf10e.png 600w, https://cimg.co/w/rw-attachments/3/610/a3b97bf10e.png 720w, https://cimg.co/w/rw-attachments/4/610/a3b97bf10e.png 900w, https://cimg.co/w/rw-attachments/0/610/a3b97bf10e.png 1299w" sizes="100vw"></noscript></figure><p>LetsExchange has already mentioned that they are planning to add on significantly to features like this in order to give you a fuller exchange experience with charts and trends you can keep track of, so look forward to these updates if you become a fan of the exchange.</p><h4>LetsExchange Affiliate Program</h4><p>LetsExchange also offers an exclusive affiliate program if you contact their <a target="_blank" rel="noopener " href="https://letsexchange.io/contacts">support</a> and message them.</p><p><div><a href="https://cryptonews.com/ext/letsexchange/" target="_blank"  class="button-more cta-btn" rel="nofollow noindex">Visit LetsExchange </a></div></p><h3>Customer support</h3><figure class="image"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="letsexchange customer support" data-lazy-srcset="https://cimg.co/w/rw-attachments/1/611/cf73e28d1c.jpg 300w, https://cimg.co/w/rw-attachments/2/611/cf73e28d1c.jpg 600w, https://cimg.co/w/rw-attachments/3/611/cf73e28d1c.jpg 720w, https://cimg.co/w/rw-attachments/4/611/cf73e28d1c.jpg 900w, https://cimg.co/w/rw-attachments/0/611/cf73e28d1c.jpg 1280w" data-lazy-sizes="100vw" data-lazy-src="https://cimg.co/w/rw-attachments/1/611/cf73e28d1c.jpg"><noscript><img decoding="async" src="https://cimg.co/w/rw-attachments/1/611/cf73e28d1c.jpg" alt="letsexchange customer support" srcset="https://cimg.co/w/rw-attachments/1/611/cf73e28d1c.jpg 300w, https://cimg.co/w/rw-attachments/2/611/cf73e28d1c.jpg 600w, https://cimg.co/w/rw-attachments/3/611/cf73e28d1c.jpg 720w, https://cimg.co/w/rw-attachments/4/611/cf73e28d1c.jpg 900w, https://cimg.co/w/rw-attachments/0/611/cf73e28d1c.jpg 1280w" sizes="100vw"></noscript></figure><p>You can find extensive reviews on customer support <a target="_blank" rel="noopener " href="https://www.trustpilot.com/review/letsexchange.io">TrustPilot</a>. Scrolling down, most have given positive reviews and remarked on the customer service. This is one of the main draws of LetsExchange and may be one of the best in the industry in this regard. With many exchanges that take a while to respond when you could be losing valuable trading time, this is a welcome addition to the world of cryptocurrency.</p><p>Here are a few examples.</p><figure class="image"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="letsexchange review trustpilot1" data-lazy-srcset="https://cimg.co/w/rw-attachments/1/610/a3bea55024.png 300w, https://cimg.co/w/rw-attachments/2/610/a3bea55024.png 600w, https://cimg.co/w/rw-attachments/3/610/a3bea55024.png 720w, https://cimg.co/w/rw-attachments/4/610/a3bea55024.png 900w" data-lazy-sizes="100vw" data-lazy-src="https://cimg.co/w/rw-attachments/1/610/a3bea55024.png"><noscript><img decoding="async" src="https://cimg.co/w/rw-attachments/1/610/a3bea55024.png" alt="letsexchange review trustpilot1" srcset="https://cimg.co/w/rw-attachments/1/610/a3bea55024.png 300w, https://cimg.co/w/rw-attachments/2/610/a3bea55024.png 600w, https://cimg.co/w/rw-attachments/3/610/a3bea55024.png 720w, https://cimg.co/w/rw-attachments/4/610/a3bea55024.png 900w" sizes="100vw"></noscript></figure><figure class="image"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="letsexchange review 2" data-lazy-srcset="https://cimg.co/w/rw-attachments/1/610/a3c0078b12.png 300w, https://cimg.co/w/rw-attachments/2/610/a3c0078b12.png 600w, https://cimg.co/w/rw-attachments/3/610/a3c0078b12.png 720w, https://cimg.co/w/rw-attachments/4/610/a3c0078b12.png 900w" data-lazy-sizes="100vw" data-lazy-src="https://cimg.co/w/rw-attachments/1/610/a3c0078b12.png"><noscript><img decoding="async" src="https://cimg.co/w/rw-attachments/1/610/a3c0078b12.png" alt="letsexchange review 2" srcset="https://cimg.co/w/rw-attachments/1/610/a3c0078b12.png 300w, https://cimg.co/w/rw-attachments/2/610/a3c0078b12.png 600w, https://cimg.co/w/rw-attachments/3/610/a3c0078b12.png 720w, https://cimg.co/w/rw-attachments/4/610/a3c0078b12.png 900w" sizes="100vw"></noscript></figure><p>At the bottom right of each page, you can quickly spot the chat bubble and see if any of your issues can be immediately resolved. If not, you can give your email and a representative will get back to you.</p><figure class="image"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="letsexchange support" data-lazy-srcset="https://cimg.co/w/rw-attachments/1/610/a3c1d0e99a.png 300w, https://cimg.co/w/rw-attachments/2/610/a3c1d0e99a.png 600w, https://cimg.co/w/rw-attachments/3/610/a3c1d0e99a.png 720w, https://cimg.co/w/rw-attachments/4/610/a3c1d0e99a.png 900w" data-lazy-sizes="100vw" data-lazy-src="https://cimg.co/w/rw-attachments/1/610/a3c1d0e99a.png"><noscript><img decoding="async" src="https://cimg.co/w/rw-attachments/1/610/a3c1d0e99a.png" alt="letsexchange support" srcset="https://cimg.co/w/rw-attachments/1/610/a3c1d0e99a.png 300w, https://cimg.co/w/rw-attachments/2/610/a3c1d0e99a.png 600w, https://cimg.co/w/rw-attachments/3/610/a3c1d0e99a.png 720w, https://cimg.co/w/rw-attachments/4/610/a3c1d0e99a.png 900w" sizes="100vw"></noscript></figure><p>Besides, you can find LetsExchange on a variety of media channels:</p><ul><li><a target="_blank" rel="noopener " href="https://twitter.com/letsexchange_io">Twitter</a></li><li><a target="_blank" rel="noopener " href="https://www.reddit.com/user/letsexchange_io">Reddit</a></li><li><a target="_blank" rel="noopener " href="https://letsexchange.medium.com/">Medium</a></li><li><a target="_blank" rel="noopener " href="https://www.youtube.com/channel/UC5JtMYWlBvzfx0-5BptyXOA">YouTube</a></li></ul><h3>System security measures</h3><p>LetsExchange doesn’t store your funds or personal data. Every coin in the exchange has been validated and double-checked, with the platform’s security enhanced by encryption, an SSL certificate, and DDoS protection. As mentioned, LetsExchange has a receipt system that makes it convenient for you to share any problems you have had using the exchange.</p><p>Also, the system requires that you use your own wallet, allowing you flexibility to use the most secure wallet that you can personally find. This gives increased security, since LetsExchange doesn’t have access to your private keys and you can pick whatever wallet you deem the safest.</p><p>As mentioned, you can find reviews on <a target="_blank" rel="noopener " href="https://www.trustpilot.com/review/letsexchange.io">TrustPilot</a>. Several customers have already shown their satisfaction with the exchange. And those who had problems aired out on TrustPilot have been responded to by the exchange’s staff. It is refreshing to see this kind of engagement with users, as it is often a rarity nowadays.</p><h3>Deposit and withdrawal methods</h3><p>Deposit and withdrawal is dependent on your wallet. All you have to do is copy and paste your wallet addresses into the application in order to use the exchange. As mentioned before, LetsExchanges doesn’t provide and manage a wallet for you, unlike traditional exchanges, giving another level of security since no one has access to your private keys. All your assets are stored in your own wallet, so only you can send the amount that you’re exchanging to the platform.</p><h2>Conclusion</h2><span class="replacer"></span><p>LetsExchange provides a private and simple way for you to exchange the crypto that you want. The design is clean and easy-to-use, so if you’re looking for a new way to generate fast transactions for your crypto, then Letsexchange.io will allow you to do just that and more. With SmartRate technology, an extensive range of coins and intuitive UI, LetsExchange may be what you need to begin using crypto comfortably.</p><p>Overall, LetsExchange is an exchange that you should try if you value privacy and anonymity above all else. With such an active customer support system, risks are mitigated. You can always get a clear scope of your problem and find possible solutions to them in a timely manner. Even though some features are coming out soon, LetsExchange’s simple and clean functionality allows you to be comfortable in doing the most important aspect of an exchange: trading cryptocurrencies.</p>
+
+
+                </div>
+            </div>
+            </main>
+        </div>
+
+        <div class="col-12 col-lg-4 d-none d-lg-block">
+                        <div class="sidebar">
+                <div class="sidebar-wrap">
+                    <div class="sidebar-search mb-20">
+                        <form action="">
+                            <input type="search" id="filterResults" placeholder="Or search here"
+                                   class="remove-outline">
+                        </form>
+                    </div>
+                    <div class="sidebar-list sidebar-list--toc pl-30 pb-20"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-top pt-60 pb-30">
+            <div class="row">
+                <div class="col-12 col-lg-5 col-xl-4 mb-lg-0 text-center text-md-left">
+                    <div class="d-lg-flex mb-40">
+                        <a href="/" class="footer-logo d-inline-block mr-md-30 mb-20 mb-md-0 align-self-center">
+                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Crypto News" class="img-fluid w-100" data-lazy-src="https://cimg.co/p/logo.svg"><noscript><img src="https://cimg.co/p/logo.svg" alt="Crypto News" class="img-fluid w-100"></noscript>
+                        </a>
+                        <div class="footer-links d-md-inline-block text-center text-md-left align-self-center">
+
+                            
+                                <a href="https://cryptonews.com/terms-and-conditions.htm" class="mr-20">
+                                    Terms & Conditions                                </a>
+                            
+                                <a href="https://cryptonews.com/about-us.htm" class="mr-20">
+                                    About Us                                </a>
+                            
+                                <a href="https://cryptonews.com/privacy-policy.htm" class="mr-20">
+                                    Privacy Policy                                </a>
+                            
+                                <a href="https://cryptonews.com/disclaimer.htm" class="mr-20">
+                                    Disclaimer                                </a>
+                            
+                                <a href="https://cryptonews.com/have-a-story.htm" class="mr-20">
+                                    Have a Story?                                </a>
+                            
+                                <a href="https://cryptonews.com/advertising.htm" class="mr-20">
+                                    Advertising                                </a>
+                                                    </div>
+                    </div>
+                                                                <div class="d-lg-flex mb-40 footer-legal-text"><p>The information on this website is for educational purposes only, and investing carries risks. Always do your research before investing, and be prepared for potential losses.</p>
+<p>18+ and Gambling: Online gambling rules vary by country; please follow them. This website provides entertainment content, and using it means you accept out terms. We may include partnership links, but they don't affect our ratings or recommendations.</p>
+<p>Crypto promotions on this site do not comply with the UK Financial Promotions Regime and is not intended for UK consumers.</p></div>
+                                    </div>
+                <div class="col-12 col-lg-7 col-xl-8 footer-links text-md-left">
+                    <div class="row d-none d-md-block" style="justify-content: flex-end">
+                        <div class="col-12">
+                            <ul id="menu-footer" class="menu_footer"><li id="menu-item-119702" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119702"><a href="/news/" class="header-links__item fs-16">News</a>
+<ul class="sub-menu">
+	<li id="menu-item-119703" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119703"><a href="/news/bitcoin-news/" class="header-links__item fs-16">Bitcoin News</a></li>
+	<li id="menu-item-119704" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119704"><a href="/news/ethereum-news/" class="header-links__item fs-16">Ethereum News</a></li>
+	<li id="menu-item-119705" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119705"><a href="/news/nft-news/" class="header-links__item fs-16">NFT News</a></li>
+	<li id="menu-item-119706" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119706"><a href="/news/defi-news/" class="header-links__item fs-16">DeFi News</a></li>
+	<li id="menu-item-119707" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119707"><a href="/news/altcoin-news/" class="header-links__item fs-16">Altcoin News</a></li>
+	<li id="menu-item-119708" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119708"><a href="/news/blockchain-news/" class="header-links__item fs-16">Blockchain News</a></li>
+	<li id="menu-item-119709" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119709"><a href="/news/press-releases/" class="header-links__item fs-16">Press Releases</a></li>
+	<li id="menu-item-119710" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119710"><a href="/news/sponsored/" class="header-links__item fs-16">Sponsored</a></li>
+	<li id="menu-item-119711" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119711"><a href="/news/cryptonews-deals/" class="header-links__item fs-16">Cryptonews Deals</a></li>
+	<li id="menu-item-119712" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119712"><a href="/news/industry-talk/" class="header-links__item fs-16">Industry Talk</a></li>
+	<li id="menu-item-119713" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119713"><a href="/news/ico-news/" class="header-links__item fs-16">ICO news</a></li>
+	<li id="menu-item-119714" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119714"><a href="/news/finance-news/" class="header-links__item fs-16">Finance News</a></li>
+	<li id="menu-item-119715" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119715"><a href="/news/technology-news/" class="header-links__item fs-16">Technology News</a></li>
+	<li id="menu-item-119716" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119716"><a href="/news/price-predictions/" class="header-links__item fs-16">Price Predictions</a></li>
+</ul>
+</li>
+<li id="menu-item-119717" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119717"><a href="/exclusives/" class="header-links__item fs-16">Exclusives</a>
+<ul class="sub-menu">
+	<li id="menu-item-119718" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119718"><a href="/exclusives/features/" class="header-links__item fs-16">Features</a></li>
+	<li id="menu-item-119719" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119719"><a href="/exclusives/opinions/" class="header-links__item fs-16">Opinions</a></li>
+	<li id="menu-item-119720" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119720"><a href="/exclusives/people/" class="header-links__item fs-16">People In Crypto</a></li>
+	<li id="menu-item-119721" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119721"><a href="/exclusives/podcast/" class="header-links__item fs-16">Podcast</a></li>
+</ul>
+</li>
+<li id="menu-item-119722" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119722"><a href="/videos/" class="header-links__item fs-16">Videos</a>
+<ul class="sub-menu">
+	<li id="menu-item-119723" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119723"><a href="/videos/bitcoin/" class="header-links__item fs-16">Bitcoin Videos</a></li>
+	<li id="menu-item-119724" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119724"><a href="/videos/ethereum/" class="header-links__item fs-16">Ethereum Videos</a></li>
+	<li id="menu-item-119725" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119725"><a href="/videos/defi-videos/" class="header-links__item fs-16">DeFi Videos</a></li>
+	<li id="menu-item-119726" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119726"><a href="/videos/altcoin/" class="header-links__item fs-16">Altcoin Videos</a></li>
+	<li id="menu-item-119727" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119727"><a href="/videos/blockchain/" class="header-links__item fs-16">Blockchain Videos</a></li>
+	<li id="menu-item-119728" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119728"><a href="/videos/market/" class="header-links__item fs-16">Market Videos</a></li>
+	<li id="menu-item-119729" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119729"><a href="/videos/cryptosecurity/" class="header-links__item fs-16">Security Videos</a></li>
+	<li id="menu-item-119730" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119730"><a href="/videos/trading/" class="header-links__item fs-16">Trading Videos</a></li>
+	<li id="menu-item-119731" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119731"><a href="/videos/icos/" class="header-links__item fs-16">ICO Videos</a></li>
+</ul>
+</li>
+<li id="menu-item-119732" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119732"><a href="/guides/" class="header-links__item fs-16">Guides</a>
+<ul class="sub-menu">
+	<li id="menu-item-119733" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119733"><a href="/guides/bitcoin/" class="header-links__item fs-16">Bitcoin</a></li>
+	<li id="menu-item-119734" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119734"><a href="/guides/ethereum/" class="header-links__item fs-16">Ethereum</a></li>
+	<li id="menu-item-119735" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119735"><a href="/guides/nft/" class="header-links__item fs-16">NFT</a></li>
+	<li id="menu-item-119736" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119736"><a href="/guides/defi-guides/" class="header-links__item fs-16">Defi Guides</a></li>
+	<li id="menu-item-119737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119737"><a href="/guides/altcoins/" class="header-links__item fs-16">Altcoins</a></li>
+	<li id="menu-item-119738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119738"><a href="/guides/blockchain/" class="header-links__item fs-16">Blockchain</a></li>
+	<li id="menu-item-119739" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119739"><a href="/guides/cryptocurrency/" class="header-links__item fs-16">Cryptocurrency</a></li>
+	<li id="menu-item-119740" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119740"><a href="/guides/deals/" class="header-links__item fs-16">Deals</a></li>
+	<li id="menu-item-119741" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119741"><a href="/guides/icos/" class="header-links__item fs-16">ICOs / STOs / IEOs</a></li>
+	<li id="menu-item-119742" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119742"><a href="/guides/trading-tools/" class="header-links__item fs-16">Trading Tools</a></li>
+	<li id="menu-item-119743" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119743"><a href="/guides/wallet-guides/" class="header-links__item fs-16">Wallet Guides</a></li>
+</ul>
+</li>
+<li id="menu-item-119744" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119744"><a href="#" class="header-links__item fs-16">Recommended</a>
+<ul class="sub-menu">
+	<li id="menu-item-119745" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119745"><a href="https://cryptonews.com/news/best-crypto-to-buy.htm" class="header-links__item fs-16">Best Crypto to Buy Now</a></li>
+	<li id="menu-item-119746" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119746"><a href="https://cryptonews.com/news/best-crypto-presales.htm" class="header-links__item fs-16">Best Crypto Presales to Invest in</a></li>
+	<li id="menu-item-119747" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119747"><a href="https://cryptonews.com/news/new-cryptocurrency.htm" class="header-links__item fs-16">New Cryptocurrency</a></li>
+	<li id="menu-item-119748" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119748"><a href="https://cryptonews.com/news/next-cryptocurrency-to-explode.htm" class="header-links__item fs-16">Next Cryptocurrency to Explode</a></li>
+	<li id="menu-item-119749" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119749"><a href="https://cryptonews.com/news/best-crypto-icos.htm" class="header-links__item fs-16">Best Crypto ICOs</a></li>
+	<li id="menu-item-119750" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119750"><a href="https://cryptonews.com/news/crypto-launches.htm" class="header-links__item fs-16">Crypto Launches</a></li>
+	<li id="menu-item-119751" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119751"><a href="https://cryptonews.com/news/best-bitcoin-betting-sites.htm" class="header-links__item fs-16">Crypto Betting</a></li>
+	<li id="menu-item-119752" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119752"><a href="https://cryptonews.com/news/best-bitcoin-casinos.htm" class="header-links__item fs-16">Bitcoin Casinos</a></li>
+	<li id="menu-item-119753" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119753"><a href="https://cryptonews.com/news/best-bitcoin-gambling-sites.htm" class="header-links__item fs-16">Bitcoin Gambling Sites</a></li>
+	<li id="menu-item-119754" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119754"><a href="https://cryptonews.com/news/best-bitcoin-blackjack-sites.htm" class="header-links__item fs-16">Bitcoin Blackjack</a></li>
+	<li id="menu-item-119755" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119755"><a href="https://cryptonews.com/news/best-bitcoin-slots-sites.htm" class="header-links__item fs-16">Best Bitcoin Slots</a></li>
+	<li id="menu-item-119756" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119756"><a href="https://cryptonews.com/news/best-crash-gambling-sites.htm" class="header-links__item fs-16">Crash Gambling Games</a></li>
+	<li id="menu-item-119758" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119758"><a href="https://cryptonews.com/news/best-anonymous-casinos.htm" class="header-links__item fs-16">Anonymous Casinos</a></li>
+	<li id="menu-item-119759" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119759"><a href="https://cryptonews.com/news/non-gamstop-casinos-uk.htm" class="header-links__item fs-16">Best Casinos Not on Gamstop</a></li>
+	<li id="menu-item-119760" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119760"><a href="https://cryptonews.com/news/best-telegram-casinos.htm" class="header-links__item fs-16">Best Telegram Casinos</a></li>
+	<li id="menu-item-133291" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-133291"><a href="https://cryptonews.com/news/casino-utan-svensk-licens.htm" class="header-links__item fs-16">Casino Utan Svensk Licens</a></li>
+</ul>
+</li>
+<li id="menu-item-119761" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119761"><a href="/jobs/" class="header-links__item fs-16">Jobs</a>
+<ul class="sub-menu">
+	<li id="menu-item-119762" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119762"><a href="/editors/" class="header-links__item fs-16">Contributors</a></li>
+	<li id="menu-item-119763" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119763"><a href="/review_categories/exchanges/" class="header-links__item fs-16">Exchanges</a></li>
+	<li id="menu-item-119764" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119764"><a href="/coins/" class="header-links__item fs-16">Market Cap</a></li>
+	<li id="menu-item-119765" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119765"><a href="/price-tracker/" class="header-links__item fs-16">Price Tracker</a></li>
+	<li id="menu-item-119766" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119766"><a href="/events/" class="header-links__item fs-16">Events</a></li>
+</ul>
+</li>
+</ul>                        </div>
+                    </div>
+                    <div class="row d-block d-md-none footer_menu_mob">
+                        <div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="/news/"><b>News</b></a></div>
+<div class='menu-list-links header-menu__dropdown-children'>
+	<a class="mb-10 heading"  href="/news/bitcoin-news/"><b>Bitcoin News</b></a>
+	<a class="mb-10 heading"  href="/news/ethereum-news/"><b>Ethereum News</b></a>
+	<a class="mb-10 heading"  href="/news/nft-news/"><b>NFT News</b></a>
+	<a class="mb-10 heading"  href="/news/defi-news/"><b>DeFi News</b></a>
+	<a class="mb-10 heading"  href="/news/altcoin-news/"><b>Altcoin News</b></a>
+	<a class="mb-10 heading"  href="/news/blockchain-news/"><b>Blockchain News</b></a>
+	<a class="mb-10 heading"  href="/news/press-releases/"><b>Press Releases</b></a>
+	<a class="mb-10 heading"  href="/news/sponsored/"><b>Sponsored</b></a>
+	<a class="mb-10 heading"  href="/news/cryptonews-deals/"><b>Cryptonews Deals</b></a>
+	<a class="mb-10 heading"  href="/news/industry-talk/"><b>Industry Talk</b></a>
+	<a class="mb-10 heading"  href="/news/ico-news/"><b>ICO news</b></a>
+	<a class="mb-10 heading"  href="/news/finance-news/"><b>Finance News</b></a>
+	<a class="mb-10 heading"  href="/news/technology-news/"><b>Technology News</b></a>
+	<a class="mb-10 heading"  href="/news/price-predictions/"><b>Price Predictions</b></a>
+</div>
+
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="/exclusives/"><b>Exclusives</b></a></div>
+<div class='menu-list-links header-menu__dropdown-children'>
+	<a class="mb-10 heading"  href="/exclusives/features/"><b>Features</b></a>
+	<a class="mb-10 heading"  href="/exclusives/opinions/"><b>Opinions</b></a>
+	<a class="mb-10 heading"  href="/exclusives/people/"><b>People In Crypto</b></a>
+	<a class="mb-10 heading"  href="/exclusives/podcast/"><b>Podcast</b></a>
+</div>
+
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="/videos/"><b>Videos</b></a></div>
+<div class='menu-list-links header-menu__dropdown-children'>
+	<a class="mb-10 heading"  href="/videos/bitcoin/"><b>Bitcoin Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/ethereum/"><b>Ethereum Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/defi-videos/"><b>DeFi Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/altcoin/"><b>Altcoin Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/blockchain/"><b>Blockchain Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/market/"><b>Market Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/cryptosecurity/"><b>Security Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/trading/"><b>Trading Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/icos/"><b>ICO Videos</b></a>
+</div>
+
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="/guides/"><b>Guides</b></a></div>
+<div class='menu-list-links header-menu__dropdown-children'>
+	<a class="mb-10 heading"  href="/guides/bitcoin/"><b>Bitcoin</b></a>
+	<a class="mb-10 heading"  href="/guides/ethereum/"><b>Ethereum</b></a>
+	<a class="mb-10 heading"  href="/guides/nft/"><b>NFT</b></a>
+	<a class="mb-10 heading"  href="/guides/defi-guides/"><b>Defi Guides</b></a>
+	<a class="mb-10 heading"  href="/guides/altcoins/"><b>Altcoins</b></a>
+	<a class="mb-10 heading"  href="/guides/blockchain/"><b>Blockchain</b></a>
+	<a class="mb-10 heading"  href="/guides/cryptocurrency/"><b>Cryptocurrency</b></a>
+	<a class="mb-10 heading"  href="/guides/deals/"><b>Deals</b></a>
+	<a class="mb-10 heading"  href="/guides/icos/"><b>ICOs / STOs / IEOs</b></a>
+	<a class="mb-10 heading"  href="/guides/trading-tools/"><b>Trading Tools</b></a>
+	<a class="mb-10 heading"  href="/guides/wallet-guides/"><b>Wallet Guides</b></a>
+</div>
+
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="#"><b>Recommended</b></a></div>
+<div class='menu-list-links header-menu__dropdown-children'>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-crypto-to-buy.htm"><b>Best Crypto to Buy Now</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-crypto-presales.htm"><b>Best Crypto Presales to Invest in</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/new-cryptocurrency.htm"><b>New Cryptocurrency</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/next-cryptocurrency-to-explode.htm"><b>Next Cryptocurrency to Explode</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-crypto-icos.htm"><b>Best Crypto ICOs</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/crypto-launches.htm"><b>Crypto Launches</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-bitcoin-betting-sites.htm"><b>Crypto Betting</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-bitcoin-casinos.htm"><b>Bitcoin Casinos</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-bitcoin-gambling-sites.htm"><b>Bitcoin Gambling Sites</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-bitcoin-blackjack-sites.htm"><b>Bitcoin Blackjack</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-bitcoin-slots-sites.htm"><b>Best Bitcoin Slots</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-crash-gambling-sites.htm"><b>Crash Gambling Games</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-anonymous-casinos.htm"><b>Anonymous Casinos</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/non-gamstop-casinos-uk.htm"><b>Best Casinos Not on Gamstop</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-telegram-casinos.htm"><b>Best Telegram Casinos</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/casino-utan-svensk-licens.htm"><b>Casino Utan Svensk Licens</b></a>
+</div>
+
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="/jobs/"><b>Jobs</b></a></div>
+<div class='menu-list-links header-menu__dropdown-children'>
+	<a class="mb-10 heading"  href="/editors/"><b>Contributors</b></a>
+	<a class="mb-10 heading"  href="/review_categories/exchanges/"><b>Exchanges</b></a>
+	<a class="mb-10 heading"  href="/coins/"><b>Market Cap</b></a>
+	<a class="mb-10 heading"  href="/price-tracker/"><b>Price Tracker</b></a>
+	<a class="mb-10 heading"  href="/events/"><b>Events</b></a>
+</div>
+
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5 col-xl-4 mb-lg-0 text-center d-md-none d-block mt-20">
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom pt-30 pb-30">
+            <div class="row">
+                <div class="col-12 col-md-6 text-center text-md-left mb-20 mb-md-0">
+                    <div class="fs-12 c-light-grey">© 2023 Cryptonews. All rights reserved</div>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-right">
+                    <div class="socials socials--large socials--h-white">
+
+	
+	</div>                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="rocketlazyloadscript">
+    window.gdproptions = {
+
+            cookieName: 'gdpr',
+            cookieConfig: {
+                domain: window.location.hostname,
+                path: '/'
+            },
+            heading: "GDPR Notice",
+            description: `We use cookies to offer a better browsing experience, analyze site traffic, personalize content, and serve targeted advertisements.By clicking accept, you consent to our privacy policy &amp; use of cookies.`+' (<a href="https://cryptonews.com/privacy-policy.htm" >Privacy Policy</a>)',
+            acceptLabel: "Confirm all",
+            settingsLabel: "Preferences",
+            closeLabel: 'Close Window',
+            choices: {
+                necessary: {
+                    label: "Required",
+                    description:
+                        '',
+                    value: true
+                },
+                analytics: false,
+                tracking: false,
+                marketing: false,
+
+            },
+            showEditIcon: false,
+            categories: {
+
+                necessary: function() {
+                }
+            }
+        }
+    </script>
+            <script type="rocketlazyloadscript">
+            window.cid = 57505        </script>
+        <script type="rocketlazyloadscript" data-rocket-src="https://cryptonews.com/wp-content/themes/cryptonews/assets/js/frontend.js?ver=1.1701870935" id="frontend-js-js" defer></script>
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/cryptonews.com","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script id="ajax-data-load-js-extra">
+var site_vars = {"url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://cryptonews.com/wp-content/themes/cryptonews/js/ajax-data-load.js?ver=1.1701870935" id="ajax-data-load-js" defer></script>
+
+<!-- Shortcodes Ultimate custom CSS - start -->
+<style type="text/css">
+.su-column-pros p{
+	margin-bottom:5px;
+}
+
+.su-column-pros ul{
+	padding-left:25px;
+}
+</style>
+<!-- Shortcodes Ultimate custom CSS - end -->
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://cryptonews.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script><script type="rocketlazyloadscript">
+    window.addEventListener('load', function() {
+
+        if(document.getElementsByTagName('oembed').length){
+            console.log('loading oembed');
+            new Embedo({
+                twitter: true,  // Enable twitter SDK
+                instagram: true,  // Enable instagram SDK
+                pinterest: true  // Enable pinterest SDK,
+            });
+        }
+
+    })
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script><script type="rocketlazyloadscript">
+            window.onesignal_app_id ='7433c474-47ca-421e-88a6-dad515cf9aab';
+            var OneSignal = window.OneSignal || [];
+            OneSignal.push(function() {
+              OneSignal.init({
+                appId: '7433c474-47ca-421e-88a6-dad515cf9aab',
+              });
+            });
+    </script></div>
+<script type="application/ld+json">{
+    "@context": "http://schema.org/",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Cryptonews",
+                "item": "https://cryptonews.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Reviews",
+                "item": "https://cryptonews.com/reviews"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "LetsExchange",
+                "item": "https://cryptonews.com/reviews/letsexchange/"
+            }
+        ]
+    ]
+}</script><script type="application/ld+json">{
+    "@context": "http://schema.org/",
+    "@type": "Review",
+    "itemReviewed": {
+        "@type": "Organization",
+        "name": "LetsExchange",
+        "brand": {
+            "@type": "Brand",
+            "name": "LetsExchange"
+        },
+        "image": "https://cimg.co/reviewlogo/75/61082a6f406a0.png",
+        "description": "",
+        "url": "https://cryptonews.com/reviews/letsexchange/"
+    },
+    "positiveNotes": {
+        "@type": "ItemList",
+        "itemListElement": [
+            [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Instant"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": " straightforward swaps Excellent support with transactions receipts No KYC or verification required to swap SmartRate technology for automatic best swap rate Non-custodial exchange 24/7 customer support"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": ""
+                }
+            ]
+        ]
+    },
+    "negativeNotes": {
+        "@type": "ItemList",
+        "itemListElement": [
+            [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Only crypto-to-crypto swaps"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": ""
+                }
+            ]
+        ]
+    },
+    "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 4.3
+    },
+    "headline": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "url": "https://cryptonews.com/reviews/letsexchange/",
+        "@id": "https://cryptonews.com/reviews/letsexchange/"
+    },
+    "datePublished": "2021-08-02T12:06:00+00:00",
+    "dateModified": "2023-02-08T17:55:01+00:00",
+    "author": {
+        "@type": "Organization",
+        "name": "Cryptonews",
+        "url": "https://cryptonews.com",
+        "logo": "https://cimg.co/p/crypto-news-logo-full.svg"
+    },
+    "sourceOrganization": {
+        "@type": "Organization",
+        "name": "Cryptonews",
+        "url": "https://cryptonews.com",
+        "logo": "https://cimg.co/p/crypto-news-logo-full.svg"
+    },
+    "image": "https://cimg.co/reviewlogo/75/61082a6f406a0.png",
+    "description": ""
+}</script><script src="https://bs_48ce1097.cryptonewsdom.care/sdk.js" data-clickout-type="native_table_box" defer></script></body>
+</html>
+<!--
+Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com
+
+Retrieved 9468 objects (754 KB) from Redis using PhpRedis (v5.3.7).
+-->

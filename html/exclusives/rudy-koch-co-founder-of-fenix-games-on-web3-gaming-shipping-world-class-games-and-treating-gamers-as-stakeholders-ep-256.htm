@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head><meta charset="utf-8"/><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.4",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let r=e.getAttribute("data-rocket-src");if(r&&0!==r.indexOf("data:")){0===r.indexOf("//")&&(r=location.protocol+r);try{let i=new URL(r).origin;i!==location.origin&&t.push({src:i,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(n){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){if(await this._littleBreath(),!0===t.noModule&&"noModule"in HTMLScriptElement.prototype){t.setAttribute("data-rocket-status","skipped");return}return new Promise(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(){let t={};function e(e,r){!function e(r){!t[r]&&(t[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.remove.apply(r,arguments)});function i(e){return t[r].eventsToRewrite.indexOf(e)>=0?"rocket-"+e:e}}(e),t[e].eventsToRewrite.push(r)}function r(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}e(document,"DOMContentLoaded"),e(window,"DOMContentLoaded"),e(window,"load"),e(window,"pageshow"),e(document,"readystatechange"),r(document,"onreadystatechange"),r(window,"onload"),r(window,"onpageshow")}_delayJQueryReady(t){let e;function r(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}function i(i){if(i&&i.fn&&!t.allJQueries.includes(i)){i.fn.ready=i.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(i):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(i)),i([])};let n=i.fn.on;i.fn.on=i.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=r(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{let e=arguments[0][t];delete arguments[0][t],arguments[0][r(t)]=e})),n.apply(this,arguments),this},t.allJQueries.push(i)}e=i}i(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){i(t)}})}async _pendingWebpackRequests(t){let e=document.querySelector("script[data-webpack]");async function r(){return new Promise(t=>{e.addEventListener("load",t),e.addEventListener("error",t)})}e&&(await r(),await t._requestAnimFrame(),await t._pendingWebpackRequests(t))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="1101440706625691" property="fb:app_id"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="/favicon-192x192.png" rel="icon" sizes="192x192"/>
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon"/>
+<link href="/favicon.ico" rel="shortcut icon"/>
+<meta content="ee7282c3169a3e01fc91c812fc84096b69c8f74b" name="naver-site-verification"/>
+<link href="https://gmpg.org/xfn/11" rel="profile"/>
+<!--    <title>--><!-- | --><!--</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" /></noscript>-->
+<script data-rocket-src="https://cimg.co/p/manifest.js" data-rocket-type="application/javascript" defer="" type="rocketlazyloadscript"></script>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots">
+<!-- This site is optimized with the Yoast SEO Premium plugin v20.0 (Yoast SEO v21.5) - https://yoast.com/wordpress/plugins/seo/ -->
+<title>Rudy Koch, Co-Founder of Fenix Games, on Web3 Gaming, Shipping World-Class Games, and Treating Gamers as Stakeholders | Ep. 256</title>
+<meta content="In an exclusive interview with cryptonews.com, Rudy Koch, Co-Founder of Fenix Games, talks about the biggest advantages/features of web3 gaming compared" name="description">
+<link href="https://cryptonews.com/exclusives/rudy-koch-co-founder-of-fenix-games-on-web3-gaming-shipping-world-class-games-and-treating-gamers-as-stakeholders-ep-256.htm" rel="canonical"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="article" property="og:type"/>
+<meta content="Rudy Koch, Co-Founder of Fenix Games, on Web3 Gaming, Shipping World-Class Games, and Treating Gamers as Stakeholders | Ep. 256" property="og:title"/>
+<meta content="In an exclusive interview with cryptonews.com, Rudy Koch, Co-Founder of Fenix Games, talks about the biggest advantages/features of web3 gaming compared" property="og:description"/>
+<meta content="https://cryptonews.com/exclusives/rudy-koch-co-founder-of-fenix-games-on-web3-gaming-shipping-world-class-games-and-treating-gamers-as-stakeholders-ep-256.htm" property="og:url"/>
+<meta content="Cryptonews" property="og:site_name"/>
+<meta content="2023-08-15T14:00:00+00:00" property="article:published_time"/>
+<meta content="2023-10-19T15:22:18+00:00" property="article:modified_time"/>
+<meta content="https://cimg.co/news/122490/324013/rudy-koch-thumb.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://cimg.co/news/122490/324013/rudy-koch-thumb.jpg" name="twitter:image"/>
+<meta content="@Cryptonews" name="twitter:creator"/>
+<meta content="@Cryptonews" name="twitter:site"/>
+<!-- / Yoast SEO Premium plugin. -->
+<link href="//cryptonews.com" rel="dns-prefetch"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://cryptonews.com/feed/" rel="alternate" title="Cryptonews » Feed" type=""/>
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/style.css?ver=1701684400" id="style-css-css" media="all" rel="stylesheet"/>
+<link href="https://cryptonews.com/wp-includes/css/dist/block-library/style.min.css?ver=6.4.1" id="wp-block-library-css" media="all" rel="stylesheet">
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/assets/css/search.css?ver=1701684400" id="search-css" media="all" rel="stylesheet">
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/brand-management-plugin/public/css/brand-management-public.css?ver=1701684400" id="brand-management-public-css" media="all" rel="stylesheet">
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptopresales-brand-management-plugin/public/css/crypto-bm-public.css?ver=1701684400" id="crypto-bm-public-css" media="all" rel="stylesheet">
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/brand-management.css?ver=1701684400" id="brand-management-css" media="all" rel="stylesheet">
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/custom.css?ver=1701684400" id="custom-css" media="all" rel="stylesheet"/>
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/presale-toplist.css?ver=1701684400" id="presale-toplist-css" media="all" rel="stylesheet"/>
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews-post-blocks/assets/css/style.css?ver=1701684400" id="post-blocks-style-css" media="all" rel="stylesheet"/>
+<style id="rocket-lazyload-inline-css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://cryptonews.com/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<script id="brand-management-ajax-handler-js-extra">
+var likes_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php","nonce":"c4904c03d2","fail_text":"You have already voted."};
+</script>
+<script id="crypto-bm-ajax-handler-js-extra">
+var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php","nonce":"8d5e914c72"};
+</script>
+<link href="https://cryptonews.com/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript> <script type="rocketlazyloadscript">
+        window.sid = "1"
+                window.burl = "https://a2.cryptonews.com"
+                window.cid = 1
+        window.trans = {
+            ago: "ago",
+            ago_long: "minute, minutes, hour, hours, day, days",
+            time_seconds_ago: "[time] [seconds] [ago]",
+            time_minutes_ago: "[time] [minutes] [ago]" ,
+            time_hours_ago: "[time] [hours] [ago]",
+            time_days_ago: "[time] [days] [ago]",
+        }
+    </script>
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MBDCFGN');</script>
+</link></link></link></link></link></meta></meta></link><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><script defer="" src="/assets/js/me.js"></script><link href="/assets/css/style.css" rel="stylesheet"/></head>
+<body class="post-template-default single single-post postid-110344 single-format-standard wp-custom-logo">
+<header class="header" id="header">
+<div class="se-pre-con"></div>
+<a class="header__logo" href="/">
+<img alt="Crypto News" src="/assets/images/logo.svg"/>
+</a>
+<div class="header-links d-none d-lg-flex header-menu__dropdown">
+<ul class="menu_header" id="menu-header">
+<li></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/news/press-releases/">Press Releases</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/news/">News<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/bitcoin-news/">Bitcoin News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/ethereum-news/">Ethereum News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/nft-news/">NFT News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/defi-news/">DeFi News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/altcoin-news/">Altcoin News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/blockchain-news/">Blockchain News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/press-releases/">Press Releases</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/sponsored/">Sponsored</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/industry-talk/">Industry Talk</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/ico-news/">ICO news</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/finance-news/">Finance News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/technology-news/">Technology News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/price-predictions/">Price Predictions</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/guides/">Guides<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/bitcoin/">Bitcoin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/ethereum/">Ethereum</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/nft/">NFT</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/defi-guides/">Defi Guides</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/altcoins/">Altcoins</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/blockchain/">Blockchain</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/cryptocurrency/">Cryptocurrency</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/icos/">ICOs / STOs / IEOs</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/trading-tools/">Trading Tools</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/wallet-guides/">Wallet Guides</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/review_categories/exchanges/">Exchanges</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/coins/">Market Cap</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/industry-talk/">Industry Talk</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/exclusives/features/">Features</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/exclusives/opinions/">Opinions</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/exclusives/people/">People In Crypto</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#">Editors’ picks<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/best-crypto-to-buy.htm">Best Crypto to Buy Now</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/best-crypto-presales.htm">Best Crypto Presales to Invest in</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="header-search">
+<div class="header-menu__trigger d-md-none">
+<svg height="7" viewbox="0 0 12 7" width="12" xmlns="http://www.w3.org/2000/svg">
+<g fill-rule="evenodd">
+<path d="M0 3.999L12 3.999 12 2.999 0 2.999zM0 7L12 7 12 6 0 6zM0 1L12 1 12 0 0 0z"></path>
+</g>
+</svg>
+</div>
+</div>
+</header><!-- #masthead -->
+<div class="main">
+<div class="modal" id="newsletter-modal">
+<div class="modal__content text-white">
+<div class="close__icon hide-modal" data-id="newsletter-modal">X</div>
+<div class="modal__body newsletter">
+<div class="left-side">
+<div class="h1">
+<em>
+            Enter your email for our Free Daily Newsletter        </em>
+</div>
+<p> A quick 3min read about today's crypto news!</p>
+<form id="newsletter-form">
+<div class="input-group">
+<div><input id="newsletter_email" name="email" placeholder="Email" required="" type="email"/></div>
+<div><button id="newsletter-signup" type="submit">Sign Up</button></div>
+</div>
+</form>
+<span class="response-msg" id="newsletter-response"></span>
+</div>
+<div class="img-box">
+<img alt="Image" class="img" data-lazy-src="https://cimg.co/p/ml-300.jpeg" id="newsletter-popup-img" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"/><noscript><img alt="Image" class="img" id="newsletter-popup-img" src="https://cimg.co/p/ml-300.jpeg"/></noscript>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="breadcrumbs mb-20">
+<a href="/">Cryptonews</a>
+<a href="https://cryptonews.com/exclusives/">
+                    Exclusives                </a>
+<a href="https://cryptonews.com/exclusives/rudy-koch-co-founder-of-fenix-games-on-web3-gaming-shipping-world-class-games-and-treating-gamers-as-stakeholders-ep-256.htm">Rudy Koch, Co-Founder of Fenix Games, on Web3 Gaming, Shipping World-Class Games, and Treating Gamers as Stakeholders | Ep. 256</a> </div>
+</div>
+</div>
+<div class="row">
+<main class="col-12 col-lg-8">
+<div class="row">
+<div class="col-12 col-md-3 d-none d-md-block">
+</div>
+<div class="col-12 col-md-9 mb-40">
+<div class="row mb-20">
+<div class="col-6">
+<div class="fs-12">
+<time datetime="2023-08-15T14:00:00+00:00">
+                15 August 2023 10:00 EDT            </time>
+                             . 43 min read
+                    </div>
+</div>
+<div class="col-6 text-right">
+<div class="socials socials--medium d-flex d-md-block">
+<a class="ssk ssk-facebook" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.854 4.155H7.072V2.97c.131-1.119 1.981-.907 1.981-.907V.138H9.05C8.986.123 5.37-.735 4.653 2.017l-.001.002-.006.018c-.113.345-.105 1.92-.103 2.118H3v2.107h1.64v5.732h2.388V6.262h1.827l.205-2.107h-.205z" fill="#CCC"></path>
+</svg>
+</a>
+<a class="ssk ssk-twitter" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.771 3.429c.156 3.462-2.427 7.323-6.997 7.323-1.39 0-2.685-.407-3.774-1.107 1.306.155 2.609-.208 3.645-1.019-1.078-.019-1.987-.73-2.3-1.71.385.074.765.053 1.111-.042C1.272 6.637.454 5.57.482 4.43c.332.184.71.295 1.115.308C.5 4.005.19 2.557.835 1.45 2.05 2.94 3.863 3.92 5.91 4.022 5.55 2.482 6.718 1 8.308 1c.708 0 1.347.298 1.797.778.56-.112 1.087-.316 1.564-.599-.185.575-.576 1.059-1.083 1.363.498-.06.972-.192 1.413-.388-.33.494-.746.928-1.228 1.275" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="ssk ssk-linkedin" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.9939 12h-2.464V7.8c0-1.151-.438-1.794-1.349-1.794-.991 0-1.508.669-1.508 1.794V12h-2.375V4h2.375v1.078s.714-1.322 2.41-1.322c1.697 0 2.911 1.036 2.911 3.179V12zm-10.53-9.048c-.808 0-1.464-.66-1.464-1.476C-.0001.661.6559 0 1.4639 0c.809 0 1.465.661 1.465 1.476 0 .816-.656 1.476-1.465 1.476zM.2379 12h2.477V4H.2379v8z" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="ssk ssk-telegram" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M.558 5.152L11.196 1.05c.495-.178.925.12.765.868l.001-.001-1.81 8.532c-.134.605-.495.752-.998.467L6.395 8.883l-1.33 1.282c-.147.147-.272.27-.556.27l.196-2.805 5.111-4.62c.223-.194-.05-.305-.343-.11L3.156 6.879l-2.723-.85c-.59-.188-.603-.591.126-.876" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="ssk ssk-email" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 2.727v6.854c0 .373.273.675.649.675h10.696c.376 0 .649-.306.649-.675V2.727c0-.409-.244-.727-.65-.727H.65C.23 2 0 2.326 0 2.727m.988.597c0-.165.099-.26.259-.26.099 0 3.986 2.463 4.22 2.607l.609.38c.193-.13.387-.24.587-.375.408-.26 4.038-2.612 4.138-2.612.16 0 .26.095.26.26 0 .174-.337.348-.557.482-1.378.841-2.756 1.757-4.122 2.628-.08.054-.233.17-.35.151-.128-.019-4.083-2.56-4.802-2.983-.108-.064-.242-.123-.242-.278" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+<div class="article-single__content category_contents_details">
+<h1 class="mb-40">
+                            Rudy Koch, Co-Founder of Fenix Games, on Web3 Gaming, Shipping World-Class Games, and Treating Gamers as Stakeholders | Ep. 256                        </h1>
+<div class="sub-header-disclaimer">Disclosure: Crypto is a high-risk asset class. This article is provided for informational purposes and does not constitute investment advice. By using this website, you agree to our terms and conditions. We may utilise affiliate links within our content, and receive commission.</div>
+<figure class="image"><img alt="" class="content-img" data-lazy-src="https://cimg.co/news/122490/324013/rudy-koch-thumb.jpg" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%200'%3E%3C/svg%3E" width="1280"/><noscript><img alt="" class="content-img" decoding="async" src="https://cimg.co/news/122490/324013/rudy-koch-thumb.jpg" width="1280"/></noscript></figure><p>In an exclusive interview with cryptonews.com, Rudy Koch, Co-Founder of Fenix Games, talks about the biggest advantages/features of web3 gaming compared to web2 gaming, the shift of gaming: pay-to-play &gt; free-to-play &gt; web3, and shipping famous games like Call of Duty and World of Warcraft.</p><h2>About Rudy Koch</h2><span class="replacer"></span><p>Rudy Koch is the co-founder of Fenix Games, which is based out of UAE. He is also the co-founder of Web 3 unicorn Mythical Games, which has raised $270M and is valued at $1.25B. Rudy has over 15 years of game development experience shipping some of the most prolific games in the industry: 5 Call of Duty games, 2 World of Warcraft expansions, 1 Disney MMO, and a handful of #1 mobile games. He is currently exploring the intersection between blockchain technology and games.</p><p>Rudy Koch gave a wide-ranging exclusive interview which you can see below, and we are happy for you to use it for publication, provided there is a credit to www.cryptonews.com. </p><div class="rll-youtube-player" data-alt="Rudy Koch, Co-Founder of Fenix Games, on Web3 Gaming, Shipping World-Class Games, and more" data-id="Ha029rIhIq0" data-query="feature=oembed" data-src="https://www.youtube.com/embed/Ha029rIhIq0"></div><noscript><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/Ha029rIhIq0?feature=oembed" title="Rudy Koch, Co-Founder of Fenix Games, on Web3 Gaming, Shipping World-Class Games, and more" width="640"></iframe></noscript><h2>Highlights Of The Interview</h2><span class="replacer"></span><ul><li>Biggest advantages/features of web3 gaming compared to web2 gaming </li><li>The biggest roadblocks stifling the mass adoption of web3 gaming</li><li>Shift of gaming: pay-to-play &gt; free-to-play &gt; web3 </li><li>Immutable solutions: Immutable zkEVM, Immutable Passport, Unity SDK, Immutable orderbook, Immutable checkout</li><li>Shipping famous games like Call of Duty and World of Warcraft</li></ul><figure class="image image-style-align-left"><a href="https://open.spotify.com/episode/3ys82KICJnbjFANiTVVE81"><img alt="" class="content-img" data-lazy-src="https://cimg.co/news/122490/324015/spotify.jpg" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20103%200'%3E%3C/svg%3E" width="103"/><noscript><img alt="" class="content-img" decoding="async" src="https://cimg.co/news/122490/324015/spotify.jpg" width="103"/></noscript></a></figure><figure class="image image-style-align-left"><a href="https://podcasts.apple.com/ca/podcast/cryptonews-podcast/id1559291408"><img alt="" class="content-img" data-lazy-src="https://cimg.co/news/122490/324016/apple-1.jpg" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20103%200'%3E%3C/svg%3E" width="103"/><noscript><img alt="" class="content-img" decoding="async" src="https://cimg.co/news/122490/324016/apple-1.jpg" width="103"/></noscript></a></figure><figure class="image image-style-align-left"><a href="https://www.buzzsprout.com/1735660/13362313-256-rudy-koch-co-founder-of-fenix-games-on-web3-gaming-shipping-world-class-games-and-treating-gamers-as-stakeholders"><img alt="" class="content-img" data-lazy-src="https://cimg.co/news/122490/324017/all-podcast-players-1.jpg" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20103%200'%3E%3C/svg%3E" width="103"/><noscript><img alt="" class="content-img" decoding="async" src="https://cimg.co/news/122490/324017/all-podcast-players-1.jpg" width="103"/></noscript></a></figure><p> </p><p> </p><p> </p><h2>Full Transcript Of The Interview</h2><span class="replacer"></span><p><strong>Matt Zahab</strong> <br/>Ladies and gentlemen, welcome back to the Cryptonews Podcast. We are Buzzing as always and I’m super pumped to have today’s guest on the show, also a fellow Canadian Rudy Koch, the Co-Founder of Fenix Games, which is based out of UAE, Got to love Dubai. He’s also the Co-Founder of Web3 Unicorn Mythical Games, which has raised 270 million and is valued at $1.25 billion. Rudy has over 15 years of game development experience, shipping some of the most prolific games in the industry, like 5 Call of Duty games, 2 World of Warcraft expansions, 1 Disney MMO and a handful of number one mobile games. He’s currently exploring the intersection between blockchain, tech and games. Super pumped to have you on, Rudy welcome to show my friend. </p><p><strong>Rudy Koch</strong> <br/>Thanks for having me. Great to be here. </p><p><strong>Matt Zahab</strong> <br/>Pump to have you on man. It’s quite the bio. 5 Call of Duty games, 2 World of Warcraft expansions, 1 Disney MMO and a handful of number one mobile games. That is not something that everyone can say. I think that’s a great place for us to start. Let’s go right into story time. You must have some crazy stories from shipping five CODs. I mean, again, for reference, I’m a 95, I’m 28 years old. When I was probably, I don’t know, 12 to 18. That’s all we did, right? You know, I was a hockey player, between school hockey and maybe girls, friends, whatever. Every other ounce of free time was spent ripping Call of Duty with the boys. So I have incredible memories with that game, spent thousands of hours on that. We’d love to see it. Give us some stories before we get into the nitty gritty. </p><p><strong>Rudy Koch</strong> <br/>Sure. I mean, you know, I grew up at a time where, you know, the first Nintendo was launched, which was, you know, an iconic moment in, not just video game history, but history. Everybody knows Nintendo, right? And, you know, so video games was a large part of my upbringing. And I realized pretty quickly that, you know, I wanted to turn that passion into a career. It was a very strange thing for my family to digest that, you know, I want to get into video game, you know, at the time that wasn’t considered a real job, you know, like, but yeah, I was really passionate about it. I chased it. My first gig was working at Disney on Club Penguin. You know, Club Penguin was a classic. You know, and what’s amazing about that. That launched 2008. And, you know, they were doing things that took years, you know, 10 years plus for the rest of the industry to figure out, right? They were doing free to play. The time where it wasn’t really popular. Yeah. It was, they were doing games as a service, which means we could do updates anytime we wanted. And so, you know, we could deliver content constantly to players. So it was really great place for me to start. It really set the tone for the rest of my career. </p><p><strong>Matt Zahab</strong> <br/>Rudy, what was, before you keep going, what was the website that Club Penguin was on again? I forget the name, but you had to… </p><p><strong>Rudy Koch</strong> <br/>Oh, Miniclip. </p><p><strong>Matt Zahab</strong> <br/>Miniclip, that was it. Yes, there was a bunch of banger games on Min… Wow, this is a throwback. Yes, Club Penguin on Miniclip, that’s where me and all the boys, the girls too, everyone was playing there. You know, you’d talk about your little penguin at lunchtime. We’d be going on the computers. And I remember they even banned it from our school in high school and we found one of my smarter friends found a way to like go in the back end and remove the privileges. So we were all jumping on the library computers. Oh, what a throwback. So keep going there. My apologies. </p><p><strong>Rudy Koch</strong> <br/>Yeah. I mean, I spent a few years on that. I mean, incredible way to start in the gaming industry. You know, at some point I’d realized, hey, you know what? I’d love to make a game that I would play. Right? I was a little bit 12. I was outside of that 6 to 12 year old demographic in quite a while. So, you know, getting to work on something that I would play was really something I wanted to do. And of course, you know, what’s more iconic than Call of Duty, right? I mean, it was, I spent countless hours playing in one Warfare 2 you know, with my friends online. </p><p><strong>Matt Zahab</strong> <br/>Best game ever. Not up for discussion. </p><p><strong>Rudy Koch</strong> <br/>Exactly. So, you know, when I had an opportunity to do that, I jumped on it. I went to work on Call of Duty. It was amazing, you know, six years of my life, you know, and what I did was I was working in one of the support teams that supported all the studios that were working on Call of Duty, which meant, you know, for the lead studios, they would launch a Call of Duty every two years. I think it went through three years. But for our studio, we worked on every single one. So when I launched five Call of Duty, that means I basically back to back every year I launched a Call of Duty, right? And it was crazy. It was like climbing a mountain every year, you know, you’re exhausted by the end of it. It’s been an absolutely insane schedule and insane grind. But, you know, once it’s out and you see how many people are playing it, it’s just, you’re like, OK, let’s do this again. It’s amazing. So, you know, that was a blast. I went from Call of Duty to Blizzard to work on World of Warcraft, which another passion of mine. Yeah. I’ve been playing World of Warcraft and Blizzard games for a long time. I mean, I’m even wearing this shirt today. Not intentional. So working on World of Warcraft was a real treat, you know, as well, working in the same offices where the game was created, you know, 20 years ago. So it was a real treat to be part of that legacy. I mean, if you were to ask, like, what’s the one game that was maybe more prolific than Call of Duty, you know, World of Warcraft? It’s a contender. So, you know, getting to be on that was a real treat. So, yeah, I mean, that was my sort of career in traditional gaming. I was at Blizzard when I sort of stumbled upon Blockchain in 2018. We talked about being Canadian. The, you know, what got my attention was CryptoKitties, which was created by a team out of Vancouver. And so, you know, being I’m from Vancouver, I had a chance to connect with them while I was at Blizzard and talk to them and learn from them. And I was blown away by what I was hearing. And, you know, people, you know, making money, playing games. This idea, you know, was mind blowing. I’d never heard of anything like that before, but was so prolific because in our industry and games, I mean, we’ve had players making money already, right? Twitch streaming is huge. People are having entire careers. They are content creation, YouTube, right? And it wasn’t really a far leap to go, OK, well, they could make money participating in the economies, but it was still a mind blowing concept, right? And then talking about NFTs, I mean, Dapper was one of the folks who coined the concept of ERC-721s on Ethereum, the NFT, the true NFT, right? And it was really cool to think about, wow, you could really have a one of one of something, wow, you know, like I spent weeks down that rabbit hole. I’m still thinking about that because in World of Warcraft, you know, as an example, items, massive part of the game, right? You play to earn cool items, to then play and earn more cool items. That’s really what it is, right? And we talk about like different rarity in World of Warcraft and other games, right? You have the epic, the rare, the legendary items. And while the legendary items are harder to get, there’s no real such thing as one of one, right? You know, if you put in the time, you can get that legendary item. In fact, if everyone puts in the time, everyone can get a legendary item, right? And so now here we are with blockchain, where you can actually have an item that only you own. And so that concept kind of blew my mind, the idea of being able to, you know, make money while you’re playing games blew my mind. And, you know, I left, you know, I left Blizzard on the spot pretty much, you know, two weeks after that. </p><p><strong>Matt Zahab</strong> <br/>Well, you found out about Web3 Gaming, went down the rabbit hole, figured out the whole digital ownership, IP owning items, potentially playing and earning. And you were like, this is the future, I’m out, you quit. Was that quit? </p><p><strong>Rudy Koch</strong> <br/>That’s a hundred percent. I mean, it was a hundred percent. Cause I was around, you know, with, while I was at Club Penguin, it was around for the free to play shift, right? The free to play shift had a profound impact, right? It was mobile gaming on smartphones kind of blew up around the same time. And, you know, I watched the whole industry change. I mean, with mobile, we added a billion gamers, you know, and people who wouldn’t even consider them as gamers, right? No, in the traditional sense, we’re playing games and monetizing, right? It was, it was such a profound change. And what it did was it challenged the way we sort of create games, like the design of games, kind of shifted the way we monetize games shifted, you know, and so when I saw blockchain and Web3, I mean, it wasn’t called Web3 back then, it was called blockchain. Instantly, I saw, OK, this is disrupting on those same vectors that mobile and free to play did. This is going to be huge and potentially even bigger. Because one of the things that games has tried to do over the years, over the decades is go global, right? Console had a really hard time going global because of price points of hardware and accessibility to games and IP. The mobile did a better job, right? More people have mobile devices around them. But in a world where you could potentially make money playing the game, suddenly you’re blowing up in the global market. And that was really a concept that sort of stuck with me. So I think one of the things that I was fortunate to have was I was working on World of Warcraft at the time. And World of Warcraft is some people know it as having a really interesting economy, right? As an auction house where people sell things to each other. Obviously, it’s for in-game currency. But that spilled into real world as well. Yeah. When people were buying stuff. Yeah. And so I mean, that’s not a new concept for the gaming world, right? In fact, in the late 90s, I was grinding a game called Asheron’s Call and selling my stuff on eBay. And you’d sell your stuff on eBay, then you’d go back into the game and stand by a tree and wait for the Biodex Shop so you can give them their stuff, right? And so, I mean, we’re talking like 30 years where digital item sales have been a thing in our industry, right? But it’s always been fringe, right? It’s called the gray market for a reason because, you know, you weren’t allowed to do it. The game developer, it wasn’t part of the ecosystem, right? So, you know, when I saw, started looking at blockchain, I realized, wow, blockchain could allow us to bring all of that commerce into the fold where the developers can participate in the finances, right, and make money. But also what that means is they’re incentivized to support it and create good user experiences. So it’s not this sort of fringe concept where people are getting ripped off. I mean, you hear about it, right? Fraud, people getting ripped off. You know, all the time and they’re trying to do these gray market transactions. Well, that can go away. So, yeah, I mean, it was an instant connection, fortunately, because of my experience of World of Warcraft left instantly. Yeah, left Blizzard and jumped head first for better or for worse. And beat on that roller coaster for five years then. </p><p><strong>Matt Zahab</strong> <br/>And I mean, when you started, people must have thought, you know, that you had four heads and that you were completely out to lunch. I mean, heck, I joined the industry much later and I still got the same things as you. So walk me through the process of opening and founding Fenix Games. And I’d love you could give a quick little sort of elevator pitch, TLDR of what you guys do, how would you choose to onboard and publish and fund games? And then we’ll get into some of the nitty gritty. </p><p><strong>Rudy Koch</strong> <br/>Yes, absolutely. So, you know, I’ve, I had already been in the space for four and a half years by the time Fenix Games came about. And, you know, in four and a half years in the Web3 industry, you learn a lot. You know, there was a few things that really jumped out at me in my experiences. One, I think everybody in crypto, this isn’t just games, but everyone in crypto has sort of seen the regulation and the regulatory landscape, right? Like, and what’s going on, especially in the US, it’s been a real interesting thing to watch unfold, right? And, you know, my last startup, Mythical, was a US-based company. So we had to, you know, we were squarely having to deal with those issues, right? So a lot of these kind of learnings played a role in sort of how I thought about what the next thing would be. And so for us, we wanted to start a company that really did a few things. You know, one is we wanted to sort of lean into the hit-based nature of the gaming industry, right? You know, it’s like the movie industry, you know, not every game is successful. In fact, most games aren’t successful. And when you’re looking at traditional games, you know, statistically, you’ve got a 10% shot at creating a hit, right? If you know what you’re doing, right? Then you add blockchain and Web3 and tokenomics and regulatory challenges and all of this tech complexity and what? It becomes even more of a risk, right? So what we wanted to do was set ourselves up to be able to take as many shots on goals as we could so we could sort of climb up the learning curve and bring great content to Web3. We’ve seen over the last five years a lot of investment and innovation in the infrastructure. piece, like companies like Immutable have come around and really set the stage and laid down a foundation. But technology alone isn’t going to bring gamers, right? They need content. And now what we saw with the space was there needs to be a focus on how do we bring great content? What’s locking great game developers from coming into this space and how can we help them? And so Fenix Games was founded on that principle, right? We’re a publisher. We’re part publisher fused with finance and asset management. The reason for that is, you know, a lot of the concepts in Web3 require a level of expertise that we just don’t have in games that exists in a finance world, right? Two-sided marketplaces, two-sided economics, tokenomics, all these kind of things require an expertise. So we’re basically fusing traditional publishing with best-in-class asset management, finance practices, right? And what that allows us to do is work with developers and help de-risk the space so that developers can come in. We work with teams like Immutable who are doing the exact same thing on the tech side, are de-risking the space, making it less complex for game teams to come in because we all recognize we need great teams to be building great content. So from our side, you know, we kind of call ourselves a publisher, but we’re sort of a next -generation publisher in the sense that we are fusing Web3 concepts together. And yes, we support great teams through project financing, through publishing, through asset management, tokenomics, and those things, you know, de-risking blockchain, and essentially just making it easy and creating a clear path for developers to bring games to Web3. </p><p><strong>Matt Zahab</strong> <br/>How do you and the team choose which games to onboard or fund or publish? Because I feel like, I mean, I could be completely out to lunch here, but if I were creating a game and had a great idea and a good team, but needed all of the help that you guys have to offer, I’d be going to you guys, you guys evidently, and obviously have final say. How do you choose? Like, is there like a report card kind of thing? Like, you know, what are you, what variables are you guys looking for in order to onboard a new client? </p><p><strong>Rudy Koch</strong> <br/>Yeah, I think it’s a great question because, you know, I think one of the challenges has been that picking games is very hard. And I think the Web3 space as a whole is starting to, you know, recognize that it’s a hard thing to do. Because most games do fail, unfortunately, just you cannot, you cannot plan for people to like your game, right? You can take your best shot at it, you can plan for it, right? And so, you know, from our perspective, we have a few ways we sort of look at the space as people who have been making games, you know, everybody on the leadership team has a huge background of making games. And so, you know, we use our expertise to look at it in a couple of ways. One is we believe that mobile developers, for example, are incredibly well equipped to traverse the challenges of Web3. Mobile developers and free to play developers have built a discipline of iterative development, A B testing, analytics, things that allow them to sort of watch what’s going on with their users and optimize and adjust, right? That’s not how games were made before, right? Before, in console and PC, you just spend two, three years. And in the game, you’re all the way out the door, right? So, you know, those folks who have built that discipline, that new discipline, they are equipped, right? So, we look at the team first and foremost, have they gone through that? Have they got that experience? And that’s a razor for us. The other thing we look at is our background as an expertise is in, you know, I’m talking about the collective team here. Background is in sports, racing, and lifestyle. We have two of our executives who ran 70% of EA mobile’s business. And, you know, that is, you know, we have the depth of expertise and experience in those genres. What’s great also about those genres is that they have a lot of pull when it comes to organic installs, right? People love their brands. People love their sports teams, right? And that’s a natural draw for players. So, it makes our jobs slightly easier because you don’t need to teach people what football is or what hockey is, you know, Canadian shout out there. And you know, you don’t. But the game like World of Warcraft or League of Legends has a learning curve. What’s a mage what’s a rogue, you know these are all things you have to learn, right? So, those genres we’re excited about, we think they fit really well with blockchain, just to the nature of their itemized economies. You can imagine a racing game where there’s lots of different car parts to trick out your vehicles, right? Those can all be NFTs. But yes, they also have, you know, intrinsic draw because of the brands and the teams that are involved. </p><p><strong>Matt Zahab</strong> <br/>You brought up a couple of things there. You guys have, your website, excuse me, is open as we’re talking right now. You guys have literal behemoths, just like you said, from companies like EA, Activision, you know, and then you have Finance Guys, City Group, Credit Suisse. How did you guys poach these behemoths from companies that were, you know, obviously making hundreds of thousands of dollars a year personally? I’m not sure about the companies and probably had stock options and everything else. Like how did you get them to jump ship? </p><p><strong>Rudy Koch</strong> <br/>Well, I think poaching is a bit of a harsh way to put it. I mean, we were all, you know, friends, the four of us were friends. We’d work together and we share collective excitement for Web3. You know, the challenge with traditional games is that it’s become a little bit of a conveyor belt, right? There’s a formula you follow. And that’s the way to do it. There’s a sort of a best practices way of launching games on Web2. And, you know, I think people in games, making games, tend to have a creative side, whether they’re Finance or they’re HR or whoever, there’s a certain draw to games. I think you have to have a certain mindset for it. So when you introduce a new concept or a new technology or you challenge the way games are created, that’s exciting for us, right? Because we’ve seen the transition. We’ve seen lots of transitions. We’ve seen the transition from 2D to 3D games. We’ve seen the transition from offline games to online games, right? Like, we’ve seen all of these and how cool those transitions were. Right? And here we are again with a new transition that’s arguably more profound than all the ones that have come before it. So being part of that and being part of this moment where everyone’s trying to figure it out, it’s a really fulfilling, you know, moments in my career. </p><p><strong>Matt Zahab</strong> <br/>That is pretty awesome. I mean, you guys got quite the team. Rudy, we got to take a quick break and give a huge shout out to our sponsor of the show, PrimeXBT. And when we get back, let’s jump into some topics like you guys building on Immutable, which is just such a world class Web3 company. And one of my favorite things that you and the team have is your mission statement, which is invite players and the stakeholders. And I can’t wait to get into that as well. But until then, huge shout out to PrimeXBT, longtime friends of Cryptonews and sponsor of the Cryptonews Podcast. PrimeXBT offers a robust trading system for both beginners and professional traders that demand highly reliable market data and performance. It doesn’t matter if you’re a rookie or a vet, you can easily design and customize your layouts and widgets to best fit your trading style. PrimeXBT is also running an exclusive promotion for listeners of the Cryptonews Podcast. The promo code is <strong>CRYPTONEWS50</strong> to receive 50% of your deposit credited to your trading account. Again, that is CRYPTONEWS50, CRYPTONEWS50, all in word, to receive 50% of your deposit credited to your trading account. And now back to the show with Rudy. I want to jump right into the mission statement. This is such a unique one. And I absolutely love this. Your mission statement is invite players in as stakeholders, which is a true ethos of Web3. Traditional gaming, you invite players in. Your traditional COD, you make your 80 bucks from them and hope they buy a couple skins or guns or whatever throughout the game. But you know your role there as a gamer. You play the game, it takes up your time, you have fun. It’s a fair partnership. It’s a fair, yeah, it’s fair in my opinion. Web3, whole different ballgame. Your mission statement, invite players in as stakeholders. How exactly does that work for you and the team? </p><p><strong>Rudy Koch</strong> <br/>Yeah, I mean, we nailed it. I mean, traditional games has been a very specific interaction with players. And I think what’s crazy about Web3 is impacting far more than just games. I mean, it’s really changing the landscape across many verticals, right? Gaming, just one of them. Which is why I think it’s more profound than anything we’ve seen in games before. But for gaming, you know, as I mentioned before, you know, the idea of players making money off the games they love isn’t new. Twitch streamers making, you know, crazy amounts of money. It’s a career path. YouTube content creators, it’s a career path. You know, my kids can grow up and that’s a viable career path for them, right? And what that represents is that there’s sort of been a new generation of gamers who want to be stakeholders. They want to be part of the game in the ecosystem. They’re not people who are making games, right? I’m the guy who makes games. But these guys want to be part of the ecosystem. They want to make money. They want to monetize. They want this to be their career. And they’ve created this whole industry as a result, right? And what I think it comes from is more and more of the new generation just spending so much time in the digital space, right? I mean, we are tied to the digital space. I mean, I’m going to definitely age myself here, but, you know, I was around when there was no internet. It’s a crazy thing to say. It blows my mind. But, you know, now, especially watching my kids, right? Like they’re plugged in whenever they want, right? And they’re online. There’s networks are online. You know, their identities are online. And so as a result, there’s a lot of value they place in their online expression, so to speak, right? And so, you know, all of this has sort of led to a new wave of, you know players participating in the value chain of games, whether they’re content creators or eSports players, pro players or commentators. There’s this whole ecosystem that spawned. So the way we see it now is that Web3 allows us to provide tools for gamers to participate in the economy. So to your point, it’s not just a one way street anymore where the developer is selling to the player and that’s the end of it. But now the player gets to participate. And as you can see, there are enterprising players more and more so these days, enterprising players. And they will use these tools that we give them to participate in the economy, be part of the value chain. And I think, like I said, going back to blockchain and Web3 impacted more than just games, I think this is something that’s felt across the board. Consumers don’t want to just be advertised to anymore. There’s a new reader, Web3 consumers who are like, we know how much value we bring you. Why don’t we get to participate in it? I don’t want to just get advertised to and then I have to give my money away. Like let’s be partners in this ecosystem and let’s work together to create value. In games, it’s very evident. Like you can look at Minecraft and other games like that where the reason they exploded and became so massive is because of players, creating amazing thing by spending the time. Right? Sure the games are cool. They had some magic to them. But at the end of the day, it was the players that created all those crazy things in Minecraft and shared them on social media and Reddit and all this and helped to drive value. And gamers are recognizing that and saying, hey, I spend a lot of time, money and effort in games. I bring a lot of value to the developers. Now let me participate in the value that I bring, right? </p><p><strong>Matt Zahab</strong> <br/>Yeah, no, it’s such a good point. One of the things you talked about was your kids. And I forget the name of the study, but the governing body of schools in USA releases a study every year and it pulls, it asks the kids what they want to be when they’re older. 30 years ago, heck, even 20 years ago, when I was in 20, wow, that sounds crazy long time ago. 15, 20 years ago, when I was in school, the polls were astronaut, doctor, lawyer, banker, athlete. Same as 50 years ago, same thing, astronaut, firefighter, policeman, athlete. Now you know what’s number one? YouTuber, you know what’s number two? Twitch streamer. And it blows my mind. It’s like, this is their dream. My dream, if I could do anything in the world, it would be professional hockey player, playing in the NHL or golfer. I don’t have the height for anything, for basketball and I’m not a brick shithouse. I’m not jacked enough to play football. Football is an NFL, American football. This is what me and all of my friends, boys wanted to do. Girls, same thing, but nowadays it’s being a streamer. It’s crazy. And a little caveat to that is the entertainment industry as a whole, Gary Vee sort of coined this term, the attention economy. And I think it was three years ago, Netflix and Reed Hastings in his yearly report literally said, our biggest competitor isn’t Disney Plus or HBO or Hulu. It’s TikTok and YouTube and Twitch. So it’s like with the prominence and growth of gaming nowadays as well, you’re not just traditional, the entertainment industries aren’t competing against other movies and plays and concerts and sports events. It’s now like you are competing against a kid picking up his or her phone and playing games at all times. It’s pretty crazy to think about. And I feel like Steam’s picked up but I feel like it’s only gonna get more exasperated. I feel like the gaming industry is gonna keep taking percentage points away from the traditional entertainment industry. It’s pretty wild. </p><p><strong>Rudy Koch</strong> <br/>Yeah, it is wild and it’s awesome. I mean, yeah, absolutely. I mean, when we think about sort of the economy of the future, it’s going to be digital, right? We think about where people are gonna be most comfortable in 50 years from now, it’s gonna be in the digital world, in the digital economy, which is very different than say, if I look at my parents and how they value, I mean, this is why people ask me, when is cryptocurrency gonna be replaced Fiat? And I said, well, not anytime soon because my mom is never gonna use cryptocurrency, right? Because they’re just a different generation. But kids. they’re dealing with games where there’s virtual currencies and they’re dealing with digital items and all of this stuff, right? They’re like, oh, it’s just, I get, right? Like they get it on a level that will allow Web3 to succeed and expand. And that’s what’s most exciting because ultimately what we’re doing here, we’re making, we’re laying down the tracks for the future generation here. </p><p><strong>Matt Zahab</strong> <br/>Yeah, it’s incredibly interesting. I’m gonna ask you a question that I’m sure you get all the time and my apologies in advance for the extremely popular question. But this is something that I get asked all the time and I’m not a game developer. I’ve just been fortunate to work with some incredible teams who have built games but walking through some of the biggest advantages and features of Web3 gaming compared to traditional titles. When someone’s like, Rudy, you build Web3 games. One of these is gonna be mainstream. When are the kids starting playing all of the incredible games in the Fenix game studio over the Call of Duties and World of Warcrafts and Fortnite? When is that gonna happen? And a caveat to that is, what are some of the biggest advantages and features of Web3 gaming over the traditional Web2 titles? </p><p><strong>Rudy Koch</strong> <br/>Yeah, I mean, that’s a very popular question for sure. I think that we’re certainly on a sort of a precipice right now, an inflection point where again, you’ve had amazing teams like Immutable laying down the foundational roadwork for great game teams to come in, right? And all of that was necessary. I remember I got into the space around the same time the Immutable folks did. They’d gone in, I think, slightly earlier than me, but there really wasn’t anything than if you were a developer coming in, what, where do you even start, right? And Immutable’s done an incredible job of sort of providing this infrastructure and framework that now is critical to allow game developers to come in to the space. So we’re at this now inflection point where we’ve got the foundation is well on its way, right? Now we need to go and get great developers to build content, right? And that’s where the focus is from here on out in the space. Yes, there’s still gonna be infrastructure. Yes, there’s probably gonna be another 20 blockchains that pop up, but we are definitely at a point now where we can go to the top tier developers in Web2 and say it’s time to come into the space. We’ve got a clear path for you. We’ve got the technology. We’ve got the know how. Our next piece, we’ve got the right pieces to help you land this plane, so to speak. But the question is, well, why Web3? Like, what’s the opportunity here? Why are we changing what we’re doing? And it goes back to what I was saying earlier, which is the idea of buying, selling items was not something that Blockchain introduced. It was something that we’ve had in gaming for 30 years. And it’s clear that the gaming audience wants to transact in that way. It’s clear. I mean, otherwise the gray markets wouldn’t be as huge as they are, right? You look at Fortnite, you look at even animal crossing, I remember, you could go on eBay and buy digital fish and recipes, and then you’d meet up with the person and get it all, right? Like, it’s crazy, like the amount of like clear desire there is from the gaming community. And so what we get to do is we got to take this way of transacting player to player, and we get to fold it into the game and create cool experiences in game. And what I love about that is that, you know, it does lean into the whole concept of this sort of new Web3 consumer who cares about their online identity, right? It’s like, I own the physical items, like I own this shirt, no one can say I don’t. Then why don’t I own the digital shirt that I have in game? That it’s weird, right? Like, if I don’t, right? So it’s kind of shifting and going, okay, the gaming community has wanted to do this. This is an emerging behavior that’s been around for a long time. Blockchain allows us to sort of harness that, bring it into the gaming experience, and build these more inclusive economies where players can be stakeholders. And when players can be stakeholders, we’ve seen with Twitch and content creation that billions of dollars of revenue and growth can happen. So, our pitch to the Web2 developers is that there’s a growth opportunity here. There’s growth in revenue, there’s opportunities to create economies that are inclusive that allow players to participate. And then on top of that, this is getting a little bit down the road, is talking about how to connect the physical and digital. We’ve heard a lot about how NFTs and physical and digital world can connect through NFTs. And so, you know, those are sort of like how we’re looking at it. And now what we need is, and why we’re so excited about partnership with Immutables, because we see the same thing here, is to put our heads together and say, okay, the opportunity is clear for developers. The timing is great right now. Let’s go get some really top tier Web2 developers and help them come into the Web3 space, because we know that those teams are great at creating content and we need great content to be able to attract the players. Now, one thing I’ll just touch upon real quick here is, you know, what’s interesting is that, the Web2 player community has had sort of this tissue rejection to it. These right? And I, and I understand it, but I also find it funny because when free to play came about, it was exactly the same thing. Everybody was complaining. I don’t want to be monetized in that way. I want to, you know, buy my game for 50, 60 bucks and just play. And I understand that mentality, right? And there’s still players. That’s what they want to do, right? But you can’t argue that free to play has become so dominant, right? Fortnite, one of the biggest games in the universe, is free to play, right? So there’s going to be some natural, like, resistance as we transition. But it always goes back to gamers have already been doing this stuff. It’s just recalling the NFTs, but this is stuff that gamers have been doing anyway. So we just need great content to come out that players can sort of enjoy. And then I think we’ll start to see more and more stuff come out. </p><p><strong>Matt Zahab</strong> <br/>Well said there. I think another part of the disdain with Web2 gamers in regards to Web3 gaming is the fact that people who got in early in like 2021 were just printing money, right? Like this, you know, NFT that’s on my wall. I mean, I think I bought it for five at one point, it was worth 150. Now it’s probably worth two, but like I didn’t sell it, of course, because I’m a meathead. But, you know, like that pisses people off. Like you bought a JPEG and, you know, what would that be a 30X? Like it’s not, I would be pissed too. Maybe not pissed. You know, I’d like to think that I’d be happy and grateful for my friend. But part of me, I’d have a little disdain in there. I’d be greedy and I’d be like, darn, why did you get to do that? And I didn’t. I feel like that’s part of it. But my one question, Rudy, and I get this all the time. In 2020, I thought 2021 would have been the year for a couple of really good games to, you know, push past the surface and to go, maybe not mainstream, but at least sort of pop off. 2021, it didn’t happen. 2022 hasn’t happened. 2023, realistically speaking, still hasn’t happened. I’m still a believer. I’m still in the space. I understand and I didn’t know this until I, you know, got into crypto and got as fortunate enough to speak with people like you who’ve actually built in ship games. I thought it was like, yeah, teamwork’s hard for six months, ships game. No, you worked your ass off for four or five years and then ship game. So we’re getting to that sort of inflection point where teams have been building games for years now, the shipping period is coming up. How far away are we from seeing really good Web3 games coming out and actually gaining traction and becoming mass adopted? </p><p><strong>Rudy Koch</strong> <br/>Yeah, I think, you know, the challenge has been twofold. One is that has been just primarily a lot of investment in infrastructure, right? Which doesn’t automatically result in content, right? And it’s all necessary, right? We needed the infrastructure, but that’s been the priority, right? In terms of investment and innovation in the space. And we went from when I got into the space, there were three blockchains and now there’s like over 30 blockchains to choose from, right? Like, which is great, right? Like it’s just it’s the space is maturing, but there just hasn’t been a lot of focus on content. A lot of the teams as well thus far, I think you have to have a little bit of a loose screw like me to get into the space so early, right? Like it’s just there’s a lot of moving targets and the landscape shifting. I mentioned regulations. I mean, geez, I mean, there’s just so much going on. If you’re a business that relies on shipping games to make money and keep the lights on, Web3 is very high risk, right? And that’s been the challenge. You know, top tier developers coming into the space yet because of the risks that they see, right? And this is literally the catalyst for the partnership with Immutable. Our partnership with Immutable is we’re going, okay, we have the expertise. Immutable has, you know, five years of building their technology and expertise space to be able to now go and welcome in these top tier teams and confidently say that we can do risk of space. We can create a path for you. We can let you do what you do best and that is create great game content, right? And so we haven’t had that, right? Over the last five years, it’s just been too high risk for game developers. Now we’re going to start to see more top tier game developers. I know, you know, Immutable and Fenix Games, we’re all talking to some of the top tier developers out there who are expressing a ton of interest coming into the space. But to your point, making game takes time. So, you know, let’s say we get a few into the space this year. We’re looking at 18 to 24 months before a game can hit the market, right? And so, I expect we’re probably 18 months plus before we start seeing really good games hit the market. And then on top of that, you’ve got to go, okay, well, not all of them are gonna be successful. Not all of them are gonna end up being as fun as we thought they were gonna be. And there’s gonna be a little bit of a churn in terms of, okay, we need to keep bringing in content and seeing, basically we’re trying to find the hit game for Web3, the Clash of Clans, so to speak, of Web3. But that is essentially the goal that we have with Immutable, is we want to start working with top tier teams. We wanna start bringing these teams into Web3, helping them launch games, and not just one or two games, but game after game, and basically usher in that next wave of games that you can say, yeah, these are fun. These are great games. We can’t lose sight of the fact that at the end of the day, games are entertainment. Yes, there’s a segment that wants to participate in the economy and own things. Absolutely, there’s a growing segment, but we can’t lose sight of the fact that it’s entertainment for people, and we need to create great entertainment first. </p><p><strong>Matt Zahab</strong> <br/>Yeah, fun is number one. If you wanna make money, go trade stocks, go trade crypto, go trade NFTs, but you wanna have fun. Yeah, I mean, three years ago, the whole play to earn that was wild, like myself included, I thought that would be a term that would stick and now I think it’s hogwash. Yes, it’s more play and potentially earn. Like now PD is gone, but P2P, sure, right? And that’s something that I’m very glad to see change. Rudy, this has been an absolute treat. I’ve had a blast chatting with you here. Unfortunately, we have to wrap up, but you will definitely be on for round two because we barely scratched the surface here. Any other gaming or non-gaming related hot takes before we let you go? </p><p><strong>Rudy Koch</strong> <br/>Let’s see, what’s a hot take for gaming or non-game. I don’t know. Throw me a topic. </p><p><strong>Matt Zahab</strong> <br/>I mean, it depends how spicy we want to get if we want to get canceled or not here, but I mean, yeah, we can, we’ll stick with crypto related stuff, but I think personally, I think that Web3 gaming has, this is not a hot take, but I think we have a huge problem in no front runner. I think like all other things in crypto, when you talk about NFTs, if it weren’t for Board Ape Yacht Club, I don’t know if NFTs would have ever taken off. Yes, you had CryptoPunks before that, and of course you had CryptoKitties like we discussed, but I think without one behemoth that picks up so much steam and is the Krem de la Krem and the clear cut number one, I don’t know if Web3 Gaming will be a thing. I think there’s gonna need to be one game that just picks up and has so much steam and has such momentum, and that will sort of pave the way for everyone else. But if that doesn’t happen, I think we’re hooped, and I hope it does happen, but I think we might be entering spooky town if we don’t have that one big game that comes out in the next couple of years. </p><p><strong>Rudy Koch</strong> <br/>Yeah, I mean, I’ll comment on that for sure. I think that, you know, Board Ape was a double-edged sword in my opinion. I think it brought us NFTs in the mainstream, it created a discussion, it really allowed it to blow up, but I think not Board Ape necessarily, but I think NFTs as a whole has also had it been a challenge just because of what you mentioned earlier, which was the whole play to earn, idea of pump and dumps, like the amount of incredible press that crypto has had thanks to people like SBF. And what was the other guy, Do Kwon? They’ve given us some pretty interesting press, and unfortunately that creates that stigma of scam. Right? And, you know, that’s one of the things that we deal with, right? Where we’re trying to legitimize the space, we’re working hard to do so, and then you’re like, oh, you’re reading the news. You’re like, oh, no, they just, you know, they just took it back. So, you know, I think it’s a double-edged sword. I think we need to sort of get out of this perception of, you know, that this is a scam, like, and, you know, see more legitimate projects hit the market. </p><p><strong>Matt Zahab</strong> <br/>Yeah, well said. Rudy, appreciate it, man. Can’t wait for round two. Before you leave us today, please let our listeners know where they can find you and Fenix online and on socials. And for you, I couldn’t find you on Twitter. Are you a Twitter guy? </p><p><strong>Rudy Koch</strong> <br/>Yeah, it’s just my name, @rudykoch. It’s about as easy as you can get. </p><p><strong>Matt Zahab</strong> <br/>I don’t know why I couldn’t find you on Twitter. </p><p><strong>Rudy Koch</strong> <br/>Well, but you can’t call it Twitter. Here’s a hot take. What on earth is going on with X? I mean, does not roll off the tongue. I saw on my iPhone that they switched the icon. </p><p><strong>Matt Zahab</strong> <br/>It doesn’t roll off the tongue, but if I’m a betting man and I do tend to be a betting man, you don’t bet against Elon. The guy’s batting, you know what I mean? Like he’s straight to the hall saying.</p><p><strong>Rudy Koch</strong> <br/>Why, is he crazy? </p><p><strong>Matt Zahab</strong> <br/>The guy says he’s going to do something and he executes. So his whole long-term vision of X being a digital time square plus a digital, you know, economy. I don’t know how he’s going to do it, but if you were to say pick an entrepreneur to not bet against, you know, I have Elon, I have Zuck, you know, Peter Thiel, a couple of their big P and VC guys, I wouldn’t bet against Elon. So yeah, I hope he does it. </p><p><strong>Rudy Koch</strong> <br/>So yeah, you can find me on X or Twitter, whatever you like to call it, @rudykoch. We’re also on there @playfenixgames. You can find us at fenixgames.com by all means reach out on Twitter. Reach out on Telegram. You can find me on Telegram too. Love chatting to the community. Love the Web3 community. Love being a part of it. </p><p><strong>Matt Zahab</strong> <br/>Rudy, thank you so much, man. Truly a treat, had an absolute blast and can’t wait for round two. </p><p><strong>Rudy Koch</strong> <br/>Thanks for having me. </p><p><strong>Matt Zahab</strong> <br/>Folks, what an episode with Rudy, Co-Founder of Fenix Games, dropping knowledge bombs left, right and center and told some great stories from launching Call of Duty, World of Warcraft and a bunch of other blue chip games. Now him and the team are moving and grooving in the Web3 space. Do go check them out. As always, I will include everything in the show notes. You guys enjoyed this one and I hope you did. Please do subscribe. It would mean the world to the team and I. Speaking of my team, love you guys. Thank you for everything. Justas my amazing sound editor. Appreciate you as always. And to the listeners, love you guys. Thank you for supporting the show. Keep on growing those bags and keep on staying healthy, wealthy and happy. Bye for now and we’ll talk soon. </p>
+<div class="newsletter home-newsletter single">
+<div class="left-side">
+<div class="h1">
+<em>
+            Enter your email for our Free Daily Newsletter        </em>
+</div>
+<p> A quick 3min read about today's crypto news!</p>
+<form id="newsletter-home">
+<div class="input-group">
+<div><input id="newsletter_email" name="email" placeholder="Email" required="" type="email"/></div>
+<div><button id="newsletter-signup" type="submit">Sign Up</button></div>
+</div>
+</form>
+<span class="response-msg" id="newsletter-response"></span>
+</div>
+<div class="img-box">
+<img alt="Image" class="img" data-lazy-src="https://cimg.co/p/ml-300.jpeg" id="newsletter-popup-img" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"/><noscript><img alt="Image" class="img" id="newsletter-popup-img" src="https://cimg.co/p/ml-300.jpeg"/></noscript>
+</div>
+</div>
+<div class="mb-15 text-right">
+</div>
+<div class="dslot" did="12"></div>
+</div>
+<div class="mb-5 mt-5">
+<div class="row mb-20">
+<div class="col-6">
+<div class="fs-12">
+<time datetime="2023-08-15T14:00:00+00:00">
+                15 August 2023 10:00 EDT            </time>
+</div>
+</div>
+<div class="col-6 text-right">
+<div class="socials socials--medium d-flex d-md-block">
+<a class="ssk ssk-facebook" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.854 4.155H7.072V2.97c.131-1.119 1.981-.907 1.981-.907V.138H9.05C8.986.123 5.37-.735 4.653 2.017l-.001.002-.006.018c-.113.345-.105 1.92-.103 2.118H3v2.107h1.64v5.732h2.388V6.262h1.827l.205-2.107h-.205z" fill="#CCC"></path>
+</svg>
+</a>
+<a class="ssk ssk-twitter" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.771 3.429c.156 3.462-2.427 7.323-6.997 7.323-1.39 0-2.685-.407-3.774-1.107 1.306.155 2.609-.208 3.645-1.019-1.078-.019-1.987-.73-2.3-1.71.385.074.765.053 1.111-.042C1.272 6.637.454 5.57.482 4.43c.332.184.71.295 1.115.308C.5 4.005.19 2.557.835 1.45 2.05 2.94 3.863 3.92 5.91 4.022 5.55 2.482 6.718 1 8.308 1c.708 0 1.347.298 1.797.778.56-.112 1.087-.316 1.564-.599-.185.575-.576 1.059-1.083 1.363.498-.06.972-.192 1.413-.388-.33.494-.746.928-1.228 1.275" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="ssk ssk-linkedin" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.9939 12h-2.464V7.8c0-1.151-.438-1.794-1.349-1.794-.991 0-1.508.669-1.508 1.794V12h-2.375V4h2.375v1.078s.714-1.322 2.41-1.322c1.697 0 2.911 1.036 2.911 3.179V12zm-10.53-9.048c-.808 0-1.464-.66-1.464-1.476C-.0001.661.6559 0 1.4639 0c.809 0 1.465.661 1.465 1.476 0 .816-.656 1.476-1.465 1.476zM.2379 12h2.477V4H.2379v8z" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="ssk ssk-telegram" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M.558 5.152L11.196 1.05c.495-.178.925.12.765.868l.001-.001-1.81 8.532c-.134.605-.495.752-.998.467L6.395 8.883l-1.33 1.282c-.147.147-.272.27-.556.27l.196-2.805 5.111-4.62c.223-.194-.05-.305-.343-.11L3.156 6.879l-2.723-.85c-.59-.188-.603-.591.126-.876" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="ssk ssk-email" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 2.727v6.854c0 .373.273.675.649.675h10.696c.376 0 .649-.306.649-.675V2.727c0-.409-.244-.727-.65-.727H.65C.23 2 0 2.326 0 2.727m.988.597c0-.165.099-.26.259-.26.099 0 3.986 2.463 4.22 2.607l.609.38c.193-.13.387-.24.587-.375.408-.26 4.038-2.612 4.138-2.612.16 0 .26.095.26.26 0 .174-.337.348-.557.482-1.378.841-2.756 1.757-4.122 2.628-.08.054-.233.17-.35.151-.128-.019-4.083-2.56-4.802-2.983-.108-.064-.242-.123-.242-.278" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div>
+<hr/>
+</div>
+</div>
+</main>
+<div class="col-12 offset-lg-1 col-lg-3">
+<div class="mb-30" id="widget_container" style="min-height: 455px;"></div>
+<div class="dslot d-none d-lg-block mb-40" did="6" style="min-height:540px;"></div>
+<h3 class="mb-20">
+    Recommended</h3>
+<div class="mb-40 col-lg-60">
+<div class="row" id="load_more_target">
+<div class="col-12 col-md-6 col-lg-12 post-139210 post type-post status-publish format-standard has-post-thumbnail hentry category-bitcoin-news category-news editors-arslan-butt" id="post-139210">
+<article class="mb-30">
+<div class="row">
+<div class="col-4 col-md-12">
+<a class="article__image article__image--sm-wider mb-15" href="https://cryptonews.com/news/bitcoin-price-prediction-42k-breach-as-us-defense-eyes-btc.htm">
+<div class="img-sized">
+<img alt="Bitcoin Price Prediction: $42K Breach as US Defense Eyes BTC" class="lazyload img-fluid" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701754136-5-1.jpg" sizes="300px" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFCQUFNQkFBQUFBQUFBQUFBQUFBQUFCZ01GQndUL3hBQWdFQUFDQVFRREFRRUJBQUFBQUFBQUFBQUJBZ1FBQXdVU0JoRWhZU0l5LzhRQUdnRUFBd0FEQVFBQUFBQUFBQUFBQUFBQUF3UUZBQUVHQXYvRUFDQVJBQUlDQVFRREFRQUFBQUFBQUFBQUFBQUJBZ01SQkFVVElSSVZNVkgvMmdBTUF3RUFBaEVERVFBL0FGTi9pdHlJQ3pEOGltM3V5UlE1OEZWTGF6SFE5c094OXIxWHV5a3pjZFFtVjF1WXQ1OVVJTk9leWhnSnpvdW9YRzVVeGRnaDZOQ2U1MS9wcm1Rb25aSnNoajNBL29pb0YrajhmZ3JPdkh3em1SeCtkTmtPQnRxVFVhYWRiRTNsSFZoK0pTb2NwV2NFanVzVXBTTVdXYTdqY2hHeCtPVldVYkFVU0dsc213c2Eyd1pDOHMxMlUxNVBzb1BzbmkzZEdQUUZKMjZXdVhiQnlyVEZlSWcyNVVjdTQ5SHl1ZnZpcXA0aUx5U2o4RC9KaVkyeUlmS3Y2RktTeXhpcnMvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"/>
+</div>
+</a>
+</div>
+<div class="col-8 col-md-12">
+<div class="article__badge article__badge--sm">
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/bitcoin-news/">  Bitcoin News </a>
+<div class="article__badge-date d-md-inline-block" data-utctime="2023-12-05 06:32:38"></div>
+</div>
+<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/bitcoin-price-prediction-42k-breach-as-us-defense-eyes-btc.htm" rel="bookmark">Bitcoin Price Prediction: $42K Breach as US Defense Eyes BTC</a></h4> </div>
+</div>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-12 post-139241 post type-post status-publish format-standard has-post-thumbnail hentry category-altcoin-news tag-bitcoin tag-tether editors-ruholamin-haqshanas" id="post-139241">
+<article class="mb-30">
+<div class="row">
+<div class="col-4 col-md-12">
+<a class="article__image article__image--sm-wider mb-15" href="https://cryptonews.com/news/tethers-bitcoin-holding-profit-surges-to-1-1-billion-as-leading-cryptocurrency-surpasses-42000.htm">
+<div class="img-sized">
+<img alt="Tether’s Bitcoin Holding Profit Surges to $1.1 Billion as Leading Cryptocurrency Surpasses $42,000" class="lazyload img-fluid" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701757720-1700150936-3f2d937ae9-media-library-___media_library_original_900_600-1.jpeg" sizes="300px" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzYwIDY3NiI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2MCIgaGVpZ2h0PSI2NzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBY0FDQURBUkVBQWhFQkF4RUIvOFFBSHdBQUFRVUJBUUVCQVFFQUFBQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkFBQWdFREF3SUVBd1VGQkFRQUFBRjlBUUlEQUFRUkJSSWhNVUVHRTFGaEJ5SnhGREtCa2FFSUkwS3h3UlZTMGZBa00ySnlnZ2tLRmhjWUdSb2xKaWNvS1NvME5UWTNPRGs2UTBSRlJrZElTVXBUVkZWV1YxaFpXbU5rWldabmFHbHFjM1IxZG5kNGVYcURoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1SGk0K1RsNXVmbzZlcng4dlAwOWZiMytQbjYvOFFBSHdFQUF3RUJBUUVCQVFFQkFRQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkVBQWdFQ0JBUURCQWNGQkFRQUFRSjNBQUVDQXhFRUJTRXhCaEpCVVFkaGNSTWlNb0VJRkVLUm9iSEJDU016VXZBVlluTFJDaFlrTk9FbDhSY1lHUm9tSnlncEtqVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnb09FaFlhSGlJbUtrcE9VbFphWG1KbWFvcU9rcGFhbnFLbXFzck8wdGJhM3VMbTZ3c1BFeGNiSHlNbkswdFBVMWRiWDJObmE0dVBrNWVibjZPbnE4dlAwOWZiMytQbjYvOW9BREFNQkFBSVJBeEVBUHdENmYwKzllUzhaU2VNMStncDZuNExPS1VUb1JXaHpESlgyTG1vbkxsVnpXbkhubFlyMjkxNXI0cmpwVjNPVmowSytHVk9Oem45SzR2M3o2MTB4M09lZnduU3lYQ1JMa210cm5JbGN6YnpVeEl1MU9hemw3eXNiMDA0dTVOcGtSQTNIdlVRcEtPcHBWcnltck01UVhoZ3ZYd2VjMU43TTE1YnhOSkxsN3RzTTNGWGU1bGJsTkcydFlJOEZtQk5Xa2pHVW16VWhranhoU0tzeWFaNXJyakdHK1lvY2MxeHkzUFZwNm9xcnFFNjlIcWVabW5JaC93RGExei96ME5ITXllU0owSGhxK21tbEFkODF2QnM1cXNVa2YvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"/>
+</div>
+</a>
+</div>
+<div class="col-8 col-md-12">
+<div class="article__badge article__badge--sm">
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/altcoin-news/">  Altcoin News </a>
+<div class="article__badge-date d-md-inline-block" data-utctime="2023-12-05 06:30:22"></div>
+</div>
+<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/tethers-bitcoin-holding-profit-surges-to-1-1-billion-as-leading-cryptocurrency-surpasses-42000.htm" rel="bookmark">Tether’s Bitcoin Holding Profit Surges to $1.1 Billion as Leading Cryptocurrency Surpasses $42,000</a></h4> </div>
+</div>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-12 post-139230 post type-post status-publish format-standard has-post-thumbnail hentry category-press-releases" id="post-139230">
+<article class="mb-30">
+<div class="row">
+<div class="col-4 col-md-12">
+<a class="article__image article__image--sm-wider mb-15" href="https://cryptonews.com/news/sui-soars-past-150m-in-tvl-solana-set-to-maintain-momentum-in-december-inqubeta-becomes-whale-favorite.htm">
+<div class="img-sized">
+<img alt="Sui Soars Past $150M in TVL, Solana Set to Maintain Momentum in December, InQubeta Becomes Whale Favorite" class="lazyload img-fluid" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701755636-sui-token.jpg" sizes="300px" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="/>
+</div>
+</a>
+</div>
+<div class="col-8 col-md-12">
+<div class="article__badge article__badge--sm">
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/press-releases/">  Press Releases </a>
+<div class="article__badge-date d-md-inline-block" data-utctime="2023-12-05 05:54:39"></div>
+</div>
+<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/sui-soars-past-150m-in-tvl-solana-set-to-maintain-momentum-in-december-inqubeta-becomes-whale-favorite.htm" rel="bookmark">Sui Soars Past $150M in TVL, Solana Set to Maintain Momentum in December, InQubeta Becomes Whale Favorite</a></h4> </div>
+</div>
+</article>
+</div>
+</div>
+</div>
+<div class="dslot mb-40 d-none d-lg-block" did="7"></div>
+<div class="dslot d-lg-none" did="8"></div>
+<div class="d-none d-lg-block">
+<h3 class="mb-20">
+                    Latest news                </h3>
+<div class="mb-30">
+<div class="col-12 col-md-6 col-lg-12 mb-20" id="post-139210">
+<div class="row">
+<div class="col-4 px-0">
+<a class="article__image article__image--sm-wider" href="https://cryptonews.com/news/bitcoin-price-prediction-42k-breach-as-us-defense-eyes-btc.htm">
+<div class="small-image-list img-sized">
+<img alt="Bitcoin Price Prediction: $42K Breach as US Defense Eyes BTC" class="lazyload" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701754136-5-1.jpg" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgOTEyIDYwOCI+Cgk8aW1hZ2Ugd2lkdGg9IjkxMiIgaGVpZ2h0PSI2MDgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBVkFDQURBUkVBQWhFQkF4RUIvOFFBR0FBQUF3RUJBQUFBQUFBQUFBQUFBQUFBQndnSkJRYi94QUFuRUFBQkFnWUJBd1FEQUFBQUFBQUFBQUFCQWdNQUJBVUdCeEVTSVNJeENCTVZVUlJCWWYvRUFCa0JBQU1CQVFFQUFBQUFBQUFBQUFBQUFBRUNBd1FBQmYvRUFCd1JBQUlEQUFNQkFBQUFBQUFBQUFBQUFBQUJBZ01SRWlFeFFmL2FBQXdEQVFBQ0VRTVJBRDhBbmxUc2dUbSt3a24rUlRjQ2RQVEwvckV5dExMWE1rbldoSGNnakJZeHQycVZTbktkbW1WN1VOallqSFpZejA2SUpyc0dtWGFmVjdhbjNIa05MUzJEdllFVnJucGx1amo2QmZqQzBtNTZiYi9JVDJLSTh3Wk1sWG4wYzdFSHB2cDFWbVdaejJrcVIwUGlJOG40VmFReGxVdGlrMlpTMElTMGhBU1BxR2NkV2p3bTQ5QUV6djhBQjFTMm4xcFMyWFFrL1VUaHVnc2VpazR3Vjc2NWRCN2VvNmlORE0wU2plRUd2ajdiWlVnOGp4SG1JdEZET3p6WFgyS0M4NGpvb0EvdUhUQjRUNHZ6SlZXZWNtSlpTOXQ3STF5aDR4UWprei8vMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4="/>
+</div>
+</a>
+</div>
+<div class="col-8">
+<div class="article__badge article__badge--xs">
+<a class="article__badge article__badge--xs" href="https://cryptonews.com/news/bitcoin-news/">  Bitcoin News                </a>
+<div class="article__badge-date" data-utctime="2023-12-05 06:32:38"></div>
+</div>
+<a class="article__title article__title--recommended mb-0" href="https://cryptonews.com/news/bitcoin-price-prediction-42k-breach-as-us-defense-eyes-btc.htm">Bitcoin Price Prediction: $42K Breach as US Defense Eyes BTC</a> </div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-12 mb-20" id="post-139241">
+<div class="row">
+<div class="col-4 px-0">
+<a class="article__image article__image--sm-wider" href="https://cryptonews.com/news/tethers-bitcoin-holding-profit-surges-to-1-1-billion-as-leading-cryptocurrency-surpasses-42000.htm">
+<div class="small-image-list img-sized">
+<img alt="Tether’s Bitcoin Holding Profit Surges to $1.1 Billion as Leading Cryptocurrency Surpasses $42,000" class="lazyload" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701757720-1700150936-3f2d937ae9-media-library-___media_library_original_900_600-1.jpeg" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgOTEyIDYwOCI+Cgk8aW1hZ2Ugd2lkdGg9IjkxMiIgaGVpZ2h0PSI2MDgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBVkFDQURBUkVBQWhFQkF4RUIvOFFBR0FBQUF3RUJBQUFBQUFBQUFBQUFBQUFBQndnSkJRYi94QUFuRUFBQkFnWUJBd1FEQUFBQUFBQUFBQUFCQWdNQUJBVUdCeEVTSVNJeENCTVZVUlJCWWYvRUFCa0JBQU1CQVFFQUFBQUFBQUFBQUFBQUFBRUNBd1FBQmYvRUFCd1JBQUlEQUFNQkFBQUFBQUFBQUFBQUFBQUJBZ01SRWlFeFFmL2FBQXdEQVFBQ0VRTVJBRDhBbmxUc2dUbSt3a24rUlRjQ2RQVEwvckV5dExMWE1rbldoSGNnakJZeHQycVZTbktkbW1WN1VOallqSFpZejA2SUpyc0dtWGFmVjdhbjNIa05MUzJEdllFVnJucGx1amo2QmZqQzBtNTZiYi9JVDJLSTh3Wk1sWG4wYzdFSHB2cDFWbVdaejJrcVIwUGlJOG40VmFReGxVdGlrMlpTMElTMGhBU1BxR2NkV2p3bTQ5QUV6djhBQjFTMm4xcFMyWFFrL1VUaHVnc2VpazR3Vjc2NWRCN2VvNmlORE0wU2plRUd2ajdiWlVnOGp4SG1JdEZET3p6WFgyS0M4NGpvb0EvdUhUQjRUNHZ6SlZXZWNtSlpTOXQ3STF5aDR4UWprei8vMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4="/>
+</div>
+</a>
+</div>
+<div class="col-8">
+<div class="article__badge article__badge--xs">
+<a class="article__badge article__badge--xs" href="https://cryptonews.com/news/altcoin-news/">  Altcoin News                </a>
+<div class="article__badge-date" data-utctime="2023-12-05 06:30:22"></div>
+</div>
+<a class="article__title article__title--recommended mb-0" href="https://cryptonews.com/news/tethers-bitcoin-holding-profit-surges-to-1-1-billion-as-leading-cryptocurrency-surpasses-42000.htm">Tether’s Bitcoin Holding Profit Surges to $1.1 Billion as Leading Cryptocurrency Surpasses $42,000</a> </div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-12 mb-20" id="post-139230">
+<div class="row">
+<div class="col-4 px-0">
+<a class="article__image article__image--sm-wider" href="https://cryptonews.com/news/sui-soars-past-150m-in-tvl-solana-set-to-maintain-momentum-in-december-inqubeta-becomes-whale-favorite.htm">
+<div class="small-image-list img-sized">
+<img alt="Sui Soars Past $150M in TVL, Solana Set to Maintain Momentum in December, InQubeta Becomes Whale Favorite" class="lazyload" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701755636-sui-token.jpg" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="/>
+</div>
+</a>
+</div>
+<div class="col-8">
+<div class="article__badge article__badge--xs">
+<a class="article__badge article__badge--xs" href="https://cryptonews.com/news/press-releases/">  Press Releases                </a>
+<div class="article__badge-date" data-utctime="2023-12-05 05:54:39"></div>
+</div>
+<a class="article__title article__title--recommended mb-0" href="https://cryptonews.com/news/sui-soars-past-150m-in-tvl-solana-set-to-maintain-momentum-in-december-inqubeta-becomes-whale-favorite.htm">Sui Soars Past $150M in TVL, Solana Set to Maintain Momentum in December, InQubeta Becomes Whale Favorite</a> </div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-12 mb-20" id="post-139223">
+<div class="row">
+<div class="col-4 px-0">
+<a class="article__image article__image--sm-wider" href="https://cryptonews.com/news/why-celestia-tia-and-this-emerging-crypto-are-two-coins-you-should-be-stacking-now.htm">
+<div class="small-image-list img-sized">
+<img alt="Why Celestia ($TIA) and This Emerging Crypto Are Two Coins You Should Be Stacking Now" class="lazyload" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701755451-bull.jpg" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="/>
+</div>
+</a>
+</div>
+<div class="col-8">
+<div class="article__badge article__badge--xs">
+<a class="article__badge article__badge--xs" href="https://cryptonews.com/news/press-releases/">  Press Releases                </a>
+<div class="article__badge-date" data-utctime="2023-12-05 05:51:41"></div>
+</div>
+<a class="article__title article__title--recommended mb-0" href="https://cryptonews.com/news/why-celestia-tia-and-this-emerging-crypto-are-two-coins-you-should-be-stacking-now.htm">Why Celestia ($TIA) and This Emerging Crypto Are Two Coins You Should Be Stacking Now</a> </div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-12 mb-20" id="post-138733">
+<div class="row">
+<div class="col-4 px-0">
+<a class="article__image article__image--sm-wider" href="https://cryptonews.com/news/invest-in-the-future-of-the-planet-for-a-profit-how-chimpzee-turns-sustainability-into-a-source-of-crypto-passive-income.htm">
+<div class="small-image-list img-sized">
+<img alt="Invest in the Future of the Planet For a Profit – How Chimpzee Turns Sustainability into a Source of Crypto Passive Income" class="lazyload" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701327599-chimpzee-join-last-stage.png" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgOTEyIDYwOCI+Cgk8aW1hZ2Ugd2lkdGg9IjkxMiIgaGVpZ2h0PSI2MDgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBVkFDQURBUkVBQWhFQkF4RUIvOFFBR0FBQUF3RUJBQUFBQUFBQUFBQUFBQUFBQndnSkJRYi94QUFuRUFBQkFnWUJBd1FEQUFBQUFBQUFBQUFCQWdNQUJBVUdCeEVTSVNJeENCTVZVUlJCWWYvRUFCa0JBQU1CQVFFQUFBQUFBQUFBQUFBQUFBRUNBd1FBQmYvRUFCd1JBQUlEQUFNQkFBQUFBQUFBQUFBQUFBQUJBZ01SRWlFeFFmL2FBQXdEQVFBQ0VRTVJBRDhBbmxUc2dUbSt3a24rUlRjQ2RQVEwvckV5dExMWE1rbldoSGNnakJZeHQycVZTbktkbW1WN1VOallqSFpZejA2SUpyc0dtWGFmVjdhbjNIa05MUzJEdllFVnJucGx1amo2QmZqQzBtNTZiYi9JVDJLSTh3Wk1sWG4wYzdFSHB2cDFWbVdaejJrcVIwUGlJOG40VmFReGxVdGlrMlpTMElTMGhBU1BxR2NkV2p3bTQ5QUV6djhBQjFTMm4xcFMyWFFrL1VUaHVnc2VpazR3Vjc2NWRCN2VvNmlORE0wU2plRUd2ajdiWlVnOGp4SG1JdEZET3p6WFgyS0M4NGpvb0EvdUhUQjRUNHZ6SlZXZWNtSlpTOXQ3STF5aDR4UWprei8vMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4="/>
+</div>
+</a>
+</div>
+<div class="col-8">
+<div class="article__badge article__badge--xs">
+<a class="article__badge article__badge--xs" href="https://cryptonews.com/news/press-releases/">  Press Releases                </a>
+<div class="article__badge-date" data-utctime="2023-12-05 05:45:34"></div>
+</div>
+<a class="article__title article__title--recommended mb-0" href="https://cryptonews.com/news/invest-in-the-future-of-the-planet-for-a-profit-how-chimpzee-turns-sustainability-into-a-source-of-crypto-passive-income.htm">Invest in the Future of the Planet For a Profit – How Chimpzee Turns Sustainability into a Source of Crypto Passive Income</a> </div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-12 mb-20" id="post-139041">
+<div class="row">
+<div class="col-4 px-0">
+<a class="article__image article__image--sm-wider" href="https://cryptonews.com/news/south-koreas-biggest-exchanges-help-regulators-hunt-undeclared-crypto-operators.htm">
+<div class="small-image-list img-sized">
+<img alt="South Korea’s Biggest Exchanges Help Regulators Hunt ‘Undeclared Crypto Operators’" class="lazyload" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701705098-adobestock_651933104.jpeg" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="/>
+</div>
+</a>
+</div>
+<div class="col-8">
+<div class="article__badge article__badge--xs">
+<a class="article__badge article__badge--xs" href="https://cryptonews.com/news/blockchain-news/">  Blockchain News                </a>
+<div class="article__badge-date" data-utctime="2023-12-05 05:00:00"></div>
+</div>
+<a class="article__title article__title--recommended mb-0" href="https://cryptonews.com/news/south-koreas-biggest-exchanges-help-regulators-hunt-undeclared-crypto-operators.htm">South Korea’s Biggest Exchanges Help Regulators Hunt ‘Undeclared Crypto Operators’</a> </div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-12 mb-20" id="post-139216">
+<div class="row">
+<div class="col-4 px-0">
+<a class="article__image article__image--sm-wider" href="https://cryptonews.com/news/the-rising-star-of-crypto-a-new-challenger-emerges-competing-with-ethereum-classic-and-shiba-inu.htm">
+<div class="small-image-list img-sized">
+<img alt="The Rising Star of Crypto: A New Challenger Emerges, Competing with Ethereum Classic and Shiba Inu" class="lazyload" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701754975-rblz-doge-competitor.jpg" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzYwIDY3NiI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2MCIgaGVpZ2h0PSI2NzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBY0FDQURBUkVBQWhFQkF4RUIvOFFBSHdBQUFRVUJBUUVCQVFFQUFBQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkFBQWdFREF3SUVBd1VGQkFRQUFBRjlBUUlEQUFRUkJSSWhNVUVHRTFGaEJ5SnhGREtCa2FFSUkwS3h3UlZTMGZBa00ySnlnZ2tLRmhjWUdSb2xKaWNvS1NvME5UWTNPRGs2UTBSRlJrZElTVXBUVkZWV1YxaFpXbU5rWldabmFHbHFjM1IxZG5kNGVYcURoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1SGk0K1RsNXVmbzZlcng4dlAwOWZiMytQbjYvOFFBSHdFQUF3RUJBUUVCQVFFQkFRQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkVBQWdFQ0JBUURCQWNGQkFRQUFRSjNBQUVDQXhFRUJTRXhCaEpCVVFkaGNSTWlNb0VJRkVLUm9iSEJDU016VXZBVlluTFJDaFlrTk9FbDhSY1lHUm9tSnlncEtqVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnb09FaFlhSGlJbUtrcE9VbFphWG1KbWFvcU9rcGFhbnFLbXFzck8wdGJhM3VMbTZ3c1BFeGNiSHlNbkswdFBVMWRiWDJObmE0dVBrNWVibjZPbnE4dlAwOWZiMytQbjYvOW9BREFNQkFBSVJBeEVBUHdENmYwKzllUzhaU2VNMStncDZuNExPS1VUb1JXaHpESlgyTG1vbkxsVnpXbkhubFlyMjkxNXI0cmpwVjNPVmowSytHVk9Oem45SzR2M3o2MTB4M09lZnduU3lYQ1JMa210cm5JbGN6YnpVeEl1MU9hemw3eXNiMDA0dTVOcGtSQTNIdlVRcEtPcHBWcnltck01UVhoZ3ZYd2VjMU43TTE1YnhOSkxsN3RzTTNGWGU1bGJsTkcydFlJOEZtQk5Xa2pHVW16VWhranhoU0tzeWFaNXJyakdHK1lvY2MxeHkzUFZwNm9xcnFFNjlIcWVabW5JaC93RGExei96ME5ITXllU0owSGhxK21tbEFkODF2QnM1cXNVa2YvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"/>
+</div>
+</a>
+</div>
+<div class="col-8">
+<div class="article__badge article__badge--xs">
+<a class="article__badge article__badge--xs" href="https://cryptonews.com/news/press-releases/">  Press Releases                </a>
+<div class="article__badge-date" data-utctime="2023-12-05 00:41:44"></div>
+</div>
+<a class="article__title article__title--recommended mb-0" href="https://cryptonews.com/news/the-rising-star-of-crypto-a-new-challenger-emerges-competing-with-ethereum-classic-and-shiba-inu.htm">The Rising Star of Crypto: A New Challenger Emerges, Competing with Ethereum Classic and Shiba Inu</a> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="pt-60 pb-20 pb-md-40 pb-md-60">
+<h3 class="mb-20">
+                Similar News            </h3>
+<div class="row">
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 post-139210 post type-post status-publish format-standard has-post-thumbnail hentry category-bitcoin-news category-news editors-arslan-butt" id="post-139210">
+<article class="mb-30">
+<div class="row">
+<div class="col-4 col-md-12">
+<a class="article__image article__image--sm-wider mb-15" href="https://cryptonews.com/news/bitcoin-price-prediction-42k-breach-as-us-defense-eyes-btc.htm">
+<div class="img-sized">
+<img alt="Bitcoin Price Prediction: $42K Breach as US Defense Eyes BTC" class="lazyload img-fluid" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701754136-5-1.jpg" sizes="300px" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="/>
+</div>
+</a>
+</div>
+<div class="col-8 col-md-12">
+<div class="article__badge article__badge--sm">
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/bitcoin-news/">  Bitcoin News </a>
+<div class="article__badge-date d-md-inline-block" data-utctime="2023-12-05 06:32:38"></div>
+</div>
+<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/bitcoin-price-prediction-42k-breach-as-us-defense-eyes-btc.htm" rel="bookmark">Bitcoin Price Prediction: $42K Breach as US Defense Eyes BTC</a></h4> </div>
+</div>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 post-139241 post type-post status-publish format-standard has-post-thumbnail hentry category-altcoin-news tag-bitcoin tag-tether editors-ruholamin-haqshanas" id="post-139241">
+<article class="mb-30">
+<div class="row">
+<div class="col-4 col-md-12">
+<a class="article__image article__image--sm-wider mb-15" href="https://cryptonews.com/news/tethers-bitcoin-holding-profit-surges-to-1-1-billion-as-leading-cryptocurrency-surpasses-42000.htm">
+<div class="img-sized">
+<img alt="Tether’s Bitcoin Holding Profit Surges to $1.1 Billion as Leading Cryptocurrency Surpasses $42,000" class="lazyload img-fluid" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701757720-1700150936-3f2d937ae9-media-library-___media_library_original_900_600-1.jpeg" sizes="300px" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgOTEyIDYwOCI+Cgk8aW1hZ2Ugd2lkdGg9IjkxMiIgaGVpZ2h0PSI2MDgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBVkFDQURBUkVBQWhFQkF4RUIvOFFBR0FBQUF3RUJBQUFBQUFBQUFBQUFBQUFBQndnSkJRYi94QUFuRUFBQkFnWUJBd1FEQUFBQUFBQUFBQUFCQWdNQUJBVUdCeEVTSVNJeENCTVZVUlJCWWYvRUFCa0JBQU1CQVFFQUFBQUFBQUFBQUFBQUFBRUNBd1FBQmYvRUFCd1JBQUlEQUFNQkFBQUFBQUFBQUFBQUFBQUJBZ01SRWlFeFFmL2FBQXdEQVFBQ0VRTVJBRDhBbmxUc2dUbSt3a24rUlRjQ2RQVEwvckV5dExMWE1rbldoSGNnakJZeHQycVZTbktkbW1WN1VOallqSFpZejA2SUpyc0dtWGFmVjdhbjNIa05MUzJEdllFVnJucGx1amo2QmZqQzBtNTZiYi9JVDJLSTh3Wk1sWG4wYzdFSHB2cDFWbVdaejJrcVIwUGlJOG40VmFReGxVdGlrMlpTMElTMGhBU1BxR2NkV2p3bTQ5QUV6djhBQjFTMm4xcFMyWFFrL1VUaHVnc2VpazR3Vjc2NWRCN2VvNmlORE0wU2plRUd2ajdiWlVnOGp4SG1JdEZET3p6WFgyS0M4NGpvb0EvdUhUQjRUNHZ6SlZXZWNtSlpTOXQ3STF5aDR4UWprei8vMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4="/>
+</div>
+</a>
+</div>
+<div class="col-8 col-md-12">
+<div class="article__badge article__badge--sm">
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/altcoin-news/">  Altcoin News </a>
+<div class="article__badge-date d-md-inline-block" data-utctime="2023-12-05 06:30:22"></div>
+</div>
+<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/tethers-bitcoin-holding-profit-surges-to-1-1-billion-as-leading-cryptocurrency-surpasses-42000.htm" rel="bookmark">Tether’s Bitcoin Holding Profit Surges to $1.1 Billion as Leading Cryptocurrency Surpasses $42,000</a></h4> </div>
+</div>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 post-139230 post type-post status-publish format-standard has-post-thumbnail hentry category-press-releases" id="post-139230">
+<article class="mb-30">
+<div class="row">
+<div class="col-4 col-md-12">
+<a class="article__image article__image--sm-wider mb-15" href="https://cryptonews.com/news/sui-soars-past-150m-in-tvl-solana-set-to-maintain-momentum-in-december-inqubeta-becomes-whale-favorite.htm">
+<div class="img-sized">
+<img alt="Sui Soars Past $150M in TVL, Solana Set to Maintain Momentum in December, InQubeta Becomes Whale Favorite" class="lazyload img-fluid" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701755636-sui-token.jpg" sizes="300px" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="/>
+</div>
+</a>
+</div>
+<div class="col-8 col-md-12">
+<div class="article__badge article__badge--sm">
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/press-releases/">  Press Releases </a>
+<div class="article__badge-date d-md-inline-block" data-utctime="2023-12-05 05:54:39"></div>
+</div>
+<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/sui-soars-past-150m-in-tvl-solana-set-to-maintain-momentum-in-december-inqubeta-becomes-whale-favorite.htm" rel="bookmark">Sui Soars Past $150M in TVL, Solana Set to Maintain Momentum in December, InQubeta Becomes Whale Favorite</a></h4> </div>
+</div>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 post-139223 post type-post status-publish format-standard has-post-thumbnail hentry category-press-releases" id="post-139223">
+<article class="mb-30">
+<div class="row">
+<div class="col-4 col-md-12">
+<a class="article__image article__image--sm-wider mb-15" href="https://cryptonews.com/news/why-celestia-tia-and-this-emerging-crypto-are-two-coins-you-should-be-stacking-now.htm">
+<div class="img-sized">
+<img alt="Why Celestia ($TIA) and This Emerging Crypto Are Two Coins You Should Be Stacking Now" class="lazyload img-fluid" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701755451-bull.jpg" sizes="300px" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzYwIDY3NiI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2MCIgaGVpZ2h0PSI2NzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBY0FDQURBUkVBQWhFQkF4RUIvOFFBSHdBQUFRVUJBUUVCQVFFQUFBQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkFBQWdFREF3SUVBd1VGQkFRQUFBRjlBUUlEQUFRUkJSSWhNVUVHRTFGaEJ5SnhGREtCa2FFSUkwS3h3UlZTMGZBa00ySnlnZ2tLRmhjWUdSb2xKaWNvS1NvME5UWTNPRGs2UTBSRlJrZElTVXBUVkZWV1YxaFpXbU5rWldabmFHbHFjM1IxZG5kNGVYcURoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1SGk0K1RsNXVmbzZlcng4dlAwOWZiMytQbjYvOFFBSHdFQUF3RUJBUUVCQVFFQkFRQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkVBQWdFQ0JBUURCQWNGQkFRQUFRSjNBQUVDQXhFRUJTRXhCaEpCVVFkaGNSTWlNb0VJRkVLUm9iSEJDU016VXZBVlluTFJDaFlrTk9FbDhSY1lHUm9tSnlncEtqVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnb09FaFlhSGlJbUtrcE9VbFphWG1KbWFvcU9rcGFhbnFLbXFzck8wdGJhM3VMbTZ3c1BFeGNiSHlNbkswdFBVMWRiWDJObmE0dVBrNWVibjZPbnE4dlAwOWZiMytQbjYvOW9BREFNQkFBSVJBeEVBUHdENmYwKzllUzhaU2VNMStncDZuNExPS1VUb1JXaHpESlgyTG1vbkxsVnpXbkhubFlyMjkxNXI0cmpwVjNPVmowSytHVk9Oem45SzR2M3o2MTB4M09lZnduU3lYQ1JMa210cm5JbGN6YnpVeEl1MU9hemw3eXNiMDA0dTVOcGtSQTNIdlVRcEtPcHBWcnltck01UVhoZ3ZYd2VjMU43TTE1YnhOSkxsN3RzTTNGWGU1bGJsTkcydFlJOEZtQk5Xa2pHVW16VWhranhoU0tzeWFaNXJyakdHK1lvY2MxeHkzUFZwNm9xcnFFNjlIcWVabW5JaC93RGExei96ME5ITXllU0owSGhxK21tbEFkODF2QnM1cXNVa2YvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"/>
+</div>
+</a>
+</div>
+<div class="col-8 col-md-12">
+<div class="article__badge article__badge--sm">
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/press-releases/">  Press Releases </a>
+<div class="article__badge-date d-md-inline-block" data-utctime="2023-12-05 05:51:41"></div>
+</div>
+<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/why-celestia-tia-and-this-emerging-crypto-are-two-coins-you-should-be-stacking-now.htm" rel="bookmark">Why Celestia ($TIA) and This Emerging Crypto Are Two Coins You Should Be Stacking Now</a></h4> </div>
+</div>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="rocketlazyloadscript">window.__INITIAL_WIDGET_STATE__ = {"price_tracker":"https:\/\/cryptonews.com\/price-tracker\/","data":{"6":{"exchange_id":"6","title":"Coinbase","short":"https:\/\/cimg.co\/reviewlogo\/2\/5b20d656d022d.svg","full":"https:\/\/cimg.co\/reviewlogo\/2\/5b20d656d022d.svg","review_url":"https:\/\/cryptonews.com\/reviews\/coinbase\/","download_url":"rapi.cryptonews.com\/ext\/coinbase\/en"},"1":{"exchange_id":"1","title":"HitBTC","short":"https:\/\/cimg.co\/reviewlogo\/3\/5a656fe6af617.svg","full":"https:\/\/cimg.co\/reviewlogo\/3\/5a656fe6af617.svg","review_url":"https:\/\/cryptonews.com\/reviews\/hitbtc\/","download_url":"rapi.cryptonews.com\/ext\/hitbtc\/en"},"4":{"exchange_id":"4","title":"Bitfinex","short":"https:\/\/cimg.co\/reviewlogo\/4\/5b20d64cb9231.svg","full":"https:\/\/cimg.co\/reviewlogo\/4\/5b20d64cb9231.svg","review_url":"https:\/\/cryptonews.com\/reviews\/bitfinex\/","download_url":"rapi.cryptonews.com\/ext\/bitfinex\/en"},"9":{"exchange_id":"9","title":"Kraken","short":"https:\/\/cimg.co\/reviewlogo\/5\/5b20d7875ab17.svg","full":"https:\/\/cimg.co\/reviewlogo\/5\/5b20d7875ab17.svg","review_url":"https:\/\/cryptonews.com\/reviews\/kraken\/","download_url":"rapi.cryptonews.com\/ext\/kraken\/en"},"7":{"exchange_id":"7","title":"Coinbase Pro","short":"https:\/\/cimg.co\/reviewlogo\/6\/5dcab04fee043.png","full":"https:\/\/cimg.co\/reviewlogo\/6\/5dcab04fee043.png","review_url":"https:\/\/cryptonews.com\/reviews\/coinbase-pro\/","download_url":"rapi.cryptonews.com\/ext\/coinbase-pro\/en"},"8":{"exchange_id":"8","title":"Bitstamp","short":"https:\/\/cimg.co\/reviewlogo\/7\/5a74b2b325423.svg","full":"https:\/\/cimg.co\/reviewlogo\/7\/5a74b2b325423.svg","review_url":"https:\/\/cryptonews.com\/reviews\/bitstamp\/","download_url":"rapi.cryptonews.com\/ext\/bitstamp\/en"},"2":{"exchange_id":"2","title":"Bittrex","short":"https:\/\/cimg.co\/reviewlogo\/8\/5dcaad3ad8297.png","full":"https:\/\/cimg.co\/reviewlogo\/8\/5dcaad3ad8297.png","review_url":"https:\/\/cryptonews.com\/reviews\/bittrex\/","download_url":"rapi.cryptonews.com\/ext\/bittrex\/en"},"5":{"exchange_id":"5","title":"Binance","short":"https:\/\/cimg.co\/reviewlogo\/9\/5ab92c5f8df75.svg","full":"https:\/\/cimg.co\/reviewlogo\/9\/5ab92c5f8df75.svg","review_url":"https:\/\/cryptonews.com\/reviews\/binance\/","download_url":"rapi.cryptonews.com\/ext\/binance\/en"},"3":{"exchange_id":"3","title":"bitFlyer","short":"https:\/\/cimg.co\/reviewlogo\/10\/5aba32afb43dc.svg","full":"https:\/\/cimg.co\/reviewlogo\/10\/5aba32afb43dc.svg","review_url":"https:\/\/cryptonews.com\/reviews\/bitflyer\/","download_url":"rapi.cryptonews.com\/ext\/bitflyer\/en"},"11":{"exchange_id":"11","title":"KuCoin","short":"https:\/\/cimg.co\/reviewlogo\/17\/5f1ac8c747406.png","full":"https:\/\/cimg.co\/reviewlogo\/17\/5f1ac8c747406.png","review_url":"https:\/\/cryptonews.com\/reviews\/kucoin\/","download_url":"rapi.cryptonews.com\/ext\/kucoin\/en"},"25":{"exchange_id":"25","title":"Crypto.com","short":"https:\/\/cimg.co\/reviewlogo\/57\/5f91b138dea97.jpg","full":"https:\/\/cimg.co\/reviewlogo\/57\/5f91b138dea97.jpg","review_url":"https:\/\/cryptonews.com\/reviews\/crypto-com\/","download_url":"rapi.cryptonews.com\/ext\/crypto-com\/en"}},"config":{"type":"summary"},"translations":{"best_rates":"Buy\/Sell at the best rates","profitable_exchange":"Profitable Exchange","buy":"Buy for","sell":"Sell for","see_more_rates":"See more rates","market":"See more rates","highest":"Highest","lowest":"Lowest","view_all":"View all <span>exchanges<\/span>","supported_currencies":"Supported Currencies","internal_conversion":"Converted","internal_conversion_header":"Converted Price"}} </script>
+<script async="async" data-rocket-src="https://api.cryptonews.com/js/bundle.js" type="rocketlazyloadscript"></script>
+<footer class="footer">
+<div class="container">
+<div class="footer-top pt-60 pb-30">
+<div class="row">
+<div class="col-12 col-lg-5 col-xl-4 mb-lg-0 text-center text-md-left">
+<div class="d-lg-flex mb-40">
+<div class="footer-links d-md-inline-block text-center text-md-left align-self-center">
+<a class="mr-20" href="/terms-and-conditions.htm">Terms &amp; Conditions </a>
+<a class="mr-20" href="/about-us.htm">About Us </a>
+<a class="mr-20" href="/privacy-policy.htm">Privacy Policy </a>
+<a class="mr-20" href="/disclaimer.htm">Disclaimer </a>
+</div>
+</div>
+<div class="d-none d-md-block" style="color:#fff;">
+<div class="mb-30">
+<div class="d-inline-block mr-10 align-top">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(-1095 -1243) translate(295 1103) translate(770 35) translate(30 100) translate(0 5) translate(0 2)">
+<path d="M11.063 6.797c0 .13-.106.234-.235.234H1.172c-.13 0-.234-.105-.234-.234V1.321l4.81 3.06c.154.097.35.097.503 0l4.811-3.06v5.476zM9.918.938L6 3.43 2.08.94h7.84zM10.83 0H1.17C.531 0 0 .521 0 1.172v5.625C0 7.443.525 7.97 1.17 7.97h9.658c.646 0 1.17-.526 1.17-1.172V1.172C12 .53 11.476 0 10.83 0z" fill="#FFF"></path>
+</g>
+</svg>
+</div>
+<a class="me-mailto"></a>
+<!--                            <div class="mb-30">-->
+<!--                                <div class="d-inline-block me-address"></div>-->
+<!--                            </div>-->
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-7 col-xl-8 footer-links text-md-left">
+<div class="row d-none d-md-block" style="justify-content: flex-end">
+<div class="col-12">
+<ul class="menu_footer" id="menu-footer">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119702" id="menu-item-119702"><a class="header-links__item fs-16" href="/news/">News</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119703" id="menu-item-119703"><a class="header-links__item fs-16" href="/news/bitcoin-news/">Bitcoin News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119704" id="menu-item-119704"><a class="header-links__item fs-16" href="/news/ethereum-news/">Ethereum News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119705" id="menu-item-119705"><a class="header-links__item fs-16" href="/news/nft-news/">NFT News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119706" id="menu-item-119706"><a class="header-links__item fs-16" href="/news/defi-news/">DeFi News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119707" id="menu-item-119707"><a class="header-links__item fs-16" href="/news/altcoin-news/">Altcoin News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119708" id="menu-item-119708"><a class="header-links__item fs-16" href="/news/blockchain-news/">Blockchain News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119709" id="menu-item-119709"><a class="header-links__item fs-16" href="/news/press-releases/">Press Releases</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119710" id="menu-item-119710"><a class="header-links__item fs-16" href="/news/sponsored/">Sponsored</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119712" id="menu-item-119712"><a class="header-links__item fs-16" href="/news/industry-talk/">Industry Talk</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119713" id="menu-item-119713"><a class="header-links__item fs-16" href="/news/ico-news/">ICO news</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119714" id="menu-item-119714"><a class="header-links__item fs-16" href="/news/finance-news/">Finance News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119715" id="menu-item-119715"><a class="header-links__item fs-16" href="/news/technology-news/">Technology News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119716" id="menu-item-119716"><a class="header-links__item fs-16" href="/news/price-predictions/">Price Predictions</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119732" id="menu-item-119732"><a class="header-links__item fs-16" href="/guides/">Guides</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119733" id="menu-item-119733"><a class="header-links__item fs-16" href="/guide_categories/bitcoin/">Bitcoin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119734" id="menu-item-119734"><a class="header-links__item fs-16" href="/guide_categories/ethereum/">Ethereum</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119735" id="menu-item-119735"><a class="header-links__item fs-16" href="/guide_categories/nft/">NFT</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119736" id="menu-item-119736"><a class="header-links__item fs-16" href="/guide_categories/defi-guides/">Defi Guides</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119737" id="menu-item-119737"><a class="header-links__item fs-16" href="/guide_categories/altcoins/">Altcoins</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119738" id="menu-item-119738"><a class="header-links__item fs-16" href="/guide_categories/blockchain/">Blockchain</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119739" id="menu-item-119739"><a class="header-links__item fs-16" href="/guide_categories/cryptocurrency/">Cryptocurrency</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119741" id="menu-item-119741"><a class="header-links__item fs-16" href="/guide_categories/icos/">ICOs / STOs / IEOs</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119742" id="menu-item-119742"><a class="header-links__item fs-16" href="/guide_categories/trading-tools/">Trading Tools</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119743" id="menu-item-119743"><a class="header-links__item fs-16" href="/guide_categories/wallet-guides/">Wallet Guides</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119744" id="menu-item-119744"><a class="header-links__item fs-16" href="#">Editors’ picks</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119745" id="menu-item-119745"><a class="header-links__item fs-16" href="https://cryptonews.com/news/best-crypto-to-buy.htm">Best Crypto to Buy Now</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119746" id="menu-item-119746"><a class="header-links__item fs-16" href="https://cryptonews.com/news/best-crypto-presales.htm">Best Crypto Presales to Invest in</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119747" id="menu-item-119747"><a class="header-links__item fs-16" href="https://cryptonews.com/news/new-cryptocurrency.htm">New Cryptocurrency</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119761" id="menu-item-119761">
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119763"><a class="header-links__item fs-16" href="/news/press-releases/">Press Releases</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119763"><a class="header-links__item fs-16" href="/review_categories/exchanges/">Exchanges</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119764"><a class="header-links__item fs-16" href="/coins/">Market Cap</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119765"><a class="header-links__item fs-16" href="/news/industry-talk/">Industry Talk</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119765"><a class="header-links__item fs-16" href="/exclusives/features/">Features</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119765"><a class="header-links__item fs-16" href="/exclusives/opinions/">Opinions</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119765"><a class="header-links__item fs-16" href="/exclusives/people/">People In Crypto</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="row d-block d-md-none footer_menu_mob">
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/news/press-releases/">Press Releases</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/news/"><b>News</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/exclusives/"><b>Exclusives</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/guides/"><b>Guides</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/review_categories/exchanges/"><b>Exchanges</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/coins/"><b>Market Cap</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/news/industry-talk/">Industry Talk</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/exclusives/features/">Features</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/exclusives/opinions/">Opinions</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/exclusives/people/">People In Crypto</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="#"><b>Editors’ picks</b></a></div>
+</div>
+</div>
+<div class="col-12 col-lg-5 col-xl-4 mb-lg-0 text-center d-md-none d-block mt-20">
+</div>
+</div>
+</div>
+<div class="footer-bottom pt-30 pb-30">
+<div class="row">
+<div class="col-12 col-md-6 text-center text-md-left mb-20 mb-md-0">
+<div class="fs-12 c-light-grey" id="copyright">© 2023 Cryptonews. All rights reserved</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script type="rocketlazyloadscript">
+    window.gdproptions = {
+
+            cookieName: 'gdpr',
+            cookieConfig: {
+                domain: window.location.hostname,
+                path: '/'
+            },
+            heading: "GDPR Notice",
+            description: `We use cookies to offer a better browsing experience, analyze site traffic, personalize content, and serve targeted advertisements.By clicking accept, you consent to our privacy policy &amp; use of cookies.`+' (<a href="https://cryptonews.com/privacy-policy.htm" >Privacy Policy</a>)',
+            acceptLabel: "Confirm all",
+            settingsLabel: "Preferences",
+            closeLabel: 'Close Window',
+            choices: {
+                necessary: {
+                    label: "Required",
+                    description:
+                        '',
+                    value: true
+                },
+                analytics: false,
+                tracking: false,
+                marketing: false,
+
+            },
+            showEditIcon: false,
+            categories: {
+
+                necessary: function() {
+                }
+            }
+        }
+    </script>
+<script type="rocketlazyloadscript">
+            window.cid = 110344        </script>
+<script data-rocket-src="https://cryptonews.com/wp-content/themes/cryptonews/assets/js/frontend.js?ver=1.1688466991" defer="" id="frontend-js-js" type="rocketlazyloadscript"></script>
+<script id="rocket-browser-checker-js-after" type="rocketlazyloadscript">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/cryptonews.com","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script id="rocket-preload-links-js-after" type="rocketlazyloadscript">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script id="ajax-data-load-js-extra">
+var site_vars = {"url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php"};
+</script>
+<script data-rocket-src="https://cryptonews.com/wp-content/themes/cryptonews/js/ajax-data-load.js?ver=6.4.1" defer="" id="ajax-data-load-js" type="rocketlazyloadscript"></script>
+<!-- Shortcodes Ultimate custom CSS - start -->
+<style type="text/css">
+.su-column-pros p{
+	margin-bottom:5px;
+}
+
+.su-column-pros ul{
+	padding-left:25px;
+}
+</style>
+<!-- Shortcodes Ultimate custom CSS - end -->
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script async="" data-no-minify="1" src="https://cryptonews.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script><script type="rocketlazyloadscript">
+    window.addEventListener('load', function() {
+
+        if(document.getElementsByTagName('oembed').length){
+            console.log('loading oembed');
+            new Embedo({
+                twitter: true,  // Enable twitter SDK
+                instagram: true,  // Enable instagram SDK
+                pinterest: true  // Enable pinterest SDK,
+            });
+        }
+
+    })
+</script>
+<script async="" data-rocket-src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" type="rocketlazyloadscript"></script><script type="rocketlazyloadscript">
+            window.onesignal_app_id ='7433c474-47ca-421e-88a6-dad515cf9aab';
+            var OneSignal = window.OneSignal || [];
+            OneSignal.push(function() {
+              OneSignal.init({
+                appId: '7433c474-47ca-421e-88a6-dad515cf9aab',
+              });
+            });
+    </script></div>
+<script type="application/ld+json">{
+    "@context": "http://schema.org/",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Cryptonews",
+                "item": "https://cryptonews.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Exclusives",
+                "item": "https://cryptonews.com/exclusives/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Rudy Koch, Co-Founder of Fenix Games, on Web3 Gaming, Shipping World-Class Games, and Treating Gamers as Stakeholders | Ep. 256",
+                "item": "https://cryptonews.com/exclusives/rudy-koch-co-founder-of-fenix-games-on-web3-gaming-shipping-world-class-games-and-treating-gamers-as-stakeholders-ep-256.htm"
+            }
+        ]
+    ]
+}</script><script type="application/ld+json">{
+    "@context": "http://schema.org/",
+    "@graph": [
+        {
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+                "@id": "https://cryptonews.com/exclusives/rudy-koch-co-founder-of-fenix-games-on-web3-gaming-shipping-world-class-games-and-treating-gamers-as-stakeholders-ep-256.htm",
+                "@type": "WebPage"
+            },
+            "headline": "Rudy Koch, Co-Founder of Fenix Games, on Web3 Gaming, Shipping World-Class Games, and Treating Gamers as Stakeholders | Ep. 256",
+            "image": [
+                "https://cimg.co/news/122490/324013/rudy-koch-thumb.jpg"
+            ],
+            "author": [],
+            "datePublished": "2023-08-15T14:00:00+00:00",
+            "dateModified": "2023-10-19T15:22:18+00:00"
+        },
+        {
+            "@type": "Organization",
+            "name": "Cryptonews",
+            "url": "https://cryptonews.com",
+            "logo": "https://cimg.co/p/crypto-news-logo-full.svg"
+        }
+    ]
+}</script><script data-clickout-type="native_table_box" defer="" src="https://bs_48ce1097.cryptonewsdom.care/sdk.js"></script></body>
+</html>
+<!--
+Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com
+
+Retrieved 11375 objects (1 MB) from Redis using PhpRedis (v5.3.7).
+-->
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
