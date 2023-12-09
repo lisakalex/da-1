@@ -113,7 +113,7 @@ $(function () {
             "<script defer=\"\" src=\"/assets/js/cookieconsent-init.js\"></script>" +
             "<script defer=\"\" src=\"/assets/js/frontend.js\"></script>");
 
-        $("#menu-header > li:nth-child(10) > ul").load("/kak-index.html #menu-header > li:nth-child(9) > ul > li", function () { // fix recommended
+        $("#menu-header > li:nth-child(11) > ul").load("/kak-index.html #menu-header > li:nth-child(9) > ul > li", function () { // fix recommended
             try {
                 document.querySelectorAll("a").forEach((e) => { // edit links
                     if (e.href.search('/ext/') === -1) {

@@ -1,6 +1,13 @@
-#* * * * * /bin/bash -l -c 'date > ~/cron-test.txt'
-#0 8 * * * cd /var/www/da-1.com/a/ && wget https://cryptonews.com/
-#40 19 * * * cd /var/www/da-1.com/ && ./editallfiles.py
-#* * * * * cd /var/www/da-1.com/ && ./tor.py
-#* * * * * cd /var/www/da-1.com/ && ./tor.py
-#* * * * * cd /var/www/da-1.com/ && ./a.py
+0 7 * * * /var/www/hyip.com/public_html/sh/get_hyip_seeds.py
+* * * * * /var/www/hyip.com/public_html/sh/seed1.sh
+* * * * * /var/www/hyip.com/public_html/sh/monitor.sh
+* * * * * /var/www/hyip.com/public_html/sh/hyip.sh
+* * * * * /var/www/hyip.com/public_html/sh/hyip1.sh
+* * * * * /var/www/hyip.com/public_html/sh/rate.sh
+0 19 * * * /usr/bin/php8.1 /var/www/hyip.com/public_html/sh/copyall.php
+* * * * * /usr/bin/php8.1 /var/www/hyip.com/public_html/pay_cron.php
+* * * * * /bin/bash -l -c 'date > ~/cron-test.txt'
+* * * * * /var/www/hyip.com/public_html/sh/get_top.py
+#0 7 * * * cd /var/www/da-1.com/a/ && wget -i ./download.txt
+#0 19 * * * cd /var/www/da-1.com/ && ./editallfiles.py
+#* * * * * cd /var/www/da-1.com/ && ./tor-1.py

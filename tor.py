@@ -22,7 +22,7 @@ def get_current_ip():
     options.add_argument('user-agent={}'.format(userAgent))
     PROXY = "socks5://localhost:9050"
     options.add_argument('--proxy-server=%s' % PROXY)
-    options.headless = True
+    # options.headless = True
 
     # driver = webdriver.Chrome(options=options, executable_path="/var/www/da-1.com/html/test/click-iframe/chromedriver")
     driver = webdriver.Chrome(options=options, executable_path="./chromedriver")

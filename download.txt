@@ -1,9 +1,7 @@
 https://cryptonews.com/coins/
 https://cryptonews.com/editors/
-https://cryptonews.com/exclusives/
 https://cryptonews.com/guide_categories/
 https://cryptonews.com/guides/
 https://cryptonews.com/images/
-https://cryptonews.com/news/
 https://cryptonews.com/review_categories/
 https://cryptonews.com/reviews/
