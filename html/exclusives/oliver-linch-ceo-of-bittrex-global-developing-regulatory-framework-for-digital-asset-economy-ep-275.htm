@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head><meta charset="utf-8"/><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.4",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let r=e.getAttribute("data-rocket-src");if(r&&0!==r.indexOf("data:")){0===r.indexOf("//")&&(r=location.protocol+r);try{let i=new URL(r).origin;i!==location.origin&&t.push({src:i,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(n){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){if(await this._littleBreath(),!0===t.noModule&&"noModule"in HTMLScriptElement.prototype){t.setAttribute("data-rocket-status","skipped");return}return new Promise(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(){let t={};function e(e,r){!function e(r){!t[r]&&(t[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.remove.apply(r,arguments)});function i(e){return t[r].eventsToRewrite.indexOf(e)>=0?"rocket-"+e:e}}(e),t[e].eventsToRewrite.push(r)}function r(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}e(document,"DOMContentLoaded"),e(window,"DOMContentLoaded"),e(window,"load"),e(window,"pageshow"),e(document,"readystatechange"),r(document,"onreadystatechange"),r(window,"onload"),r(window,"onpageshow")}_delayJQueryReady(t){let e;function r(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}function i(i){if(i&&i.fn&&!t.allJQueries.includes(i)){i.fn.ready=i.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(i):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(i)),i([])};let n=i.fn.on;i.fn.on=i.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=r(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{let e=arguments[0][t];delete arguments[0][t],arguments[0][r(t)]=e})),n.apply(this,arguments),this},t.allJQueries.push(i)}e=i}i(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){i(t)}})}async _pendingWebpackRequests(t){let e=document.querySelector("script[data-webpack]");async function r(){return new Promise(t=>{e.addEventListener("load",t),e.addEventListener("error",t)})}e&&(await r(),await t._requestAnimFrame(),await t._pendingWebpackRequests(t))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+<meta content="width=device-width,minimum-scale=1.0" name="viewport"/>
+<meta content="1101440706625691" property="fb:app_id"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="/favicon-192x192.png" rel="icon" sizes="192x192"/>
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon"/>
+<link href="/favicon.ico" rel="shortcut icon"/>
+<meta content="ee7282c3169a3e01fc91c812fc84096b69c8f74b" name="naver-site-verification"/>
+<link href="https://gmpg.org/xfn/11" rel="profile"/>
+<!--    <title>--><!-- | --><!--</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" /></noscript>-->
+<script data-rocket-src="https://cimg.co/p/manifest.js" data-rocket-type="application/javascript" defer="" type="rocketlazyloadscript"></script>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots">
+<!-- This site is optimized with the Yoast SEO Premium plugin v20.0 (Yoast SEO v21.5) - https://yoast.com/wordpress/plugins/seo/ -->
+<title>Oliver Linch, CEO of Bittrex Global, on Developing Regulatory Framework for A Digital Asset Economy | Ep. 275</title>
+<meta content="In an exclusive interview with cryptonews.com, Oliver Linch, CEO of Bittrex Global, talks about developing the regulatory framework for a digital asset" name="description">
+<link href="https://cryptonews.com/exclusives/oliver-linch-ceo-of-bittrex-global-developing-regulatory-framework-for-digital-asset-economy-ep-275.htm" rel="canonical"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="article" property="og:type"/>
+<meta content="Oliver Linch, CEO of Bittrex Global, on Developing Regulatory Framework for A Digital Asset Economy | Ep. 275" property="og:title"/>
+<meta content="In an exclusive interview with cryptonews.com, Oliver Linch, CEO of Bittrex Global, talks about developing the regulatory framework for a digital asset" property="og:description"/>
+<meta content="https://cryptonews.com/exclusives/oliver-linch-ceo-of-bittrex-global-developing-regulatory-framework-for-digital-asset-economy-ep-275.htm" property="og:url"/>
+<meta content="Cryptonews" property="og:site_name"/>
+<meta content="2023-10-20T16:10:00+00:00" property="article:published_time"/>
+<meta content="2023-10-23T07:20:17+00:00" property="article:modified_time"/>
+<meta content="https://cimg.co/news/126682/334517/oliver-linch-thumb.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://cimg.co/news/126682/334517/oliver-linch-thumb.jpg" name="twitter:image"/>
+<meta content="@Cryptonews" name="twitter:creator"/>
+<meta content="@Cryptonews" name="twitter:site"/>
+<!-- / Yoast SEO Premium plugin. -->
+<link href="//cryptonews.com" rel="dns-prefetch"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://cryptonews.com/feed/" rel="alternate" title="Cryptonews » Feed" type=""/>
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/style.css?ver=1701944354" id="style-css-css" media="all" rel="stylesheet"/>
+<link href="https://cryptonews.com/wp-includes/css/dist/block-library/style.min.css?ver=6.4.1" id="wp-block-library-css" media="all" rel="stylesheet">
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/assets/css/search.css?ver=1701944354" id="search-css" media="all" rel="stylesheet">
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/brand-management-plugin/public/css/brand-management-public.css?ver=1701944354" id="brand-management-public-css" media="all" rel="stylesheet">
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptopresales-brand-management-plugin/public/css/crypto-bm-public.css?ver=1701944354" id="crypto-bm-public-css" media="all" rel="stylesheet">
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/brand-management.css?ver=1701944354" id="brand-management-css" media="all" rel="stylesheet">
+<link href="https://cryptonews.com/wp-content/plugins/cryptonews/assets/css/custom.css?ver=1.1701870935" id="custom-css" media="all" rel="stylesheet"/>
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/presale-toplist.css?ver=1701944354" id="presale-toplist-css" media="all" rel="stylesheet"/>
+<link data-minify="1" href="https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews-post-blocks/assets/css/style.css?ver=1701944354" id="post-blocks-style-css" media="all" rel="stylesheet"/>
+<style id="rocket-lazyload-inline-css">
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://cryptonews.com/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<script id="brand-management-ajax-handler-js-extra">
+var likes_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php","nonce":"0aafff186e","fail_text":"You have already voted."};
+</script>
+<script id="crypto-bm-ajax-handler-js-extra">
+var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php","nonce":"76a4730e73"};
+</script>
+<link href="https://cryptonews.com/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript> <script type="rocketlazyloadscript">
+        window.sid = "1"
+                window.burl = "https://a2.cryptonews.com"
+                window.cid = 1
+        window.trans = {
+            ago: "ago",
+            ago_long: "minute, minutes, hour, hours, day, days",
+            time_seconds_ago: "[time] [seconds] [ago]",
+            time_minutes_ago: "[time] [minutes] [ago]" ,
+            time_hours_ago: "[time] [hours] [ago]",
+            time_days_ago: "[time] [days] [ago]",
+        }
+    </script>
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MBDCFGN');</script>
+</link></link></link></link></link></meta></meta></link><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><script defer="" src="/assets/js/me.js"></script><link href="/assets/css/style.css" rel="stylesheet"/></head>
+<body class="post-template-default single single-post postid-114413 single-format-standard wp-custom-logo">
+<header class="header" id="header">
+<div class="se-pre-con"></div>
+<a class="header__logo" href="/">
+<img alt="Crypto News" src="/assets/images/logo.svg"/>
+</a>
+<div class="header-links d-none d-lg-flex header-menu__dropdown">
+<ul class="menu_header" id="menu-header">
+<li></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/news/press-releases/">Press Releases</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/news/">News<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/bitcoin-news/">Bitcoin News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/ethereum-news/">Ethereum News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/nft-news/">NFT News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/defi-news/">DeFi News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/altcoin-news/">Altcoin News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/blockchain-news/">Blockchain News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/press-releases/">Press Releases</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/sponsored/">Sponsored</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/industry-talk/">Industry Talk</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/ico-news/">ICO news</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/finance-news/">Finance News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/technology-news/">Technology News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/price-predictions/">Price Predictions</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/guides/">Guides<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/bitcoin/">Bitcoin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/ethereum/">Ethereum</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/nft/">NFT</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/defi-guides/">Defi Guides</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/altcoins/">Altcoins</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/blockchain/">Blockchain</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/cryptocurrency/">Cryptocurrency</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/icos/">ICOs / STOs / IEOs</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/trading-tools/">Trading Tools</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/guide_categories/wallet-guides/">Wallet Guides</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/review_categories/exchanges/">Exchanges</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/coins/">Market Cap</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/industry-talk/">Industry Talk</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/exclusives/features/">Features</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/exclusives/opinions/">Opinions</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/exclusives/people/">People In Crypto</a><span class="menu_icon"></span><span class="menu_icon mob"></span></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#">Editors’ picks<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/best-crypto-to-buy.htm">Best Crypto to Buy Now</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="/news/best-crypto-presales.htm">Best Crypto Presales to Invest in</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="header-search">
+<div class="header-menu__trigger d-md-none">
+<svg height="7" viewbox="0 0 12 7" width="12" xmlns="http://www.w3.org/2000/svg">
+<g fill-rule="evenodd">
+<path d="M0 3.999L12 3.999 12 2.999 0 2.999zM0 7L12 7 12 6 0 6zM0 1L12 1 12 0 0 0z"></path>
+</g>
+</svg>
+</div>
+</div>
+</header><!-- #masthead -->
+<div class="main">
+<div class="modal" id="newsletter-modal">
+<div class="modal__content text-white">
+<div class="close__icon hide-modal" data-id="newsletter-modal">X</div>
+<div class="modal__body newsletter">
+<div class="left-side">
+<div class="h1">
+<em>Enter your email for our Free Daily Newsletter</em>
+</div>
+<p> A quick 3min read about today's crypto news!</p>
+<form id="newsletter-form">
+<div class="input-group">
+<div><input id="newsletter_email" name="email" placeholder="Email" required="" type="email"/></div>
+<div>
+<button id="newsletter-signup" type="submit">Sign Up</button>
+</div>
+</div>
+</form>
+<span class="response-msg" id="newsletter-response"></span>
+<div class="recaptcha-text">
+        This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+    </div>
+</div>
+<div class="img-box">
+<img alt="Image" class="img" data-lazy-src="https://cimg.co/p/ml-300.jpeg" id="newsletter-popup-img" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"/><noscript><img alt="Image" class="img" id="newsletter-popup-img" src="https://cimg.co/p/ml-300.jpeg"/></noscript>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="breadcrumbs mb-20">
+<a href="/">Cryptonews</a>
+<a href="https://cryptonews.com/exclusives/">
+                    Exclusives                </a>
+<a href="https://cryptonews.com/exclusives/oliver-linch-ceo-of-bittrex-global-developing-regulatory-framework-for-digital-asset-economy-ep-275.htm">Oliver Linch, CEO of Bittrex Global, on Developing Regulatory Framework for A Digital Asset Economy | Ep. 275</a> </div>
+</div>
+</div>
+<div class="row">
+<main class="col-12 col-lg-8">
+<div class="row">
+<div class="col-12 col-md-3 d-none d-md-block">
+</div>
+<div class="col-12 col-md-9 mb-40">
+<div class="row mb-20">
+<div class="col-6">
+<div class="fs-12">
+<time datetime="2023-10-20T16:10:00+00:00">
+                20 October 2023 12:10 EDT            </time>
+                             . 36 min read
+                    </div>
+</div>
+<div class="col-6 text-right">
+<div class="socials socials--medium d-flex d-md-block">
+<a class="ssk ssk-facebook" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.854 4.155H7.072V2.97c.131-1.119 1.981-.907 1.981-.907V.138H9.05C8.986.123 5.37-.735 4.653 2.017l-.001.002-.006.018c-.113.345-.105 1.92-.103 2.118H3v2.107h1.64v5.732h2.388V6.262h1.827l.205-2.107h-.205z" fill="#CCC"></path>
+</svg>
+</a>
+<a class="ssk ssk-twitter" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.771 3.429c.156 3.462-2.427 7.323-6.997 7.323-1.39 0-2.685-.407-3.774-1.107 1.306.155 2.609-.208 3.645-1.019-1.078-.019-1.987-.73-2.3-1.71.385.074.765.053 1.111-.042C1.272 6.637.454 5.57.482 4.43c.332.184.71.295 1.115.308C.5 4.005.19 2.557.835 1.45 2.05 2.94 3.863 3.92 5.91 4.022 5.55 2.482 6.718 1 8.308 1c.708 0 1.347.298 1.797.778.56-.112 1.087-.316 1.564-.599-.185.575-.576 1.059-1.083 1.363.498-.06.972-.192 1.413-.388-.33.494-.746.928-1.228 1.275" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="ssk ssk-linkedin" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.9939 12h-2.464V7.8c0-1.151-.438-1.794-1.349-1.794-.991 0-1.508.669-1.508 1.794V12h-2.375V4h2.375v1.078s.714-1.322 2.41-1.322c1.697 0 2.911 1.036 2.911 3.179V12zm-10.53-9.048c-.808 0-1.464-.66-1.464-1.476C-.0001.661.6559 0 1.4639 0c.809 0 1.465.661 1.465 1.476 0 .816-.656 1.476-1.465 1.476zM.2379 12h2.477V4H.2379v8z" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="ssk ssk-telegram" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M.558 5.152L11.196 1.05c.495-.178.925.12.765.868l.001-.001-1.81 8.532c-.134.605-.495.752-.998.467L6.395 8.883l-1.33 1.282c-.147.147-.272.27-.556.27l.196-2.805 5.111-4.62c.223-.194-.05-.305-.343-.11L3.156 6.879l-2.723-.85c-.59-.188-.603-.591.126-.876" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="ssk ssk-email" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 2.727v6.854c0 .373.273.675.649.675h10.696c.376 0 .649-.306.649-.675V2.727c0-.409-.244-.727-.65-.727H.65C.23 2 0 2.326 0 2.727m.988.597c0-.165.099-.26.259-.26.099 0 3.986 2.463 4.22 2.607l.609.38c.193-.13.387-.24.587-.375.408-.26 4.038-2.612 4.138-2.612.16 0 .26.095.26.26 0 .174-.337.348-.557.482-1.378.841-2.756 1.757-4.122 2.628-.08.054-.233.17-.35.151-.128-.019-4.083-2.56-4.802-2.983-.108-.064-.242-.123-.242-.278" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+<div class="article-single__content category_contents_details">
+<h1 class="mb-40">
+                            Oliver Linch, CEO of Bittrex Global, on Developing Regulatory Framework for A Digital Asset Economy | Ep. 275                        </h1>
+<div class="sub-header-disclaimer">Disclosure: Crypto is a high-risk asset class. This article is provided for informational purposes and does not constitute investment advice. By using this website, you agree to our terms and conditions. We may utilise affiliate links within our content, and receive commission.</div>
+<figure class="image"><img alt="" class="content-img" data-lazy-src="https://cimg.co/news/126682/334517/oliver-linch-thumb.jpg" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%200'%3E%3C/svg%3E" width="1280"/><noscript><img alt="" class="content-img" decoding="async" src="https://cimg.co/news/126682/334517/oliver-linch-thumb.jpg" width="1280"/></noscript></figure><p>In an exclusive interview with cryptonews.com, Oliver Linch, CEO of Bittrex Global, talks about developing the regulatory framework for a digital asset economy and the importance of security, regulation, and innovation to empower + grow the crypto economy.</p><h2>About Oliver Linch</h2><span class="replacer"></span><p>Oliver Linch is CEO of Bittrex Global, one of the world’s most secure digital asset exchanges. Oliver has over a decade of experience as a financial regulatory lawyer, having advised major investment banks, exchanges, and leading financial institutions on regulatory matters across the EEA, UK and US. During his tenure with a leading global law firm, Oliver specialised in various areas of financial regulatory advisory work, with particular expertise in advising exchanges, clearing houses and other financial market infrastructure companies, as well as payment service providers. Oliver’s extensive legislative and regulatory drafting experience includes advising special economic zones around the world on devising and drafting new regulatory regime, particularly focusing on financial regulation and fintech. </p><p>Oliver Linch gave a wide-ranging exclusive interview, which you can see below, and we are happy for you to use it for publication, provided there is a credit to www.cryptonews.com. </p><div class="rll-youtube-player" data-alt="Oliver Linch, CEO of Bittrex Global, on Developing Regulatory Framework for A Digital Asset Economy" data-id="4xfO6n__9qw" data-query="feature=oembed" data-src="https://www.youtube.com/embed/4xfO6n__9qw"></div><noscript><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="360" src="https://www.youtube.com/embed/4xfO6n__9qw?feature=oembed" title="Oliver Linch, CEO of Bittrex Global, on Developing Regulatory Framework for A Digital Asset Economy" width="640"></iframe></noscript><h2>Highlights Of The Interview</h2><span class="replacer"></span><ul><li>Developing the regulatory framework for a digital asset economy</li><li>Dubai, Singapore, Hong Kong moving the needle for crypto regulation</li><li>Security – paramount to win back people’s trust</li><li>Innovation – crypto needs reg. framework for proper innovation growth</li><li>Regulation – once reg. framework is in place, the floodgates will open</li></ul><figure class="image image-style-align-left"><a href="https://open.spotify.com/episode/09O8yN7DicTbbVyz3rAjbC"><img alt="" class="content-img" data-lazy-src="https://cimg.co/news/126682/334519/spotify.jpg" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20103%200'%3E%3C/svg%3E" width="103"/><noscript><img alt="" class="content-img" decoding="async" src="https://cimg.co/news/126682/334519/spotify.jpg" width="103"/></noscript></a></figure><figure class="image image-style-align-left"><a href="https://podcasts.apple.com/ca/podcast/275-oliver-linch-ceo-of-bittrex-global-on-developing/id1559291408?i=1000631837148"><img alt="" class="content-img" data-lazy-src="https://cimg.co/news/126682/334520/apple-1.jpg" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20103%200'%3E%3C/svg%3E" width="103"/><noscript><img alt="" class="content-img" decoding="async" src="https://cimg.co/news/126682/334520/apple-1.jpg" width="103"/></noscript></a></figure><figure class="image image-style-align-left"><a href="https://www.buzzsprout.com/1735660/13785279-275-oliver-linch-ceo-of-bittrex-global-on-developing-regulatory-framework-for-a-digital-asset-economy"><img alt="" class="content-img" data-lazy-src="https://cimg.co/news/126682/334521/all-podcast-players-1.jpg" decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20103%200'%3E%3C/svg%3E" width="103"/><noscript><img alt="" class="content-img" decoding="async" src="https://cimg.co/news/126682/334521/all-podcast-players-1.jpg" width="103"/></noscript></a></figure><p> </p><p> </p><p> </p><h2>Full Transcript Of The Interview</h2><span class="replacer"></span><p><strong>Matt Zahab</strong> <br/>Ladies and gentlemen, welcome back to the Cryptonews Podcast. It’s your host, Matt Zahab. We’re buzzing as always, and I am super pumped to have today’s guest on the show, the one and only Oliver Linch, CEO of Bittrex Global, coming in hot from Bermuda. Wow, that must suck. Oliver is head of CEO at Bittrex Global, one of the world’s most secure digital asset exchanges. He also has over a decade of experience as a financial regulatory lawyer, having advised major investment banks, exchanges, and leading financial institutions on regulatory matters across the EEA, UK, and US. During his tenure with a leading global law firm, he specialized in various areas of financial regulatory advisory work, with particular expertise in advising exchanges, clearinghouses, and other financial market infrastructure companies. Super pumped to have this lad on. Ollie, welcome to show my friend. </p><p><strong>Oliver Linch</strong> <br/>A real pleasure to be here. Thanks for having me. </p><p><strong>Matt Zahab</strong> <br/>I’m pumped to have you on. How nice is that, you know, going from UK to the one and only island? How, what’s it like on the island? How freaking sweet is it? </p><p><strong>Oliver Linch</strong> <br/>It’s great. I’m here quite a lot of the time. We’re regulated in Bermuda. We’re also regulated in Liechtenstein. So, I get to spend some of my time in two of the most beautiful countries in the world. But what’s really exciting about being here is we’ve just had Bermuda Tech Week on the island. And there’s a real buzz, a real excitement about digital asset sector in Bermuda. And it’s really showing the way forward and the way that actually the future of crypto can be regulated, heavily regulated. But that can lead to its own level of enthusiasm and excitement. And it’s just an engagement here in Bermuda for digital assets for crypto in general, that I don’t think I’ve seen anywhere else in the world. So, it’s a real pleasure to be here, not just because of the regulatory environment, but because of the business environment too. </p><p><strong>Matt Zahab</strong> <br/>How would a place like Bermuda differ from, say, Dubai or Singapore, which are two spots in the world that are also very open to digital assets and crypto? What’s the vibe like? I know that’s a tough question coming from you on my end, but if you could sort of depict not so much the Kwan, but more the Kual, like how it feels being there, what are the main differences? I’m sure you’ve been to both those spots as well. </p><p><strong>Oliver Linch</strong> <br/>I have. I’ve been lucky to do a lot of work in those spots as well. I think the difference here is Bermuda was such an early adopter, the Digital Assets and Business Act, which is still in many ways the world’s leading light on how to do crypto regulation properly. That was adopted here in 2018. In crypto years, that’s about 50 years ago, right? So there’s just a real sense here of not resting on their laurels, building something up, but it’s difficult really to compare it to Dubai or to compare it to Singapore because we’re an island here of 55,000, 60,000 people. They’re not trying to compete as a hub in the way that Dubai might be or Singapore might be. What they’re trying to do is show that actually what you need to make crypto a success is a proper fit for purpose bespoke regulation that has been carefully designed with crypto first and crypto in mind, coupled with a regulator that has real world experience and knows how to actually supervise and monitor financial services firms. I don’t mean crypto firms, I mean financial services firms. In Bermuda here, the BMA has that experience when it comes to insurance. Lichtenstein again, the regulator there, the FMA, had that experience in that case in the case of private wealth and banking. It’s really that synergy, those two things working together. You can write whatever pretty words you want on a page. Anyone can do that. Anyone can copy and paste. What they’re doing here in Bermuda and what they’re really showing is how that can come to life and how that can be actually, of course, be good and respected around the world. </p><p><strong>Matt Zahab</strong> <br/>Yeah, well said. I mean, I’m all for these smaller islands, really making moves. And again, just like you spoke about two minutes ago, it’s such a large asset class, not even just financial, but in the whole world economy. It’s so important. We’re becoming more and more digital every day, and we really need some solid and legit regulatory framework. But before we get into a bunch of that stuff, I’d love to learn a little bit more about you the star, the show. Tell me about your career. Let’s even go a little bit before that childhood. Where did you grow up? What did you fancy? Sounds like you got that beautiful British accent with football team you support. Tell me a little bit about you, and then we’ll get into Bittrex Global, your career, and a bunch of the regulatory stuff. </p><p><strong>Oliver Linch</strong> <br/>Sure. I’m very boring because I’m a lawyer and lawyers are by definition just a little bit dull. Now, I’m kidding, but I am a lawyer. I grew up in London. I spent my whole life there. I’d like to say that when I was a kid, I wanted to be an astronaut or firemen or whatever it is. But I think something in me that always just thought I’d probably, I don’t remember when I was a kid, but at some point I’d be joined to the law. And the reason for that is I realized very early on that law has the potential to actually allow people to interact properly. And it allows everything. If I go to an apple coffin trying to buy an apple, I know that what I’m going to get is an apple and not a pear. I know that it’s not going to be poisoned because there’s going to be some kind of food standards. And the vendor knows it’s exactly. And the vendor knows he’s going to get 50 pence from me. And if he doesn’t, and he can sue and he’s got certain actions, those principles allow me to go and buy an apple from an apple cart. Without that, most of the time it would work. But when it doesn’t work, then we’re all at sea. And it’s become increasingly apparent to me as I’ve worked more and more in the crypto sector, that without that fundamental, and that’s the same rules that apply to buying an apple from an apple cart to multi-billion dollar transactions. Without that, you just don’t have the confidence to do anything. You don’t have the confidence, you don’t know what the rules of the game are to have any kind of interaction with any kind of person. So that’s kind of what sort of motivated me to get into law. And I spent then a decade plus as a regulatory advisory lawyer, I was fortunate enough to specialize quite early and advise some of the world’s largest banks, traditional exchanges, broker dealers, the whole gamut of regulatory environments in the traditional finance sphere, focusing on financial market infrastructure. So exchanges, clearing houses, data repositories, that was kind of my niche. And then I guess about, I don’t know, in the last five years or so of that, I started working more and more in the Middle East. I was involved in some of the mega projects out there, including in Saudi Arabia with the Neon Project and those were very tech focused. They were very tech focused and they wanted to be like, and still want to be very futuristic, bin tech driven. And so you sort of get, you get traditional exchanges plus tech, mash them together, you sort of get crypto. And so here I am. And I joined Bittrex Global, actually originally as general counsel in 2021, and then got to bump up to the CEO chair last year. So I’ve been doing both of those since then. </p><p><strong>Matt Zahab</strong> <br/>What got you on about crypto Oliver? Like again, you, I assume, one should never assume, but here I am assuming, but I assume you were making a pretty penny and had a very cushy job. Again, there’s not many financial regulatory, world-class lawyers in the world, people like you definitely do not grow on trees. And moving to the crypto sector was definitely a massive, massive risk. Why the jump? Why did you do it? What, what tickled your fancy? What made you move to the crypto sphere? </p><p><strong>Oliver Linch</strong> <br/>I think it was a combination of things, but at Root is the opportunity to be involved in, I think, the biggest conversation that has been had and will be had for generations to come. I think blockchain technology is genuine. Everything is described as disruptive these days. I mean, I got out of bed this morning and I stubbed my toe and I was disruptive. Everything is important and everything is meaningful, but I think blockchain technology is genuinely disruptive and meaningful and we’re only beginning to scratch the surface of it. I think the opportunity to be in, if not quite at the ground level, then pretty damn close to the ground level is something that really appealed to me. I wanted to be part of building something and be part of shaping something. I think the two years that I’ve been involved, we’ve seen a dramatic change in the ethos of the sector as a whole. We’ve seen regulators be that the EU with MECA, the UK with its consultation paper that came out earlier this year, Dubai you mentioned earlier, Singapore, Hong Kong. We’ve seen jurisdictions around the world realize that actually this stuff is important and it’s not going anywhere and they’ve got to get a grip on it. Being part of helping shape that is really important. That regulatory side of it is really important to me personally because if you don’t create a path for good actors to behave well and to show people how crypto can actually be used for good and to create opportunities for people that don’t otherwise exist, you don’t create that good path. All you really do is clear the way for bad actors to behave badly. For me, that’s the power of what regulation can do and should be doing. Ultimately, it’s important to remember these regulations and these frameworks aren’t here to make geeky lawyers like me feel good about ourselves. Although I do, they’re there to protect people. They’re there to protect the most vulnerable and those people that we’ve spent decades in the traditional finance sector designing a patchwork of protections around. To my mind, there’s no reason that those same protections, the same principles, should suddenly not be important or should fly out the window just because you put the word digital at the front of it. I think the opportunity is really here to create both the characteristics for these jurisdictions. The characteristics, people want to get involved in this stuff. They want to participate. They want to innovate. There’s some incredibly exciting opportunities that crypto affords people that the traditional finance simply either can’t or won’t. If they can capture a bit of that, and that’s what, say my native UK, when they talk about becoming a crypto hub, that’s what they mean. They want to capture a piece of that and say, yeah, we want to foster that innovation, promote that entrepreneurialism. That’s a great carrot. The stick is, if you get it wrong, there could be a scandal. There are jurisdictions that are highly motivated by the possibility of a scandal, are scared of that possibility, but actually are quickly realizing that the best way to handle that is not to stick your head in the sand and pretend the whole thing doesn’t exist, but rather to create a framework for it being done properly. The absence of rules is not a solution. It’s a cop-out. </p><p><strong>Matt Zahab</strong> <br/>How does someone like me who has zero regulatory framework experience and obviously is not a member of the bar, a member of the law, how do we even go about thinking what types of framework rules and regulations need to be implemented in order for crypto to actually be legit? And I love the analogy used earlier. You know, well, I’m paraphrasing, but life’s a big game, right? We’re all in one arena. If you don’t know the rules, you can’t win. If you don’t know the rules, it’s almost zero sum. You’re automatically losing. As an industry, how do we set legit rules that actually have positive emphasis on all players of the game and let everyone have an equal share at potentially winning for a lack of better words? Like what needs to be done? And I understand this is very tough and nuanced question. And I apologize in advance for throwing this at you, but and I’ve asked this many times and it’s tough to get a really, really good answer. If you were, let’s say, head of, you know, global crypto for the whole world, obviously, that’s not a thing. But if you had that power, what would you do in order to make legit rules so people can participate and have a chance at winning? </p><p><strong>Oliver Linch</strong> <br/>So I think at the end, you came really close to where my answer is, right? Which is, the real question is, how does the average person in old fashioned English law, we call them the man on the clapper mom, the bus, the guy just going about his business, right? How does he know that he’s protected and can engage in crypto in a positive and secure way? And the answer is, or the answer ought to be, because we’ve created minimum standards around the world that mean that he can enter into any transaction under the legitimate jurisdiction with the same confidence. So let me give you an example. If you want to go and buy shares, you might understand what shares are, you might know what you want to achieve, and you might even have a good idea of what companies it is you want to invest in. But you basically know that if you need to go and buy those shares in New York, or London, or Tokyo, or Amsterdam, or Australia, wherever it is, the rules are basically the same. Sure, there are local variations and there are slightly different ways of doing things, and there are maybe slightly different processes. But at core, you’re going to get the same level of protection, you’re going to have the same rules about transparency, you’re going to have the same rules about, you know, if they’re cooling off periods, you’re going to have the same rules about insider trading. It doesn’t really matter to you as an individual where it is you end up. And that’s because we have international sammlet setters, in the case of exchanges, that CPSS IOSCO, setting out the principles for financial market infrastructure that essentially you know, so long as you’re playing in a legitimate jurisdiction, you’re going to get the same general level of protection. We don’t have that in crypto yet, and we need it. And I think we’re getting there, but far too slowly. That doesn’t require a, what was it you called it, global world head of crypto, which all sounds a bit James Bond villain to me, but it does require a level of coordination to eliminate old -fashioned regulatory arbitrage. It shouldn’t be a feature of doing crypto any more than it’s a feature of transaction on traditional exchanges. So that’s what we need. And we’re getting there. Right? And the way we’re getting there, look, I mean, you just had the EU adopting MECA, that’s the largest legal jurisdiction in the world to have adopted a comprehensive regulatory framework. It can be done. It is being done. You know, the G8 is looking at it, G20 is looking at it, IOSCO themselves are looking at it. And I’m impatient. And it’s important to remember, like, it took decades to get to that stage in judicial finance. And we’re talking about doing that same thing in, you know, minutes, hours, years, maybe, in crypto. So we are impatient, but I’m impatient because I, you know, I see every day the opportunities that are there and the success stories that people want to be participating in. But yeah, we need to make sure that those protections are there and that people can do it against that backdrop. </p><p><strong>Matt Zahab</strong> <br/>Incredibly well said there. Is there it seems like an obvious question? And perhaps I’m incredibly wrong here. But is there one country, ie the USA that could potentially actually adopt proper crypto framework rules and regulations that would be that domino effect for the rest of the world to join in? Because again, it seems like you have the device that Bermuda, the Singapore’s, the Hong Kong’s that have been proactive and actually want to move the needle and make this shit happen. But, you know, without the UK’s and the United States of America’s, I mean, my country, Canada, where Joe come running and throw us in that ring. But you know, the big dogs, if they actually implement framework, will that be the catalyst and will that be the domino that sort of kicks off the parade? </p><p><strong>Oliver Linch</strong> <br/>I don’t know, and I’m not going to pretend that there is one catalyst that will solve the whole thing. I think the UK and the US are two really good examples at the moment. The UK is sending out somewhat mixed messages. The government is sending out these, you know, we want to be a crypto hub and we know the prime minister when he was trying to do at least with very pro crypto, we want to be a hub, we want to attract investment, some very high profile investment announcements earlier this year with A16Z and all that kind of stuff on the one hand. And then on the other hand, the new rules on financial promotions which came in last week are extremely difficult to comply with them. And we certainly have to put a lot of time and resources and effort into ensuring that we comply with them, even when they contradicted themselves and were very quite difficult to follow. And I think it’s really easy to forget that these things do need to be thought through very carefully and that solutions are not straightforward. But it just goes to show how it can be done. The US is a different problem altogether. Because the US, I don’t think there’s anyone now that doubts that the US regulatory environment is so impossible to navigate as to effectively make business impossible. Like, you know, when I said earlier, if you don’t create a good path for good people to act, that’s what’s lacking. And Bittrex US, which is separate from Bittrex Global, but previously existed in the US and served US customers, they just looked at it and said, well, look, we just don’t know what to do here. We spent a lot of money on expensive lawyers and we simply don’t know how it is possible to comply. So we’re just going to get out of the US. And they’re not the only ones And it’s really sad. And it’s tempting. You know, I used to say, the great joy of being CEO of Bittrex Global is I don’t just worry about the US. I need to worry about the SEC. But that’s not true. That’s always naive, right? Because the US is still the single largest economy in the world. It’s still the place for entrepreneurialism, for innovation. You’ve got the best universities. You’ve got the infrastructure. And if the future of crypto is just part of the wider financial services sector, which is why I think it’s going, then to think you can do that without the US is I’m afraid it’s naive. You can’t just pull down the shutters and pretend the US doesn’t exist. It’s too important for that. So we do need some movement in the US. It looks like, you know, maybe we’re going to get some in the coming months or years. Who knows? But at the moment, the chaos, the confusion is just impossible. </p><p><strong>Matt Zahab</strong> <br/>Yeah, it’s truly banana land’s there. It’s a pure bread shit show. And again, it’s unfortunate because a lot of us, myself included, are like, oh, there’s a little bit of light at the end of the tunnel. And now it’s like, oh, sweet. Now we have two wars on our hand, potentially World War III. We have one of the most bleak and terrible economical outlooks that we’ve had probably since 2008. And of course, we have an election next year. I mean, I often say we even though I’m not American, it’s just as a Canadian, you’re technically a byproduct of America. So even though you’re Canadian, you’re technically American. </p><p><strong>Oliver Linch</strong> <br/>I think the king disagrees, but I’m not so sure. </p><p><strong>Matt Zahab</strong> <br/>I love that. But look, Oli, we got to take a quick break and give a huge shout out to our sponsor, the show. And when we get back, we are going to get into everything Bittrex global related, a little bit of history, the awesome win by you guys with SEC. And like Oli spoke about as well, Bittrex USA, which is now, I guess, no longer a part of Bittrex global. Well, it is, but it isn’t. We’ll get into that in one second. Before then, huge shout out to PrimeXBT, longtime friends of cryptonews.com and longtime sponsors of the Cryptonews Podcast. We love these guys as they offer a robust trading system for beginners and professional traders. It doesn’t matter if you’re a rookie or a vet, you can easily design and customize your layouts and widgets to best fit your trading style. PrimeXBT is also running an exclusive promotion for listeners of the Cryptonews Podcast. Use the promo code, <strong>CRYPTONEWS50</strong>. That’s CRYPTONEWS50. All one word to receive 50% of your deposit, credited to your trading account. Again, that is CRYPTONEWS50. All one word to receive 50% of your deposit. Credited to your trading account. And now back to the show with Oliver. Let’s get into Bittrex. Star the show here. Bittrex global, excuse me, not just Bittrex. You got to walk me through and walk our listeners through the SEC lawsuit. What exactly happened there? The split of, you know, Bittrex as a whole and then Bittrex global, Bittrex USA. It seems like many crypto exchanges have unfortunately followed, well, I guess, fortunately is rather the correct word, the same suit. And again, this is just cherry on the cake, fortifying your point from about two minutes ago. America has no clue what they’re doing when it comes to crypto regulation. And if you have an exchange there, you either pretty much only operate there or you operate for every other country in the world. It’s absolute bananas. The floor is yours. Tell us what happened. And I guess start with a little bit of history of Bittrex because you guys are indeed one of the longest and, you know, in most secure exchanges on the planet as well. </p><p><strong>Oliver Linch</strong> <br/>So I think the history helps. So Bittrex was set up in the US, established in 2013, 2014, and serviced US customers. And then as the global footprint got bigger, in 2018, 2019, they decided to set up an entirely separate company, which became Bittrex Global. And so Bittrex US was never part of Bittrex Global. Bittrex Global was never part of the US. They were entirely separate companies, still are entirely separate companies, different boards, different staff, just sharing the name Bittrex. Now, here’s what was the case. And in Bittrex US, earlier this year, decided that it could no longer continue to operate in the US. And so it shut down and it’s going through its mind down process at the moment. Bittrex Global, which only serves rest of world customers, doesn’t allow any US customers onto its platform, doesn’t offer its services into the US, and has always operated in that way, continues to operate unaffected by the shutdown of Bittrex US. The SEC case, they came and they said that both Bittrex US and Bittrex Global were operating as an unregistered exchange in the US. Now, from my perspective, we’ve settled that suit with the SEC on a neither admit nor deny basis. So we’ve neither admitted nor denied the charges. We’ve decided to draw a line under it and move on. We’re doing one of these that we do best, which is serving our customers. And we were pleased to have been able to just draw a line and move on. And others have not been so lucky, have not been able to do that so far, and are still subject to the confusion that we were talking about a few minutes ago. </p><p><strong>Matt Zahab</strong> <br/>Yeah, the couple year’s down the road if the USA gets their ducks in the row. Is there a way back in? Like, could it happen? Will it happen? Or is it is it so far gone that it’s like, eh, c’est la vie, we’re going to move on. </p><p><strong>Oliver Linch</strong> <br/>I don’t know. I mean, Bittrex Global will never be in the US. That’s for sure. I don’t know whether anyone at Bittrex will still be around and want to get involved. But I think the question is more about the industry as a whole, right? Which is like, what can the US do now to keep those people that haven’t yet fled or reattract those people that have? And I think the answer there is actually quite straightforward. We need clarity. We need rules. We need to know what we’re doing. We need that apple cart. We need to know how to engage because without that, you couldn’t possibly set up a new business in the US without that regulatory clarity. And it’s not like we’re asking them to reinvent the wheel. We know what it looks like. I can go and write it for them if they want. But it’s a political, not a legal problem. They only need to look as far across as Bermuda to have a regulatory framework that works. And if that’s not enough, and I’ve, of course, acknowledged that there’s a big difference between Bermuda with its small population and the US, but its global financial clout. So Bermuda doesn’t work. Look at the EU. The EU managed it with MECA. Nobody has ever accused the EU of being nimble. No one has ever accused the EU of having straightforward political processes, but they managed it. So I’m not naive enough to think that one lawyer shouting into a microphone is going to change anything. But we have to recognize that it’s a political problem, much more than a legal one. When people say it’s too difficult or there’s, you know, we don’t know whether it’s left or right. Like we do. We know what it’s going to look like. We know what it needs to look like. It comes back to what we were talking about with global standard setters. Like this isn’t reinventing the wheel. This is getting it done in the US. And I don’t know enough about the US political process to know who needs to crack, who’s heads together. But they better get on to it quickly. Otherwise, the US is really going to suffer. And ultimately, you know, the important thing to note here is that it’s the US citizens to suffer. And they’re being failed twice. They’re being failed twice. They’re being failed the first time because they’re not going to be allowed access and not going to have access to all of those opportunities that DLT, blockchain technology and crypto is affording people around the world. So they’re being failed on that level. And they’re being failed because they’re also not going to be getting the protections that a proper regulatory regime can afford them. And exactly those people that are most in need of a regulatory framework are being left hung out to dry by the complete refusal to engage in a proper regulatory framework. So, you know, it’s sad for the industry, but it’s even more sad for those people that are most in need of actual action. </p><p><strong>Matt Zahab</strong> <br/>Well said. A little off topic here, Ali, but one thing that I want to say partly gets my blood boiling, but partly just literally makes me laugh out loud is all of the political members in the States who do insider trading. I’m sure you’ve seen the Nancy Pelosi stock trader on Twitter. She’s up like what, 150% in the last year. Last week you had multiple governors, multiple people in politics who bought army and war stocks before Saturday. And for the listeners, this episode is going to air on Thursday, the 20th of October, I believe, but last week you had Palestine and Israel and you’ve had senders and legitimate political people in the States buying, like how the hell does this keep happening? Like, what do you think about that? To me, I think it’s just, it’s laughable on all ends. I’m a bit jealous as well, because I’d love to make some cake on that, but what’s your two cents in that regard? </p><p><strong>Oliver Linch</strong> <br/>Well, I don’t know enough about the US political system or about the specifics of what’s going on there, but I think the principle is really important, which is that whenever you have rules about trading and about transparency, clarity is the most important thing. People need to feel not only are the rules fair, but they’re being applied in a fair way. I don’t know whether X, Y, or Z person or I should say Z person has done it, whatever it is they’re accused of having done. But I think the lesson that we can learn across the financial services sector is people get really annoyed about this stuff. It really creates this them and us mentality. And it’s not just politicians. There’s a sense that, and this is something that the crypto can really help with, the sense that if you’re rich, you play by different rules. And actually the financial services sector is designed like that. There’s a whole suite of products in the traditional finance sphere where we say to people, sorry, these are complex financial products. You can’t have access to them. You’re too poor or too stupid. You’re not allowed to play here. And no wonder they get annoyed at that. No wonder they think the system is stacked against them. And actually no wonder then they look to crypto and say, well, look, help us out here. How can we get involved? We’re not too stupid. We want some exposure to this kind of stuff. We’re willing to educate ourselves. We’re willing to play by the rules. But we’re just being shut out of the door. We’re not even getting a foot in the door. We’re just being told no. And that’s one of the many opportunities that the crypto is affording people around the world. And that’s before you even come to the issue of people that can’t get bank accounts and don’t have access to traditional banking at all. </p><p><strong>Matt Zahab</strong> <br/>Yeah. Let’s jump into Bittrex Global here. Give myself and listeners a little primer about what you guys are working on and what’s going to pop off for the next couple of years. I know you got a shitload of stuff in the pipeline. Already one of the most established and secure global exchanges on the planet. We’d love to see that. We need more guys like you and more exchanges like Bittrex that actually take care of customers and not the FTXs and the other scumbags that are in the space. But give us a quick primer on what exactly you guys are doing right now and what you have planned over the next couple of years. </p><p><strong>Oliver Linch</strong> <br/>Sure. Obviously, at the moment, we’re suffering through this bear market. So when I say it’s an exciting time, it kind of sounds weird, but it’s true that it’s an exciting time. And it’s exciting because I think the scandals of last year have bossed people back to basics. People have realized that actually the Bittrex global approach, which has always been focused on our core products, focused on our principles of security, innovation and regulation, and provide to people a straightforward but incredibly robust spot exchange is actually now seen as a breath of fresh air to people. And it’s all of the additional bells and whistles and complications and bright neon lights and headline grabbing that we’d never engaged in. That seems to have got a lot of people into a lot of trouble. And actually, even down to things like, look at the structure charts coming out of the FTX hearings, and obviously, the trial of Sandbank Mifru is coming on now. Yeah, I spent my time as a regulatory lawyer. I’ve seen some pretty damn complicated charts in my time for entirely legitimate reasons. I’m not going to say, wow, it’s not just one company. They must have been not something nefarious. I’m not an idiot. But even I and my close friends and people I’ve worked with for a long time looked at them when, poof, we can’t make heads or tails of this. How was anyone supposed to know who it was they were trying to act with? When FTX said they were regulated, you weren’t actually facing that regulated entity. You were like the services being provided from God only knows where. Actually, Bittrex Global, if you’re a customer of Bittrex Global Bermuda Limited, you go on the website and it says you’re a customer of Bittrex Global Bermuda Limited. And then you go on the BMA’s register of authorized regulated companies it’s Bittrex Global Bermuda Limited. And it’s so stupid that I have to say that. I’m saying something novel or exciting. That’s how it should be. But there are people receiving services and they just don’t know where they’re getting them from. They don’t know how they’re getting them. And so what we’re focused on is, as I say, our three principles, security, innovation, and regulation. Security is at the heart of everything that we do. Our founders are security engineers. By background, the entire premise of Bittrex was they wanted to get involved in crypto, looked at what was out there from a security perspective and realized it all sucked. And they could either lose all their money on other exchanges or they could write their own. So they decided to write their own. And the foundation method the company, I say method, it almost certainly didn’t happen like this. But apparently over the course of the weekend, they sat down in one of their basements and wrote the code that became Bittrex. Like, okay, maybe it was a couple of weeks, but it’s a good story, right? And in the wake of the scandals from last year, people are suddenly massively animated by that as well as they should be. Innovation, similarly, are we going to go for the headline grabbing, but ultimately empty promises? No, absolutely not. What are we going to do? What are we going to work with in our regular issue frameworks, engage deeply with our customers on what it is they want to see, what features they want, how to make the platform work for them, and provide them that. And I think there’s people that try and say that there’s a trade-off between regulation and innovation. I don’t buy that at all. I don’t agree with that at all. I think regulation provides you the framework within which to innovate. </p><p><strong>Matt Zahab</strong> <br/>You need to know the rules. You can’t know the rules. You can’t win. Like it’s as simple as that. </p><p><strong>Oliver Linch</strong> <br/>I think that’s right. And it gives you a framework and it says, right, here is some space in which you can innovate, go out and do it. And then finally, of course, regulation, working in conjunction with the other two, that’s how we run people’s trust back. There’s a complete lack of trust at the moment. There’s a complete antipathy, I think, towards a lot of crypto, especially in the retail space. The institutions are different. Institutions, I think, is still really interested and still really engaging in crypto. But at the retail level, we need to win people’s trust back. And we’re not going to do that by being showy and having more culture personality and SBF like nonsense. We’re going to do that by being deliberate, concise, conservative, calm. And dare I say it, just a little bit boring. </p><p><strong>Matt Zahab</strong> <br/>Yeah, no, very well said. Oliver this has been an absolute treat. One more thing on Bittrex here. Next couple of years, what do you guys have popping off? Anything for us, people on the outside to look forward to? </p><p><strong>Oliver Linch</strong> <br/>There’s an awful lot on the pipeline right now. They say during bear markets you should build. And so we’ve been building away. We’ve got a lot of interesting features coming up, some product lines coming up. You’ll have to watch this phase. </p><p><strong>Matt Zahab</strong> <br/>I love it. Sounds good. Quick little segment in the hot take factory and then we’ll wrap up. I feel like you’ve got a bunch of spicy ones, which I can’t wait to hear. It doesn’t have to be crypto, blockchain, regulation related, can be health, wealth, happiness, AI, space, politics, war, you name it. But any Oli hot takes before we let you go. </p><p><strong>Oliver Linch</strong> <br/>Hot takes I mean, the one I’m going to come back to is always do your own research. The joy of crypto, the joy of this space is the unlike traditional finance. With enough time and effort, you can actually find out what’s going on. I’ve spoken to some of the most sophisticated derivatives traders that the city has to offer. And at heart, they can’t always really explain what of this they’re trading. That’s not true of crypto. The information is out there. It can be done. And that’s how you gain confidence in what you’re doing. So you can never read enough, you can never learn enough. And if that has to be in a sweet little phrase of do your own research, then so be it. </p><p><strong>Matt Zahab</strong> <br/>I love that. Just added that to the show notes. DYOR folks, one of the, probably one of the best and most underrated term in all of crypto. Oliver, what an episode. Thank you so much for coming on. Truly appreciate it and knee jump for round two as we barely scratched the surface here. Before we let you go, can you please let our listeners know where they can find you and Bittrex Global online and on socials. </p><p><strong>Oliver Linch</strong> <br/>Absolutely. So our website is bittrexglobal.com. Our Twitter handle is @BittrexGlobal, unless you’re in the UK, because of those new UK rules that come in, where you have to go to @BittrexGlobalUk, and you can find me @OliverLinch. Hey, it’s important. You don’t mess around with these things. </p><p><strong>Matt Zahab</strong> <br/>I know. No, it is. </p><p><strong>Oliver Linch</strong> <br/>And you can find me @OliverLinch, both on LinkedIn and on Twitter. </p><p><strong>Matt Zahab</strong> <br/>Hey, when are you coming to my homeland? When are you guys gonna open up shop in Canada? Or you’re like, nah, we don’t want that. </p><p><strong>Oliver Linch</strong> <br/>You know, we have a good partnership with a firm in Canada. And, you know, you guys are doing some interesting things out there. There’s actually a Canadian association in Bermuda that are working lobbying on how to make some waves in Canada too. So, you know, maybe next time we have this conversation, I’ll be able to put you guys up there with the EU and Dubai and Singapore and those jurisdictions that are really pushing to make grips or a thing. And, you know, I’m not kidding on that. You know, there’s going to be jurisdictions around the world saying, how do we get in on the action? </p><p><strong>Matt Zahab</strong> <br/>I love that. I mean, very unlikely for my country, but c’est la vie. Oli what an episode. Thanks again, man. Truly appreciate it. </p><p><strong>Oliver Linch</strong> <br/>Thanks, Matt. Really appreciate it, sir. </p><p><strong>Matt Zahab</strong> <br/>Folks, what an episode with Oliver Linch, CEO of Bittrex Global. He was dropping knowledge bombs left, right and center. Anything regulatory framework related security, innovation, regulation. He talked about it, learned a ton. Guys, I hope you enjoyed this one. I certainly did. If you did, please do subscribe. It would mean the world to my team and I. Speaking to the team, love you guys so much. Thank you for everything. Justas my amazing sound editor. You are the GOAT and you know it. I love you. Back to the listeners. Love you guys. Thank you for always as listening. Keep on staying healthy, wealthy and happy and keep on growing those bags. Bye for now and we’ll talk soon. </p>
+<div class="newsletter home-newsletter single">
+<div class="left-side">
+<div class="h1">
+<em>Enter your email for our Free Daily Newsletter</em>
+</div>
+<p> A quick 3min read about today's crypto news!</p>
+<form id="newsletter-home">
+<div class="input-group">
+<div><input id="newsletter_email" name="email" placeholder="Email" required="" type="email"/></div>
+<div>
+<button id="newsletter-signup" type="submit">Sign Up</button>
+</div>
+</div>
+</form>
+<span class="response-msg" id="newsletter-response"></span>
+<div class="recaptcha-text">
+        This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+    </div>
+</div>
+<div class="img-box">
+<img alt="Image" class="img" data-lazy-src="https://cimg.co/p/ml-300.jpeg" id="newsletter-popup-img" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"/><noscript><img alt="Image" class="img" id="newsletter-popup-img" src="https://cimg.co/p/ml-300.jpeg"/></noscript>
+</div>
+</div>
+<div class="mb-15 text-right">
+</div>
+<div class="dslot" did="12"></div>
+</div>
+<div class="mb-5 mt-5">
+<div class="row mb-20">
+<div class="col-6">
+<div class="fs-12">
+<time datetime="2023-10-20T16:10:00+00:00">
+                20 October 2023 12:10 EDT            </time>
+</div>
+</div>
+<div class="col-6 text-right">
+<div class="socials socials--medium d-flex d-md-block">
+<a class="ssk ssk-facebook" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.854 4.155H7.072V2.97c.131-1.119 1.981-.907 1.981-.907V.138H9.05C8.986.123 5.37-.735 4.653 2.017l-.001.002-.006.018c-.113.345-.105 1.92-.103 2.118H3v2.107h1.64v5.732h2.388V6.262h1.827l.205-2.107h-.205z" fill="#CCC"></path>
+</svg>
+</a>
+<a class="ssk ssk-twitter" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.771 3.429c.156 3.462-2.427 7.323-6.997 7.323-1.39 0-2.685-.407-3.774-1.107 1.306.155 2.609-.208 3.645-1.019-1.078-.019-1.987-.73-2.3-1.71.385.074.765.053 1.111-.042C1.272 6.637.454 5.57.482 4.43c.332.184.71.295 1.115.308C.5 4.005.19 2.557.835 1.45 2.05 2.94 3.863 3.92 5.91 4.022 5.55 2.482 6.718 1 8.308 1c.708 0 1.347.298 1.797.778.56-.112 1.087-.316 1.564-.599-.185.575-.576 1.059-1.083 1.363.498-.06.972-.192 1.413-.388-.33.494-.746.928-1.228 1.275" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="ssk ssk-linkedin" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.9939 12h-2.464V7.8c0-1.151-.438-1.794-1.349-1.794-.991 0-1.508.669-1.508 1.794V12h-2.375V4h2.375v1.078s.714-1.322 2.41-1.322c1.697 0 2.911 1.036 2.911 3.179V12zm-10.53-9.048c-.808 0-1.464-.66-1.464-1.476C-.0001.661.6559 0 1.4639 0c.809 0 1.465.661 1.465 1.476 0 .816-.656 1.476-1.465 1.476zM.2379 12h2.477V4H.2379v8z" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="ssk ssk-telegram" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M.558 5.152L11.196 1.05c.495-.178.925.12.765.868l.001-.001-1.81 8.532c-.134.605-.495.752-.998.467L6.395 8.883l-1.33 1.282c-.147.147-.272.27-.556.27l.196-2.805 5.111-4.62c.223-.194-.05-.305-.343-.11L3.156 6.879l-2.723-.85c-.59-.188-.603-.591.126-.876" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="ssk ssk-email" href="#">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 2.727v6.854c0 .373.273.675.649.675h10.696c.376 0 .649-.306.649-.675V2.727c0-.409-.244-.727-.65-.727H.65C.23 2 0 2.326 0 2.727m.988.597c0-.165.099-.26.259-.26.099 0 3.986 2.463 4.22 2.607l.609.38c.193-.13.387-.24.587-.375.408-.26 4.038-2.612 4.138-2.612.16 0 .26.095.26.26 0 .174-.337.348-.557.482-1.378.841-2.756 1.757-4.122 2.628-.08.054-.233.17-.35.151-.128-.019-4.083-2.56-4.802-2.983-.108-.064-.242-.123-.242-.278" fill="#CCC" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div>
+<hr/>
+</div>
+</div>
+</main>
+<div class="col-12 offset-lg-1 col-lg-3">
+<div class="mb-30" id="widget_container" style="min-height: 455px;"></div>
+<div class="dslot d-none d-lg-block mb-40" did="6" style="min-height:540px;"></div>
+<h3 class="mb-20">
+    Recommended</h3>
+<div class="mb-40 col-lg-60">
+<div class="row" id="load_more_target">
+<div class="col-12 col-md-6 col-lg-12 post-140180 post type-post status-publish format-standard has-post-thumbnail hentry category-bitcoin-news category-news editors-arslan-butt" id="post-140180">
+<article class="mb-30">
+<div class="row">
+<div class="col-4 col-md-12">
+<a class="article__image article__image--sm-wider mb-15" href="https://cryptonews.com/news/bitcoin-price-prediction-as-btc-surges-to-18-month-high-is-48000-the-next-stop.htm">
+<div class="img-sized">
+<img alt="Bitcoin Price Prediction as BTC Surges to 18-Month High  – Is $48,000 the Next Stop?" class="lazyload img-fluid" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701960481-7-3.jpg" sizes="300px" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFCQUFNQkFBQUFBQUFBQUFBQUFBQUFCZ01GQndUL3hBQWdFQUFDQVFRREFRRUJBQUFBQUFBQUFBQUJBZ1FBQXdVU0JoRWhZU0l5LzhRQUdnRUFBd0FEQVFBQUFBQUFBQUFBQUFBQUF3UUZBQUVHQXYvRUFDQVJBQUlDQVFRREFRQUFBQUFBQUFBQUFBQUJBZ01SQkFVVElSSVZNVkgvMmdBTUF3RUFBaEVERVFBL0FGTi9pdHlJQ3pEOGltM3V5UlE1OEZWTGF6SFE5c094OXIxWHV5a3pjZFFtVjF1WXQ1OVVJTk9leWhnSnpvdW9YRzVVeGRnaDZOQ2U1MS9wcm1Rb25aSnNoajNBL29pb0YrajhmZ3JPdkh3em1SeCtkTmtPQnRxVFVhYWRiRTNsSFZoK0pTb2NwV2NFanVzVXBTTVdXYTdqY2hHeCtPVldVYkFVU0dsc213c2Eyd1pDOHMxMlUxNVBzb1BzbmkzZEdQUUZKMjZXdVhiQnlyVEZlSWcyNVVjdTQ5SHl1ZnZpcXA0aUx5U2o4RC9KaVkyeUlmS3Y2RktTeXhpcnMvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"/>
+</div>
+</a>
+</div>
+<div class="col-8 col-md-12">
+<div class="article__badge article__badge--sm">
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/bitcoin-news/">  Bitcoin News </a>
+<div class="article__badge-date d-md-inline-block" data-utctime="2023-12-07 20:45:12"></div>
+</div>
+<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/bitcoin-price-prediction-as-btc-surges-to-18-month-high-is-48000-the-next-stop.htm" rel="bookmark">Bitcoin Price Prediction as BTC Surges to 18-Month High  – Is $48,000 the Next Stop?</a></h4> </div>
+</div>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-12 post-140267 post type-post status-publish format-standard has-post-thumbnail hentry category-blockchain-news editors-brian-yue" id="post-140267">
+<article class="mb-30">
+<div class="row">
+<div class="col-4 col-md-12">
+<a class="article__image article__image--sm-wider mb-15" href="https://cryptonews.com/news/sothebys-launches-first-bitcoin-ordinals-based-nft-auction.htm">
+<div class="img-sized">
+<img alt="Sotheby’s Launches First Bitcoin Ordinals-based NFT Auction" class="lazyload img-fluid" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701977757-painting-911804_1280.jpg" sizes="300px" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="/>
+</div>
+</a>
+</div>
+<div class="col-8 col-md-12">
+<div class="article__badge article__badge--sm">
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/blockchain-news/">  Blockchain News </a>
+<div class="article__badge-date d-md-inline-block" data-utctime="2023-12-07 19:40:08"></div>
+</div>
+<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/sothebys-launches-first-bitcoin-ordinals-based-nft-auction.htm" rel="bookmark">Sotheby’s Launches First Bitcoin Ordinals-based NFT Auction</a></h4> </div>
+</div>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-12 post-140264 post type-post status-publish format-standard has-post-thumbnail hentry category-blockchain-news editors-brian-yue" id="post-140264">
+<article class="mb-30">
+<div class="row">
+<div class="col-4 col-md-12">
+<a class="article__image article__image--sm-wider mb-15" href="https://cryptonews.com/news/one-trading-set-to-launch-new-trading-venue.htm">
+<div class="img-sized">
+<img alt="One Trading Set To Launch New Trading Venue" class="lazyload img-fluid" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701977389-cryptocurrency-3085139_1280.jpg" sizes="300px" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzYwIDY3NiI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2MCIgaGVpZ2h0PSI2NzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBY0FDQURBUkVBQWhFQkF4RUIvOFFBSHdBQUFRVUJBUUVCQVFFQUFBQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkFBQWdFREF3SUVBd1VGQkFRQUFBRjlBUUlEQUFRUkJSSWhNVUVHRTFGaEJ5SnhGREtCa2FFSUkwS3h3UlZTMGZBa00ySnlnZ2tLRmhjWUdSb2xKaWNvS1NvME5UWTNPRGs2UTBSRlJrZElTVXBUVkZWV1YxaFpXbU5rWldabmFHbHFjM1IxZG5kNGVYcURoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1SGk0K1RsNXVmbzZlcng4dlAwOWZiMytQbjYvOFFBSHdFQUF3RUJBUUVCQVFFQkFRQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkVBQWdFQ0JBUURCQWNGQkFRQUFRSjNBQUVDQXhFRUJTRXhCaEpCVVFkaGNSTWlNb0VJRkVLUm9iSEJDU016VXZBVlluTFJDaFlrTk9FbDhSY1lHUm9tSnlncEtqVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnb09FaFlhSGlJbUtrcE9VbFphWG1KbWFvcU9rcGFhbnFLbXFzck8wdGJhM3VMbTZ3c1BFeGNiSHlNbkswdFBVMWRiWDJObmE0dVBrNWVibjZPbnE4dlAwOWZiMytQbjYvOW9BREFNQkFBSVJBeEVBUHdENmYwKzllUzhaU2VNMStncDZuNExPS1VUb1JXaHpESlgyTG1vbkxsVnpXbkhubFlyMjkxNXI0cmpwVjNPVmowSytHVk9Oem45SzR2M3o2MTB4M09lZnduU3lYQ1JMa210cm5JbGN6YnpVeEl1MU9hemw3eXNiMDA0dTVOcGtSQTNIdlVRcEtPcHBWcnltck01UVhoZ3ZYd2VjMU43TTE1YnhOSkxsN3RzTTNGWGU1bGJsTkcydFlJOEZtQk5Xa2pHVW16VWhranhoU0tzeWFaNXJyakdHK1lvY2MxeHkzUFZwNm9xcnFFNjlIcWVabW5JaC93RGExei96ME5ITXllU0owSGhxK21tbEFkODF2QnM1cXNVa2YvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"/>
+</div>
+</a>
+</div>
+<div class="col-8 col-md-12">
+<div class="article__badge article__badge--sm">
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/blockchain-news/">  Blockchain News </a>
+<div class="article__badge-date d-md-inline-block" data-utctime="2023-12-07 19:34:02"></div>
+</div>
+<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/one-trading-set-to-launch-new-trading-venue.htm" rel="bookmark">One Trading Set To Launch New Trading Venue</a></h4> </div>
+</div>
+</article>
+</div>
+</div>
+</div>
+<div class="dslot mb-40 d-none d-lg-block" did="7"></div>
+<div class="dslot d-lg-none" did="8"></div>
+<div class="d-none d-lg-block">
+<h3 class="mb-20">
+                    Latest news                </h3>
+<div class="mb-30">
+<div class="col-12 col-md-6 col-lg-12 mb-20" id="post-140180">
+<div class="row">
+<div class="col-4 px-0">
+<a class="article__image article__image--sm-wider" href="https://cryptonews.com/news/bitcoin-price-prediction-as-btc-surges-to-18-month-high-is-48000-the-next-stop.htm">
+<div class="small-image-list img-sized">
+<img alt="Bitcoin Price Prediction as BTC Surges to 18-Month High  – Is $48,000 the Next Stop?" class="lazyload" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701960481-7-3.jpg" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFBQWdNQUFBQUFBQUFBQUFBQUFBQUFCZ2dFQlFmL3hBQWxFQUFCQWdVREJBTUFBQUFBQUFBQUFBQUJBZ01BQkFVR0VRY1NZUWdUSWpFaFFWSC94QUFaQVFBQ0F3RUFBQUFBQUFBQUFBQUFBQUFFQlFJREJnRC94QUFmRVFBQ0FnSURBUUVCQUFBQUFBQUFBQUFCQWdBRUF4RVRGQ0VTRlVILzJnQU1Bd0VBQWhFREVRQS9BRXRvbWt5cWlRZ2ZKTU4rOG9nUDZDeS9mNmVaN1psRFNqbmlKSmVVeWFYZ1pCYzBCcURDU3BiS2dCeEJIYlNFOXRkU2hxV21Ec21GSjIrUWlQZFNWbThnL3NPOU5Md1NKNXRicEczSTl3bnNWdmcrUkhtcjhaOGpSVWE5S003SUlLeTJWWWhXUVZndS9pUmJodXlrTGtITzJFWng5Q09ETWZKM0lXOGk3M2JjMHNpYWRVTWJjeGNsZDNNZ3VCOGg4bVMwTjljdExoU0RnaU5QbUFadEdhVE1BemV3anAxNVZCcndEaHdPWUdlc2hHNVE5WkNOd3hwbFptWitUVjNGbjErd2h6S01iNkV6MmNjYjZFemU5WnBhRnVBR05EUlVFYk0wTkJRdzJaLy8yUT09Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg=="/>
+</div>
+</a>
+</div>
+<div class="col-8">
+<div class="article__badge article__badge--xs">
+<a class="article__badge article__badge--xs" href="https://cryptonews.com/news/bitcoin-news/">  Bitcoin News                </a>
+<div class="article__badge-date" data-utctime="2023-12-07 20:45:12"></div>
+</div>
+<a class="article__title article__title--recommended mb-0" href="https://cryptonews.com/news/bitcoin-price-prediction-as-btc-surges-to-18-month-high-is-48000-the-next-stop.htm">Bitcoin Price Prediction as BTC Surges to 18-Month High  – Is $48,000 the Next Stop?</a> </div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-12 mb-20" id="post-140267">
+<div class="row">
+<div class="col-4 px-0">
+<a class="article__image article__image--sm-wider" href="https://cryptonews.com/news/sothebys-launches-first-bitcoin-ordinals-based-nft-auction.htm">
+<div class="small-image-list img-sized">
+<img alt="Sotheby’s Launches First Bitcoin Ordinals-based NFT Auction" class="lazyload" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701977757-painting-911804_1280.jpg" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFCQUFNQkFBQUFBQUFBQUFBQUFBQUFCZ01GQndUL3hBQWdFQUFDQVFRREFRRUJBQUFBQUFBQUFBQUJBZ1FBQXdVU0JoRWhZU0l5LzhRQUdnRUFBd0FEQVFBQUFBQUFBQUFBQUFBQUF3UUZBQUVHQXYvRUFDQVJBQUlDQVFRREFRQUFBQUFBQUFBQUFBQUJBZ01SQkFVVElSSVZNVkgvMmdBTUF3RUFBaEVERVFBL0FGTi9pdHlJQ3pEOGltM3V5UlE1OEZWTGF6SFE5c094OXIxWHV5a3pjZFFtVjF1WXQ1OVVJTk9leWhnSnpvdW9YRzVVeGRnaDZOQ2U1MS9wcm1Rb25aSnNoajNBL29pb0YrajhmZ3JPdkh3em1SeCtkTmtPQnRxVFVhYWRiRTNsSFZoK0pTb2NwV2NFanVzVXBTTVdXYTdqY2hHeCtPVldVYkFVU0dsc213c2Eyd1pDOHMxMlUxNVBzb1BzbmkzZEdQUUZKMjZXdVhiQnlyVEZlSWcyNVVjdTQ5SHl1ZnZpcXA0aUx5U2o4RC9KaVkyeUlmS3Y2RktTeXhpcnMvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"/>
+</div>
+</a>
+</div>
+<div class="col-8">
+<div class="article__badge article__badge--xs">
+<a class="article__badge article__badge--xs" href="https://cryptonews.com/news/blockchain-news/">  Blockchain News                </a>
+<div class="article__badge-date" data-utctime="2023-12-07 19:40:08"></div>
+</div>
+<a class="article__title article__title--recommended mb-0" href="https://cryptonews.com/news/sothebys-launches-first-bitcoin-ordinals-based-nft-auction.htm">Sotheby’s Launches First Bitcoin Ordinals-based NFT Auction</a> </div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-12 mb-20" id="post-140264">
+<div class="row">
+<div class="col-4 px-0">
+<a class="article__image article__image--sm-wider" href="https://cryptonews.com/news/one-trading-set-to-launch-new-trading-venue.htm">
+<div class="small-image-list img-sized">
+<img alt="One Trading Set To Launch New Trading Venue" class="lazyload" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701977389-cryptocurrency-3085139_1280.jpg" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFBQWdNQUFBQUFBQUFBQUFBQUFBQUFCZ2dFQlFmL3hBQWxFQUFCQWdVREJBTUFBQUFBQUFBQUFBQUJBZ01BQkFVR0VRY1NZUWdUSWpFaFFWSC94QUFaQVFBQ0F3RUFBQUFBQUFBQUFBQUFBQUFFQlFJREJnRC94QUFmRVFBQ0FnSURBUUVCQUFBQUFBQUFBQUFCQWdBRUF4RVRGQ0VTRlVILzJnQU1Bd0VBQWhFREVRQS9BRXRvbWt5cWlRZ2ZKTU4rOG9nUDZDeS9mNmVaN1psRFNqbmlKSmVVeWFYZ1pCYzBCcURDU3BiS2dCeEJIYlNFOXRkU2hxV21Ec21GSjIrUWlQZFNWbThnL3NPOU5Md1NKNXRicEczSTl3bnNWdmcrUkhtcjhaOGpSVWE5S003SUlLeTJWWWhXUVZndS9pUmJodXlrTGtITzJFWng5Q09ETWZKM0lXOGk3M2JjMHNpYWRVTWJjeGNsZDNNZ3VCOGg4bVMwTjljdExoU0RnaU5QbUFadEdhVE1BemV3anAxNVZCcndEaHdPWUdlc2hHNVE5WkNOd3hwbFptWitUVjNGbjErd2h6S01iNkV6MmNjYjZFemU5WnBhRnVBR05EUlVFYk0wTkJRdzJaLy8yUT09Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg=="/>
+</div>
+</a>
+</div>
+<div class="col-8">
+<div class="article__badge article__badge--xs">
+<a class="article__badge article__badge--xs" href="https://cryptonews.com/news/blockchain-news/">  Blockchain News                </a>
+<div class="article__badge-date" data-utctime="2023-12-07 19:34:02"></div>
+</div>
+<a class="article__title article__title--recommended mb-0" href="https://cryptonews.com/news/one-trading-set-to-launch-new-trading-venue.htm">One Trading Set To Launch New Trading Venue</a> </div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-12 mb-20" id="post-140257">
+<div class="row">
+<div class="col-4 px-0">
+<a class="article__image article__image--sm-wider" href="https://cryptonews.com/news/house-committee-unanimously-passes-pro-blockchain-bill.htm">
+<div class="small-image-list img-sized">
+<img alt="House Committee Unanimously Passes Pro-Blockchain Bill" class="lazyload" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701976006-heidi-kaden-l_u4jhwz6hy-unsplash-2-scaled.jpg" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="/>
+</div>
+</a>
+</div>
+<div class="col-8">
+<div class="article__badge article__badge--xs">
+<a class="article__badge article__badge--xs" href="https://cryptonews.com/news/blockchain-news/">  Blockchain News                </a>
+<div class="article__badge-date" data-utctime="2023-12-07 19:08:33"></div>
+</div>
+<a class="article__title article__title--recommended mb-0" href="https://cryptonews.com/news/house-committee-unanimously-passes-pro-blockchain-bill.htm">House Committee Unanimously Passes Pro-Blockchain Bill</a> </div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-12 mb-20" id="post-140254">
+<div class="row">
+<div class="col-4 px-0">
+<a class="article__image article__image--sm-wider" href="https://cryptonews.com/news/while-bitcoin-btc-holds-firm-above-43000-the-graph-grt-and-inqubeta-qube-prepare-for-big-shifts.htm">
+<div class="small-image-list img-sized">
+<img alt="While Bitcoin (BTC) Holds Firm above $43,000, The Graph (GRT) and InQubeta (QUBE) Prepare for Big Shifts" class="lazyload" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701974463-btc.jpg" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFCQUFNQkFBQUFBQUFBQUFBQUFBQUFCZ01GQndUL3hBQWdFQUFDQVFRREFRRUJBQUFBQUFBQUFBQUJBZ1FBQXdVU0JoRWhZU0l5LzhRQUdnRUFBd0FEQVFBQUFBQUFBQUFBQUFBQUF3UUZBQUVHQXYvRUFDQVJBQUlDQVFRREFRQUFBQUFBQUFBQUFBQUJBZ01SQkFVVElSSVZNVkgvMmdBTUF3RUFBaEVERVFBL0FGTi9pdHlJQ3pEOGltM3V5UlE1OEZWTGF6SFE5c094OXIxWHV5a3pjZFFtVjF1WXQ1OVVJTk9leWhnSnpvdW9YRzVVeGRnaDZOQ2U1MS9wcm1Rb25aSnNoajNBL29pb0YrajhmZ3JPdkh3em1SeCtkTmtPQnRxVFVhYWRiRTNsSFZoK0pTb2NwV2NFanVzVXBTTVdXYTdqY2hHeCtPVldVYkFVU0dsc213c2Eyd1pDOHMxMlUxNVBzb1BzbmkzZEdQUUZKMjZXdVhiQnlyVEZlSWcyNVVjdTQ5SHl1ZnZpcXA0aUx5U2o4RC9KaVkyeUlmS3Y2RktTeXhpcnMvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"/>
+</div>
+</a>
+</div>
+<div class="col-8">
+<div class="article__badge article__badge--xs">
+<a class="article__badge article__badge--xs" href="https://cryptonews.com/news/press-releases/">  Press Releases                </a>
+<div class="article__badge-date" data-utctime="2023-12-07 18:42:55"></div>
+</div>
+<a class="article__title article__title--recommended mb-0" href="https://cryptonews.com/news/while-bitcoin-btc-holds-firm-above-43000-the-graph-grt-and-inqubeta-qube-prepare-for-big-shifts.htm">While Bitcoin (BTC) Holds Firm above $43,000, The Graph (GRT) and InQubeta (QUBE) Prepare for Big Shifts</a> </div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-12 mb-20" id="post-140250">
+<div class="row">
+<div class="col-4 px-0">
+<a class="article__image article__image--sm-wider" href="https://cryptonews.com/news/ftx-ad-hoc-committee-prepares-amended-reorganization-plans-set-for-december.htm">
+<div class="small-image-list img-sized">
+<img alt="FTX Ad Hoc Committee Prepares Amended Reorganization Plans Set for December" class="lazyload" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701973072-ftx.png" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="/>
+</div>
+</a>
+</div>
+<div class="col-8">
+<div class="article__badge article__badge--xs">
+<a class="article__badge article__badge--xs" href="https://cryptonews.com/news/blockchain-news/">  Blockchain News                </a>
+<div class="article__badge-date" data-utctime="2023-12-07 18:19:08"></div>
+</div>
+<a class="article__title article__title--recommended mb-0" href="https://cryptonews.com/news/ftx-ad-hoc-committee-prepares-amended-reorganization-plans-set-for-december.htm">FTX Ad Hoc Committee Prepares Amended Reorganization Plans Set for December</a> </div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-12 mb-20" id="post-140245">
+<div class="row">
+<div class="col-4 px-0">
+<a class="article__image article__image--sm-wider" href="https://cryptonews.com/news/biggest-crypto-gainers-today-on-uniswap-vpp-hypr.htm">
+<div class="small-image-list img-sized">
+<img alt="Biggest Crypto Gainers Today on Uniswap – VPP, HYPR" class="lazyload" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/11/1700216094-new-uniswap-listings.png" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFCQUFNQkFBQUFBQUFBQUFBQUFBQUFCZ01GQndUL3hBQWdFQUFDQVFRREFRRUJBQUFBQUFBQUFBQUJBZ1FBQXdVU0JoRWhZU0l5LzhRQUdnRUFBd0FEQVFBQUFBQUFBQUFBQUFBQUF3UUZBQUVHQXYvRUFDQVJBQUlDQVFRREFRQUFBQUFBQUFBQUFBQUJBZ01SQkFVVElSSVZNVkgvMmdBTUF3RUFBaEVERVFBL0FGTi9pdHlJQ3pEOGltM3V5UlE1OEZWTGF6SFE5c094OXIxWHV5a3pjZFFtVjF1WXQ1OVVJTk9leWhnSnpvdW9YRzVVeGRnaDZOQ2U1MS9wcm1Rb25aSnNoajNBL29pb0YrajhmZ3JPdkh3em1SeCtkTmtPQnRxVFVhYWRiRTNsSFZoK0pTb2NwV2NFanVzVXBTTVdXYTdqY2hHeCtPVldVYkFVU0dsc213c2Eyd1pDOHMxMlUxNVBzb1BzbmkzZEdQUUZKMjZXdVhiQnlyVEZlSWcyNVVjdTQ5SHl1ZnZpcXA0aUx5U2o4RC9KaVkyeUlmS3Y2RktTeXhpcnMvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"/>
+</div>
+</a>
+</div>
+<div class="col-8">
+<div class="article__badge article__badge--xs">
+<a class="article__badge article__badge--xs" href="https://cryptonews.com/news/altcoin-news/">  Altcoin News                </a>
+<div class="article__badge-date" data-utctime="2023-12-07 17:30:53"></div>
+</div>
+<a class="article__title article__title--recommended mb-0" href="https://cryptonews.com/news/biggest-crypto-gainers-today-on-uniswap-vpp-hypr.htm">Biggest Crypto Gainers Today on Uniswap – VPP, HYPR</a> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="pt-60 pb-20 pb-md-40 pb-md-60">
+<h3 class="mb-20">
+                Similar News            </h3>
+<div class="row">
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 post-140180 post type-post status-publish format-standard has-post-thumbnail hentry category-bitcoin-news category-news editors-arslan-butt" id="post-140180">
+<article class="mb-30">
+<div class="row">
+<div class="col-4 col-md-12">
+<a class="article__image article__image--sm-wider mb-15" href="https://cryptonews.com/news/bitcoin-price-prediction-as-btc-surges-to-18-month-high-is-48000-the-next-stop.htm">
+<div class="img-sized">
+<img alt="Bitcoin Price Prediction as BTC Surges to 18-Month High  – Is $48,000 the Next Stop?" class="lazyload img-fluid" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701960481-7-3.jpg" sizes="300px" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFBQWdNQUFBQUFBQUFBQUFBQUFBQUFCZ2dFQlFmL3hBQWxFQUFCQWdVREJBTUFBQUFBQUFBQUFBQUJBZ01BQkFVR0VRY1NZUWdUSWpFaFFWSC94QUFaQVFBQ0F3RUFBQUFBQUFBQUFBQUFBQUFFQlFJREJnRC94QUFmRVFBQ0FnSURBUUVCQUFBQUFBQUFBQUFCQWdBRUF4RVRGQ0VTRlVILzJnQU1Bd0VBQWhFREVRQS9BRXRvbWt5cWlRZ2ZKTU4rOG9nUDZDeS9mNmVaN1psRFNqbmlKSmVVeWFYZ1pCYzBCcURDU3BiS2dCeEJIYlNFOXRkU2hxV21Ec21GSjIrUWlQZFNWbThnL3NPOU5Md1NKNXRicEczSTl3bnNWdmcrUkhtcjhaOGpSVWE5S003SUlLeTJWWWhXUVZndS9pUmJodXlrTGtITzJFWng5Q09ETWZKM0lXOGk3M2JjMHNpYWRVTWJjeGNsZDNNZ3VCOGg4bVMwTjljdExoU0RnaU5QbUFadEdhVE1BemV3anAxNVZCcndEaHdPWUdlc2hHNVE5WkNOd3hwbFptWitUVjNGbjErd2h6S01iNkV6MmNjYjZFemU5WnBhRnVBR05EUlVFYk0wTkJRdzJaLy8yUT09Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg=="/>
+</div>
+</a>
+</div>
+<div class="col-8 col-md-12">
+<div class="article__badge article__badge--sm">
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/bitcoin-news/">  Bitcoin News </a>
+<div class="article__badge-date d-md-inline-block" data-utctime="2023-12-07 20:45:12"></div>
+</div>
+<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/bitcoin-price-prediction-as-btc-surges-to-18-month-high-is-48000-the-next-stop.htm" rel="bookmark">Bitcoin Price Prediction as BTC Surges to 18-Month High  – Is $48,000 the Next Stop?</a></h4> </div>
+</div>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 post-140267 post type-post status-publish format-standard has-post-thumbnail hentry category-blockchain-news editors-brian-yue" id="post-140267">
+<article class="mb-30">
+<div class="row">
+<div class="col-4 col-md-12">
+<a class="article__image article__image--sm-wider mb-15" href="https://cryptonews.com/news/sothebys-launches-first-bitcoin-ordinals-based-nft-auction.htm">
+<div class="img-sized">
+<img alt="Sotheby’s Launches First Bitcoin Ordinals-based NFT Auction" class="lazyload img-fluid" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701977757-painting-911804_1280.jpg" sizes="300px" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFCQUFNQkFBQUFBQUFBQUFBQUFBQUFCZ01GQndUL3hBQWdFQUFDQVFRREFRRUJBQUFBQUFBQUFBQUJBZ1FBQXdVU0JoRWhZU0l5LzhRQUdnRUFBd0FEQVFBQUFBQUFBQUFBQUFBQUF3UUZBQUVHQXYvRUFDQVJBQUlDQVFRREFRQUFBQUFBQUFBQUFBQUJBZ01SQkFVVElSSVZNVkgvMmdBTUF3RUFBaEVERVFBL0FGTi9pdHlJQ3pEOGltM3V5UlE1OEZWTGF6SFE5c094OXIxWHV5a3pjZFFtVjF1WXQ1OVVJTk9leWhnSnpvdW9YRzVVeGRnaDZOQ2U1MS9wcm1Rb25aSnNoajNBL29pb0YrajhmZ3JPdkh3em1SeCtkTmtPQnRxVFVhYWRiRTNsSFZoK0pTb2NwV2NFanVzVXBTTVdXYTdqY2hHeCtPVldVYkFVU0dsc213c2Eyd1pDOHMxMlUxNVBzb1BzbmkzZEdQUUZKMjZXdVhiQnlyVEZlSWcyNVVjdTQ5SHl1ZnZpcXA0aUx5U2o4RC9KaVkyeUlmS3Y2RktTeXhpcnMvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"/>
+</div>
+</a>
+</div>
+<div class="col-8 col-md-12">
+<div class="article__badge article__badge--sm">
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/blockchain-news/">  Blockchain News </a>
+<div class="article__badge-date d-md-inline-block" data-utctime="2023-12-07 19:40:08"></div>
+</div>
+<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/sothebys-launches-first-bitcoin-ordinals-based-nft-auction.htm" rel="bookmark">Sotheby’s Launches First Bitcoin Ordinals-based NFT Auction</a></h4> </div>
+</div>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 post-140264 post type-post status-publish format-standard has-post-thumbnail hentry category-blockchain-news editors-brian-yue" id="post-140264">
+<article class="mb-30">
+<div class="row">
+<div class="col-4 col-md-12">
+<a class="article__image article__image--sm-wider mb-15" href="https://cryptonews.com/news/one-trading-set-to-launch-new-trading-venue.htm">
+<div class="img-sized">
+<img alt="One Trading Set To Launch New Trading Venue" class="lazyload img-fluid" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701977389-cryptocurrency-3085139_1280.jpg" sizes="300px" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzYwIDY3NiI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2MCIgaGVpZ2h0PSI2NzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBY0FDQURBUkVBQWhFQkF4RUIvOFFBSHdBQUFRVUJBUUVCQVFFQUFBQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkFBQWdFREF3SUVBd1VGQkFRQUFBRjlBUUlEQUFRUkJSSWhNVUVHRTFGaEJ5SnhGREtCa2FFSUkwS3h3UlZTMGZBa00ySnlnZ2tLRmhjWUdSb2xKaWNvS1NvME5UWTNPRGs2UTBSRlJrZElTVXBUVkZWV1YxaFpXbU5rWldabmFHbHFjM1IxZG5kNGVYcURoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1SGk0K1RsNXVmbzZlcng4dlAwOWZiMytQbjYvOFFBSHdFQUF3RUJBUUVCQVFFQkFRQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkVBQWdFQ0JBUURCQWNGQkFRQUFRSjNBQUVDQXhFRUJTRXhCaEpCVVFkaGNSTWlNb0VJRkVLUm9iSEJDU016VXZBVlluTFJDaFlrTk9FbDhSY1lHUm9tSnlncEtqVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnb09FaFlhSGlJbUtrcE9VbFphWG1KbWFvcU9rcGFhbnFLbXFzck8wdGJhM3VMbTZ3c1BFeGNiSHlNbkswdFBVMWRiWDJObmE0dVBrNWVibjZPbnE4dlAwOWZiMytQbjYvOW9BREFNQkFBSVJBeEVBUHdENmYwKzllUzhaU2VNMStncDZuNExPS1VUb1JXaHpESlgyTG1vbkxsVnpXbkhubFlyMjkxNXI0cmpwVjNPVmowSytHVk9Oem45SzR2M3o2MTB4M09lZnduU3lYQ1JMa210cm5JbGN6YnpVeEl1MU9hemw3eXNiMDA0dTVOcGtSQTNIdlVRcEtPcHBWcnltck01UVhoZ3ZYd2VjMU43TTE1YnhOSkxsN3RzTTNGWGU1bGJsTkcydFlJOEZtQk5Xa2pHVW16VWhranhoU0tzeWFaNXJyakdHK1lvY2MxeHkzUFZwNm9xcnFFNjlIcWVabW5JaC93RGExei96ME5ITXllU0owSGhxK21tbEFkODF2QnM1cXNVa2YvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"/>
+</div>
+</a>
+</div>
+<div class="col-8 col-md-12">
+<div class="article__badge article__badge--sm">
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/blockchain-news/">  Blockchain News </a>
+<div class="article__badge-date d-md-inline-block" data-utctime="2023-12-07 19:34:02"></div>
+</div>
+<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/one-trading-set-to-launch-new-trading-venue.htm" rel="bookmark">One Trading Set To Launch New Trading Venue</a></h4> </div>
+</div>
+</article>
+</div>
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 post-140257 post type-post status-publish format-standard has-post-thumbnail hentry category-blockchain-news editors-julia-smith" id="post-140257">
+<article class="mb-30">
+<div class="row">
+<div class="col-4 col-md-12">
+<a class="article__image article__image--sm-wider mb-15" href="https://cryptonews.com/news/house-committee-unanimously-passes-pro-blockchain-bill.htm">
+<div class="img-sized">
+<img alt="House Committee Unanimously Passes Pro-Blockchain Bill" class="lazyload img-fluid" data-sizes="auto" data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701976006-heidi-kaden-l_u4jhwz6hy-unsplash-2-scaled.jpg" sizes="300px" src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzYwIDY3NiI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2MCIgaGVpZ2h0PSI2NzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBY0FDQURBUkVBQWhFQkF4RUIvOFFBSHdBQUFRVUJBUUVCQVFFQUFBQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkFBQWdFREF3SUVBd1VGQkFRQUFBRjlBUUlEQUFRUkJSSWhNVUVHRTFGaEJ5SnhGREtCa2FFSUkwS3h3UlZTMGZBa00ySnlnZ2tLRmhjWUdSb2xKaWNvS1NvME5UWTNPRGs2UTBSRlJrZElTVXBUVkZWV1YxaFpXbU5rWldabmFHbHFjM1IxZG5kNGVYcURoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1SGk0K1RsNXVmbzZlcng4dlAwOWZiMytQbjYvOFFBSHdFQUF3RUJBUUVCQVFFQkFRQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkVBQWdFQ0JBUURCQWNGQkFRQUFRSjNBQUVDQXhFRUJTRXhCaEpCVVFkaGNSTWlNb0VJRkVLUm9iSEJDU016VXZBVlluTFJDaFlrTk9FbDhSY1lHUm9tSnlncEtqVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnb09FaFlhSGlJbUtrcE9VbFphWG1KbWFvcU9rcGFhbnFLbXFzck8wdGJhM3VMbTZ3c1BFeGNiSHlNbkswdFBVMWRiWDJObmE0dVBrNWVibjZPbnE4dlAwOWZiMytQbjYvOW9BREFNQkFBSVJBeEVBUHdENmYwKzllUzhaU2VNMStncDZuNExPS1VUb1JXaHpESlgyTG1vbkxsVnpXbkhubFlyMjkxNXI0cmpwVjNPVmowSytHVk9Oem45SzR2M3o2MTB4M09lZnduU3lYQ1JMa210cm5JbGN6YnpVeEl1MU9hemw3eXNiMDA0dTVOcGtSQTNIdlVRcEtPcHBWcnltck01UVhoZ3ZYd2VjMU43TTE1YnhOSkxsN3RzTTNGWGU1bGJsTkcydFlJOEZtQk5Xa2pHVW16VWhranhoU0tzeWFaNXJyakdHK1lvY2MxeHkzUFZwNm9xcnFFNjlIcWVabW5JaC93RGExei96ME5ITXllU0owSGhxK21tbEFkODF2QnM1cXNVa2YvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"/>
+</div>
+</a>
+</div>
+<div class="col-8 col-md-12">
+<div class="article__badge article__badge--sm">
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/blockchain-news/">  Blockchain News </a>
+<div class="article__badge-date d-md-inline-block" data-utctime="2023-12-07 19:08:33"></div>
+</div>
+<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/house-committee-unanimously-passes-pro-blockchain-bill.htm" rel="bookmark">House Committee Unanimously Passes Pro-Blockchain Bill</a></h4> </div>
+</div>
+</article>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="rocketlazyloadscript">window.__INITIAL_WIDGET_STATE__ = {"price_tracker":"https:\/\/cryptonews.com\/price-tracker\/","data":{"6":{"exchange_id":"6","title":"Coinbase","short":"https:\/\/cimg.co\/reviewlogo\/2\/5b20d656d022d.svg","full":"https:\/\/cimg.co\/reviewlogo\/2\/5b20d656d022d.svg","review_url":"https:\/\/cryptonews.com\/reviews\/coinbase\/","download_url":"rapi.cryptonews.com\/ext\/coinbase\/en"},"1":{"exchange_id":"1","title":"HitBTC","short":"https:\/\/cimg.co\/reviewlogo\/3\/5a656fe6af617.svg","full":"https:\/\/cimg.co\/reviewlogo\/3\/5a656fe6af617.svg","review_url":"https:\/\/cryptonews.com\/reviews\/hitbtc\/","download_url":"rapi.cryptonews.com\/ext\/hitbtc\/en"},"4":{"exchange_id":"4","title":"Bitfinex","short":"https:\/\/cimg.co\/reviewlogo\/4\/5b20d64cb9231.svg","full":"https:\/\/cimg.co\/reviewlogo\/4\/5b20d64cb9231.svg","review_url":"https:\/\/cryptonews.com\/reviews\/bitfinex\/","download_url":"rapi.cryptonews.com\/ext\/bitfinex\/en"},"9":{"exchange_id":"9","title":"Kraken","short":"https:\/\/cimg.co\/reviewlogo\/5\/5b20d7875ab17.svg","full":"https:\/\/cimg.co\/reviewlogo\/5\/5b20d7875ab17.svg","review_url":"https:\/\/cryptonews.com\/reviews\/kraken\/","download_url":"rapi.cryptonews.com\/ext\/kraken\/en"},"7":{"exchange_id":"7","title":"Coinbase Pro","short":"https:\/\/cimg.co\/reviewlogo\/6\/5dcab04fee043.png","full":"https:\/\/cimg.co\/reviewlogo\/6\/5dcab04fee043.png","review_url":"https:\/\/cryptonews.com\/reviews\/coinbase-pro\/","download_url":"rapi.cryptonews.com\/ext\/coinbase-pro\/en"},"8":{"exchange_id":"8","title":"Bitstamp","short":"https:\/\/cimg.co\/reviewlogo\/7\/5a74b2b325423.svg","full":"https:\/\/cimg.co\/reviewlogo\/7\/5a74b2b325423.svg","review_url":"https:\/\/cryptonews.com\/reviews\/bitstamp\/","download_url":"rapi.cryptonews.com\/ext\/bitstamp\/en"},"2":{"exchange_id":"2","title":"Bittrex","short":"https:\/\/cimg.co\/reviewlogo\/8\/5dcaad3ad8297.png","full":"https:\/\/cimg.co\/reviewlogo\/8\/5dcaad3ad8297.png","review_url":"https:\/\/cryptonews.com\/reviews\/bittrex\/","download_url":"rapi.cryptonews.com\/ext\/bittrex\/en"},"5":{"exchange_id":"5","title":"Binance","short":"https:\/\/cimg.co\/reviewlogo\/9\/5ab92c5f8df75.svg","full":"https:\/\/cimg.co\/reviewlogo\/9\/5ab92c5f8df75.svg","review_url":"https:\/\/cryptonews.com\/reviews\/binance\/","download_url":"rapi.cryptonews.com\/ext\/binance\/en"},"3":{"exchange_id":"3","title":"bitFlyer","short":"https:\/\/cimg.co\/reviewlogo\/10\/5aba32afb43dc.svg","full":"https:\/\/cimg.co\/reviewlogo\/10\/5aba32afb43dc.svg","review_url":"https:\/\/cryptonews.com\/reviews\/bitflyer\/","download_url":"rapi.cryptonews.com\/ext\/bitflyer\/en"},"11":{"exchange_id":"11","title":"KuCoin","short":"https:\/\/cimg.co\/reviewlogo\/17\/5f1ac8c747406.png","full":"https:\/\/cimg.co\/reviewlogo\/17\/5f1ac8c747406.png","review_url":"https:\/\/cryptonews.com\/reviews\/kucoin\/","download_url":"rapi.cryptonews.com\/ext\/kucoin\/en"},"25":{"exchange_id":"25","title":"Crypto.com","short":"https:\/\/cimg.co\/reviewlogo\/57\/5f91b138dea97.jpg","full":"https:\/\/cimg.co\/reviewlogo\/57\/5f91b138dea97.jpg","review_url":"https:\/\/cryptonews.com\/reviews\/crypto-com\/","download_url":"rapi.cryptonews.com\/ext\/crypto-com\/en"}},"config":{"type":"summary"},"translations":{"best_rates":"Buy\/Sell at the best rates","profitable_exchange":"Profitable Exchange","buy":"Buy for","sell":"Sell for","see_more_rates":"See more rates","market":"See more rates","highest":"Highest","lowest":"Lowest","view_all":"View all <span>exchanges<\/span>","supported_currencies":"Supported Currencies","internal_conversion":"Converted","internal_conversion_header":"Converted Price"}} </script>
+<script async="async" data-rocket-src="https://api.cryptonews.com/js/bundle.js" type="rocketlazyloadscript"></script>
+<footer class="footer">
+<div class="container">
+<div class="footer-top pt-60 pb-30">
+<div class="row">
+<div class="col-12 col-lg-5 col-xl-4 mb-lg-0 text-center text-md-left">
+<div class="d-lg-flex mb-40">
+<div class="footer-links d-md-inline-block text-center text-md-left align-self-center">
+<a class="mr-20" href="/terms-and-conditions.htm">Terms &amp; Conditions </a>
+<a class="mr-20" href="/about-us.htm">About Us </a>
+<a class="mr-20" href="/privacy-policy.htm">Privacy Policy </a>
+<a class="mr-20" href="/disclaimer.htm">Disclaimer </a>
+</div>
+</div>
+<div class="d-none d-md-block" style="color:#fff;">
+<div class="mb-30">
+<div class="d-inline-block mr-10 align-top">
+<svg height="12" viewbox="0 0 12 12" width="12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g transform="translate(-1095 -1243) translate(295 1103) translate(770 35) translate(30 100) translate(0 5) translate(0 2)">
+<path d="M11.063 6.797c0 .13-.106.234-.235.234H1.172c-.13 0-.234-.105-.234-.234V1.321l4.81 3.06c.154.097.35.097.503 0l4.811-3.06v5.476zM9.918.938L6 3.43 2.08.94h7.84zM10.83 0H1.17C.531 0 0 .521 0 1.172v5.625C0 7.443.525 7.97 1.17 7.97h9.658c.646 0 1.17-.526 1.17-1.172V1.172C12 .53 11.476 0 10.83 0z" fill="#FFF"></path>
+</g>
+</svg>
+</div>
+<a class="me-mailto"></a>
+<!--                            <div class="mb-30">-->
+<!--                                <div class="d-inline-block me-address"></div>-->
+<!--                            </div>-->
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-7 col-xl-8 footer-links text-md-left">
+<div class="row d-none d-md-block" style="justify-content: flex-end">
+<div class="col-12">
+<ul class="menu_footer" id="menu-footer">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119702" id="menu-item-119702"><a class="header-links__item fs-16" href="/news/">News</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119703" id="menu-item-119703"><a class="header-links__item fs-16" href="/news/bitcoin-news/">Bitcoin News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119704" id="menu-item-119704"><a class="header-links__item fs-16" href="/news/ethereum-news/">Ethereum News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119705" id="menu-item-119705"><a class="header-links__item fs-16" href="/news/nft-news/">NFT News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119706" id="menu-item-119706"><a class="header-links__item fs-16" href="/news/defi-news/">DeFi News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119707" id="menu-item-119707"><a class="header-links__item fs-16" href="/news/altcoin-news/">Altcoin News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119708" id="menu-item-119708"><a class="header-links__item fs-16" href="/news/blockchain-news/">Blockchain News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119709" id="menu-item-119709"><a class="header-links__item fs-16" href="/news/press-releases/">Press Releases</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119710" id="menu-item-119710"><a class="header-links__item fs-16" href="/news/sponsored/">Sponsored</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119712" id="menu-item-119712"><a class="header-links__item fs-16" href="/news/industry-talk/">Industry Talk</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119713" id="menu-item-119713"><a class="header-links__item fs-16" href="/news/ico-news/">ICO news</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119714" id="menu-item-119714"><a class="header-links__item fs-16" href="/news/finance-news/">Finance News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119715" id="menu-item-119715"><a class="header-links__item fs-16" href="/news/technology-news/">Technology News</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119716" id="menu-item-119716"><a class="header-links__item fs-16" href="/news/price-predictions/">Price Predictions</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119732" id="menu-item-119732"><a class="header-links__item fs-16" href="/guides/">Guides</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119733" id="menu-item-119733"><a class="header-links__item fs-16" href="/guide_categories/bitcoin/">Bitcoin</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119734" id="menu-item-119734"><a class="header-links__item fs-16" href="/guide_categories/ethereum/">Ethereum</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119735" id="menu-item-119735"><a class="header-links__item fs-16" href="/guide_categories/nft/">NFT</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119736" id="menu-item-119736"><a class="header-links__item fs-16" href="/guide_categories/defi-guides/">Defi Guides</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119737" id="menu-item-119737"><a class="header-links__item fs-16" href="/guide_categories/altcoins/">Altcoins</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119738" id="menu-item-119738"><a class="header-links__item fs-16" href="/guide_categories/blockchain/">Blockchain</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119739" id="menu-item-119739"><a class="header-links__item fs-16" href="/guide_categories/cryptocurrency/">Cryptocurrency</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119741" id="menu-item-119741"><a class="header-links__item fs-16" href="/guide_categories/icos/">ICOs / STOs / IEOs</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119742" id="menu-item-119742"><a class="header-links__item fs-16" href="/guide_categories/trading-tools/">Trading Tools</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119743" id="menu-item-119743"><a class="header-links__item fs-16" href="/guide_categories/wallet-guides/">Wallet Guides</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119744" id="menu-item-119744"><a class="header-links__item fs-16" href="#">Editors’ picks</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119745" id="menu-item-119745"><a class="header-links__item fs-16" href="https://cryptonews.com/news/best-crypto-to-buy.htm">Best Crypto to Buy Now</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119746" id="menu-item-119746"><a class="header-links__item fs-16" href="https://cryptonews.com/news/best-crypto-presales.htm">Best Crypto Presales to Invest in</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119747" id="menu-item-119747"><a class="header-links__item fs-16" href="https://cryptonews.com/news/new-cryptocurrency.htm">New Cryptocurrency</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119761" id="menu-item-119761">
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119763"><a class="header-links__item fs-16" href="/news/press-releases/">Press Releases</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119763"><a class="header-links__item fs-16" href="/review_categories/exchanges/">Exchanges</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119764"><a class="header-links__item fs-16" href="/coins/">Market Cap</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119765"><a class="header-links__item fs-16" href="/news/industry-talk/">Industry Talk</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119765"><a class="header-links__item fs-16" href="/exclusives/features/">Features</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119765"><a class="header-links__item fs-16" href="/exclusives/opinions/">Opinions</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119765"><a class="header-links__item fs-16" href="/exclusives/people/">People In Crypto</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="row d-block d-md-none footer_menu_mob">
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/news/press-releases/">Press Releases</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/news/"><b>News</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/exclusives/"><b>Exclusives</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/guides/"><b>Guides</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/review_categories/exchanges/"><b>Exchanges</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/coins/"><b>Market Cap</b></a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/news/industry-talk/">Industry Talk</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/exclusives/features/">Features</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/exclusives/opinions/">Opinions</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="/exclusives/people/">People In Crypto</a></div>
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading" href="#"><b>Editors’ picks</b></a></div>
+</div>
+</div>
+<div class="col-12 col-lg-5 col-xl-4 mb-lg-0 text-center d-md-none d-block mt-20">
+</div>
+</div>
+</div>
+<div class="footer-bottom pt-30 pb-30">
+<div class="row">
+<div class="col-12 col-md-6 text-center text-md-left mb-20 mb-md-0">
+<div class="fs-12 c-light-grey" id="copyright">© 2023 Cryptonews. All rights reserved</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script type="rocketlazyloadscript">
+    window.gdproptions = {
+
+            cookieName: 'gdpr',
+            cookieConfig: {
+                domain: window.location.hostname,
+                path: '/'
+            },
+            heading: "GDPR Notice",
+            description: `We use cookies to offer a better browsing experience, analyze site traffic, personalize content, and serve targeted advertisements.By clicking accept, you consent to our privacy policy &amp; use of cookies.`+' (<a href="https://cryptonews.com/privacy-policy.htm" >Privacy Policy</a>)',
+            acceptLabel: "Confirm all",
+            settingsLabel: "Preferences",
+            closeLabel: 'Close Window',
+            choices: {
+                necessary: {
+                    label: "Required",
+                    description:
+                        '',
+                    value: true
+                },
+                analytics: false,
+                tracking: false,
+                marketing: false,
+
+            },
+            showEditIcon: false,
+            categories: {
+
+                necessary: function() {
+                }
+            }
+        }
+    </script>
+<script type="rocketlazyloadscript">
+            window.cid = 114413        </script>
+<script data-rocket-src="https://cryptonews.com/wp-content/themes/cryptonews/assets/js/frontend.js?ver=1.1701870935" defer="" id="frontend-js-js" type="rocketlazyloadscript"></script>
+<script id="rocket-browser-checker-js-after" type="rocketlazyloadscript">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/cryptonews.com","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script id="rocket-preload-links-js-after" type="rocketlazyloadscript">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script id="ajax-data-load-js-extra">
+var site_vars = {"url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php"};
+</script>
+<script data-rocket-src="https://cryptonews.com/wp-content/themes/cryptonews/js/ajax-data-load.js?ver=1.1701870935" defer="" id="ajax-data-load-js" type="rocketlazyloadscript"></script>
+<!-- Shortcodes Ultimate custom CSS - start -->
+<style type="text/css">
+.su-column-pros p{
+	margin-bottom:5px;
+}
+
+.su-column-pros ul{
+	padding-left:25px;
+}
+</style>
+<!-- Shortcodes Ultimate custom CSS - end -->
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script async="" data-no-minify="1" src="https://cryptonews.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script><script type="rocketlazyloadscript">
+    window.addEventListener('load', function() {
+
+        if(document.getElementsByTagName('oembed').length){
+            console.log('loading oembed');
+            new Embedo({
+                twitter: true,  // Enable twitter SDK
+                instagram: true,  // Enable instagram SDK
+                pinterest: true  // Enable pinterest SDK,
+            });
+        }
+
+    })
+</script>
+<script async="" data-rocket-src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" type="rocketlazyloadscript"></script><script type="rocketlazyloadscript">
+            window.onesignal_app_id ='7433c474-47ca-421e-88a6-dad515cf9aab';
+            var OneSignal = window.OneSignal || [];
+            OneSignal.push(function() {
+              OneSignal.init({
+                appId: '7433c474-47ca-421e-88a6-dad515cf9aab',
+              });
+            });
+    </script></div>
+<script type="application/ld+json">{
+    "@context": "http://schema.org/",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Cryptonews",
+                "item": "https://cryptonews.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Exclusives",
+                "item": "https://cryptonews.com/exclusives/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Oliver Linch, CEO of Bittrex Global, on Developing Regulatory Framework for A Digital Asset Economy | Ep. 275",
+                "item": "https://cryptonews.com/exclusives/oliver-linch-ceo-of-bittrex-global-developing-regulatory-framework-for-digital-asset-economy-ep-275.htm"
+            }
+        ]
+    ]
+}</script><script type="application/ld+json">{
+    "@context": "http://schema.org/",
+    "@graph": [
+        {
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+                "@id": "https://cryptonews.com/exclusives/oliver-linch-ceo-of-bittrex-global-developing-regulatory-framework-for-digital-asset-economy-ep-275.htm",
+                "@type": "WebPage"
+            },
+            "headline": "Oliver Linch, CEO of Bittrex Global, on Developing Regulatory Framework for A Digital Asset Economy | Ep. 275",
+            "image": [
+                "https://cimg.co/news/126682/334517/oliver-linch-thumb.jpg"
+            ],
+            "author": [],
+            "datePublished": "2023-10-20T16:10:00+00:00",
+            "dateModified": "2023-10-23T07:20:17+00:00"
+        },
+        {
+            "@type": "Organization",
+            "name": "Cryptonews",
+            "url": "https://cryptonews.com",
+            "logo": "https://cimg.co/p/crypto-news-logo-full.svg"
+        }
+    ]
+}</script><script data-clickout-type="native_table_box" defer="" src="https://bs_48ce1097.cryptonewsdom.care/sdk.js"></script></body>
+</html>
+<!--
+Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com
+
+Retrieved 11366 objects (1 MB) from Redis using PhpRedis (v5.3.7).
+-->
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1701982254 -->
