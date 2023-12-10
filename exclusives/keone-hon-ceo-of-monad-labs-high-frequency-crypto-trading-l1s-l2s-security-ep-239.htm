@@ -1,0 +1,1452 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.4",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let r=e.getAttribute("data-rocket-src");if(r&&0!==r.indexOf("data:")){0===r.indexOf("//")&&(r=location.protocol+r);try{let i=new URL(r).origin;i!==location.origin&&t.push({src:i,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(n){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){if(await this._littleBreath(),!0===t.noModule&&"noModule"in HTMLScriptElement.prototype){t.setAttribute("data-rocket-status","skipped");return}return new Promise(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(){let t={};function e(e,r){!function e(r){!t[r]&&(t[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.remove.apply(r,arguments)});function i(e){return t[r].eventsToRewrite.indexOf(e)>=0?"rocket-"+e:e}}(e),t[e].eventsToRewrite.push(r)}function r(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}e(document,"DOMContentLoaded"),e(window,"DOMContentLoaded"),e(window,"load"),e(window,"pageshow"),e(document,"readystatechange"),r(document,"onreadystatechange"),r(window,"onload"),r(window,"onpageshow")}_delayJQueryReady(t){let e;function r(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}function i(i){if(i&&i.fn&&!t.allJQueries.includes(i)){i.fn.ready=i.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(i):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(i)),i([])};let n=i.fn.on;i.fn.on=i.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=r(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{let e=arguments[0][t];delete arguments[0][t],arguments[0][r(t)]=e})),n.apply(this,arguments),this},t.allJQueries.push(i)}e=i}i(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){i(t)}})}async _pendingWebpackRequests(t){let e=document.querySelector("script[data-webpack]");async function r(){return new Promise(t=>{e.addEventListener("load",t),e.addEventListener("error",t)})}e&&(await r(),await t._requestAnimFrame(),await t._pendingWebpackRequests(t))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="fb:app_id" content="1101440706625691" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" sizes="192x192" href="/favicon-192x192.png"  />
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="naver-site-verification" content="ee7282c3169a3e01fc91c812fc84096b69c8f74b" />
+
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    
+    <!--    <title>--><!-- | --><!--</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&#038;family=Noto+Serif:ital@1&#038;display=swap" /></noscript>-->
+    <script type="rocketlazyloadscript" data-rocket-type="application/javascript" data-rocket-src="https://cimg.co/p/manifest.js" defer></script>
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v20.0 (Yoast SEO v21.5) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Keone Hon, CEO of Monad Labs, on High Frequency Crypto Trading, L1s, L2s, and Security | Ep. 239</title>
+	<meta name="description" content="In an exclusive interview with cryptonews.com, Keone Hon, CEO and Co-founder of Monad Labs, talks about the relationship between HFT and crypto trading," />
+	<link rel="canonical" href="https://cryptonews.com/exclusives/keone-hon-ceo-of-monad-labs-high-frequency-crypto-trading-l1s-l2s-security-ep-239.htm" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Keone Hon, CEO of Monad Labs, on High Frequency Crypto Trading, L1s, L2s, and Security | Ep. 239" />
+	<meta property="og:description" content="In an exclusive interview with cryptonews.com, Keone Hon, CEO and Co-founder of Monad Labs, talks about the relationship between HFT and crypto trading," />
+	<meta property="og:url" content="https://cryptonews.com/exclusives/keone-hon-ceo-of-monad-labs-high-frequency-crypto-trading-l1s-l2s-security-ep-239.htm" />
+	<meta property="og:site_name" content="Cryptonews" />
+	<meta property="article:published_time" content="2023-06-16T14:24:00+00:00" />
+	<meta property="article:modified_time" content="2023-10-19T15:37:58+00:00" />
+	<meta property="og:image" content="https://cimg.co/news/117147/313431/keone-hon-thumb.jpg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="https://cimg.co/news/117147/313431/keone-hon-thumb.jpg" />
+	<meta name="twitter:creator" content="@Cryptonews" />
+	<meta name="twitter:site" content="@Cryptonews" />
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//cryptonews.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="" title="Cryptonews &raquo; Feed" href="https://cryptonews.com/feed/" />
+<link data-minify="1" rel='stylesheet' id='style-css-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/style.css?ver=1701094373' media='all' />
+<link rel='stylesheet' id='wp-block-library-css' href='https://cryptonews.com/wp-includes/css/dist/block-library/style.min.css?ver=6.4.1' media='all' />
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel='stylesheet' id='search-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/assets/css/search.css?ver=1701094373' media='all' />
+<link data-minify="1" rel='stylesheet' id='brand-management-public-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/brand-management-plugin/public/css/brand-management-public.css?ver=1701094373' media='all' />
+<link data-minify="1" rel='stylesheet' id='brand-management-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/brand-management.css?ver=1701094373' media='all' />
+<link data-minify="1" rel='stylesheet' id='custom-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/custom.css?ver=1701094373' media='all' />
+<style id='rocket-lazyload-inline-css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://cryptonews.com/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+</style>
+<script id="brand-management-ajax-handler-js-extra">
+var likes_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php","nonce":"4a7b39cba3","fail_text":"You have already voted."};
+</script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://cryptonews.com/xmlrpc.php?rsd" />
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>    <script type="rocketlazyloadscript">
+        window.sid = "1"
+                window.burl = "https://a2.cryptonews.com"
+                window.cid = 1
+        window.trans = {
+            ago: "ago",
+            ago_long: "minute, minutes, hour, hours, day, days",
+            time_seconds_ago: "[time] [seconds] [ago]",
+            time_minutes_ago: "[time] [minutes] [ago]" ,
+            time_hours_ago: "[time] [hours] [ago]",
+            time_days_ago: "[time] [days] [ago]",
+        }
+    </script>
+            <script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MBDCFGN');</script>
+    </head>
+<body class="post-template-default single single-post postid-108492 single-format-standard">
+<header class="header" id="header">
+    <a href="/" class="header__logo">
+        <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Crypto News" data-lazy-src="https://cimg.co/p/crypto-news-logo-full.svg"><noscript><img src="https://cimg.co/p/crypto-news-logo-full.svg " alt="Crypto News"></noscript>
+    </a>
+    <div class="header-links d-none d-lg-flex header-menu__dropdown">
+        <ul id="menu-header" class="menu_header"><li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="">All<span class="menu_icon"><span></span></span></a>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/news/">News<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+	<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/bitcoin-news/">Bitcoin News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/ethereum-news/">Ethereum News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/nft-news/">NFT News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/defi-news/">DeFi News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/altcoin-news/">Altcoin News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/blockchain-news/">Blockchain News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/press-releases/">Press Releases</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/sponsored/">Sponsored</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/cryptonews-deals/">Cryptonews Deals</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/industry-talk/">Industry Talk</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/ico-news/">ICO news</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/finance-news/">Finance News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/technology-news/">Technology News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/price-predictions/">Price Predictions</a></li>
+	</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/exclusives/">Exclusives<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+	<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/features/">Features</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/opinions/">Opinions</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/people/">People In Crypto</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/podcast/">Podcast</a></li>
+	</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/videos/">Videos<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+	<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/bitcoin/">Bitcoin Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/ethereum/">Ethereum Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/defi-videos/">DeFi Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/altcoin/">Altcoin Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/blockchain/">Blockchain Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/market/">Market Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/cryptosecurity/">Security Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/trading/">Trading Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/icos/">ICO Videos</a></li>
+	</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/guides/">Guides<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+	<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/bitcoin/">Bitcoin</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/ethereum/">Ethereum</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/nft/">NFT</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/defi-guides/">Defi Guides</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/altcoins/">Altcoins</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/blockchain/">Blockchain</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/cryptocurrency/">Cryptocurrency</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/deals/">Deals</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/icos/">ICOs / STOs / IEOs</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/trading-tools/">Trading Tools</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/wallet-guides/">Wallet Guides</a></li>
+	</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="#">Recommended<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+	<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crypto-to-buy.htm">Best Crypto to Buy Now</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crypto-presales.htm">Best Crypto Presales to Invest in</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/new-cryptocurrency.htm">New Cryptocurrency</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/next-cryptocurrency-to-explode.htm">Next Cryptocurrency to Explode</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crypto-icos.htm">Best Crypto ICOs</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/crypto-launches.htm">Crypto Launches</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-betting-sites.htm">Crypto Betting</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-casinos.htm">Bitcoin Casinos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-gambling-sites.htm">Bitcoin Gambling Sites</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-blackjack-sites.htm">Bitcoin Blackjack</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-slots-sites.htm">Best Bitcoin Slots</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crash-gambling-sites.htm">Crash Gambling Games</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-anonymous-casinos.htm">Anonymous Casinos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/non-gamstop-casinos-uk.htm">Best Casinos Not on Gamstop</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-telegram-casinos.htm">Best Telegram Casinos</a></li>
+	</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/jobs/">Jobs<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+	<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/review_categories/exchanges/">Exchanges</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/coins/">Market Cap</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/price-tracker/">Price Tracker</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/events/">Events</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/podcast/">Podcast</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/news/">News<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/bitcoin-news/">Bitcoin News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/ethereum-news/">Ethereum News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/nft-news/">NFT News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/defi-news/">DeFi News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/altcoin-news/">Altcoin News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/blockchain-news/">Blockchain News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/press-releases/">Press Releases</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/sponsored/">Sponsored</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/cryptonews-deals/">Cryptonews Deals</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/industry-talk/">Industry Talk</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/ico-news/">ICO news</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/finance-news/">Finance News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/technology-news/">Technology News</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/news/price-predictions/">Price Predictions</a></li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/exclusives/">Exclusives<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/features/">Features</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/opinions/">Opinions</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/people/">People In Crypto</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/podcast/">Podcast</a></li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/videos/">Videos<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/bitcoin/">Bitcoin Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/ethereum/">Ethereum Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/defi-videos/">DeFi Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/altcoin/">Altcoin Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/blockchain/">Blockchain Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/market/">Market Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/cryptosecurity/">Security Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/trading/">Trading Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/icos/">ICO Videos</a></li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/guides/">Guides<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/bitcoin/">Bitcoin</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/ethereum/">Ethereum</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/nft/">NFT</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/defi-guides/">Defi Guides</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/altcoins/">Altcoins</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/blockchain/">Blockchain</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/cryptocurrency/">Cryptocurrency</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/deals/">Deals</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/icos/">ICOs / STOs / IEOs</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/trading-tools/">Trading Tools</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/wallet-guides/">Wallet Guides</a></li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/review_categories/exchanges/">Exchanges</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/exclusives/podcast/">Podcast</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="#">Tools<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/price-tracker/">Price Tracker</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/coins/">Market Cap</a></li>
+</ul>
+</li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="#">Recommended<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
+<ul class="sub-menu">
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crypto-to-buy.htm">Best Crypto to Buy Now</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crypto-presales.htm">Best Crypto Presales to Invest in</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/new-cryptocurrency.htm">New Cryptocurrency</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/next-cryptocurrency-to-explode.htm">Next Cryptocurrency to Explode</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crypto-icos.htm">Best Crypto ICOs</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/crypto-launches.htm">Crypto Launches</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-betting-sites.htm">Crypto Betting</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-casinos.htm">Bitcoin Casinos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-gambling-sites.htm">Bitcoin Gambling Sites</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-blackjack-sites.htm">Bitcoin Blackjack</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-bitcoin-slots-sites.htm">Best Bitcoin Slots</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-crash-gambling-sites.htm">Crash Gambling Games</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-anonymous-casinos.htm">Anonymous Casinos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/non-gamstop-casinos-uk.htm">Best Casinos Not on Gamstop</a></li>
+<li class=' menu-item menu-item-type-post_type menu-item-object-post'><a href="https://cryptonews.com/news/best-instant-withdrawal-bitcoin-casinos.htm">Fastest Payout Online Casino</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/best-telegram-casinos.htm">Best Telegram Casinos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="https://cryptonews.com/news/casino-utan-svensk-licens.htm">Casino Utan Svensk Licens</a></li>
+</ul>
+</li>
+</ul>            <ul class="menu_header mob">
+                <li></li>
+                <li class=" menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                    <a href="#">US <span class="menu_icon"></span></a>
+                    <span class="menu_icon mob"></span>
+                                            <ul class="sub-menu">
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//cryptonews.com" class="">
+                                        English                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//de.cryptonews.com" class="">
+                                        Deutsch                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//fr.cryptonews.com" class="">
+                                        Français                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//ru.cryptonews.com" class="">
+                                        Русский                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//tr.cryptonews.com" class="">
+                                        Türkçe                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//jp.cryptonews.com" class="">
+                                        日本語                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//nl.cryptonews.com" class="">
+                                        Nederlands                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//it.cryptonews.com" class="">
+                                        Italiano                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//ar.cryptonews.com" class="">
+                                        العربية                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//fa.cryptonews.com" class="">
+                                        فارسی                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//cn.cryptonews.com" class="">
+                                        中文                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//es.cryptonews.com" class="">
+                                        Español                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//pt.cryptonews.com" class="">
+                                        Português                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//se.cryptonews.com" class="">
+                                        Svenska                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//dk.cryptonews.com" class="">
+                                        Dansk                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//no.cryptonews.com" class="">
+                                        Norsk Bokmål                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//fi.cryptonews.com" class="">
+                                        Suomi                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//kr.cryptonews.com" class="">
+                                        한국어                                    </a>
+                                </li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <a href="//id.cryptonews.com" class="">
+                                        Indonesia                                    </a>
+                                </li>
+                                                    </ul>
+                                    </li>
+            </ul>
+            </div>
+    <div class="header-search ">
+        <div class="header-menu__trigger d-md-none">
+            All <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7">
+                <g fill-rule="evenodd">
+                    <path d="M0 3.999L12 3.999 12 2.999 0 2.999zM0 7L12 7 12 6 0 6zM0 1L12 1 12 0 0 0z"></path>
+                </g>
+            </svg>
+        </div>
+        <div class="header-search__trigger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                <path fill="#212121" fill-rule="evenodd" d="M6 11c-2.757 0-5-2.243-5-5 0-1.198.441-2.284 1.146-3.146.212-.26.448-.495.708-.708C3.716 1.441 4.802 1 6 1c2.757 0 5 2.243 5 5 0 1.198-.441 2.284-1.146 3.146-.212.26-.448.496-.708.708C8.284 10.559 7.198 11 6 11zm4.579-1.128C11.464 8.827 12 7.477 12 6c0-3.313-2.687-6-6-6-1.477 0-2.827.536-3.872 1.421-.255.216-.491.452-.707.707C.536 3.173 0 4.523 0 6c0 3.313 2.687 6 6 6 1.477 0 2.827-.536 3.872-1.421L13.293 14l.707-.707-3.421-3.421z"></path>
+            </svg>
+        </div>
+                <form action="/" class="header-search__form">
+            <input type="search" name="s" class="remove-outline" placeholder="What are you searching for?" aria-label="search">
+            <div class="header-search__close">
+                <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512">
+                    <g>
+                        <polygon points="512,28.308 483.692,0 256,227.692 28.308,0 0,28.308 227.692,256 0,483.692 28.308,512 256,284.308 483.692,512
+    512,483.692 284.308,256">
+                        </polygon>
+                    </g>
+                </svg>
+            </div>
+        </form>
+    </div>
+    <div class="header-lang d-none d-lg-flex">
+        <div class="header-lang__trigger">
+            US+
+        </div>
+                    <div class="header-lang__dropdown">
+                                    <a href="//cryptonews.com" class="">
+                        English                    </a>
+                                    <a href="//de.cryptonews.com" class="">
+                        Deutsch                    </a>
+                                    <a href="//fr.cryptonews.com" class="">
+                        Français                    </a>
+                                    <a href="//ru.cryptonews.com" class="">
+                        Русский                    </a>
+                                    <a href="//tr.cryptonews.com" class="">
+                        Türkçe                    </a>
+                                    <a href="//jp.cryptonews.com" class="">
+                        日本語                    </a>
+                                    <a href="//nl.cryptonews.com" class="">
+                        Nederlands                    </a>
+                                    <a href="//it.cryptonews.com" class="">
+                        Italiano                    </a>
+                                    <a href="//ar.cryptonews.com" class="">
+                        العربية                    </a>
+                                    <a href="//fa.cryptonews.com" class="">
+                        فارسی                    </a>
+                                    <a href="//cn.cryptonews.com" class="">
+                        中文                    </a>
+                                    <a href="//es.cryptonews.com" class="">
+                        Español                    </a>
+                                    <a href="//pt.cryptonews.com" class="">
+                        Português                    </a>
+                                    <a href="//se.cryptonews.com" class="">
+                        Svenska                    </a>
+                                    <a href="//dk.cryptonews.com" class="">
+                        Dansk                    </a>
+                                    <a href="//no.cryptonews.com" class="">
+                        Norsk Bokmål                    </a>
+                                    <a href="//fi.cryptonews.com" class="">
+                        Suomi                    </a>
+                                    <a href="//kr.cryptonews.com" class="">
+                        한국어                    </a>
+                                    <a href="//id.cryptonews.com" class="">
+                        Indonesia                    </a>
+                            </div>
+            </div>
+</header><!-- #masthead -->
+<div class="main">
+    <div class="modal" id="newsletter-modal">
+    <div class="modal__content text-white">
+        <div class="close__icon hide-modal" data-id="newsletter-modal">X</div>
+        <div class="modal__body newsletter">
+            <div class="left-side">
+    <div class="h1">
+        <em>
+            Enter your email for our Free Daily Newsletter        </em>
+    </div>
+    <p> A quick 3min read about today's crypto news!</p>
+    <form id="newsletter-form">
+        <div class="input-group">
+            <div><input name="email" id="newsletter_email" type="email" placeholder="Email" required=""></div>
+            <div><button type="submit" id="newsletter-signup">Sign Up</button></div>
+        </div>
+    </form>
+    <span class="response-msg" id="newsletter-response"></span>
+</div>
+<div class="img-box">
+    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Image" class="img" id="newsletter-popup-img" data-lazy-src="https://cimg.co/p/ml-300.jpeg"><noscript><img src="https://cimg.co/p/ml-300.jpeg" alt="Image" class="img" id="newsletter-popup-img"></noscript>
+</div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+    <div class="col-12">
+        <div class="breadcrumbs mb-20">
+            <a href="/">Cryptonews</a>
+                            <a href="https://cryptonews.com/exclusives/">
+                    Exclusives                </a>
+            <a href="https://cryptonews.com/exclusives/keone-hon-ceo-of-monad-labs-high-frequency-crypto-trading-l1s-l2s-security-ep-239.htm">Keone Hon, CEO of Monad Labs, on High Frequency Crypto Trading, L1s, L2s, and Security | Ep. 239</a>        </div>
+    </div>
+</div>
+    <div class="row">
+        <main class="col-12 col-lg-8">
+            <div class="row">
+                <div class="col-12 col-md-3 d-none d-md-block">
+                                    </div>
+                <div class="col-12 col-md-9 mb-40">
+                    <div class="row mb-20">
+    <div class="col-6">
+        <div class="fs-12">
+            <time datetime="2023-06-16T14:24:00+00:00" >
+                16 June 2023 10:24 EDT            </time>
+                             . 26 min read
+                    </div>
+    </div>
+    <div class="col-6 text-right">
+        <div class="socials socials--medium d-flex d-md-block">
+            <a href="#" class="ssk ssk-facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="#CCC"
+                          d="M8.854 4.155H7.072V2.97c.131-1.119 1.981-.907 1.981-.907V.138H9.05C8.986.123 5.37-.735 4.653 2.017l-.001.002-.006.018c-.113.345-.105 1.92-.103 2.118H3v2.107h1.64v5.732h2.388V6.262h1.827l.205-2.107h-.205z"/>
+                </svg>
+            </a>
+            <a href="#" class="ssk ssk-twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="#CCC" fill-rule="evenodd"
+                          d="M10.771 3.429c.156 3.462-2.427 7.323-6.997 7.323-1.39 0-2.685-.407-3.774-1.107 1.306.155 2.609-.208 3.645-1.019-1.078-.019-1.987-.73-2.3-1.71.385.074.765.053 1.111-.042C1.272 6.637.454 5.57.482 4.43c.332.184.71.295 1.115.308C.5 4.005.19 2.557.835 1.45 2.05 2.94 3.863 3.92 5.91 4.022 5.55 2.482 6.718 1 8.308 1c.708 0 1.347.298 1.797.778.56-.112 1.087-.316 1.564-.599-.185.575-.576 1.059-1.083 1.363.498-.06.972-.192 1.413-.388-.33.494-.746.928-1.228 1.275"/>
+                </svg>
+            </a>
+            <a href="#" class="ssk ssk-linkedin">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                    <path d="M11.9939 12h-2.464V7.8c0-1.151-.438-1.794-1.349-1.794-.991 0-1.508.669-1.508 1.794V12h-2.375V4h2.375v1.078s.714-1.322 2.41-1.322c1.697 0 2.911 1.036 2.911 3.179V12zm-10.53-9.048c-.808 0-1.464-.66-1.464-1.476C-.0001.661.6559 0 1.4639 0c.809 0 1.465.661 1.465 1.476 0 .816-.656 1.476-1.465 1.476zM.2379 12h2.477V4H.2379v8z"
+                          fill="#CCC" fill-rule="evenodd"/>
+                </svg>
+            </a>
+            <a href="#" class="ssk ssk-telegram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="#CCC"
+                          d="M.558 5.152L11.196 1.05c.495-.178.925.12.765.868l.001-.001-1.81 8.532c-.134.605-.495.752-.998.467L6.395 8.883l-1.33 1.282c-.147.147-.272.27-.556.27l.196-2.805 5.111-4.62c.223-.194-.05-.305-.343-.11L3.156 6.879l-2.723-.85c-.59-.188-.603-.591.126-.876"
+                          fill-rule="evenodd"/>
+                </svg>
+            </a>
+            <a href="#" class="ssk ssk-email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="#CCC"
+                          d="M0 2.727v6.854c0 .373.273.675.649.675h10.696c.376 0 .649-.306.649-.675V2.727c0-.409-.244-.727-.65-.727H.65C.23 2 0 2.326 0 2.727m.988.597c0-.165.099-.26.259-.26.099 0 3.986 2.463 4.22 2.607l.609.38c.193-.13.387-.24.587-.375.408-.26 4.038-2.612 4.138-2.612.16 0 .26.095.26.26 0 .174-.337.348-.557.482-1.378.841-2.756 1.757-4.122 2.628-.08.054-.233.17-.35.151-.128-.019-4.083-2.56-4.802-2.983-.108-.064-.242-.123-.242-.278"
+                          fill-rule="evenodd"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+    </div>
+                    <div class="article-single__content category_contents_details">
+                        <h1 class="mb-40">
+                            Keone Hon, CEO of Monad Labs, on High Frequency Crypto Trading, L1s, L2s, and Security | Ep. 239                        </h1>
+	                    <div class="sub-header-disclaimer">Disclosure: Crypto is a high-risk asset class. This article is provided for informational purposes and does not constitute investment advice. By using this website, you agree to our <a href="https://cryptonews.com/terms-and-conditions.htm">terms and conditions</a>. We may utilise affiliate links within our content, and receive commission.</div>                                                <figure class="image"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%200'%3E%3C/svg%3E" width="1280" class="content-img" alt="" data-lazy-src="https://cimg.co/news/117147/313431/keone-hon-thumb.jpg"><noscript><img decoding="async" src="https://cimg.co/news/117147/313431/keone-hon-thumb.jpg" width="1280" class="content-img" alt=""></noscript></figure><p>In an exclusive interview with cryptonews.com, Keone Hon, CEO and Co-founder of Monad Labs, talks about the relationship between HFT and crypto trading, security on the Monad blockchain, and scaling blockchain tech at the L1 level.</p><h2>About Keone Hon</h2><span class="replacer"></span><p>Keone Hon is the CEO and Co-founder of Monad Labs, the team supporting the high-performance Monad blockchain. He is a software developer and blockchain researcher.&nbsp; Before founding Monad, he spent eight years at Jump Trading, leading an HFT team.&nbsp; In 2021, Keone joined Jump&rsquo;s crypto division and led a team of engineers focused on blockchain research and dApp development.</p><p>Keone Hon gave a wide-ranging exclusive interview which you can see below, and we are happy for you to use it for publication provided there is a credit to www.cryptonews.com.&nbsp;</p><div class="rll-youtube-player" data-src="https://www.youtube.com/embed/z1YLh5bWM7E" data-id="z1YLh5bWM7E" data-query="feature=oembed" data-alt="Keone Hon, CEO of Monad Labs, on High Frequency Crypto Trading, L1s, L2s, and Security"></div><noscript><iframe title="Keone Hon, CEO of Monad Labs, on High Frequency Crypto Trading, L1s, L2s, and Security" width="640" height="360" src="https://www.youtube.com/embed/z1YLh5bWM7E?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></noscript><h2>Highlights Of The Interview</h2><span class="replacer"></span><ul><li>General Monad introduction; introduction to Keone&rsquo;s background at JUMP Trading</li><li>The relationship between HFT and crypto trading</li><li>Security on the Monad blockchain</li><li>L1 pros and cons vs. the pros and cons of L2s; Monad advocates for a focus on L1s</li><li>Scaling blockchain tech at the L1 level + better mobile apps</li></ul><figure class="image image-style-align-left"><a href="https://open.spotify.com/episode/2b3dEI1zstpnQs8FV3d0O5"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20103%200'%3E%3C/svg%3E" width="103" class="content-img" alt="" data-lazy-src="https://cimg.co/news/117147/313432/spotify.jpg"><noscript><img decoding="async" src="https://cimg.co/news/117147/313432/spotify.jpg" width="103" class="content-img" alt=""></noscript></a></figure><figure class="image image-style-align-left"><a href="https://podcasts.apple.com/ca/podcast/239-keone-hon-ceo-of-monad-labs-on-high-frequency/id1559291408?i=1000617109526"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20103%200'%3E%3C/svg%3E" width="103" class="content-img" alt="" data-lazy-src="https://cimg.co/news/117147/313433/apple-1.jpg"><noscript><img decoding="async" src="https://cimg.co/news/117147/313433/apple-1.jpg" width="103" class="content-img" alt=""></noscript></a></figure><figure class="image image-style-align-left"><a href="https://www.buzzsprout.com/1735660/13007348-239-keone-hon-ceo-of-monad-labs-on-high-frequency-crypto-trading-l1s-l2s-and-security"><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20103%200'%3E%3C/svg%3E" width="103" class="content-img" alt="" data-lazy-src="https://cimg.co/news/117147/313434/all-podcast-players-1.jpg"><noscript><img decoding="async" src="https://cimg.co/news/117147/313434/all-podcast-players-1.jpg" width="103" class="content-img" alt=""></noscript></a></figure><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2>Full Transcript Of The Interview</h2><span class="replacer"></span><p><strong>Matt Zahab</strong>&nbsp;<br>Ladies and gentlemen, welcome back to the Cryptonews Podcast. We are buzzing as always, and today my guest is coming in hot from beautiful New York City,&nbsp;the Big Apple,&nbsp;the one and only. Today we have Keone Hon, the CEO and&nbsp;Co-Founder of Monad Labs&nbsp;team&nbsp;supporting the high performance Monad blockchain. Keone is a software developer and Blockchain researcher. Before founding Monad, he spent eight years at Jump Trading, where he led an HFT team, which we will get right into.&nbsp;Cannot wait to discuss HFT Trading.&nbsp;In 2021, Keone joined Jumps Crypto Division and led a team of engineers focused on Blockchain research and decentralized app development. Been a while. Pumped to have you on.&nbsp;Welcome to show my friend.&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>Yeah, thanks for having me, Matt.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>Pumped have you on. You look great too. You got the nice trading headset locked and loaded. That brings me back some memories from my good old days.&nbsp;Getting calls from the traders or the analysts or the compliance team. I love the good old trading headset. It just sort of gets you in the zone. We&#8217;ll get into that soon, but I think a good place to start.&nbsp;Walk me through your crypto inception story. When did you first hear about crypto? When did you decide to get into it? Give me the whole lay the land there.&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>I started getting involved in crypto professionally in 2020 when I was part of a trading team at Jump Trading.&nbsp;Jump Trading is a big high frequency trading firm, does a lot of automated trading of number of different assets. And my team started to get involved in the crypto space in 2020. So it was like right after the COVID crash.&nbsp;And there&#8217;s a lot going on in crypto. So many different assets, a lot of stuff going on. And then in 2021, my team joined, The jump Crypto&nbsp;Effort, which is growing really fast. Jump crypto is an awesome team.&nbsp;They really put a huge effort into not only the trading aspect of crypto, but also the research and investing aspects. And my team kind of moved over to&nbsp;Jump Crypto and immediately started working on DeFi&nbsp;projects, supporting some of portfolio companies and just doing research in the space.&nbsp;It&#8217;s really exciting space and it felt like there was a lot of opportunity to help make the space better by trying to improve the performance of different protocols and just make sense of the landscape of different protocols that existed.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>I love that. How did you get into&nbsp;High Frequency Trading? And a quick sort of just caveat and follow up to that. I&#8217;d love if you could explain how one makes money on High Frequency Trading.&nbsp;<br><br><strong>Keone Hon</strong>&nbsp;<br>Sure thing.&nbsp;I got involved in HFT starting in 2011. It was right after college. So I went to undergrad at MIT, studied computer science, and I think nowadays people are much more aware of the industry. But at the time it was quite small, quite niche.&nbsp;But at the end of the day, it is building algorithms that provide liquidity into all major markets and basically take the other side of trades that retail participants or institutional participants or other people want to do.&nbsp;It is providing a service. And at the end of the day, one of the reasons why the traditional markets are quite efficient in terms of execution costs for people that are trading is coming from the fact that there&#8217;s professional liquidity providers.&nbsp;You&#8217;re building these algorithms that go and quote. Thousands of different stocks or thousands of different futures and take the stand willing to take the other side of either buys or sells and compete with each other to do that as efficiently as possible.&nbsp;In terms of how companies like these HFT companies make money, at the end of the day, it is doing a ton of trades with a very small amount of edge on every single trade. Like if you flip a coin many times and you have 50.1% probability of landing heads and then you can do that many times, then it does end up compounding into a kind of trading strategy that has very smooth returns.&nbsp;But it&#8217;s coming from the fact that there are many small trades that are being done which are just coming from taking the other side of trades that other people want to do.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>So you and the team are really just building world class algos that allow you to swipe up some basis points whereas other people wouldn&#8217;t really be down to grab those basis points.&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>Yeah, that&#8217;s correct. And I think the basis points are really coming from the fact that other people want to make a trade. As an HFT, generally you&#8217;re on the side of your short optionality. You&#8217;re sitting there waiting for someone else to want to make a trade and they decide the terms of making the trade.&nbsp;Like they decide when they want to buy or when they want to sell. They decide that it&#8217;s strategically a good time to buy right now because some news just came out or they saw something happen and you&#8217;re sitting there waiting for them to decide to trade with you and then the payment that you get.&nbsp;Like those basis points are really the fact that you&#8217;re short the optionality and you have this limit order that&#8217;s out of the market all the time.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>Interesting. I&#8217;d love if you&#8217;d explain the differences between&nbsp;HFT trading in traditional non crypto trading. So I guess in all types of whether it&#8217;s currency, equities, bonds, whatever the case may be. But I&#8217;d love if you could walk me through the difference of trading in all other assets and then HFT trading crypto just sort of the big pros and cons of each, if you will.&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>I think the big difference is really stemming from overall lack of maturity of the crypto markets even right now, and then some specific structural things that make it much more difficult to be a market maker in the crypto space, which then ultimately has the effect of the crypto markets being less liquid than traditional markets are.&nbsp;And then the lack of liquidity really manifests in terms of execution quality, meaning that when people want to trade in crypto markets, the number of basis points that they typically pay in execution costs is on average a lot higher than when they&#8217;re trading in more established traditional markets.&nbsp;But the cost is really stemming from the fact that crypto still quite new. So there maybe are not as many professional participants that are making markets and competing with each other to compete down the spread, as well as some specific structural differences, which I&#8217;d be happy to get into if you&#8217;re interested.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>Yeah, hit me, I&#8217;m all ears. Give me what you got.&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>Sure. I think some of the big differences in the crypto space structurally so, first of all, there&#8217;s centralized and decentralized exchanges. I&#8217;ll just focus on centralized exchanges for a second.&nbsp;I think the major differences are that most centralized, or maybe all centralized exchanges are custodial in nature, meaning that you have to send your assets specifically to that one exchange. That exchange holds the assets and then you trade based on the inventory that you have at that exchange. What it really means is that there&#8217;s much more of an element of needing to move assets from one exchange to another whenever you, as a professional market participant, need more assets on that other exchange.&nbsp;And the movement requires either blockchain operations, like literally sending ERC 20s or ETH or some other asset on the blockchain from one centralized exchanges address to another, or in the case of dollars, having to wire money from one exchange to another.&nbsp;And there were some solutions that provided easier dollar movement than wires, such as with Silvergate, where multiple exchanges had accounts at Silvergate, so the participant could just tell Silvergate, just move money from one account to another and the bank could make an internal transfer, thereby avoiding the wire system.&nbsp;But in general, there&#8217;s just a lot of frictions that make it a lot more complex to be a participant on crypto exchanges because there&#8217;s this requirement to move assets around.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>Well said. How difficult would it be for someone like me with a MacBook Pro and nothing better to dive into the&nbsp;High Frequency Trading game at crypto?&nbsp;Would it just be absolute nightmare fuel? Like, let&#8217;s say I have trading experience, nothing in the HFT, so I can see your smile there. I feel like that means not a friggin chance. But if a beginner wanted to jump into it not a beginner.&nbsp;If someone with moderate trading experience wanted into dabble in this space, what steps would they need to take to sort of get moving and grooving?&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>I think HFT is really about building algorithms, so building like writing code that encodes trading signals that make predictions about.&nbsp;What&#8217;s ultimately going to happen to price action. So there&#8217;s like a stream of information coming from the exchange, a bunch of packets. Each of the packets has information in it. And the information is things like a new bid got added to the BTC USDT bid on&nbsp;Binance at this particular price, for this particular size.&nbsp;It&#8217;s just a constant stream of little updates like that. And in HFT, your job is to convert that stream of updates into something that makes sense, that ultimately can lead to a price prediction. The price prediction might ultimately be the result of a composition of a bunch of much simpler trading signals that are measuring simpler things.&nbsp;But then you could combine those simple things with machine learning algorithm of some sort. A simple example of machine learning algorithm is linear regression. But there are other machine learning algorithms as well that can make these combinations.&nbsp;So anyway, I&#8217;m giving you kind of a scattered dump of thoughts. But basically the summary is to build an HFT operation. The work is build market data parsers to kind of crack these packets open and extract the information from within them, that&#8217;s step one. Then step two is building individual trading signals that make predictions about or that measure something about what just happened. For example, there could be a signal that&#8217;s like a summary of a bunch of streams of trades that have just happened, and then the signal is kind of summarizing that in some way. Step three is combine those predictors into a composite prediction that predicts the future. Probably very short&nbsp;term prediction. Like, we think that in the next couple of milliseconds to a couple of seconds, on average, the price will be a little bit higher, a little bit lower.&nbsp;So the third step is like building this prediction using machine learning. And then step four is take that prediction and actually go send orders to the Exchange or modify existing orders that you already have on the market.&nbsp;And then you need to build up a system that kind of does all this in a very automated fashion. And then maybe that system also needs to scale to many different assets because there are so many different futures and perpetuals and spot markets on many different exchanges.&nbsp;You have to deal with all that and then ultimately you have this system that can go out and participate automatically in a bunch of different markets.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>That&#8217;s so cool. So I guess in summation, there&#8217;s not a snowballs chance in hell that someone like me could whip that up.&nbsp;You need to really know what you&#8217;re doing. I feel like you can&#8217;t really do this alone either. Maybe I&#8217;m wrong there.&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>It&#8217;s definitely a group effort. It definitely would be like a couple of people working together, kind of divide and conquer.&nbsp;Maybe someone is just focusing on the Exchange connectivity, parsing the market data formatting orders automatically into the Exchange specific format. And then another person is just working on signal research, coming up with new signals that are predictive.&nbsp;And then another person is working on actually the machine learning part. And then another person is working on post trade analysis. Yeah, it&#8217;s probably like a four plus person team effort.</p><p><strong>Matt Zahab</strong>&nbsp;<br>Full squad.&nbsp;I love that. Let&#8217;s jump into Monad. Why did you guys choose to build on the Monad blockchain? Obviously, you guys are the team supporting the high performance Monad blockchain. But of all the options out there, why Monad?&nbsp;And I guess a little caveat I&#8217;d love if you could walk me through some of the security pros of building on the Monad blockchain, which to my knowledge, is one of the big reasons why you guys chose to do so.&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>Sure. Monad is a new layer&nbsp;1. It&#8217;s EVM bytecode compatible. So the same&nbsp;programs that have been built for Ethereum or other blockchains can seamlessly be migrated to Monad without any changes. It&#8217;s also EVM infrastructure compatible, so things like MetaMask or EtherScan could interact with Monad in the same way that they interact with Ethereum without changes.&nbsp;Ultimately, Monad is a new layer, one that does something, I think, different from what any other EVM Layer 1 does, which is we&#8217;re super focused on EVM execution, making EVM execution extremely performant so that we can scale to many more users as well as applications that are much more complex than existing apps right now.&nbsp;And we do that through a couple of specific optimizations, which I could talk more about. Kind of one of the ones that we&#8217;re really well known for is parallel execution. But there are a couple of other optimizations that are equally important that ultimately allow us to deliver super high performance, specifically 10,000 transactions per second of EVM throughput, which is about 1000x the throughput of Ethereum right now.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>Wow. I guess the purpose behind building this was really for&nbsp;High Frequency Trading, right? This is a sort of a trading focused blockchain.&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>Yeah, I think I would modify that, only to say that we&#8217;re super focused on high fidelity DeFi, which has a number of different participants, some of whom might be high frequency traders who are providing liquidity at a very granular level, thus allowing users to get much better execution than they currently do in DeFi, but also other participants.&nbsp;For any normal person, like a retail user or an institution. Right now, when they trade in DeFi on Ethereum, they&#8217;re very used to paying 1% slippage or 2% slippage. It&#8217;s super common to go to Uniswap and go try to make a swap and then realize that you need to set the slippage setting to like 5% in order to get your trade done.&nbsp;And that&#8217;s just crazy because even 1% in traditional finance is insane, like insanely unheard of 100x more slippage than what people are used to in the traditional space. And it&#8217;s very clear that needs to improve in order to improve adoption of crypto as a means for managing personal finance, as a means for payments, as a means for all this financial infrastructure that we hope to put in place to solve problems for normal everyday people.&nbsp;That needs to change. And the way that that changes is first at the infrastructure level by building a base layer that is much more performant and much cheaper, which then can enable a lot of high fidelity DeFi.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>Interesting. So much to get into. Keone&nbsp;we got to take a quick break and give a huge shout out to response to the show. And when we get back, we will continue to buzz on Monad Blockchain and sort of L1s pros versus&nbsp;cons versus L2s and how you guys are advocates in regards to focusing on L1.&nbsp;But until then, got to give a huge shout out to our sponsor, the show that is PrimeXBT. Longtime friends of cryptonews.com and longtime sponsors of the Pod, PrimeXBT offers a robust trading system for both beginners and professional traders.&nbsp;It doesn&#8217;t matter if you&#8217;re a rookie or a vet you can easily design and customize your layouts and widgets to best fit your trading style. PrimeXBT is also running an exclusive promotion for listeners of the Cryptonews&nbsp;Podcast.&nbsp;After making your first deposit, you get 50% of your deposit credited to your trading account that can be used as additional collateral to open positions. The promo code is <strong>CRYPTONEWS50</strong> and that is CRYPTONEWS50 all one word.&nbsp;To receive 50% of your deposit credited to your trading account. And now back to the show with Keone. L1s versus L2s. You guys have I don&#8217;t want to say a hot take, but I feel like everyone&#8217;s, like, all L2s are the future. But you guys are in the other yacht. You guys are in the yacht that advocates for a focus on L1s. I&#8217;d love&nbsp;you could walk me through the pros and cons of each and why you and the team are such big advocates of focusing on L1s.&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>We think that L1s need to be much more performant than they are right now in order to enable mass user adoption. We think that there are opportunities for L2s to contribute as well. We&#8217;re not saying that L2s are bad per se, but we just think that there is a ton of work to be done at the L1 layer in order to really facilitate much greater usage of crypto.&nbsp;With that said, I think there are a couple of specific issues that L2s are facing right now that really led us down the road of building a really high performance Layer 1, as opposed to trying to shoehorn our innovations into an L2.&nbsp;And I think the two major reasons are decentralization and performance. So on the decentralization front, I think the major thing is that Layer 2s all operate with a centralized sequencer. And that centralized sequencer has the ability to choose the ordering of transactions.&nbsp;They have the ability to temporarily censor transactions. So, for example, if there&#8217;s a transaction that gets submitted that the sequencer operator doesn&#8217;t like, for some reason, they can suppress that.&nbsp;In some L2s, there&#8217;s a mechanism of, like, avoiding that. But it introduces a delay for that transaction. So it&#8217;s really about decentralization. That&#8217;s why we&#8217;re all here. And decentralized blockchains are really powerful because they allow for this permissionless shared global state with atomic composability, with open APIs, where developers can build new apps on top of existing ones.&nbsp;That all comes from decentralization. If we&#8217;re in a very centralized world where there&#8217;s a single sequencer that can control the official list of transactions, it&#8217;s just a very different kind of value proposition.&nbsp;So that&#8217;s sort of one of the big, major reasons why we think that L2s have a long way to go in order to get to the point where they are really decentralized. I think a second thing to consider is just the performance which ultimately is both related to throughput as well as to cost.You so it&#8217;s still quite high, like, still way too high relative to what is really needed for mass user adoption. As a Layer 1 with extreme emphasis on performance, Monad is making those costs orders of magnitude cheaper than the Layer&nbsp;2s&nbsp;are.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>Interesting. Tell me why the name? Why the name Monad?&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>Monad. It means a couple of things. It&#8217;s a computer science term involved in functional programming. It also has meanings of a single fundamental unit, and we just thought it was a really good name.&nbsp;That kind of captures our goal of being a fundamental building block for blockchains.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>I love that. Hey, you taught me something new today. Well, I mean, you&#8217;ve taught me a bunch, but maybe a new word that I can dabble in and introduce to the regular day to day vocab.&nbsp;We&#8217;ll definitely jump back into some more Monad stuff, but I want to hear some hot takes from you. I know you got a couple up there. Any crypto related Black Swan events that you could foresee happening over the next six months until the end of 2023 and beginning of 2024?&nbsp;Anything big or just any sort of Keone hot takes that you think could happen over the next six, seven months?&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>I think a good hot take is just that whatever the prevailing narrative is right now, that will probably not be the narrative, like, three months from now.&nbsp;So, yeah, I think right now there&#8217;s a lot of excitement around roll ups, and some of the excitement is merited. But I think very recently there&#8217;s been more questions about the centralization of roll ups, as well as questions around things like what happens when an asset is natively defined on the roll up as opposed to being a bridged asset.&nbsp;And Jean Charboneau kind of this is he&#8217;s a crypto researcher, writes some really informative, very detailed, very technical articles about crypto mechanisms and designs. But he wrote an article recently that created quite a stir in the Ethereum community that caused people to think about roll ups a little bit differently and really highlighted some of the questions about decentralization of roll ups.&nbsp;So I think that at the end of the day, people are still a little bit narrowly focused sometimes on the things that are in front of them right now. The menu of options that they have, when it would be good to zoom out a little bit more and think about, more broadly what kinds of solutions are needed in order to make it possible that when you&#8217;re walking down the street, everyone that you look around.&nbsp;I&#8217;m in New York, and there are just so many people all the time. Like, so many people walking around. What do we need to do to get to the point where every one of those people in their back pocket has a phone that has a bunch of apps that are all powered by blockchains.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>What is that answer?&nbsp;What do we have to do?&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>I think there are a couple of major steps. One is scaling at the actual Layer 1 level. And then another thing is having much better mobile experiences, which I think requires some changes on the wallet side.&nbsp;Account abstraction is really important so that people can submit transactions gaslessly and have some sort of third party like paying for the gas. I think that it&#8217;s a two layer process, like, you know, the cake has has at least two layers, and then the third one is the actual applications getting really good apps that ultimately some of which could be like a killer app for crypto.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>Any ideas of what that might look like? Like, if you would have asked me two, three years ago, I would have probably said something along the likes of Coinbase or&nbsp;Binance. Funny how we&#8217;re talking about this with what&#8217;s been going on nonetheless.&nbsp;But I would have thought it would be something that allowed just everyone was so keen. Almost like the sort of Robin Hood era of 2020 where everyone, not everyone, but most people, were at least dabbling in stock trading to some capacity because, one, there was nothing else to do, and two, the app was pretty darn good on the UX and UI standpoint.&nbsp;It definitely allowed the rookie and beginner and even intermediate trader to achieve what they wanted to. But with that being said, what kind of apps need to be created? Is there any area in particular?&nbsp;Is it trading? Is it money transfer? What area or what type of app needs to be created for us to go mass adoption?&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>I think the Robin Hood example is a really good one because it emphasizes two major aspects, one of which is trading, and the other one is community.&nbsp;I think that the success of Robin Hood is very closely tied to the rise of Wall Street bets.&nbsp;It&#8217;s just really crazy thinking about how I remember being on Wall Street bets in 2017 or 2018, so before it really became mainstream.&nbsp;But it&#8217;s just like a bunch of people who are having fun and enjoying posting their screenshots from Robin Hood and developing like a vernacular. And one of us and just like certain memes meme culture is really big in Wall Street bets.&nbsp;And it&#8217;s interesting because it&#8217;s a totally separate meme culture from Crypto Twitter, but it&#8217;s also a very strong and very mind developing kind of culture as well. So I think that I would say, like, two major aspects of killer apps are personal finance and then also the community and the meme culture that comes from it.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>Yeah, it would be great to have something there on the Twitter note. You just brought up a good point, Keone. The when you guys are developing your algos, do you, like, ever pull data from Twitter or do you ever have some type of Twitter sentiment that goes into it?&nbsp;I remember when I used to work at a trading firm, all the traders, every single one of them, literally not one trader, Keone. And there were close to a dozen of them. They&#8217;d have their nine screens&nbsp;and on one screen, at least one screen, Twitter was open.&nbsp;Every single one of them had their Bloomberg terminals. Half of the screens were four or five of the screens were Bloomberg. Couple were maybe some type of news website. Another might have been Yahoo finance, whatever the case may be, but every single one of them had Twitter open.&nbsp;And this was, heck, five, six, seven years ago. When you guys are building these algos, do you ever take Twitter into account or sort of the qualitative sentiment?&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>It&#8217;s an idea that&#8217;s discussed a lot in quant finance.&nbsp;I think that it really depends on the nature of the trading that you&#8217;re doing and the frequency. For&nbsp;High Frequency Trading, where for a given instrument, you might be trading 1000 to 10,000 times a day, it doesn&#8217;t really make sense to integrate something like Twitter in there where you&#8217;re realistically going to get a signal from Twitter like once every couple of days at best, probably even less frequent than that, but news events about specific companies or specific instruments, that&#8217;s just not going to happen that often. So I think that kind of strategy is really more reserved.&nbsp;It&#8217;s&nbsp;totally different style of trading, which I think is a legit opportunity as well, but just very different from the kind of algorithm that is trying to trade in and out thousands of times a day.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>Not for HFT. Totally feel you. Keone&nbsp;this has been an absolute treat man. You have taught me a ton and I have a lot of homework to do here. Truly an incredible episode and really appreciate your time here.&nbsp;Before we let you go, can you please let our listeners know where they can find you and Monad labs online and on socials?&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>Sure thing. I&#8217;m @keoneHD&nbsp;on Twitter and then you can also follow Monad on Twitter.&nbsp;Our Twitter handle is&nbsp;@monad_xyz on Twitter.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>Amazing. You heard it. Keone thanks again man, really appreciate it. Can&#8217;t wait to have you on for round two. Wishing you and the team all the best and we will keep in touch, my friend.&nbsp;</p><p><strong>Keone Hon</strong>&nbsp;<br>Thanks. Same to you, Matt. It was really nice chatting today.&nbsp;</p><p><strong>Matt Zahab</strong>&nbsp;<br>Folks&nbsp;what an episode with Keone Hon from Monad dropping knowledge bombs left, right and center. If you are a trader or want to get into HFT trading, great episode to really just get some of the rest off, learn a bunch and dive into the space.&nbsp;If you guys enjoyed this one, I hope you did, please do subscribe. It would mean the world to my team and I.&nbsp;Speaking to the team. Love you guys. Thank you so much for everything. Would not be here without you.&nbsp;Justas, my amazing sound editor. Appreciate you as always, my man.&nbsp;And&nbsp;to&nbsp;the listeners love you guys, keep on growing those bags and keep on staying healthy, wealthy and happy. Bye for now, godspeed and we&#8217;ll talk soon.&nbsp;</p>
+
+                        <div class="newsletter home-newsletter single">
+                            <div class="left-side">
+    <div class="h1">
+        <em>
+            Enter your email for our Free Daily Newsletter        </em>
+    </div>
+    <p> A quick 3min read about today's crypto news!</p>
+    <form id="newsletter-home">
+        <div class="input-group">
+            <div><input name="email" id="newsletter_email" type="email" placeholder="Email" required=""></div>
+            <div><button type="submit" id="newsletter-signup">Sign Up</button></div>
+        </div>
+    </form>
+    <span class="response-msg" id="newsletter-response"></span>
+</div>
+<div class="img-box">
+    <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Image" class="img" id="newsletter-popup-img" data-lazy-src="https://cimg.co/p/ml-300.jpeg"><noscript><img src="https://cimg.co/p/ml-300.jpeg" alt="Image" class="img" id="newsletter-popup-img"></noscript>
+</div>
+                        </div>
+                        <div class="mb-15 text-right">
+                        </div>
+                        <div class="dslot" did="12"></div>
+                    </div>
+
+                    <div class="mb-5 mt-5">
+                        <div class="row mb-20">
+    <div class="col-6">
+        <div class="fs-12">
+            <time datetime="2023-06-16T14:24:00+00:00" >
+                16 June 2023 10:24 EDT            </time>
+                    </div>
+    </div>
+    <div class="col-6 text-right">
+        <div class="socials socials--medium d-flex d-md-block">
+            <a href="#" class="ssk ssk-facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="#CCC"
+                          d="M8.854 4.155H7.072V2.97c.131-1.119 1.981-.907 1.981-.907V.138H9.05C8.986.123 5.37-.735 4.653 2.017l-.001.002-.006.018c-.113.345-.105 1.92-.103 2.118H3v2.107h1.64v5.732h2.388V6.262h1.827l.205-2.107h-.205z"/>
+                </svg>
+            </a>
+            <a href="#" class="ssk ssk-twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="#CCC" fill-rule="evenodd"
+                          d="M10.771 3.429c.156 3.462-2.427 7.323-6.997 7.323-1.39 0-2.685-.407-3.774-1.107 1.306.155 2.609-.208 3.645-1.019-1.078-.019-1.987-.73-2.3-1.71.385.074.765.053 1.111-.042C1.272 6.637.454 5.57.482 4.43c.332.184.71.295 1.115.308C.5 4.005.19 2.557.835 1.45 2.05 2.94 3.863 3.92 5.91 4.022 5.55 2.482 6.718 1 8.308 1c.708 0 1.347.298 1.797.778.56-.112 1.087-.316 1.564-.599-.185.575-.576 1.059-1.083 1.363.498-.06.972-.192 1.413-.388-.33.494-.746.928-1.228 1.275"/>
+                </svg>
+            </a>
+            <a href="#" class="ssk ssk-linkedin">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                    <path d="M11.9939 12h-2.464V7.8c0-1.151-.438-1.794-1.349-1.794-.991 0-1.508.669-1.508 1.794V12h-2.375V4h2.375v1.078s.714-1.322 2.41-1.322c1.697 0 2.911 1.036 2.911 3.179V12zm-10.53-9.048c-.808 0-1.464-.66-1.464-1.476C-.0001.661.6559 0 1.4639 0c.809 0 1.465.661 1.465 1.476 0 .816-.656 1.476-1.465 1.476zM.2379 12h2.477V4H.2379v8z"
+                          fill="#CCC" fill-rule="evenodd"/>
+                </svg>
+            </a>
+            <a href="#" class="ssk ssk-telegram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="#CCC"
+                          d="M.558 5.152L11.196 1.05c.495-.178.925.12.765.868l.001-.001-1.81 8.532c-.134.605-.495.752-.998.467L6.395 8.883l-1.33 1.282c-.147.147-.272.27-.556.27l.196-2.805 5.111-4.62c.223-.194-.05-.305-.343-.11L3.156 6.879l-2.723-.85c-.59-.188-.603-.591.126-.876"
+                          fill-rule="evenodd"/>
+                </svg>
+            </a>
+            <a href="#" class="ssk ssk-email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="#CCC"
+                          d="M0 2.727v6.854c0 .373.273.675.649.675h10.696c.376 0 .649-.306.649-.675V2.727c0-.409-.244-.727-.65-.727H.65C.23 2 0 2.326 0 2.727m.988.597c0-.165.099-.26.259-.26.099 0 3.986 2.463 4.22 2.607l.609.38c.193-.13.387-.24.587-.375.408-.26 4.038-2.612 4.138-2.612.16 0 .26.095.26.26 0 .174-.337.348-.557.482-1.378.841-2.756 1.757-4.122 2.628-.08.054-.233.17-.35.151-.128-.019-4.083-2.56-4.802-2.983-.108-.064-.242-.123-.242-.278"
+                          fill-rule="evenodd"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+    </div>
+                    </div>
+                    <hr>
+                                    </div>
+            </div>
+        </main>
+        <div class="col-12 offset-lg-1 col-lg-3">
+            <div id="widget_container" class="mb-30" style="min-height: 455px;"></div>
+            <div class="dslot d-none d-lg-block mb-40" did="6" style=min-height:540px;></div>
+
+            
+<h3 class="mb-20">
+    Recommended</h3>
+<div class="mb-40 col-lg-60">
+    <div class="row" id="load_more_target">
+
+        
+<div id="post-136987" class="col-12 col-md-6 col-lg-12 post-136987 post type-post status-publish format-standard has-post-thumbnail hentry category-bitcoin-news category-news editors-arslan-butt">
+    <article class="mb-30">
+        <div class="row">
+            <div class="col-4 col-md-12">
+                <a href="https://cryptonews.com/news/bitcoin-price-prediction-dips-cbdc-threats-1-5b-investment-kiyosakis-advice.htm"
+                   class="article__image article__image--sm-wider mb-15  ">
+                    <div class="img-sized">
+                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgOTEyIDYwOCI+Cgk8aW1hZ2Ugd2lkdGg9IjkxMiIgaGVpZ2h0PSI2MDgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBVkFDQURBUkVBQWhFQkF4RUIvOFFBR0FBQUF3RUJBQUFBQUFBQUFBQUFBQUFBQndnSkJRYi94QUFuRUFBQkFnWUJBd1FEQUFBQUFBQUFBQUFCQWdNQUJBVUdCeEVTSVNJeENCTVZVUlJCWWYvRUFCa0JBQU1CQVFFQUFBQUFBQUFBQUFBQUFBRUNBd1FBQmYvRUFCd1JBQUlEQUFNQkFBQUFBQUFBQUFBQUFBQUJBZ01SRWlFeFFmL2FBQXdEQVFBQ0VRTVJBRDhBbmxUc2dUbSt3a24rUlRjQ2RQVEwvckV5dExMWE1rbldoSGNnakJZeHQycVZTbktkbW1WN1VOallqSFpZejA2SUpyc0dtWGFmVjdhbjNIa05MUzJEdllFVnJucGx1amo2QmZqQzBtNTZiYi9JVDJLSTh3Wk1sWG4wYzdFSHB2cDFWbVdaejJrcVIwUGlJOG40VmFReGxVdGlrMlpTMElTMGhBU1BxR2NkV2p3bTQ5QUV6djhBQjFTMm4xcFMyWFFrL1VUaHVnc2VpazR3Vjc2NWRCN2VvNmlORE0wU2plRUd2ajdiWlVnOGp4SG1JdEZET3p6WFgyS0M4NGpvb0EvdUhUQjRUNHZ6SlZXZWNtSlpTOXQ3STF5aDR4UWprei8vMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
+                             data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701152384-28.jpg"
+                             alt="Bitcoin Price Prediction: Dips, CBDC Threats, $1.5B Investment &amp; Kiyosaki&#8217;s Advice"
+                             class="lazyload img-fluid" data-sizes="auto"
+                             sizes="300px">
+                    </div>
+                </a>
+            </div>
+            <div class="col-8 col-md-12">
+                <div class="article__badge article__badge--sm ">
+					                        <a class="article__badge article__badge--sm"
+                           href="https://cryptonews.com/news/bitcoin-news/">  Bitcoin News </a>
+					
+                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-11-28 06:59:40"></div>
+                </div>
+
+				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/bitcoin-price-prediction-dips-cbdc-threats-1-5b-investment-kiyosakis-advice.htm" rel="bookmark">Bitcoin Price Prediction: Dips, CBDC Threats, $1.5B Investment &amp; Kiyosaki&#8217;s Advice</a></h4>            </div>
+        </div>
+    </article>
+
+</div>
+
+
+<div id="post-137008" class="col-12 col-md-6 col-lg-12 post-137008 post type-post status-publish format-standard has-post-thumbnail hentry category-altcoin-news tag-hacker tag-kronos-research editors-ruholamin-haqshanas">
+    <article class="mb-30">
+        <div class="row">
+            <div class="col-4 col-md-12">
+                <a href="https://cryptonews.com/news/kronos-research-enters-negotiations-with-hacker-after-25-million-cryptocurrency-theft-offers-10-bounty.htm"
+                   class="article__image article__image--sm-wider mb-15  ">
+                    <div class="img-sized">
+                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFBQWdNQUFBQUFBQUFBQUFBQUFBQUFCZ2dFQlFmL3hBQWxFQUFCQWdVREJBTUFBQUFBQUFBQUFBQUJBZ01BQkFVR0VRY1NZUWdUSWpFaFFWSC94QUFaQVFBQ0F3RUFBQUFBQUFBQUFBQUFBQUFFQlFJREJnRC94QUFmRVFBQ0FnSURBUUVCQUFBQUFBQUFBQUFCQWdBRUF4RVRGQ0VTRlVILzJnQU1Bd0VBQWhFREVRQS9BRXRvbWt5cWlRZ2ZKTU4rOG9nUDZDeS9mNmVaN1psRFNqbmlKSmVVeWFYZ1pCYzBCcURDU3BiS2dCeEJIYlNFOXRkU2hxV21Ec21GSjIrUWlQZFNWbThnL3NPOU5Md1NKNXRicEczSTl3bnNWdmcrUkhtcjhaOGpSVWE5S003SUlLeTJWWWhXUVZndS9pUmJodXlrTGtITzJFWng5Q09ETWZKM0lXOGk3M2JjMHNpYWRVTWJjeGNsZDNNZ3VCOGg4bVMwTjljdExoU0RnaU5QbUFadEdhVE1BemV3anAxNVZCcndEaHdPWUdlc2hHNVE5WkNOd3hwbFptWitUVjNGbjErd2h6S01iNkV6MmNjYjZFemU5WnBhRnVBR05EUlVFYk0wTkJRdzJaLy8yUT09Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg=="
+                             data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701154462-adobestock-sergey-nivens-___media_library_original_1200_800.jpg"
+                             alt="Kronos Research Enters Negotiations with Hacker After $25 Million Cryptocurrency Theft, Offers 10% Bounty"
+                             class="lazyload img-fluid" data-sizes="auto"
+                             sizes="300px">
+                    </div>
+                </a>
+            </div>
+            <div class="col-8 col-md-12">
+                <div class="article__badge article__badge--sm ">
+					                        <a class="article__badge article__badge--sm"
+                           href="https://cryptonews.com/news/altcoin-news/">  Altcoin News </a>
+					
+                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-11-28 06:56:19"></div>
+                </div>
+
+				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/kronos-research-enters-negotiations-with-hacker-after-25-million-cryptocurrency-theft-offers-10-bounty.htm" rel="bookmark">Kronos Research Enters Negotiations with Hacker After $25 Million Cryptocurrency Theft, Offers 10% Bounty</a></h4>            </div>
+        </div>
+    </article>
+
+</div>
+
+
+<div id="post-136997" class="col-12 col-md-6 col-lg-12 post-136997 post type-post status-publish format-standard has-post-thumbnail hentry category-sponsored">
+    <article class="mb-30">
+        <div class="row">
+            <div class="col-4 col-md-12">
+                <a href="https://cryptonews.com/news/caga-cryptos-spectacular-journey-soaring-high-with-centralized-exchange-listings.htm"
+                   class="article__image article__image--sm-wider mb-15  ">
+                    <div class="img-sized">
+                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzYwIDY3NiI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2MCIgaGVpZ2h0PSI2NzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBY0FDQURBUkVBQWhFQkF4RUIvOFFBSHdBQUFRVUJBUUVCQVFFQUFBQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkFBQWdFREF3SUVBd1VGQkFRQUFBRjlBUUlEQUFRUkJSSWhNVUVHRTFGaEJ5SnhGREtCa2FFSUkwS3h3UlZTMGZBa00ySnlnZ2tLRmhjWUdSb2xKaWNvS1NvME5UWTNPRGs2UTBSRlJrZElTVXBUVkZWV1YxaFpXbU5rWldabmFHbHFjM1IxZG5kNGVYcURoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1SGk0K1RsNXVmbzZlcng4dlAwOWZiMytQbjYvOFFBSHdFQUF3RUJBUUVCQVFFQkFRQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkVBQWdFQ0JBUURCQWNGQkFRQUFRSjNBQUVDQXhFRUJTRXhCaEpCVVFkaGNSTWlNb0VJRkVLUm9iSEJDU016VXZBVlluTFJDaFlrTk9FbDhSY1lHUm9tSnlncEtqVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnb09FaFlhSGlJbUtrcE9VbFphWG1KbWFvcU9rcGFhbnFLbXFzck8wdGJhM3VMbTZ3c1BFeGNiSHlNbkswdFBVMWRiWDJObmE0dVBrNWVibjZPbnE4dlAwOWZiMytQbjYvOW9BREFNQkFBSVJBeEVBUHdENmYwKzllUzhaU2VNMStncDZuNExPS1VUb1JXaHpESlgyTG1vbkxsVnpXbkhubFlyMjkxNXI0cmpwVjNPVmowSytHVk9Oem45SzR2M3o2MTB4M09lZnduU3lYQ1JMa210cm5JbGN6YnpVeEl1MU9hemw3eXNiMDA0dTVOcGtSQTNIdlVRcEtPcHBWcnltck01UVhoZ3ZYd2VjMU43TTE1YnhOSkxsN3RzTTNGWGU1bGJsTkcydFlJOEZtQk5Xa2pHVW16VWhranhoU0tzeWFaNXJyakdHK1lvY2MxeHkzUFZwNm9xcnFFNjlIcWVabW5JaC93RGExei96ME5ITXllU0owSGhxK21tbEFkODF2QnM1cXNVa2YvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"
+                             data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701153143-caga.jpg"
+                             alt="CAGA Crypto&#8217;s Spectacular Journey: Soaring High with Centralized Exchange Listings"
+                             class="lazyload img-fluid" data-sizes="auto"
+                             sizes="300px">
+                    </div>
+                </a>
+            </div>
+            <div class="col-8 col-md-12">
+                <div class="article__badge article__badge--sm ">
+					                        <a class="article__badge article__badge--sm"
+                           href="https://cryptonews.com/news/sponsored/">  Sponsored </a>
+					
+                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-11-28 06:33:57"></div>
+                </div>
+
+				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/caga-cryptos-spectacular-journey-soaring-high-with-centralized-exchange-listings.htm" rel="bookmark">CAGA Crypto&#8217;s Spectacular Journey: Soaring High with Centralized Exchange Listings</a></h4>            </div>
+        </div>
+    </article>
+
+</div>
+
+    </div>
+</div>
+
+            <div class="dslot  mb-40 d-none d-lg-block " did="7"></div>
+            <div class="dslot   d-lg-none" did="8"></div>
+            <div class="d-none d-lg-block">
+                <h3 class="mb-20">
+                    Latest news                </h3>
+                <div class="mb-30">
+                    
+<div id="post-136987" class="col-12 col-md-6 col-lg-12 mb-20">
+    <div class="row">
+        <div class="col-4 px-0">
+            <a href="https://cryptonews.com/news/bitcoin-price-prediction-dips-cbdc-threats-1-5b-investment-kiyosakis-advice.htm"
+               class="article__image article__image--sm-wider">
+                <div class="small-image-list img-sized">
+                    <img
+                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
+                        data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701152384-28.jpg"
+                        alt="Bitcoin Price Prediction: Dips, CBDC Threats, $1.5B Investment &amp; Kiyosaki&#8217;s Advice"
+                        data-sizes="auto"
+                        class="lazyload "
+                    />
+                </div>
+            </a>
+        </div>
+        <div class="col-8">
+            <div class="article__badge article__badge--xs">
+                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/bitcoin-news/">  Bitcoin News                </a>
+                                <div class="article__badge-date" data-utctime="2023-11-28 06:59:40"></div>
+            </div>
+
+            <a href="https://cryptonews.com/news/bitcoin-price-prediction-dips-cbdc-threats-1-5b-investment-kiyosakis-advice.htm"  class="article__title article__title--recommended mb-0">Bitcoin Price Prediction: Dips, CBDC Threats, $1.5B Investment &amp; Kiyosaki&#8217;s Advice</a>        </div>
+    </div>
+</div>
+
+
+<div id="post-137008" class="col-12 col-md-6 col-lg-12 mb-20">
+    <div class="row">
+        <div class="col-4 px-0">
+            <a href="https://cryptonews.com/news/kronos-research-enters-negotiations-with-hacker-after-25-million-cryptocurrency-theft-offers-10-bounty.htm"
+               class="article__image article__image--sm-wider">
+                <div class="small-image-list img-sized">
+                    <img
+                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
+                        data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701154462-adobestock-sergey-nivens-___media_library_original_1200_800.jpg"
+                        alt="Kronos Research Enters Negotiations with Hacker After $25 Million Cryptocurrency Theft, Offers 10% Bounty"
+                        data-sizes="auto"
+                        class="lazyload "
+                    />
+                </div>
+            </a>
+        </div>
+        <div class="col-8">
+            <div class="article__badge article__badge--xs">
+                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/altcoin-news/">  Altcoin News                </a>
+                                <div class="article__badge-date" data-utctime="2023-11-28 06:56:19"></div>
+            </div>
+
+            <a href="https://cryptonews.com/news/kronos-research-enters-negotiations-with-hacker-after-25-million-cryptocurrency-theft-offers-10-bounty.htm"  class="article__title article__title--recommended mb-0">Kronos Research Enters Negotiations with Hacker After $25 Million Cryptocurrency Theft, Offers 10% Bounty</a>        </div>
+    </div>
+</div>
+
+
+<div id="post-136997" class="col-12 col-md-6 col-lg-12 mb-20">
+    <div class="row">
+        <div class="col-4 px-0">
+            <a href="https://cryptonews.com/news/caga-cryptos-spectacular-journey-soaring-high-with-centralized-exchange-listings.htm"
+               class="article__image article__image--sm-wider">
+                <div class="small-image-list img-sized">
+                    <img
+                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgOTEyIDYwOCI+Cgk8aW1hZ2Ugd2lkdGg9IjkxMiIgaGVpZ2h0PSI2MDgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBVkFDQURBUkVBQWhFQkF4RUIvOFFBR0FBQUF3RUJBQUFBQUFBQUFBQUFBQUFBQndnSkJRYi94QUFuRUFBQkFnWUJBd1FEQUFBQUFBQUFBQUFCQWdNQUJBVUdCeEVTSVNJeENCTVZVUlJCWWYvRUFCa0JBQU1CQVFFQUFBQUFBQUFBQUFBQUFBRUNBd1FBQmYvRUFCd1JBQUlEQUFNQkFBQUFBQUFBQUFBQUFBQUJBZ01SRWlFeFFmL2FBQXdEQVFBQ0VRTVJBRDhBbmxUc2dUbSt3a24rUlRjQ2RQVEwvckV5dExMWE1rbldoSGNnakJZeHQycVZTbktkbW1WN1VOallqSFpZejA2SUpyc0dtWGFmVjdhbjNIa05MUzJEdllFVnJucGx1amo2QmZqQzBtNTZiYi9JVDJLSTh3Wk1sWG4wYzdFSHB2cDFWbVdaejJrcVIwUGlJOG40VmFReGxVdGlrMlpTMElTMGhBU1BxR2NkV2p3bTQ5QUV6djhBQjFTMm4xcFMyWFFrL1VUaHVnc2VpazR3Vjc2NWRCN2VvNmlORE0wU2plRUd2ajdiWlVnOGp4SG1JdEZET3p6WFgyS0M4NGpvb0EvdUhUQjRUNHZ6SlZXZWNtSlpTOXQ3STF5aDR4UWprei8vMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
+                        data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701153143-caga.jpg"
+                        alt="CAGA Crypto&#8217;s Spectacular Journey: Soaring High with Centralized Exchange Listings"
+                        data-sizes="auto"
+                        class="lazyload "
+                    />
+                </div>
+            </a>
+        </div>
+        <div class="col-8">
+            <div class="article__badge article__badge--xs">
+                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/sponsored/">  Sponsored                </a>
+                                <div class="article__badge-date" data-utctime="2023-11-28 06:33:57"></div>
+            </div>
+
+            <a href="https://cryptonews.com/news/caga-cryptos-spectacular-journey-soaring-high-with-centralized-exchange-listings.htm"  class="article__title article__title--recommended mb-0">CAGA Crypto&#8217;s Spectacular Journey: Soaring High with Centralized Exchange Listings</a>        </div>
+    </div>
+</div>
+
+
+<div id="post-136988" class="col-12 col-md-6 col-lg-12 mb-20">
+    <div class="row">
+        <div class="col-4 px-0">
+            <a href="https://cryptonews.com/news/indian-authorities-prepare-chargesheet-in-240m-crypto-scam.htm"
+               class="article__image article__image--sm-wider">
+                <div class="small-image-list img-sized">
+                    <img
+                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFCQUFNQkFBQUFBQUFBQUFBQUFBQUFCZ01GQndUL3hBQWdFQUFDQVFRREFRRUJBQUFBQUFBQUFBQUJBZ1FBQXdVU0JoRWhZU0l5LzhRQUdnRUFBd0FEQVFBQUFBQUFBQUFBQUFBQUF3UUZBQUVHQXYvRUFDQVJBQUlDQVFRREFRQUFBQUFBQUFBQUFBQUJBZ01SQkFVVElSSVZNVkgvMmdBTUF3RUFBaEVERVFBL0FGTi9pdHlJQ3pEOGltM3V5UlE1OEZWTGF6SFE5c094OXIxWHV5a3pjZFFtVjF1WXQ1OVVJTk9leWhnSnpvdW9YRzVVeGRnaDZOQ2U1MS9wcm1Rb25aSnNoajNBL29pb0YrajhmZ3JPdkh3em1SeCtkTmtPQnRxVFVhYWRiRTNsSFZoK0pTb2NwV2NFanVzVXBTTVdXYTdqY2hHeCtPVldVYkFVU0dsc213c2Eyd1pDOHMxMlUxNVBzb1BzbmkzZEdQUUZKMjZXdVhiQnlyVEZlSWcyNVVjdTQ5SHl1ZnZpcXA0aUx5U2o4RC9KaVkyeUlmS3Y2RktTeXhpcnMvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"
+                        data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701152588-india-crypto-scam.jpg"
+                        alt="Indian Authorities Prepare Chargesheet Against 3 Accused in $240M Crypto Scam"
+                        data-sizes="auto"
+                        class="lazyload "
+                    />
+                </div>
+            </a>
+        </div>
+        <div class="col-8">
+            <div class="article__badge article__badge--xs">
+                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/">  News                </a>
+                                <div class="article__badge-date" data-utctime="2023-11-28 06:26:05"></div>
+            </div>
+
+            <a href="https://cryptonews.com/news/indian-authorities-prepare-chargesheet-in-240m-crypto-scam.htm"  class="article__title article__title--recommended mb-0">Indian Authorities Prepare Chargesheet Against 3 Accused in $240M Crypto Scam</a>        </div>
+    </div>
+</div>
+
+
+<div id="post-136978" class="col-12 col-md-6 col-lg-12 mb-20">
+    <div class="row">
+        <div class="col-4 px-0">
+            <a href="https://cryptonews.com/news/singapore-central-bank-chief-sees-no-future-for-private-crypto.htm"
+               class="article__image article__image--sm-wider">
+                <div class="small-image-list img-sized">
+                    <img
+                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFBQWdNQUFBQUFBQUFBQUFBQUFBQUFCZ2dFQlFmL3hBQWxFQUFCQWdVREJBTUFBQUFBQUFBQUFBQUJBZ01BQkFVR0VRY1NZUWdUSWpFaFFWSC94QUFaQVFBQ0F3RUFBQUFBQUFBQUFBQUFBQUFFQlFJREJnRC94QUFmRVFBQ0FnSURBUUVCQUFBQUFBQUFBQUFCQWdBRUF4RVRGQ0VTRlVILzJnQU1Bd0VBQWhFREVRQS9BRXRvbWt5cWlRZ2ZKTU4rOG9nUDZDeS9mNmVaN1psRFNqbmlKSmVVeWFYZ1pCYzBCcURDU3BiS2dCeEJIYlNFOXRkU2hxV21Ec21GSjIrUWlQZFNWbThnL3NPOU5Md1NKNXRicEczSTl3bnNWdmcrUkhtcjhaOGpSVWE5S003SUlLeTJWWWhXUVZndS9pUmJodXlrTGtITzJFWng5Q09ETWZKM0lXOGk3M2JjMHNpYWRVTWJjeGNsZDNNZ3VCOGg4bVMwTjljdExoU0RnaU5QbUFadEdhVE1BemV3anAxNVZCcndEaHdPWUdlc2hHNVE5WkNOd3hwbFptWitUVjNGbjErd2h6S01iNkV6MmNjYjZFemU5WnBhRnVBR05EUlVFYk0wTkJRdzJaLy8yUT09Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg=="
+                        data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701149345-singapore-1.jpg"
+                        alt="Singapore Central Bank Chief Sees No Future for Private Cryptocurrencies"
+                        data-sizes="auto"
+                        class="lazyload "
+                    />
+                </div>
+            </a>
+        </div>
+        <div class="col-8">
+            <div class="article__badge article__badge--xs">
+                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/">  News                </a>
+                                <div class="article__badge-date" data-utctime="2023-11-28 05:32:43"></div>
+            </div>
+
+            <a href="https://cryptonews.com/news/singapore-central-bank-chief-sees-no-future-for-private-crypto.htm"  class="article__title article__title--recommended mb-0">Singapore Central Bank Chief Sees No Future for Private Cryptocurrencies</a>        </div>
+    </div>
+</div>
+
+
+<div id="post-136971" class="col-12 col-md-6 col-lg-12 mb-20">
+    <div class="row">
+        <div class="col-4 px-0">
+            <a href="https://cryptonews.com/news/cz-not-off-the-hook-as-sec-continues-binance-us-investigation.htm"
+               class="article__image article__image--sm-wider">
+                <div class="small-image-list img-sized">
+                    <img
+                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgOTEyIDYwOCI+Cgk8aW1hZ2Ugd2lkdGg9IjkxMiIgaGVpZ2h0PSI2MDgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBVkFDQURBUkVBQWhFQkF4RUIvOFFBR0FBQUF3RUJBQUFBQUFBQUFBQUFBQUFBQndnSkJRYi94QUFuRUFBQkFnWUJBd1FEQUFBQUFBQUFBQUFCQWdNQUJBVUdCeEVTSVNJeENCTVZVUlJCWWYvRUFCa0JBQU1CQVFFQUFBQUFBQUFBQUFBQUFBRUNBd1FBQmYvRUFCd1JBQUlEQUFNQkFBQUFBQUFBQUFBQUFBQUJBZ01SRWlFeFFmL2FBQXdEQVFBQ0VRTVJBRDhBbmxUc2dUbSt3a24rUlRjQ2RQVEwvckV5dExMWE1rbldoSGNnakJZeHQycVZTbktkbW1WN1VOallqSFpZejA2SUpyc0dtWGFmVjdhbjNIa05MUzJEdllFVnJucGx1amo2QmZqQzBtNTZiYi9JVDJLSTh3Wk1sWG4wYzdFSHB2cDFWbVdaejJrcVIwUGlJOG40VmFReGxVdGlrMlpTMElTMGhBU1BxR2NkV2p3bTQ5QUV6djhBQjFTMm4xcFMyWFFrL1VUaHVnc2VpazR3Vjc2NWRCN2VvNmlORE0wU2plRUd2ajdiWlVnOGp4SG1JdEZET3p6WFgyS0M4NGpvb0EvdUhUQjRUNHZ6SlZXZWNtSlpTOXQ3STF5aDR4UWprei8vMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
+                        data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701147300-binance-ceo-cz-1.jpg"
+                        alt="CZ Not off the Hook Yet as SEC Continues to Investigate Binance US: Report"
+                        data-sizes="auto"
+                        class="lazyload "
+                    />
+                </div>
+            </a>
+        </div>
+        <div class="col-8">
+            <div class="article__badge article__badge--xs">
+                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/">  News                </a>
+                                <div class="article__badge-date" data-utctime="2023-11-28 05:02:08"></div>
+            </div>
+
+            <a href="https://cryptonews.com/news/cz-not-off-the-hook-as-sec-continues-binance-us-investigation.htm"  class="article__title article__title--recommended mb-0">CZ Not off the Hook Yet as SEC Continues to Investigate Binance US: Report</a>        </div>
+    </div>
+</div>
+
+
+<div id="post-136741" class="col-12 col-md-6 col-lg-12 mb-20">
+    <div class="row">
+        <div class="col-4 px-0">
+            <a href="https://cryptonews.com/news/south-korean-police-shut-down-170-victim-robot-themed-crypto-scam.htm"
+               class="article__image article__image--sm-wider">
+                <div class="small-image-list img-sized">
+                    <img
+                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgOTEyIDYwOCI+Cgk8aW1hZ2Ugd2lkdGg9IjkxMiIgaGVpZ2h0PSI2MDgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBVkFDQURBUkVBQWhFQkF4RUIvOFFBR0FBQUF3RUJBQUFBQUFBQUFBQUFBQUFBQndnSkJRYi94QUFuRUFBQkFnWUJBd1FEQUFBQUFBQUFBQUFCQWdNQUJBVUdCeEVTSVNJeENCTVZVUlJCWWYvRUFCa0JBQU1CQVFFQUFBQUFBQUFBQUFBQUFBRUNBd1FBQmYvRUFCd1JBQUlEQUFNQkFBQUFBQUFBQUFBQUFBQUJBZ01SRWlFeFFmL2FBQXdEQVFBQ0VRTVJBRDhBbmxUc2dUbSt3a24rUlRjQ2RQVEwvckV5dExMWE1rbldoSGNnakJZeHQycVZTbktkbW1WN1VOallqSFpZejA2SUpyc0dtWGFmVjdhbjNIa05MUzJEdllFVnJucGx1amo2QmZqQzBtNTZiYi9JVDJLSTh3Wk1sWG4wYzdFSHB2cDFWbVdaejJrcVIwUGlJOG40VmFReGxVdGlrMlpTMElTMGhBU1BxR2NkV2p3bTQ5QUV6djhBQjFTMm4xcFMyWFFrL1VUaHVnc2VpazR3Vjc2NWRCN2VvNmlORE0wU2plRUd2ajdiWlVnOGp4SG1JdEZET3p6WFgyS0M4NGpvb0EvdUhUQjRUNHZ6SlZXZWNtSlpTOXQ3STF5aDR4UWprei8vMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
+                        data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701092942-adobestock_629733964.jpeg"
+                        alt="South Korean Police Shut Down ‘170-victim Robot-themed Crypto Scam’"
+                        data-sizes="auto"
+                        class="lazyload "
+                    />
+                </div>
+            </a>
+        </div>
+        <div class="col-8">
+            <div class="article__badge article__badge--xs">
+                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/blockchain-news/">  Blockchain News                </a>
+                                <div class="article__badge-date" data-utctime="2023-11-28 05:00:25"></div>
+            </div>
+
+            <a href="https://cryptonews.com/news/south-korean-police-shut-down-170-victim-robot-themed-crypto-scam.htm"  class="article__title article__title--recommended mb-0">South Korean Police Shut Down ‘170-victim Robot-themed Crypto Scam’</a>        </div>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="pt-60 pb-20 pb-md-40 pb-md-60">
+            <h3 class="mb-20">
+                Similar News            </h3>
+            <div class="row">
+                
+<div id="post-136987" class="col-12 col-md-6 col-lg-4 col-xl-3 post-136987 post type-post status-publish format-standard has-post-thumbnail hentry category-bitcoin-news category-news editors-arslan-butt">
+    <article class="mb-30">
+        <div class="row">
+            <div class="col-4 col-md-12">
+                <a href="https://cryptonews.com/news/bitcoin-price-prediction-dips-cbdc-threats-1-5b-investment-kiyosakis-advice.htm"
+                   class="article__image article__image--sm-wider mb-15  ">
+                    <div class="img-sized">
+                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
+                             data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701152384-28.jpg"
+                             alt="Bitcoin Price Prediction: Dips, CBDC Threats, $1.5B Investment &amp; Kiyosaki&#8217;s Advice"
+                             class="lazyload img-fluid" data-sizes="auto"
+                             sizes="300px">
+                    </div>
+                </a>
+            </div>
+            <div class="col-8 col-md-12">
+                <div class="article__badge article__badge--sm ">
+					                        <a class="article__badge article__badge--sm"
+                           href="https://cryptonews.com/news/bitcoin-news/">  Bitcoin News </a>
+					
+                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-11-28 06:59:40"></div>
+                </div>
+
+				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/bitcoin-price-prediction-dips-cbdc-threats-1-5b-investment-kiyosakis-advice.htm" rel="bookmark">Bitcoin Price Prediction: Dips, CBDC Threats, $1.5B Investment &amp; Kiyosaki&#8217;s Advice</a></h4>            </div>
+        </div>
+    </article>
+
+</div>
+
+
+<div id="post-137008" class="col-12 col-md-6 col-lg-4 col-xl-3 post-137008 post type-post status-publish format-standard has-post-thumbnail hentry category-altcoin-news tag-hacker tag-kronos-research editors-ruholamin-haqshanas">
+    <article class="mb-30">
+        <div class="row">
+            <div class="col-4 col-md-12">
+                <a href="https://cryptonews.com/news/kronos-research-enters-negotiations-with-hacker-after-25-million-cryptocurrency-theft-offers-10-bounty.htm"
+                   class="article__image article__image--sm-wider mb-15  ">
+                    <div class="img-sized">
+                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgOTEyIDYwOCI+Cgk8aW1hZ2Ugd2lkdGg9IjkxMiIgaGVpZ2h0PSI2MDgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBVkFDQURBUkVBQWhFQkF4RUIvOFFBR0FBQUF3RUJBQUFBQUFBQUFBQUFBQUFBQndnSkJRYi94QUFuRUFBQkFnWUJBd1FEQUFBQUFBQUFBQUFCQWdNQUJBVUdCeEVTSVNJeENCTVZVUlJCWWYvRUFCa0JBQU1CQVFFQUFBQUFBQUFBQUFBQUFBRUNBd1FBQmYvRUFCd1JBQUlEQUFNQkFBQUFBQUFBQUFBQUFBQUJBZ01SRWlFeFFmL2FBQXdEQVFBQ0VRTVJBRDhBbmxUc2dUbSt3a24rUlRjQ2RQVEwvckV5dExMWE1rbldoSGNnakJZeHQycVZTbktkbW1WN1VOallqSFpZejA2SUpyc0dtWGFmVjdhbjNIa05MUzJEdllFVnJucGx1amo2QmZqQzBtNTZiYi9JVDJLSTh3Wk1sWG4wYzdFSHB2cDFWbVdaejJrcVIwUGlJOG40VmFReGxVdGlrMlpTMElTMGhBU1BxR2NkV2p3bTQ5QUV6djhBQjFTMm4xcFMyWFFrL1VUaHVnc2VpazR3Vjc2NWRCN2VvNmlORE0wU2plRUd2ajdiWlVnOGp4SG1JdEZET3p6WFgyS0M4NGpvb0EvdUhUQjRUNHZ6SlZXZWNtSlpTOXQ3STF5aDR4UWprei8vMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
+                             data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701154462-adobestock-sergey-nivens-___media_library_original_1200_800.jpg"
+                             alt="Kronos Research Enters Negotiations with Hacker After $25 Million Cryptocurrency Theft, Offers 10% Bounty"
+                             class="lazyload img-fluid" data-sizes="auto"
+                             sizes="300px">
+                    </div>
+                </a>
+            </div>
+            <div class="col-8 col-md-12">
+                <div class="article__badge article__badge--sm ">
+					                        <a class="article__badge article__badge--sm"
+                           href="https://cryptonews.com/news/altcoin-news/">  Altcoin News </a>
+					
+                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-11-28 06:56:19"></div>
+                </div>
+
+				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/kronos-research-enters-negotiations-with-hacker-after-25-million-cryptocurrency-theft-offers-10-bounty.htm" rel="bookmark">Kronos Research Enters Negotiations with Hacker After $25 Million Cryptocurrency Theft, Offers 10% Bounty</a></h4>            </div>
+        </div>
+    </article>
+
+</div>
+
+
+<div id="post-136997" class="col-12 col-md-6 col-lg-4 col-xl-3 post-136997 post type-post status-publish format-standard has-post-thumbnail hentry category-sponsored">
+    <article class="mb-30">
+        <div class="row">
+            <div class="col-4 col-md-12">
+                <a href="https://cryptonews.com/news/caga-cryptos-spectacular-journey-soaring-high-with-centralized-exchange-listings.htm"
+                   class="article__image article__image--sm-wider mb-15  ">
+                    <div class="img-sized">
+                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFCQUFNQkFBQUFBQUFBQUFBQUFBQUFCZ01GQndUL3hBQWdFQUFDQVFRREFRRUJBQUFBQUFBQUFBQUJBZ1FBQXdVU0JoRWhZU0l5LzhRQUdnRUFBd0FEQVFBQUFBQUFBQUFBQUFBQUF3UUZBQUVHQXYvRUFDQVJBQUlDQVFRREFRQUFBQUFBQUFBQUFBQUJBZ01SQkFVVElSSVZNVkgvMmdBTUF3RUFBaEVERVFBL0FGTi9pdHlJQ3pEOGltM3V5UlE1OEZWTGF6SFE5c094OXIxWHV5a3pjZFFtVjF1WXQ1OVVJTk9leWhnSnpvdW9YRzVVeGRnaDZOQ2U1MS9wcm1Rb25aSnNoajNBL29pb0YrajhmZ3JPdkh3em1SeCtkTmtPQnRxVFVhYWRiRTNsSFZoK0pTb2NwV2NFanVzVXBTTVdXYTdqY2hHeCtPVldVYkFVU0dsc213c2Eyd1pDOHMxMlUxNVBzb1BzbmkzZEdQUUZKMjZXdVhiQnlyVEZlSWcyNVVjdTQ5SHl1ZnZpcXA0aUx5U2o4RC9KaVkyeUlmS3Y2RktTeXhpcnMvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"
+                             data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701153143-caga.jpg"
+                             alt="CAGA Crypto&#8217;s Spectacular Journey: Soaring High with Centralized Exchange Listings"
+                             class="lazyload img-fluid" data-sizes="auto"
+                             sizes="300px">
+                    </div>
+                </a>
+            </div>
+            <div class="col-8 col-md-12">
+                <div class="article__badge article__badge--sm ">
+					                        <a class="article__badge article__badge--sm"
+                           href="https://cryptonews.com/news/sponsored/">  Sponsored </a>
+					
+                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-11-28 06:33:57"></div>
+                </div>
+
+				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/caga-cryptos-spectacular-journey-soaring-high-with-centralized-exchange-listings.htm" rel="bookmark">CAGA Crypto&#8217;s Spectacular Journey: Soaring High with Centralized Exchange Listings</a></h4>            </div>
+        </div>
+    </article>
+
+</div>
+
+
+<div id="post-136988" class="col-12 col-md-6 col-lg-4 col-xl-3 post-136988 post type-post status-publish format-standard has-post-thumbnail hentry category-news tag-crypto-scam tag-india editors-jai-pratap">
+    <article class="mb-30">
+        <div class="row">
+            <div class="col-4 col-md-12">
+                <a href="https://cryptonews.com/news/indian-authorities-prepare-chargesheet-in-240m-crypto-scam.htm"
+                   class="article__image article__image--sm-wider mb-15  ">
+                    <div class="img-sized">
+                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFCQUFNQkFBQUFBQUFBQUFBQUFBQUFCZ01GQndUL3hBQWdFQUFDQVFRREFRRUJBQUFBQUFBQUFBQUJBZ1FBQXdVU0JoRWhZU0l5LzhRQUdnRUFBd0FEQVFBQUFBQUFBQUFBQUFBQUF3UUZBQUVHQXYvRUFDQVJBQUlDQVFRREFRQUFBQUFBQUFBQUFBQUJBZ01SQkFVVElSSVZNVkgvMmdBTUF3RUFBaEVERVFBL0FGTi9pdHlJQ3pEOGltM3V5UlE1OEZWTGF6SFE5c094OXIxWHV5a3pjZFFtVjF1WXQ1OVVJTk9leWhnSnpvdW9YRzVVeGRnaDZOQ2U1MS9wcm1Rb25aSnNoajNBL29pb0YrajhmZ3JPdkh3em1SeCtkTmtPQnRxVFVhYWRiRTNsSFZoK0pTb2NwV2NFanVzVXBTTVdXYTdqY2hHeCtPVldVYkFVU0dsc213c2Eyd1pDOHMxMlUxNVBzb1BzbmkzZEdQUUZKMjZXdVhiQnlyVEZlSWcyNVVjdTQ5SHl1ZnZpcXA0aUx5U2o4RC9KaVkyeUlmS3Y2RktTeXhpcnMvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"
+                             data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701152588-india-crypto-scam.jpg"
+                             alt="Indian Authorities Prepare Chargesheet Against 3 Accused in $240M Crypto Scam"
+                             class="lazyload img-fluid" data-sizes="auto"
+                             sizes="300px">
+                    </div>
+                </a>
+            </div>
+            <div class="col-8 col-md-12">
+                <div class="article__badge article__badge--sm ">
+					                        <a class="article__badge article__badge--sm"
+                           href="https://cryptonews.com/news/">  News </a>
+					
+                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-11-28 06:26:05"></div>
+                </div>
+
+				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/indian-authorities-prepare-chargesheet-in-240m-crypto-scam.htm" rel="bookmark">Indian Authorities Prepare Chargesheet Against 3 Accused in $240M Crypto Scam</a></h4>            </div>
+        </div>
+    </article>
+
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="rocketlazyloadscript">window.__INITIAL_WIDGET_STATE__ = {"price_tracker":"https:\/\/cryptonews.com\/price-tracker\/","data":{"6":{"exchange_id":"6","title":"Coinbase","short":"https:\/\/cimg.co\/reviewlogo\/2\/5b20d656d022d.svg","full":"https:\/\/cimg.co\/reviewlogo\/2\/5b20d656d022d.svg","review_url":"https:\/\/cryptonews.com\/reviews\/coinbase\/","download_url":"rapi.cryptonews.com\/ext\/coinbase\/en"},"1":{"exchange_id":"1","title":"HitBTC","short":"https:\/\/cimg.co\/reviewlogo\/3\/5a656fe6af617.svg","full":"https:\/\/cimg.co\/reviewlogo\/3\/5a656fe6af617.svg","review_url":"https:\/\/cryptonews.com\/reviews\/hitbtc\/","download_url":"rapi.cryptonews.com\/ext\/hitbtc\/en"},"4":{"exchange_id":"4","title":"Bitfinex","short":"https:\/\/cimg.co\/reviewlogo\/4\/5b20d64cb9231.svg","full":"https:\/\/cimg.co\/reviewlogo\/4\/5b20d64cb9231.svg","review_url":"https:\/\/cryptonews.com\/reviews\/bitfinex\/","download_url":"rapi.cryptonews.com\/ext\/bitfinex\/en"},"9":{"exchange_id":"9","title":"Kraken","short":"https:\/\/cimg.co\/reviewlogo\/5\/5b20d7875ab17.svg","full":"https:\/\/cimg.co\/reviewlogo\/5\/5b20d7875ab17.svg","review_url":"https:\/\/cryptonews.com\/reviews\/kraken\/","download_url":"rapi.cryptonews.com\/ext\/kraken\/en"},"7":{"exchange_id":"7","title":"Coinbase Pro","short":"https:\/\/cimg.co\/reviewlogo\/6\/5dcab04fee043.png","full":"https:\/\/cimg.co\/reviewlogo\/6\/5dcab04fee043.png","review_url":"https:\/\/cryptonews.com\/reviews\/coinbase-pro\/","download_url":"rapi.cryptonews.com\/ext\/coinbase-pro\/en"},"8":{"exchange_id":"8","title":"Bitstamp","short":"https:\/\/cimg.co\/reviewlogo\/7\/5a74b2b325423.svg","full":"https:\/\/cimg.co\/reviewlogo\/7\/5a74b2b325423.svg","review_url":"https:\/\/cryptonews.com\/reviews\/bitstamp\/","download_url":"rapi.cryptonews.com\/ext\/bitstamp\/en"},"2":{"exchange_id":"2","title":"Bittrex","short":"https:\/\/cimg.co\/reviewlogo\/8\/5dcaad3ad8297.png","full":"https:\/\/cimg.co\/reviewlogo\/8\/5dcaad3ad8297.png","review_url":"https:\/\/cryptonews.com\/reviews\/bittrex\/","download_url":"rapi.cryptonews.com\/ext\/bittrex\/en"},"5":{"exchange_id":"5","title":"Binance","short":"https:\/\/cimg.co\/reviewlogo\/9\/5ab92c5f8df75.svg","full":"https:\/\/cimg.co\/reviewlogo\/9\/5ab92c5f8df75.svg","review_url":"https:\/\/cryptonews.com\/reviews\/binance\/","download_url":"rapi.cryptonews.com\/ext\/binance\/en"},"3":{"exchange_id":"3","title":"bitFlyer","short":"https:\/\/cimg.co\/reviewlogo\/10\/5aba32afb43dc.svg","full":"https:\/\/cimg.co\/reviewlogo\/10\/5aba32afb43dc.svg","review_url":"https:\/\/cryptonews.com\/reviews\/bitflyer\/","download_url":"rapi.cryptonews.com\/ext\/bitflyer\/en"},"11":{"exchange_id":"11","title":"KuCoin","short":"https:\/\/cimg.co\/reviewlogo\/17\/5f1ac8c747406.png","full":"https:\/\/cimg.co\/reviewlogo\/17\/5f1ac8c747406.png","review_url":"https:\/\/cryptonews.com\/reviews\/kucoin\/","download_url":"rapi.cryptonews.com\/ext\/kucoin\/en"},"25":{"exchange_id":"25","title":"Crypto.com","short":"https:\/\/cimg.co\/reviewlogo\/57\/5f91b138dea97.jpg","full":"https:\/\/cimg.co\/reviewlogo\/57\/5f91b138dea97.jpg","review_url":"https:\/\/cryptonews.com\/reviews\/crypto-com\/","download_url":"rapi.cryptonews.com\/ext\/crypto-com\/en"}},"config":{"type":"summary"},"translations":{"best_rates":"Buy\/Sell at the best rates","profitable_exchange":"Profitable Exchange","buy":"Buy for","sell":"Sell for","see_more_rates":"See more rates","market":"See more rates","highest":"Highest","lowest":"Lowest","view_all":"View all <span>exchanges<\/span>","supported_currencies":"Supported Currencies","internal_conversion":"Converted","internal_conversion_header":"Converted Price"}} </script>
+<script type="rocketlazyloadscript" async=async data-rocket-src="https://api.cryptonews.com/js/bundle.js"></script>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-top pt-60 pb-30">
+            <div class="row">
+                <div class="col-12 col-lg-5 col-xl-4 mb-lg-0 text-center text-md-left">
+                    <div class="d-lg-flex mb-40">
+                        <a href="/" class="footer-logo d-inline-block mr-md-30 mb-20 mb-md-0 align-self-center">
+                            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Crypto News" class="img-fluid w-100" data-lazy-src="https://cimg.co/p/logo.svg"><noscript><img src="https://cimg.co/p/logo.svg" alt="Crypto News" class="img-fluid w-100"></noscript>
+                        </a>
+                        <div class="footer-links d-md-inline-block text-center text-md-left align-self-center">
+
+                            
+                                <a href="https://cryptonews.com/terms-and-conditions.htm" class="mr-20">
+                                    Terms & Conditions                                </a>
+                            
+                                <a href="https://cryptonews.com/about-us.htm" class="mr-20">
+                                    About Us                                </a>
+                            
+                                <a href="https://cryptonews.com/privacy-policy.htm" class="mr-20">
+                                    Privacy Policy                                </a>
+                            
+                                <a href="https://cryptonews.com/disclaimer.htm" class="mr-20">
+                                    Disclaimer                                </a>
+                            
+                                <a href="https://cryptonews.com/have-a-story.htm" class="mr-20">
+                                    Have a Story?                                </a>
+                            
+                                <a href="https://cryptonews.com/advertising.htm" class="mr-20">
+                                    Advertising                                </a>
+                                                    </div>
+                    </div>
+                                                                <div class="d-lg-flex mb-40 footer-legal-text"><p>The information on this website is for educational purposes only, and investing carries risks. Always do your research before investing, and be prepared for potential losses.</p>
+<p>18+ and Gambling: Online gambling rules vary by country; please follow them. This website provides entertainment content, and using it means you accept out terms. We may include partnership links, but they don't affect our ratings or recommendations.</p>
+<p>Crypto promotions on this site do not comply with the UK Financial Promotions Regime and is not intended for UK consumers.</p></div>
+                                    </div>
+                <div class="col-12 col-lg-7 col-xl-8 footer-links text-md-left">
+                    <div class="row d-none d-md-block" style="justify-content: flex-end">
+                        <div class="col-12">
+                            <ul id="menu-footer" class="menu_footer"><li id="menu-item-119702" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119702"><a href="/news/" class="header-links__item fs-16">News</a>
+<ul class="sub-menu">
+	<li id="menu-item-119703" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119703"><a href="/news/bitcoin-news/" class="header-links__item fs-16">Bitcoin News</a></li>
+	<li id="menu-item-119704" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119704"><a href="/news/ethereum-news/" class="header-links__item fs-16">Ethereum News</a></li>
+	<li id="menu-item-119705" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119705"><a href="/news/nft-news/" class="header-links__item fs-16">NFT News</a></li>
+	<li id="menu-item-119706" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119706"><a href="/news/defi-news/" class="header-links__item fs-16">DeFi News</a></li>
+	<li id="menu-item-119707" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119707"><a href="/news/altcoin-news/" class="header-links__item fs-16">Altcoin News</a></li>
+	<li id="menu-item-119708" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119708"><a href="/news/blockchain-news/" class="header-links__item fs-16">Blockchain News</a></li>
+	<li id="menu-item-119709" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119709"><a href="/news/press-releases/" class="header-links__item fs-16">Press Releases</a></li>
+	<li id="menu-item-119710" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119710"><a href="/news/sponsored/" class="header-links__item fs-16">Sponsored</a></li>
+	<li id="menu-item-119711" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119711"><a href="/news/cryptonews-deals/" class="header-links__item fs-16">Cryptonews Deals</a></li>
+	<li id="menu-item-119712" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119712"><a href="/news/industry-talk/" class="header-links__item fs-16">Industry Talk</a></li>
+	<li id="menu-item-119713" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119713"><a href="/news/ico-news/" class="header-links__item fs-16">ICO news</a></li>
+	<li id="menu-item-119714" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119714"><a href="/news/finance-news/" class="header-links__item fs-16">Finance News</a></li>
+	<li id="menu-item-119715" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119715"><a href="/news/technology-news/" class="header-links__item fs-16">Technology News</a></li>
+	<li id="menu-item-119716" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119716"><a href="/news/price-predictions/" class="header-links__item fs-16">Price Predictions</a></li>
+</ul>
+</li>
+<li id="menu-item-119717" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119717"><a href="/exclusives/" class="header-links__item fs-16">Exclusives</a>
+<ul class="sub-menu">
+	<li id="menu-item-119718" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119718"><a href="/exclusives/features/" class="header-links__item fs-16">Features</a></li>
+	<li id="menu-item-119719" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119719"><a href="/exclusives/opinions/" class="header-links__item fs-16">Opinions</a></li>
+	<li id="menu-item-119720" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119720"><a href="/exclusives/people/" class="header-links__item fs-16">People In Crypto</a></li>
+	<li id="menu-item-119721" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119721"><a href="/exclusives/podcast/" class="header-links__item fs-16">Podcast</a></li>
+</ul>
+</li>
+<li id="menu-item-119722" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119722"><a href="/videos/" class="header-links__item fs-16">Videos</a>
+<ul class="sub-menu">
+	<li id="menu-item-119723" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119723"><a href="/video_categories/bitcoin/" class="header-links__item fs-16">Bitcoin Videos</a></li>
+	<li id="menu-item-119724" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119724"><a href="/video_categories/ethereum/" class="header-links__item fs-16">Ethereum Videos</a></li>
+	<li id="menu-item-119725" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119725"><a href="/video_categories/defi-videos/" class="header-links__item fs-16">DeFi Videos</a></li>
+	<li id="menu-item-119726" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119726"><a href="/video_categories/altcoin/" class="header-links__item fs-16">Altcoin Videos</a></li>
+	<li id="menu-item-119727" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119727"><a href="/video_categories/blockchain/" class="header-links__item fs-16">Blockchain Videos</a></li>
+	<li id="menu-item-119728" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119728"><a href="/video_categories/market/" class="header-links__item fs-16">Market Videos</a></li>
+	<li id="menu-item-119729" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119729"><a href="/video_categories/cryptosecurity/" class="header-links__item fs-16">Security Videos</a></li>
+	<li id="menu-item-119730" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119730"><a href="/video_categories/trading/" class="header-links__item fs-16">Trading Videos</a></li>
+	<li id="menu-item-119731" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119731"><a href="/video_categories/icos/" class="header-links__item fs-16">ICO Videos</a></li>
+</ul>
+</li>
+<li id="menu-item-119732" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119732"><a href="/guides/" class="header-links__item fs-16">Guides</a>
+<ul class="sub-menu">
+	<li id="menu-item-119733" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119733"><a href="/guide_categories/bitcoin/" class="header-links__item fs-16">Bitcoin</a></li>
+	<li id="menu-item-119734" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119734"><a href="/guide_categories/ethereum/" class="header-links__item fs-16">Ethereum</a></li>
+	<li id="menu-item-119735" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119735"><a href="/guide_categories/nft/" class="header-links__item fs-16">NFT</a></li>
+	<li id="menu-item-119736" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119736"><a href="/guide_categories/defi-guides/" class="header-links__item fs-16">Defi Guides</a></li>
+	<li id="menu-item-119737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119737"><a href="/guide_categories/altcoins/" class="header-links__item fs-16">Altcoins</a></li>
+	<li id="menu-item-119738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119738"><a href="/guide_categories/blockchain/" class="header-links__item fs-16">Blockchain</a></li>
+	<li id="menu-item-119739" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119739"><a href="/guide_categories/cryptocurrency/" class="header-links__item fs-16">Cryptocurrency</a></li>
+	<li id="menu-item-119740" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119740"><a href="/guide_categories/deals/" class="header-links__item fs-16">Deals</a></li>
+	<li id="menu-item-119741" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119741"><a href="/guide_categories/icos/" class="header-links__item fs-16">ICOs / STOs / IEOs</a></li>
+	<li id="menu-item-119742" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119742"><a href="/guide_categories/trading-tools/" class="header-links__item fs-16">Trading Tools</a></li>
+	<li id="menu-item-119743" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119743"><a href="/guide_categories/wallet-guides/" class="header-links__item fs-16">Wallet Guides</a></li>
+</ul>
+</li>
+<li id="menu-item-119744" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119744"><a href="#" class="header-links__item fs-16">Recommended</a>
+<ul class="sub-menu">
+	<li id="menu-item-119745" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119745"><a href="https://cryptonews.com/news/best-crypto-to-buy.htm" class="header-links__item fs-16">Best Crypto to Buy Now</a></li>
+	<li id="menu-item-119746" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119746"><a href="https://cryptonews.com/news/best-crypto-presales.htm" class="header-links__item fs-16">Best Crypto Presales to Invest in</a></li>
+	<li id="menu-item-119747" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119747"><a href="https://cryptonews.com/news/new-cryptocurrency.htm" class="header-links__item fs-16">New Cryptocurrency</a></li>
+	<li id="menu-item-119748" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119748"><a href="https://cryptonews.com/news/next-cryptocurrency-to-explode.htm" class="header-links__item fs-16">Next Cryptocurrency to Explode</a></li>
+	<li id="menu-item-119749" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119749"><a href="https://cryptonews.com/news/best-crypto-icos.htm" class="header-links__item fs-16">Best Crypto ICOs</a></li>
+	<li id="menu-item-119750" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119750"><a href="https://cryptonews.com/news/crypto-launches.htm" class="header-links__item fs-16">Crypto Launches</a></li>
+	<li id="menu-item-119751" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119751"><a href="https://cryptonews.com/news/best-bitcoin-betting-sites.htm" class="header-links__item fs-16">Crypto Betting</a></li>
+	<li id="menu-item-119752" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119752"><a href="https://cryptonews.com/news/best-bitcoin-casinos.htm" class="header-links__item fs-16">Bitcoin Casinos</a></li>
+	<li id="menu-item-119753" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119753"><a href="https://cryptonews.com/news/best-bitcoin-gambling-sites.htm" class="header-links__item fs-16">Bitcoin Gambling Sites</a></li>
+	<li id="menu-item-119754" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119754"><a href="https://cryptonews.com/news/best-bitcoin-blackjack-sites.htm" class="header-links__item fs-16">Bitcoin Blackjack</a></li>
+	<li id="menu-item-119755" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119755"><a href="https://cryptonews.com/news/best-bitcoin-slots-sites.htm" class="header-links__item fs-16">Best Bitcoin Slots</a></li>
+	<li id="menu-item-119756" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119756"><a href="https://cryptonews.com/news/best-crash-gambling-sites.htm" class="header-links__item fs-16">Crash Gambling Games</a></li>
+	<li id="menu-item-119758" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119758"><a href="https://cryptonews.com/news/best-anonymous-casinos.htm" class="header-links__item fs-16">Anonymous Casinos</a></li>
+	<li id="menu-item-119759" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119759"><a href="https://cryptonews.com/news/non-gamstop-casinos-uk.htm" class="header-links__item fs-16">Best Casinos Not on Gamstop</a></li>
+	<li id="menu-item-119760" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119760"><a href="https://cryptonews.com/news/best-telegram-casinos.htm" class="header-links__item fs-16">Best Telegram Casinos</a></li>
+	<li id="menu-item-133291" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-133291"><a href="https://cryptonews.com/news/casino-utan-svensk-licens.htm" class="header-links__item fs-16">Casino Utan Svensk Licens</a></li>
+</ul>
+</li>
+<li id="menu-item-119761" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119761"><a href="/jobs/" class="header-links__item fs-16">Jobs</a>
+<ul class="sub-menu">
+	<li id="menu-item-119762" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119762"><a href="/editors/" class="header-links__item fs-16">Contributors</a></li>
+	<li id="menu-item-119763" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119763"><a href="/review_categories/exchanges/" class="header-links__item fs-16">Exchanges</a></li>
+	<li id="menu-item-119764" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119764"><a href="/coins/" class="header-links__item fs-16">Market Cap</a></li>
+	<li id="menu-item-119765" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119765"><a href="/price-tracker/" class="header-links__item fs-16">Price Tracker</a></li>
+	<li id="menu-item-119766" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119766"><a href="/events/" class="header-links__item fs-16">Events</a></li>
+</ul>
+</li>
+</ul>                        </div>
+                    </div>
+                    <div class="row d-block d-md-none footer_menu_mob">
+                        <div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="/news/"><b>News</b></a></div>
+<div class='menu-list-links header-menu__dropdown-children'>
+	<a class="mb-10 heading"  href="/news/bitcoin-news/"><b>Bitcoin News</b></a>
+	<a class="mb-10 heading"  href="/news/ethereum-news/"><b>Ethereum News</b></a>
+	<a class="mb-10 heading"  href="/news/nft-news/"><b>NFT News</b></a>
+	<a class="mb-10 heading"  href="/news/defi-news/"><b>DeFi News</b></a>
+	<a class="mb-10 heading"  href="/news/altcoin-news/"><b>Altcoin News</b></a>
+	<a class="mb-10 heading"  href="/news/blockchain-news/"><b>Blockchain News</b></a>
+	<a class="mb-10 heading"  href="/news/press-releases/"><b>Press Releases</b></a>
+	<a class="mb-10 heading"  href="/news/sponsored/"><b>Sponsored</b></a>
+	<a class="mb-10 heading"  href="/news/cryptonews-deals/"><b>Cryptonews Deals</b></a>
+	<a class="mb-10 heading"  href="/news/industry-talk/"><b>Industry Talk</b></a>
+	<a class="mb-10 heading"  href="/news/ico-news/"><b>ICO news</b></a>
+	<a class="mb-10 heading"  href="/news/finance-news/"><b>Finance News</b></a>
+	<a class="mb-10 heading"  href="/news/technology-news/"><b>Technology News</b></a>
+	<a class="mb-10 heading"  href="/news/price-predictions/"><b>Price Predictions</b></a>
+</div>
+
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="/exclusives/"><b>Exclusives</b></a></div>
+<div class='menu-list-links header-menu__dropdown-children'>
+	<a class="mb-10 heading"  href="/exclusives/features/"><b>Features</b></a>
+	<a class="mb-10 heading"  href="/exclusives/opinions/"><b>Opinions</b></a>
+	<a class="mb-10 heading"  href="/exclusives/people/"><b>People In Crypto</b></a>
+	<a class="mb-10 heading"  href="/exclusives/podcast/"><b>Podcast</b></a>
+</div>
+
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="/videos/"><b>Videos</b></a></div>
+<div class='menu-list-links header-menu__dropdown-children'>
+	<a class="mb-10 heading"  href="/video_categories/bitcoin/"><b>Bitcoin Videos</b></a>
+	<a class="mb-10 heading"  href="/video_categories/ethereum/"><b>Ethereum Videos</b></a>
+	<a class="mb-10 heading"  href="/video_categories/defi-videos/"><b>DeFi Videos</b></a>
+	<a class="mb-10 heading"  href="/video_categories/altcoin/"><b>Altcoin Videos</b></a>
+	<a class="mb-10 heading"  href="/video_categories/blockchain/"><b>Blockchain Videos</b></a>
+	<a class="mb-10 heading"  href="/video_categories/market/"><b>Market Videos</b></a>
+	<a class="mb-10 heading"  href="/video_categories/cryptosecurity/"><b>Security Videos</b></a>
+	<a class="mb-10 heading"  href="/video_categories/trading/"><b>Trading Videos</b></a>
+	<a class="mb-10 heading"  href="/video_categories/icos/"><b>ICO Videos</b></a>
+</div>
+
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="/guides/"><b>Guides</b></a></div>
+<div class='menu-list-links header-menu__dropdown-children'>
+	<a class="mb-10 heading"  href="/guide_categories/bitcoin/"><b>Bitcoin</b></a>
+	<a class="mb-10 heading"  href="/guide_categories/ethereum/"><b>Ethereum</b></a>
+	<a class="mb-10 heading"  href="/guide_categories/nft/"><b>NFT</b></a>
+	<a class="mb-10 heading"  href="/guide_categories/defi-guides/"><b>Defi Guides</b></a>
+	<a class="mb-10 heading"  href="/guide_categories/altcoins/"><b>Altcoins</b></a>
+	<a class="mb-10 heading"  href="/guide_categories/blockchain/"><b>Blockchain</b></a>
+	<a class="mb-10 heading"  href="/guide_categories/cryptocurrency/"><b>Cryptocurrency</b></a>
+	<a class="mb-10 heading"  href="/guide_categories/deals/"><b>Deals</b></a>
+	<a class="mb-10 heading"  href="/guide_categories/icos/"><b>ICOs / STOs / IEOs</b></a>
+	<a class="mb-10 heading"  href="/guide_categories/trading-tools/"><b>Trading Tools</b></a>
+	<a class="mb-10 heading"  href="/guide_categories/wallet-guides/"><b>Wallet Guides</b></a>
+</div>
+
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="#"><b>Recommended</b></a></div>
+<div class='menu-list-links header-menu__dropdown-children'>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-crypto-to-buy.htm"><b>Best Crypto to Buy Now</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-crypto-presales.htm"><b>Best Crypto Presales to Invest in</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/new-cryptocurrency.htm"><b>New Cryptocurrency</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/next-cryptocurrency-to-explode.htm"><b>Next Cryptocurrency to Explode</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-crypto-icos.htm"><b>Best Crypto ICOs</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/crypto-launches.htm"><b>Crypto Launches</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-bitcoin-betting-sites.htm"><b>Crypto Betting</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-bitcoin-casinos.htm"><b>Bitcoin Casinos</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-bitcoin-gambling-sites.htm"><b>Bitcoin Gambling Sites</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-bitcoin-blackjack-sites.htm"><b>Bitcoin Blackjack</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-bitcoin-slots-sites.htm"><b>Best Bitcoin Slots</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-crash-gambling-sites.htm"><b>Crash Gambling Games</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-anonymous-casinos.htm"><b>Anonymous Casinos</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/non-gamstop-casinos-uk.htm"><b>Best Casinos Not on Gamstop</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/best-telegram-casinos.htm"><b>Best Telegram Casinos</b></a>
+	<a class="mb-10 heading"  href="https://cryptonews.com/news/casino-utan-svensk-licens.htm"><b>Casino Utan Svensk Licens</b></a>
+</div>
+
+<div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="/jobs/"><b>Jobs</b></a></div>
+<div class='menu-list-links header-menu__dropdown-children'>
+	<a class="mb-10 heading"  href="/editors/"><b>Contributors</b></a>
+	<a class="mb-10 heading"  href="/review_categories/exchanges/"><b>Exchanges</b></a>
+	<a class="mb-10 heading"  href="/coins/"><b>Market Cap</b></a>
+	<a class="mb-10 heading"  href="/price-tracker/"><b>Price Tracker</b></a>
+	<a class="mb-10 heading"  href="/events/"><b>Events</b></a>
+</div>
+
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5 col-xl-4 mb-lg-0 text-center d-md-none d-block mt-20">
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom pt-30 pb-30">
+            <div class="row">
+                <div class="col-12 col-md-6 text-center text-md-left mb-20 mb-md-0">
+                    <div class="fs-12 c-light-grey">© 2023 Cryptonews. All rights reserved</div>
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-right">
+                    <div class="socials socials--large socials--h-white">
+                                                    <a href="https://www.facebook.com/cryptonewscom-720874761445956" rel="nofollow noopener"  target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <path fill="#CCC"
+                                          d="M8.854 4.155H7.072V2.97c.131-1.119 1.981-.907 1.981-.907V.138H9.05C8.986.123 5.37-.735 4.653 2.017l-.001.002-.006.018c-.113.345-.105 1.92-.103 2.118H3v2.107h1.64v5.732h2.388V6.262h1.827l.205-2.107h-.205z"/>
+                                </svg>
+                            </a>
+                            <a href="https://twitter.com/Cryptonews" rel="nofollow noopener"  target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <path fill="#CCC" fill-rule="evenodd"
+                                          d="M10.771 3.429c.156 3.462-2.427 7.323-6.997 7.323-1.39 0-2.685-.407-3.774-1.107 1.306.155 2.609-.208 3.645-1.019-1.078-.019-1.987-.73-2.3-1.71.385.074.765.053 1.111-.042C1.272 6.637.454 5.57.482 4.43c.332.184.71.295 1.115.308C.5 4.005.19 2.557.835 1.45 2.05 2.94 3.863 3.92 5.91 4.022 5.55 2.482 6.718 1 8.308 1c.708 0 1.347.298 1.797.778.56-.112 1.087-.316 1.564-.599-.185.575-.576 1.059-1.083 1.363.498-.06.972-.192 1.413-.388-.33.494-.746.928-1.228 1.275"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCq1LxxUw6DVELFN0wOmLLQw?disable_polymer=true" rel="nofollow noopener"  target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <path fill="#CCC"
+                                          d="M4.55 8.219V4.447l3.618 1.886L4.55 8.219zm7.333-4.583c-.103-.876-.313-1.13-.46-1.247-.238-.185-.668-.25-1.243-.29C9.255 2.038 7.69 2 5.997 2c-1.695 0-3.258.038-4.182.1-.575.04-1.006.105-1.243.29-.148.116-.357.37-.462 1.246-.148 1.26-.148 4.134 0 5.395.104.874.313 1.129.46 1.245.238.187.669.25 1.244.29.924.062 2.487.1 4.182.1 1.695 0 3.258-.038 4.183-.1.575-.04 1.005-.103 1.243-.29.148-.116.357-.371.46-1.245.148-1.261.148-4.135 0-5.395z"
+                                          fill-rule="evenodd"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/company/cryptonewscom/" rel="nofollow noopener" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <path d="M11.9939 12h-2.464V7.8c0-1.151-.438-1.794-1.349-1.794-.991 0-1.508.669-1.508 1.794V12h-2.375V4h2.375v1.078s.714-1.322 2.41-1.322c1.697 0 2.911 1.036 2.911 3.179V12zm-10.53-9.048c-.808 0-1.464-.66-1.464-1.476C-.0001.661.6559 0 1.4639 0c.809 0 1.465.661 1.465 1.476 0 .816-.656 1.476-1.465 1.476zM.2379 12h2.477V4H.2379v8z"
+                                          fill="#CCC" fill-rule="evenodd"/>
+                                </svg>
+                            </a>
+                            <a href="https://t.me/cryptonews_official" rel="nofollow noopener"  target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <path fill="#CCC"
+                                          d="M.558 5.152L11.196 1.05c.495-.178.925.12.765.868l.001-.001-1.81 8.532c-.134.605-.495.752-.998.467L6.395 8.883l-1.33 1.282c-.147.147-.272.27-.556.27l.196-2.805 5.111-4.62c.223-.194-.05-.305-.343-.11L3.156 6.879l-2.723-.85c-.59-.188-.603-.591.126-.876"
+                                          fill-rule="evenodd"/>
+                                </svg>
+                            </a>
+                            <a href="https://cryptonews.com/contact-us/">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <path fill="#CCC"
+                                          d="M0 2.727v6.854c0 .373.273.675.649.675h10.696c.376 0 .649-.306.649-.675V2.727c0-.409-.244-.727-.65-.727H.65C.23 2 0 2.326 0 2.727m.988.597c0-.165.099-.26.259-.26.099 0 3.986 2.463 4.22 2.607l.609.38c.193-.13.387-.24.587-.375.408-.26 4.038-2.612 4.138-2.612.16 0 .26.095.26.26 0 .174-.337.348-.557.482-1.378.841-2.756 1.757-4.122 2.628-.08.054-.233.17-.35.151-.128-.019-4.083-2.56-4.802-2.983-.108-.064-.242-.123-.242-.278"
+                                          fill-rule="evenodd"/>
+                                </svg>
+                            </a>
+                            <a href="/news/feed" target="_blank">
+                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  width="12" height="12"
+                                     viewBox="0 0 12 12" style="enable-background:new 0 0 12 12;" xml:space="preserve">
+                        <style type="text/css">
+                            .st0{fill:#CCCCCC;}
+                        </style>
+                                    <g>
+                                        <g>
+                                            <path class="st0" d="M1.6,8.9C0.7,8.9,0,9.6,0,10.4S0.7,12,1.6,12s1.6-0.7,1.6-1.6S2.4,8.9,1.6,8.9z"/>
+                                            <path class="st0" d="M0.3,4.5c-0.1,0-0.1,0-0.2,0.1C0,4.6,0,4.6,0,4.7v2C0,6.8,0.1,6.9,0.2,7C2.9,7.1,4.9,9.1,5,11.8
+                                 c0,0.1,0.1,0.2,0.2,0.2h2c0.1,0,0.1,0,0.2-0.1c0,0,0.1-0.1,0.1-0.2C7.5,9.8,6.7,8,5.3,6.7C4,5.3,2.2,4.5,0.3,4.5z"/>
+                                            <path class="st0" d="M8.5,3.5C6.3,1.3,3.4,0.1,0.3,0C0.2,0,0.1,0,0.1,0.1C0,0.1,0,0.2,0,0.2v2c0,0.1,0.1,0.2,0.2,0.2
+                                 c5,0.1,9.1,4.3,9.3,9.3c0,0.1,0.1,0.2,0.2,0.2h2c0.1,0,0.1,0,0.2-0.1c0,0,0.1-0.1,0.1-0.2C11.9,8.6,10.7,5.7,8.5,3.5z"/>
+                                        </g>
+                                    </g>
+                     </svg>
+                            </a>
+	                                                        <a href="https://www.instagram.com/cryptonewscom/" rel="nofollow noopener"  target="_blank">
+			                        <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>				                                                        </a>
+		                                                                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="rocketlazyloadscript">
+    window.gdproptions = {
+
+            cookieName: 'gdpr',
+            cookieConfig: {
+                domain: window.location.hostname,
+                path: '/'
+            },
+            heading: "GDPR Notice",
+            description: `We use cookies to offer a better browsing experience, analyze site traffic, personalize content, and serve targeted advertisements.By clicking accept, you consent to our privacy policy &amp; use of cookies.`+' (<a href="https://cryptonews.com/privacy-policy.htm" >Privacy Policy</a>)',
+            acceptLabel: "Confirm all",
+            settingsLabel: "Preferences",
+            closeLabel: 'Close Window',
+            choices: {
+                necessary: {
+                    label: "Required",
+                    description:
+                        '',
+                    value: true
+                },
+                analytics: false,
+                tracking: false,
+                marketing: false,
+
+            },
+            showEditIcon: false,
+            categories: {
+
+                necessary: function() {
+                }
+            }
+        }
+    </script>
+            <script type="rocketlazyloadscript">
+            window.cid = 108492        </script>
+        <script type="rocketlazyloadscript" data-rocket-src="https://cryptonews.com/wp-content/themes/cryptonews/assets/js/frontend.js?ver=1.1688466991" id="frontend-js-js" defer></script>
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/cryptonews.com","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script id="ajax-data-load-js-extra">
+var site_vars = {"url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://cryptonews.com/wp-content/themes/cryptonews/js/ajax-data-load.js?ver=6.4.1" id="ajax-data-load-js" defer></script>
+
+<!-- Shortcodes Ultimate custom CSS - start -->
+<style type="text/css">
+.su-column-pros p{
+	margin-bottom:5px;
+}
+
+.su-column-pros ul{
+	padding-left:25px;
+}
+</style>
+<!-- Shortcodes Ultimate custom CSS - end -->
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://cryptonews.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script><script type="rocketlazyloadscript">
+    window.addEventListener('load', function() {
+
+        if(document.getElementsByTagName('oembed').length){
+            console.log('loading oembed');
+            new Embedo({
+                twitter: true,  // Enable twitter SDK
+                instagram: true,  // Enable instagram SDK
+                pinterest: true  // Enable pinterest SDK,
+            });
+        }
+
+    })
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script><script type="rocketlazyloadscript">
+            window.onesignal_app_id ='7433c474-47ca-421e-88a6-dad515cf9aab';
+            var OneSignal = window.OneSignal || [];
+            OneSignal.push(function() {
+              OneSignal.init({
+                appId: '7433c474-47ca-421e-88a6-dad515cf9aab',
+              });
+            });
+    </script></div>
+<script type="application/ld+json">{
+    "@context": "http://schema.org/",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Cryptonews",
+                "item": "https://cryptonews.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Exclusives",
+                "item": "https://cryptonews.com/exclusives/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Keone Hon, CEO of Monad Labs, on High Frequency Crypto Trading, L1s, L2s, and Security | Ep. 239",
+                "item": "https://cryptonews.com/exclusives/keone-hon-ceo-of-monad-labs-high-frequency-crypto-trading-l1s-l2s-security-ep-239.htm"
+            }
+        ]
+    ]
+}</script><script type="application/ld+json">{
+    "@context": "http://schema.org/",
+    "@graph": [
+        {
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+                "@id": "https://cryptonews.com/exclusives/keone-hon-ceo-of-monad-labs-high-frequency-crypto-trading-l1s-l2s-security-ep-239.htm",
+                "@type": "WebPage"
+            },
+            "headline": "Keone Hon, CEO of Monad Labs, on High Frequency Crypto Trading, L1s, L2s, and Security | Ep. 239",
+            "image": [
+                "https://cimg.co/news/117147/313431/keone-hon-thumb.jpg"
+            ],
+            "author": [],
+            "datePublished": "2023-06-16T14:24:00+00:00",
+            "dateModified": "2023-10-19T15:37:58+00:00"
+        },
+        {
+            "@type": "Organization",
+            "name": "Cryptonews",
+            "url": "https://cryptonews.com",
+            "logo": "https://cimg.co/p/crypto-news-logo-full.svg"
+        }
+    ]
+}</script><script src="https://bs_48ce1097.cryptonewsdom.care/sdk.js" data-clickout-type="native_table_box" defer></script></body>
+</html>
+<!--
+Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com
+
+Retrieved 10839 objects (1 MB) from Redis using PhpRedis (v5.3.7).
+-->
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
