@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.4",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let r=e.getAttribute("data-rocket-src");if(r&&0!==r.indexOf("data:")){0===r.indexOf("//")&&(r=location.protocol+r);try{let i=new URL(r).origin;i!==location.origin&&t.push({src:i,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(n){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){if(await this._littleBreath(),!0===t.noModule&&"noModule"in HTMLScriptElement.prototype){t.setAttribute("data-rocket-status","skipped");return}return new Promise(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(){let t={};function e(e,r){!function e(r){!t[r]&&(t[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.remove.apply(r,arguments)});function i(e){return t[r].eventsToRewrite.indexOf(e)>=0?"rocket-"+e:e}}(e),t[e].eventsToRewrite.push(r)}function r(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}e(document,"DOMContentLoaded"),e(window,"DOMContentLoaded"),e(window,"load"),e(window,"pageshow"),e(document,"readystatechange"),r(document,"onreadystatechange"),r(window,"onload"),r(window,"onpageshow")}_delayJQueryReady(t){let e;function r(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}function i(i){if(i&&i.fn&&!t.allJQueries.includes(i)){i.fn.ready=i.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(i):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(i)),i([])};let n=i.fn.on;i.fn.on=i.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=r(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{let e=arguments[0][t];delete arguments[0][t],arguments[0][r(t)]=e})),n.apply(this,arguments),this},t.allJQueries.push(i)}e=i}i(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){i(t)}})}async _pendingWebpackRequests(t){let e=document.querySelector("script[data-webpack]");async function r(){return new Promise(t=>{e.addEventListener("load",t),e.addEventListener("error",t)})}e&&(await r(),await t._requestAnimFrame(),await t._pendingWebpackRequests(t))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
     
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0">
     <meta property="fb:app_id" content="1101440706625691" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -43,7 +43,7 @@
 <link rel='dns-prefetch' href='//cryptonews.com' />
 <link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
 <link rel="alternate" type="" title="Cryptonews &raquo; Feed" href="https://cryptonews.com/feed/" />
-<link data-minify="1" rel='stylesheet' id='style-css-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/style.css?ver=1701183741' media='all' />
+<link data-minify="1" rel='stylesheet' id='style-css-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/style.css?ver=1701944354' media='all' />
 <link rel='stylesheet' id='wp-block-library-css' href='https://cryptonews.com/wp-includes/css/dist/block-library/style.min.css?ver=6.4.1' media='all' />
 <style id='classic-theme-styles-inline-css'>
 /*! This file is auto-generated */
@@ -56,21 +56,21 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
 .wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
 </style>
-<link data-minify="1" rel='stylesheet' id='search-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/assets/css/search.css?ver=1701183741' media='all' />
-<link data-minify="1" rel='stylesheet' id='brand-management-public-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/brand-management-plugin/public/css/brand-management-public.css?ver=1701183741' media='all' />
-<link data-minify="1" rel='stylesheet' id='crypto-bm-public-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptopresales-brand-management-plugin/public/css/crypto-bm-public.css?ver=1701183741' media='all' />
-<link data-minify="1" rel='stylesheet' id='brand-management-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/brand-management.css?ver=1701183741' media='all' />
-<link data-minify="1" rel='stylesheet' id='custom-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/custom.css?ver=1701183741' media='all' />
-<link data-minify="1" rel='stylesheet' id='presale-toplist-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/presale-toplist.css?ver=1701183741' media='all' />
-<link data-minify="1" rel='stylesheet' id='post-blocks-style-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews-post-blocks/assets/css/style.css?ver=1701187972' media='all' />
+<link data-minify="1" rel='stylesheet' id='search-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/themes/cryptonews/assets/css/search.css?ver=1701944354' media='all' />
+<link data-minify="1" rel='stylesheet' id='brand-management-public-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/brand-management-plugin/public/css/brand-management-public.css?ver=1701944354' media='all' />
+<link data-minify="1" rel='stylesheet' id='crypto-bm-public-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptopresales-brand-management-plugin/public/css/crypto-bm-public.css?ver=1701944354' media='all' />
+<link data-minify="1" rel='stylesheet' id='brand-management-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/brand-management.css?ver=1701944354' media='all' />
+<link rel='stylesheet' id='custom-css' href='https://cryptonews.com/wp-content/plugins/cryptonews/assets/css/custom.css?ver=1.1701870935' media='all' />
+<link data-minify="1" rel='stylesheet' id='presale-toplist-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews/assets/css/presale-toplist.css?ver=1701944354' media='all' />
+<link data-minify="1" rel='stylesheet' id='post-blocks-style-css' href='https://cryptonews.com/wp-content/cache/min/1/wp-content/plugins/cryptonews-post-blocks/assets/css/style.css?ver=1701944354' media='all' />
 <style id='rocket-lazyload-inline-css'>
 .rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://cryptonews.com/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
 </style>
 <script id="brand-management-ajax-handler-js-extra">
-var likes_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php","nonce":"e36d6e3b8a","fail_text":"You have already voted."};
+var likes_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php","nonce":"32873adce3","fail_text":"You have already voted."};
 </script>
 <script id="crypto-bm-ajax-handler-js-extra">
-var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php","nonce":"5814e7cf7e"};
+var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php","nonce":"5d99931f16"};
 </script>
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://cryptonews.com/xmlrpc.php?rsd" />
 <noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>    <script type="rocketlazyloadscript">
@@ -92,7 +92,7 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
                 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-MBDCFGN');</script>
     </head>
-<body class="post-template-default single single-post postid-26845 single-format-standard">
+<body class="post-template-default single single-post postid-26845 single-format-standard wp-custom-logo">
 <header class="header" id="header">
     <a href="/" class="header__logo">
         <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Crypto News" data-lazy-src="https://cimg.co/p/crypto-news-logo-full.svg"><noscript><img src="https://cimg.co/p/crypto-news-logo-full.svg " alt="Crypto News"></noscript>
@@ -128,30 +128,30 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
 </li>
 <li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/videos/">Videos<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
 	<ul class="sub-menu">
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/bitcoin/">Bitcoin Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/ethereum/">Ethereum Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/defi-videos/">DeFi Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/altcoin/">Altcoin Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/blockchain/">Blockchain Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/market/">Market Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/cryptosecurity/">Security Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/trading/">Trading Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/icos/">ICO Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/bitcoin/">Bitcoin Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/ethereum/">Ethereum Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/defi-videos/">DeFi Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/altcoin/">Altcoin Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/blockchain/">Blockchain Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/market/">Market Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/cryptosecurity/">Security Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/trading/">Trading Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/icos/">ICO Videos</a></li>
 	</ul>
 </li>
 <li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/guides/">Guides<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
 	<ul class="sub-menu">
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/bitcoin/">Bitcoin</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/ethereum/">Ethereum</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/nft/">NFT</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/defi-guides/">Defi Guides</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/altcoins/">Altcoins</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/blockchain/">Blockchain</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/cryptocurrency/">Cryptocurrency</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/deals/">Deals</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/icos/">ICOs / STOs / IEOs</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/trading-tools/">Trading Tools</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/wallet-guides/">Wallet Guides</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/bitcoin/">Bitcoin</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/ethereum/">Ethereum</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/nft/">NFT</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/defi-guides/">Defi Guides</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/altcoins/">Altcoins</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/blockchain/">Blockchain</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/cryptocurrency/">Cryptocurrency</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/deals/">Deals</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/icos/">ICOs / STOs / IEOs</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/trading-tools/">Trading Tools</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/wallet-guides/">Wallet Guides</a></li>
 	</ul>
 </li>
 <li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="#">Recommended<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
@@ -212,30 +212,30 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
 </li>
 <li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/videos/">Videos<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
 <ul class="sub-menu">
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/bitcoin/">Bitcoin Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/ethereum/">Ethereum Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/defi-videos/">DeFi Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/altcoin/">Altcoin Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/blockchain/">Blockchain Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/market/">Market Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/cryptosecurity/">Security Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/trading/">Trading Videos</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/video_categories/icos/">ICO Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/bitcoin/">Bitcoin Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/ethereum/">Ethereum Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/defi-videos/">DeFi Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/altcoin/">Altcoin Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/blockchain/">Blockchain Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/market/">Market Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/cryptosecurity/">Security Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/trading/">Trading Videos</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/videos/icos/">ICO Videos</a></li>
 </ul>
 </li>
 <li class=' menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'><a href="/guides/">Guides<span class="menu_icon"></span></a><span class="menu_icon mob"></span>
 <ul class="sub-menu">
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/bitcoin/">Bitcoin</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/ethereum/">Ethereum</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/nft/">NFT</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/defi-guides/">Defi Guides</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/altcoins/">Altcoins</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/blockchain/">Blockchain</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/cryptocurrency/">Cryptocurrency</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/deals/">Deals</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/icos/">ICOs / STOs / IEOs</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/trading-tools/">Trading Tools</a></li>
-<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guide_categories/wallet-guides/">Wallet Guides</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/bitcoin/">Bitcoin</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/ethereum/">Ethereum</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/nft/">NFT</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/defi-guides/">Defi Guides</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/altcoins/">Altcoins</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/blockchain/">Blockchain</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/cryptocurrency/">Cryptocurrency</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/deals/">Deals</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/icos/">ICOs / STOs / IEOs</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/trading-tools/">Trading Tools</a></li>
+<li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/guides/wallet-guides/">Wallet Guides</a></li>
 </ul>
 </li>
 <li class=' menu-item menu-item-type-custom menu-item-object-custom'><a href="/review_categories/exchanges/">Exchanges</a></li>
@@ -432,21 +432,29 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
         <div class="modal__body newsletter">
             <div class="left-side">
     <div class="h1">
-        <em>
-            Enter your email for our Free Daily Newsletter        </em>
+        <em>Enter your email for our Free Daily Newsletter</em>
     </div>
     <p> A quick 3min read about today's crypto news!</p>
     <form id="newsletter-form">
         <div class="input-group">
             <div><input name="email" id="newsletter_email" type="email" placeholder="Email" required=""></div>
-            <div><button type="submit" id="newsletter-signup">Sign Up</button></div>
+            <div>
+                <button type="submit" id="newsletter-signup">Sign Up</button>
+            </div>
         </div>
     </form>
     <span class="response-msg" id="newsletter-response"></span>
+    <div class="recaptcha-text">
+        This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+    </div>
 </div>
 <div class="img-box">
     <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Image" class="img" id="newsletter-popup-img" data-lazy-src="https://cimg.co/p/ml-300.jpeg"><noscript><img src="https://cimg.co/p/ml-300.jpeg" alt="Image" class="img" id="newsletter-popup-img"></noscript>
 </div>
+
+
         </div>
     </div>
 </div>
@@ -629,25 +637,34 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
 	                    <div class="sub-header-disclaimer">Disclosure: Crypto is a high-risk asset class. This article is provided for informational purposes and does not constitute investment advice. By using this website, you agree to our terms and conditions. We may utilise affiliate links within our content, and receive commission.</div>
                                                     <div class="dslot text-right" style="min-height: 60px;"  did="9"></div>
                                                 <p><i>Crypto Briefs is your daily, bite-sized digest of cryptocurrency and blockchain-related news &ndash; investigating the stories flying under the radar of today&rsquo;s crypto news.</i></p><figure><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" data-lazy-sizes="(min-width: 640px) 720px, 100vw" data-lazy-srcset="https://cimg.co/w/articles-attachments/1/5e6/910cf412c4.jpg 300w, https://cimg.co/w/articles-attachments/2/5e6/910cf412c4.jpg 600w, https://cimg.co/w/articles-attachments/3/5e6/910cf412c4.jpg 720w, https://cimg.co/w/articles-attachments/4/5e6/910cf412c4.jpg 900w, https://cimg.co/w/articles-attachments/0/5e6/910cf412c4.jpg 1254w" alt="" class="content-img" data-lazy-src="https://cimg.co/w/articles-attachments/1/5e6/910cf412c4.jpg"><noscript><img decoding="async" src="https://cimg.co/w/articles-attachments/1/5e6/910cf412c4.jpg" sizes="(min-width: 640px) 720px, 100vw" srcset="https://cimg.co/w/articles-attachments/1/5e6/910cf412c4.jpg 300w, https://cimg.co/w/articles-attachments/2/5e6/910cf412c4.jpg 600w, https://cimg.co/w/articles-attachments/3/5e6/910cf412c4.jpg 720w, https://cimg.co/w/articles-attachments/4/5e6/910cf412c4.jpg 900w, https://cimg.co/w/articles-attachments/0/5e6/910cf412c4.jpg 1254w" alt="" class="content-img"></noscript><figcaption>Source: iStock/Avalon_Studio</figcaption></figure><h2 data-param="1" id="exchanges-news">Exchanges news</h2><span class="replacer"></span><ul><li><b>SBI VC Trade</b>, the crypto exchange run by the Japanese financial giant <b>SBI</b>, will follow suit as e-commerce giant Rakuten launches crypto margin trading operations later this year, <a href="https://r.nikkei.com/article/DGXMZO56628940Q0A310C2EE9000" target="_blank" rel="noopener">per</a> Nikkei. As <a href="https://cryptonews.com/news/crypto-mugger-gets-10-year-jail-term-more-news-5921.htm" target="_blank" rel="noopener">previously reported</a>, <b>Rakuten</b> &ndash; Japan&rsquo;s answer to <b>Amazon</b> &ndash; has already made its leveraged trading intentions clear. But SBI&rsquo;s decision will likely galvanize the domestic crypto industry further, with two major businesses now set to offer margin trading. SBI and Rakuten are also reportedly in talks with other securities offerings providers about launching a <a href="https://cryptonews.com/news/ripple-friendly-sbi-chief-in-talks-about-launching-an-sto-ex-5919.htm">securities token offering (STO) trading platform</a>.</li><li><b><a href="https://cryptonews.com/ext/kraken/" target="_blank" rel="nofollow noopener">Kraken</a></b> <a href="https://blog.kraken.com/post/4200/eur-gbp-usd-and-more-fx-trading-is-going-live-on-kraken/" target="_blank" rel="noopener">said</a> it will launch nine new FX pairs on March 12, letting their clients (except those residing in the U.S.) to directly trade between CAD, CHF, EUR, GBP, JPY and USD on the Kraken platform. Additional pairs may be added in the future, they added.</li><li>South Korean crypto exchanges have started referring cryptocurrencies as &ldquo;cryptoassets&rdquo; on their websites, in line with terminology outlined in an amendment to a finance law passed earlier this month. The new law does not come into force until 2021, but it appears that platforms want to get ahead of themselves, with market leaders <b>Upbit</b>, <b>Bithumb</b>, <b>Coinone</b>, and <b>Korbit</b> all editing their websites in recent days, referring to themselves as &ldquo;cryptoasset&rdquo;-trading exchanges, <a href="https://www.fnnews.com/news/202003101627017123" target="_blank" rel="noopener">per</a> Fn News.</li><li>And the aforementioned South Korean exchange Coinone has also been working on developing its overseas business operations &ndash; and will expand its remittance services in North America and Oceania. The company says, <a href="http://www.sentv.co.kr/news/view/569699" target="_blank" rel="noopener">per</a> Sen TV, that its Cross services, which make use of <b>Ripple</b> technology, will be rolled out in the United States, Canada, and Australia. Previously the service had only been available in a number of Asian nations, but the exchange now has its sights on further expansion.</li><li><a href="https://cryptonews.com/ext/bitflyer/" target="_blank" rel="nofollow noopener"><b>bitFlyer</b></a>, the only cryptocurrency exchange to be regulated across Europe, the US and Japan at the same time, has reached a combined total of 2.5 million users globally, they say in an emailed press release. This was accomplished in six years since the establishment of bitFlyer.</li></ul><h2 data-param="1" id="adoption-news">Adoption news</h2><span class="replacer"></span><ul><li>South Korean telecoms giant <b>SK</b> is set to launch a major digital medical care business platform, <a href="http://www.industrynews.co.kr/news/articleView.html?idxno=37283" target="_blank" rel="noopener">reports</a> Industry News. SK, which already operates a number of local stablecoin projects, as well as its own blockchain mainnet, says that the medical platform will make use of blockchain technology. SK says it wants medical providers to use its new cloud solution, which &ldquo;will combine quantum cryptography and blockchain technology to help purchase and manage medical supplies.&rdquo;</li><li>Blockchain lending firm <b>Figure Technologies</b> has announced that loan applications with the firm had soared by 300% since the <b>Federal Reserve</b> stimulus rate <a href="https://edition.cnn.com/2020/03/03/economy/federal-reserve-rate-cut/index.html" target="_blank" rel="noopener">cut</a>, pushing the amount of loans it has funded to over USD 1 billion. The average size of loans applied for during this lending surge is about USD 50,000 per household, <a href="https://www.businesswire.com/news/home/20200310005682/en/Figure-Fed-Rate-Cut-Drove-300-Increase" target="_blank" rel="noopener">says</a> Figure Technologies.</li><li>The central <b>Bank of Brazil</b> has <a href="https://www.bcb.gov.br/detalhenoticia/419/noticia" target="_blank" rel="noopener">announced</a> that it will begin testing its new PIX platform &ndash; which has been mooted as an alternative to <a href="https://cryptonews.com/coins/bitcoin/">bitcoin (BTC)</a>, <b>Visa</b> and <b>Mastercard</b> as a method of payment. <a href="https://www.criptonoticias.com/negocios/pruebas-concepto/banco-de-brasil-prueba-plataforma-pago-alternativa-bitcoin/" target="_blank" rel="noopener">Per</a> Criptonoticias, Brazilian industry insiders say that the new innovation will likely feature interoperability solutions that will allow it to be used with cryptocurrencies.</li><li><b>Paradigm Labs</b>, decentralized finance project backed by crypto investors <b>Polychain Capital</b>, <b>Dragonfly Capital</b>, and <b>Chapter One Ventures</b>, is shutting down. <a href="https://medium.com/@ljk2142/paradigm-labs-is-shutting-down-d7de6db6c8d6" target="_blank" rel="noopener">Per</a> the announcement posted by CEO and co-founder Liam Kovatch, the project is closing due to the lack of significant product-market fit, limited resources to pursue emergent opportunities, and other reasons that have resulted in a failure to carve a viable niche in the decentralized exchange (DEX) marketplace.</li></ul><h2 data-param="1" id="security-news">Security news</h2><span class="replacer"></span><ul><li>Researchers have <a href="https://youtu.be/goy8XRXFlh4" target="_blank" rel="noopener">disclosed</a> a new flaw that steals information from <b>Intel&rsquo;s</b> SGX (Software Guard eXtensions), which acts as a digital vault for securing users&#8217; most sensitive secrets. This means that sensitive information, such as crypto keys, may be stolen via a Load Value Injection (LVI), as researchers have named their proof-of-concept attacks, <a href="https://arstechnica.com/information-technology/2020/03/hackers-can-steal-secret-data-stored-in-intels-sgx-secure-enclave/" target="_blank" rel="noopener">reports</a> Arstechnica. Intel has a <a href="https://software.intel.com/security-software-guidance/insights/processors-affected-load-value-injection" target="_blank" rel="noopener">list</a> of affected processors.</li></ul><h2 data-param="1" id="tax-news">Tax news</h2><span class="replacer"></span><ul><li>Up to 350,000 crypto investors will receive a warning from the <b>Australian Taxation Office</b> (ATO) in the coming weeks, which will serve as a reminder to pay taxes. Crypto investors should make sure they keep good records when they buy, sell or trade cryptocurrencies to make it easier come tax time, an ATO spokesman is <a href="https://www.news.com.au/finance/money/tax/australian-taxation-office-to-target-cryptocurrency-investors-with-audit-warnings/news-story/37524f276864111b5da9d555226e9f11" target="_blank" rel="noopener">quoted</a> as saying by news.com.au.</li></ul><h2 data-param="1" id="investment-news">Investment news</h2><span class="replacer"></span><ul><li>Remittance platform <b>TerraPay</b> has announced that a consortium of investors, including venture capital and growth equity firm <b>Prime Ventures</b>, global investment firm <b>Partech Africa</b> and management acquired the company for an undisclosed sum. <a href="https://www.terrapay.com/2020/03/03/press-release-fintech-terrapay-raises-9-6-million-from-prime-ventures-ifc-and-partech/" target="_blank" rel="noopener">According</a> to the press release, the same investors, joined by <b>IFC</b>, which is a sister organization of the <b>World Bank</b> and member of the <b>World Bank Group</b>, invested USD 9.6 million in TerraPay to fund the company&rsquo;s expansion.</li></ul>
-<p></p>
+</p>
+	                    
                         <div class="newsletter home-newsletter single">
                             <div class="left-side">
     <div class="h1">
-        <em>
-            Enter your email for our Free Daily Newsletter        </em>
+        <em>Enter your email for our Free Daily Newsletter</em>
     </div>
     <p> A quick 3min read about today's crypto news!</p>
     <form id="newsletter-home">
         <div class="input-group">
             <div><input name="email" id="newsletter_email" type="email" placeholder="Email" required=""></div>
-            <div><button type="submit" id="newsletter-signup">Sign Up</button></div>
+            <div>
+                <button type="submit" id="newsletter-signup">Sign Up</button>
+            </div>
         </div>
     </form>
     <span class="response-msg" id="newsletter-response"></span>
+    <div class="recaptcha-text">
+        This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+    </div>
 </div>
 <div class="img-box">
     <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="Image" class="img" id="newsletter-popup-img" data-lazy-src="https://cimg.co/p/ml-300.jpeg"><noscript><img src="https://cimg.co/p/ml-300.jpeg" alt="Image" class="img" id="newsletter-popup-img"></noscript>
 </div>
+
+
                         </div>
                         <div class="mb-15 text-right">
                         </div>
@@ -725,16 +742,16 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
     <div class="row" id="load_more_target">
 
         
-<div id="post-137453" class="col-12 col-md-6 col-lg-12 post-137453 post type-post status-publish format-standard has-post-thumbnail hentry category-blockchain-news tag-blockchain tag-ethereum editors-jai-pratap">
+<div id="post-140329" class="col-12 col-md-6 col-lg-12 post-140329 post type-post status-publish format-standard has-post-thumbnail hentry category-press-releases">
     <article class="mb-30">
         <div class="row">
             <div class="col-4 col-md-12">
-                <a href="https://cryptonews.com/news/forbes-latest-under-30-list-data-will-be-listed-on-ethereum.htm"
+                <a href="https://cryptonews.com/news/last-chance-to-get-positioned-in-this-revolutionary-giving-project-with-passive-income-and-50x-potential.htm"
                    class="article__image article__image--sm-wider mb-15  ">
                     <div class="img-sized">
-                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
-                             data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701241839-ethereum-forbes.jpg"
-                             alt="Forbes’ Latest “Under 30” List Data Will be Listed on Ethereum"
+                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgOTEyIDYwOCI+Cgk8aW1hZ2Ugd2lkdGg9IjkxMiIgaGVpZ2h0PSI2MDgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBVkFDQURBUkVBQWhFQkF4RUIvOFFBR0FBQUF3RUJBQUFBQUFBQUFBQUFBQUFBQndnSkJRYi94QUFuRUFBQkFnWUJBd1FEQUFBQUFBQUFBQUFCQWdNQUJBVUdCeEVTSVNJeENCTVZVUlJCWWYvRUFCa0JBQU1CQVFFQUFBQUFBQUFBQUFBQUFBRUNBd1FBQmYvRUFCd1JBQUlEQUFNQkFBQUFBQUFBQUFBQUFBQUJBZ01SRWlFeFFmL2FBQXdEQVFBQ0VRTVJBRDhBbmxUc2dUbSt3a24rUlRjQ2RQVEwvckV5dExMWE1rbldoSGNnakJZeHQycVZTbktkbW1WN1VOallqSFpZejA2SUpyc0dtWGFmVjdhbjNIa05MUzJEdllFVnJucGx1amo2QmZqQzBtNTZiYi9JVDJLSTh3Wk1sWG4wYzdFSHB2cDFWbVdaejJrcVIwUGlJOG40VmFReGxVdGlrMlpTMElTMGhBU1BxR2NkV2p3bTQ5QUV6djhBQjFTMm4xcFMyWFFrL1VUaHVnc2VpazR3Vjc2NWRCN2VvNmlORE0wU2plRUd2ajdiWlVnOGp4SG1JdEZET3p6WFgyS0M4NGpvb0EvdUhUQjRUNHZ6SlZXZWNtSlpTOXQ3STF5aDR4UWprei8vMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
+                             data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701668613-chimpzee-bonus-min.png"
+                             alt="Last Chance to Get Positioned in This Revolutionary Giving Project With Passive Income and 50x Potential"
                              class="lazyload img-fluid" data-sizes="auto"
                              sizes="300px">
                     </div>
@@ -743,28 +760,58 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
             <div class="col-8 col-md-12">
                 <div class="article__badge article__badge--sm ">
 					                        <a class="article__badge article__badge--sm"
-                           href="https://cryptonews.com/news/blockchain-news/">  Blockchain News </a>
+                           href="https://cryptonews.com/news/press-releases/">  Press Releases </a>
 					
-                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-11-29 07:12:49"></div>
+                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-12-10 06:16:39"></div>
                 </div>
 
-				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/forbes-latest-under-30-list-data-will-be-listed-on-ethereum.htm" rel="bookmark">Forbes’ Latest “Under 30” List Data Will be Listed on Ethereum</a></h4>            </div>
+				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/last-chance-to-get-positioned-in-this-revolutionary-giving-project-with-passive-income-and-50x-potential.htm" rel="bookmark">Last Chance to Get Positioned in This Revolutionary Giving Project With Passive Income and 50x Potential</a></h4>            </div>
         </div>
     </article>
 
 </div>
 
 
-<div id="post-137452" class="col-12 col-md-6 col-lg-12 post-137452 post type-post status-publish format-standard has-post-thumbnail hentry category-sponsored">
+<div id="post-140666" class="col-12 col-md-6 col-lg-12 post-140666 post type-post status-publish format-standard has-post-thumbnail hentry category-price-predictions editors-arslan-butt">
     <article class="mb-30">
         <div class="row">
             <div class="col-4 col-md-12">
-                <a href="https://cryptonews.com/news/ripple-xrp-sets-1-as-next-price-target-while-meme-moguls-pioneers-the-first-meme-backed-stock-exchange.htm"
+                <a href="https://cryptonews.com/news/bonk-price-prediction-after-1000-surge-in-30-days-can-it-overtake-doge-and-shib.htm"
+                   class="article__image article__image--sm-wider mb-15  ">
+                    <div class="img-sized">
+                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFCQUFNQkFBQUFBQUFBQUFBQUFBQUFCZ01GQndUL3hBQWdFQUFDQVFRREFRRUJBQUFBQUFBQUFBQUJBZ1FBQXdVU0JoRWhZU0l5LzhRQUdnRUFBd0FEQVFBQUFBQUFBQUFBQUFBQUF3UUZBQUVHQXYvRUFDQVJBQUlDQVFRREFRQUFBQUFBQUFBQUFBQUJBZ01SQkFVVElSSVZNVkgvMmdBTUF3RUFBaEVERVFBL0FGTi9pdHlJQ3pEOGltM3V5UlE1OEZWTGF6SFE5c094OXIxWHV5a3pjZFFtVjF1WXQ1OVVJTk9leWhnSnpvdW9YRzVVeGRnaDZOQ2U1MS9wcm1Rb25aSnNoajNBL29pb0YrajhmZ3JPdkh3em1SeCtkTmtPQnRxVFVhYWRiRTNsSFZoK0pTb2NwV2NFanVzVXBTTVdXYTdqY2hHeCtPVldVYkFVU0dsc213c2Eyd1pDOHMxMlUxNVBzb1BzbmkzZEdQUUZKMjZXdVhiQnlyVEZlSWcyNVVjdTQ5SHl1ZnZpcXA0aUx5U2o4RC9KaVkyeUlmS3Y2RktTeXhpcnMvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"
+                             data-src="https://cryptonews.com/wp-content/uploads/2023/12/1702153219-screenshot_91.jpg"
+                             alt="Bonk Price Prediction after 1,000% Surge in 30 Days – Can it Overtake DOGE and SHIB?"
+                             class="lazyload img-fluid" data-sizes="auto"
+                             sizes="300px">
+                    </div>
+                </a>
+            </div>
+            <div class="col-8 col-md-12">
+                <div class="article__badge article__badge--sm ">
+					                        <a class="article__badge article__badge--sm"
+                           href="https://cryptonews.com/news/price-predictions/">  Price Predictions </a>
+					
+                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-12-09 20:22:43"></div>
+                </div>
+
+				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/bonk-price-prediction-after-1000-surge-in-30-days-can-it-overtake-doge-and-shib.htm" rel="bookmark">Bonk Price Prediction after 1,000% Surge in 30 Days – Can it Overtake DOGE and SHIB?</a></h4>            </div>
+        </div>
+    </article>
+
+</div>
+
+
+<div id="post-140645" class="col-12 col-md-6 col-lg-12 post-140645 post type-post status-publish format-standard has-post-thumbnail hentry category-altcoin-news tag-amazon tag-champions-ascension tag-web3-game editors-ruholamin-haqshanas">
+    <article class="mb-30">
+        <div class="row">
+            <div class="col-4 col-md-12">
+                <a href="https://cryptonews.com/news/nft-game-champions-ascension-teams-up-with-amazon-prime-for-exclusive-rewards.htm"
                    class="article__image article__image--sm-wider mb-15  ">
                     <div class="img-sized">
                         <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFBQWdNQUFBQUFBQUFBQUFBQUFBQUFCZ2dFQlFmL3hBQWxFQUFCQWdVREJBTUFBQUFBQUFBQUFBQUJBZ01BQkFVR0VRY1NZUWdUSWpFaFFWSC94QUFaQVFBQ0F3RUFBQUFBQUFBQUFBQUFBQUFFQlFJREJnRC94QUFmRVFBQ0FnSURBUUVCQUFBQUFBQUFBQUFCQWdBRUF4RVRGQ0VTRlVILzJnQU1Bd0VBQWhFREVRQS9BRXRvbWt5cWlRZ2ZKTU4rOG9nUDZDeS9mNmVaN1psRFNqbmlKSmVVeWFYZ1pCYzBCcURDU3BiS2dCeEJIYlNFOXRkU2hxV21Ec21GSjIrUWlQZFNWbThnL3NPOU5Md1NKNXRicEczSTl3bnNWdmcrUkhtcjhaOGpSVWE5S003SUlLeTJWWWhXUVZndS9pUmJodXlrTGtITzJFWng5Q09ETWZKM0lXOGk3M2JjMHNpYWRVTWJjeGNsZDNNZ3VCOGg4bVMwTjljdExoU0RnaU5QbUFadEdhVE1BemV3anAxNVZCcndEaHdPWUdlc2hHNVE5WkNOd3hwbFptWitUVjNGbjErd2h6S01iNkV6MmNjYjZFemU5WnBhRnVBR05EUlVFYk0wTkJRdzJaLy8yUT09Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg=="
-                             data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701240911-mgls-presale.png"
-                             alt="Ripple (XRP) Sets $1 as Next Price Target While Meme Moguls Pioneers the First Meme-Backed Stock Exchange"
+                             data-src="https://cryptonews.com/wp-content/uploads/2023/12/1702104305-controller-2618897_1280-1.jpg"
+                             alt="NFT Game &#8216;Champions Ascension&#8217; Teams Up with Amazon Prime for Exclusive Rewards"
                              class="lazyload img-fluid" data-sizes="auto"
                              sizes="300px">
                     </div>
@@ -773,42 +820,12 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
             <div class="col-8 col-md-12">
                 <div class="article__badge article__badge--sm ">
 					                        <a class="article__badge article__badge--sm"
-                           href="https://cryptonews.com/news/sponsored/">  Sponsored </a>
+                           href="https://cryptonews.com/news/altcoin-news/">  Altcoin News </a>
 					
-                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-11-29 06:56:10"></div>
+                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-12-09 17:00:08"></div>
                 </div>
 
-				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/ripple-xrp-sets-1-as-next-price-target-while-meme-moguls-pioneers-the-first-meme-backed-stock-exchange.htm" rel="bookmark">Ripple (XRP) Sets $1 as Next Price Target While Meme Moguls Pioneers the First Meme-Backed Stock Exchange</a></h4>            </div>
-        </div>
-    </article>
-
-</div>
-
-
-<div id="post-137423" class="col-12 col-md-6 col-lg-12 post-137423 post type-post status-publish format-standard has-post-thumbnail hentry category-news editors-arslan-butt">
-    <article class="mb-30">
-        <div class="row">
-            <div class="col-4 col-md-12">
-                <a href="https://cryptonews.com/news/bitcoin-price-prediction-btc-nears-38k-bull-run-etf-hopes-up.htm"
-                   class="article__image article__image--sm-wider mb-15  ">
-                    <div class="img-sized">
-                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
-                             data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701236674-29.jpg"
-                             alt="Bitcoin Price Prediction: BTC Nears $38K, Bull Run &amp; ETF Hopes Up"
-                             class="lazyload img-fluid" data-sizes="auto"
-                             sizes="300px">
-                    </div>
-                </a>
-            </div>
-            <div class="col-8 col-md-12">
-                <div class="article__badge article__badge--sm ">
-					                        <a class="article__badge article__badge--sm"
-                           href="https://cryptonews.com/news/">  News </a>
-					
-                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-11-29 06:44:19"></div>
-                </div>
-
-				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/bitcoin-price-prediction-btc-nears-38k-bull-run-etf-hopes-up.htm" rel="bookmark">Bitcoin Price Prediction: BTC Nears $38K, Bull Run &amp; ETF Hopes Up</a></h4>            </div>
+				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/nft-game-champions-ascension-teams-up-with-amazon-prime-for-exclusive-rewards.htm" rel="bookmark">NFT Game &#8216;Champions Ascension&#8217; Teams Up with Amazon Prime for Exclusive Rewards</a></h4>            </div>
         </div>
     </article>
 
@@ -824,16 +841,16 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
                     Latest news                </h3>
                 <div class="mb-30">
                     
-<div id="post-137453" class="col-12 col-md-6 col-lg-12 mb-20">
+<div id="post-140329" class="col-12 col-md-6 col-lg-12 mb-20">
     <div class="row">
         <div class="col-4 px-0">
-            <a href="https://cryptonews.com/news/forbes-latest-under-30-list-data-will-be-listed-on-ethereum.htm"
+            <a href="https://cryptonews.com/news/last-chance-to-get-positioned-in-this-revolutionary-giving-project-with-passive-income-and-50x-potential.htm"
                class="article__image article__image--sm-wider">
                 <div class="small-image-list img-sized">
                     <img
                         src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
-                        data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701241839-ethereum-forbes.jpg"
-                        alt="Forbes’ Latest “Under 30” List Data Will be Listed on Ethereum"
+                        data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701668613-chimpzee-bonus-min.png"
+                        alt="Last Chance to Get Positioned in This Revolutionary Giving Project With Passive Income and 50x Potential"
                         data-sizes="auto"
                         class="lazyload "
                     />
@@ -842,25 +859,106 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
         </div>
         <div class="col-8">
             <div class="article__badge article__badge--xs">
-                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/blockchain-news/">  Blockchain News                </a>
-                                <div class="article__badge-date" data-utctime="2023-11-29 07:12:49"></div>
+                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/press-releases/">  Press Releases                </a>
+                                <div class="article__badge-date" data-utctime="2023-12-10 06:16:39"></div>
             </div>
 
-            <a href="https://cryptonews.com/news/forbes-latest-under-30-list-data-will-be-listed-on-ethereum.htm"  class="article__title article__title--recommended mb-0">Forbes’ Latest “Under 30” List Data Will be Listed on Ethereum</a>        </div>
+            <a href="https://cryptonews.com/news/last-chance-to-get-positioned-in-this-revolutionary-giving-project-with-passive-income-and-50x-potential.htm"  class="article__title article__title--recommended mb-0">Last Chance to Get Positioned in This Revolutionary Giving Project With Passive Income and 50x Potential</a>        </div>
     </div>
 </div>
 
 
-<div id="post-137452" class="col-12 col-md-6 col-lg-12 mb-20">
+<div id="post-140666" class="col-12 col-md-6 col-lg-12 mb-20">
     <div class="row">
         <div class="col-4 px-0">
-            <a href="https://cryptonews.com/news/ripple-xrp-sets-1-as-next-price-target-while-meme-moguls-pioneers-the-first-meme-backed-stock-exchange.htm"
+            <a href="https://cryptonews.com/news/bonk-price-prediction-after-1000-surge-in-30-days-can-it-overtake-doge-and-shib.htm"
+               class="article__image article__image--sm-wider">
+                <div class="small-image-list img-sized">
+                    <img
+                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
+                        data-src="https://cryptonews.com/wp-content/uploads/2023/12/1702153219-screenshot_91.jpg"
+                        alt="Bonk Price Prediction after 1,000% Surge in 30 Days – Can it Overtake DOGE and SHIB?"
+                        data-sizes="auto"
+                        class="lazyload "
+                    />
+                </div>
+            </a>
+        </div>
+        <div class="col-8">
+            <div class="article__badge article__badge--xs">
+                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/price-predictions/">  Price Predictions                </a>
+                                <div class="article__badge-date" data-utctime="2023-12-09 20:22:43"></div>
+            </div>
+
+            <a href="https://cryptonews.com/news/bonk-price-prediction-after-1000-surge-in-30-days-can-it-overtake-doge-and-shib.htm"  class="article__title article__title--recommended mb-0">Bonk Price Prediction after 1,000% Surge in 30 Days – Can it Overtake DOGE and SHIB?</a>        </div>
+    </div>
+</div>
+
+
+<div id="post-140645" class="col-12 col-md-6 col-lg-12 mb-20">
+    <div class="row">
+        <div class="col-4 px-0">
+            <a href="https://cryptonews.com/news/nft-game-champions-ascension-teams-up-with-amazon-prime-for-exclusive-rewards.htm"
+               class="article__image article__image--sm-wider">
+                <div class="small-image-list img-sized">
+                    <img
+                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
+                        data-src="https://cryptonews.com/wp-content/uploads/2023/12/1702104305-controller-2618897_1280-1.jpg"
+                        alt="NFT Game &#8216;Champions Ascension&#8217; Teams Up with Amazon Prime for Exclusive Rewards"
+                        data-sizes="auto"
+                        class="lazyload "
+                    />
+                </div>
+            </a>
+        </div>
+        <div class="col-8">
+            <div class="article__badge article__badge--xs">
+                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/altcoin-news/">  Altcoin News                </a>
+                                <div class="article__badge-date" data-utctime="2023-12-09 17:00:08"></div>
+            </div>
+
+            <a href="https://cryptonews.com/news/nft-game-champions-ascension-teams-up-with-amazon-prime-for-exclusive-rewards.htm"  class="article__title article__title--recommended mb-0">NFT Game &#8216;Champions Ascension&#8217; Teams Up with Amazon Prime for Exclusive Rewards</a>        </div>
+    </div>
+</div>
+
+
+<div id="post-140657" class="col-12 col-md-6 col-lg-12 mb-20">
+    <div class="row">
+        <div class="col-4 px-0">
+            <a href="https://cryptonews.com/news/bitcoin-price-prediction-as-option-traders-bet-on-50000-btc-by-january-are-they-onto-something.htm"
                class="article__image article__image--sm-wider">
                 <div class="small-image-list img-sized">
                     <img
                         src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzYwIDY3NiI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2MCIgaGVpZ2h0PSI2NzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBY0FDQURBUkVBQWhFQkF4RUIvOFFBSHdBQUFRVUJBUUVCQVFFQUFBQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkFBQWdFREF3SUVBd1VGQkFRQUFBRjlBUUlEQUFRUkJSSWhNVUVHRTFGaEJ5SnhGREtCa2FFSUkwS3h3UlZTMGZBa00ySnlnZ2tLRmhjWUdSb2xKaWNvS1NvME5UWTNPRGs2UTBSRlJrZElTVXBUVkZWV1YxaFpXbU5rWldabmFHbHFjM1IxZG5kNGVYcURoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1SGk0K1RsNXVmbzZlcng4dlAwOWZiMytQbjYvOFFBSHdFQUF3RUJBUUVCQVFFQkFRQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkVBQWdFQ0JBUURCQWNGQkFRQUFRSjNBQUVDQXhFRUJTRXhCaEpCVVFkaGNSTWlNb0VJRkVLUm9iSEJDU016VXZBVlluTFJDaFlrTk9FbDhSY1lHUm9tSnlncEtqVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnb09FaFlhSGlJbUtrcE9VbFphWG1KbWFvcU9rcGFhbnFLbXFzck8wdGJhM3VMbTZ3c1BFeGNiSHlNbkswdFBVMWRiWDJObmE0dVBrNWVibjZPbnE4dlAwOWZiMytQbjYvOW9BREFNQkFBSVJBeEVBUHdENmYwKzllUzhaU2VNMStncDZuNExPS1VUb1JXaHpESlgyTG1vbkxsVnpXbkhubFlyMjkxNXI0cmpwVjNPVmowSytHVk9Oem45SzR2M3o2MTB4M09lZnduU3lYQ1JMa210cm5JbGN6YnpVeEl1MU9hemw3eXNiMDA0dTVOcGtSQTNIdlVRcEtPcHBWcnltck01UVhoZ3ZYd2VjMU43TTE1YnhOSkxsN3RzTTNGWGU1bGJsTkcydFlJOEZtQk5Xa2pHVW16VWhranhoU0tzeWFaNXJyakdHK1lvY2MxeHkzUFZwNm9xcnFFNjlIcWVabW5JaC93RGExei96ME5ITXllU0owSGhxK21tbEFkODF2QnM1cXNVa2YvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"
-                        data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701240911-mgls-presale.png"
-                        alt="Ripple (XRP) Sets $1 as Next Price Target While Meme Moguls Pioneers the First Meme-Backed Stock Exchange"
+                        data-src="https://cryptonews.com/wp-content/uploads/2023/12/1702128194-btc.jpg"
+                        alt="Bitcoin Price Prediction as Option Traders Bet on $50,000 BTC by January – Are They onto Something?"
+                        data-sizes="auto"
+                        class="lazyload "
+                    />
+                </div>
+            </a>
+        </div>
+        <div class="col-8">
+            <div class="article__badge article__badge--xs">
+                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/bitcoin-news/">  Bitcoin News                </a>
+                                <div class="article__badge-date" data-utctime="2023-12-09 13:29:55"></div>
+            </div>
+
+            <a href="https://cryptonews.com/news/bitcoin-price-prediction-as-option-traders-bet-on-50000-btc-by-january-are-they-onto-something.htm"  class="article__title article__title--recommended mb-0">Bitcoin Price Prediction as Option Traders Bet on $50,000 BTC by January – Are They onto Something?</a>        </div>
+    </div>
+</div>
+
+
+<div id="post-140679" class="col-12 col-md-6 col-lg-12 mb-20">
+    <div class="row">
+        <div class="col-4 px-0">
+            <a href="https://cryptonews.com/news/battle-of-the-stable-coins-tether-usd-coin-and-dai-face-off-in-a-competitive-market.htm"
+               class="article__image article__image--sm-wider">
+                <div class="small-image-list img-sized">
+                    <img
+                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFCQUFNQkFBQUFBQUFBQUFBQUFBQUFCZ01GQndUL3hBQWdFQUFDQVFRREFRRUJBQUFBQUFBQUFBQUJBZ1FBQXdVU0JoRWhZU0l5LzhRQUdnRUFBd0FEQVFBQUFBQUFBQUFBQUFBQUF3UUZBQUVHQXYvRUFDQVJBQUlDQVFRREFRQUFBQUFBQUFBQUFBQUJBZ01SQkFVVElSSVZNVkgvMmdBTUF3RUFBaEVERVFBL0FGTi9pdHlJQ3pEOGltM3V5UlE1OEZWTGF6SFE5c094OXIxWHV5a3pjZFFtVjF1WXQ1OVVJTk9leWhnSnpvdW9YRzVVeGRnaDZOQ2U1MS9wcm1Rb25aSnNoajNBL29pb0YrajhmZ3JPdkh3em1SeCtkTmtPQnRxVFVhYWRiRTNsSFZoK0pTb2NwV2NFanVzVXBTTVdXYTdqY2hHeCtPVldVYkFVU0dsc213c2Eyd1pDOHMxMlUxNVBzb1BzbmkzZEdQUUZKMjZXdVhiQnlyVEZlSWcyNVVjdTQ5SHl1ZnZpcXA0aUx5U2o4RC9KaVkyeUlmS3Y2RktTeXhpcnMvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"
+                        data-src="https://cryptonews.com/wp-content/uploads/2023/12/1702165753-everlodge.jpeg"
+                        alt="Battle of the Stable Coins: Tether, USD Coin, and Dai Face Off in a Competitive Market"
                         data-sizes="auto"
                         class="lazyload "
                     />
@@ -870,24 +968,24 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
         <div class="col-8">
             <div class="article__badge article__badge--xs">
                             <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/sponsored/">  Sponsored                </a>
-                                <div class="article__badge-date" data-utctime="2023-11-29 06:56:10"></div>
+                                <div class="article__badge-date" data-utctime="2023-12-09 13:00:58"></div>
             </div>
 
-            <a href="https://cryptonews.com/news/ripple-xrp-sets-1-as-next-price-target-while-meme-moguls-pioneers-the-first-meme-backed-stock-exchange.htm"  class="article__title article__title--recommended mb-0">Ripple (XRP) Sets $1 as Next Price Target While Meme Moguls Pioneers the First Meme-Backed Stock Exchange</a>        </div>
+            <a href="https://cryptonews.com/news/battle-of-the-stable-coins-tether-usd-coin-and-dai-face-off-in-a-competitive-market.htm"  class="article__title article__title--recommended mb-0">Battle of the Stable Coins: Tether, USD Coin, and Dai Face Off in a Competitive Market</a>        </div>
     </div>
 </div>
 
 
-<div id="post-137423" class="col-12 col-md-6 col-lg-12 mb-20">
+<div id="post-140650" class="col-12 col-md-6 col-lg-12 mb-20">
     <div class="row">
         <div class="col-4 px-0">
-            <a href="https://cryptonews.com/news/bitcoin-price-prediction-btc-nears-38k-bull-run-etf-hopes-up.htm"
+            <a href="https://cryptonews.com/news/tron-trx-and-ripple-xrp-investors-tired-of-holding-are-now-moving-towards-utility-rich-retik-finance-retik.htm"
                class="article__image article__image--sm-wider">
                 <div class="small-image-list img-sized">
                     <img
                         src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzYwIDY3NiI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2MCIgaGVpZ2h0PSI2NzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBY0FDQURBUkVBQWhFQkF4RUIvOFFBSHdBQUFRVUJBUUVCQVFFQUFBQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkFBQWdFREF3SUVBd1VGQkFRQUFBRjlBUUlEQUFRUkJSSWhNVUVHRTFGaEJ5SnhGREtCa2FFSUkwS3h3UlZTMGZBa00ySnlnZ2tLRmhjWUdSb2xKaWNvS1NvME5UWTNPRGs2UTBSRlJrZElTVXBUVkZWV1YxaFpXbU5rWldabmFHbHFjM1IxZG5kNGVYcURoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1SGk0K1RsNXVmbzZlcng4dlAwOWZiMytQbjYvOFFBSHdFQUF3RUJBUUVCQVFFQkFRQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkVBQWdFQ0JBUURCQWNGQkFRQUFRSjNBQUVDQXhFRUJTRXhCaEpCVVFkaGNSTWlNb0VJRkVLUm9iSEJDU016VXZBVlluTFJDaFlrTk9FbDhSY1lHUm9tSnlncEtqVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnb09FaFlhSGlJbUtrcE9VbFphWG1KbWFvcU9rcGFhbnFLbXFzck8wdGJhM3VMbTZ3c1BFeGNiSHlNbkswdFBVMWRiWDJObmE0dVBrNWVibjZPbnE4dlAwOWZiMytQbjYvOW9BREFNQkFBSVJBeEVBUHdENmYwKzllUzhaU2VNMStncDZuNExPS1VUb1JXaHpESlgyTG1vbkxsVnpXbkhubFlyMjkxNXI0cmpwVjNPVmowSytHVk9Oem45SzR2M3o2MTB4M09lZnduU3lYQ1JMa210cm5JbGN6YnpVeEl1MU9hemw3eXNiMDA0dTVOcGtSQTNIdlVRcEtPcHBWcnltck01UVhoZ3ZYd2VjMU43TTE1YnhOSkxsN3RzTTNGWGU1bGJsTkcydFlJOEZtQk5Xa2pHVW16VWhranhoU0tzeWFaNXJyakdHK1lvY2MxeHkzUFZwNm9xcnFFNjlIcWVabW5JaC93RGExei96ME5ITXllU0owSGhxK21tbEFkODF2QnM1cXNVa2YvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"
-                        data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701236674-29.jpg"
-                        alt="Bitcoin Price Prediction: BTC Nears $38K, Bull Run &amp; ETF Hopes Up"
+                        data-src="https://cryptonews.com/wp-content/uploads/2023/12/1702124784-retik.png"
+                        alt="Tron (TRX) and Ripple (XRP) investors tired of holding are now moving towards utility-rich Retik Finance (RETIK)"
                         data-sizes="auto"
                         class="lazyload "
                     />
@@ -896,25 +994,25 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
         </div>
         <div class="col-8">
             <div class="article__badge article__badge--xs">
-                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/">  News                </a>
-                                <div class="article__badge-date" data-utctime="2023-11-29 06:44:19"></div>
+                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/press-releases/">  Press Releases                </a>
+                                <div class="article__badge-date" data-utctime="2023-12-09 12:28:10"></div>
             </div>
 
-            <a href="https://cryptonews.com/news/bitcoin-price-prediction-btc-nears-38k-bull-run-etf-hopes-up.htm"  class="article__title article__title--recommended mb-0">Bitcoin Price Prediction: BTC Nears $38K, Bull Run &amp; ETF Hopes Up</a>        </div>
+            <a href="https://cryptonews.com/news/tron-trx-and-ripple-xrp-investors-tired-of-holding-are-now-moving-towards-utility-rich-retik-finance-retik.htm"  class="article__title article__title--recommended mb-0">Tron (TRX) and Ripple (XRP) investors tired of holding are now moving towards utility-rich Retik Finance (RETIK)</a>        </div>
     </div>
 </div>
 
 
-<div id="post-137438" class="col-12 col-md-6 col-lg-12 mb-20">
+<div id="post-140641" class="col-12 col-md-6 col-lg-12 mb-20">
     <div class="row">
         <div class="col-4 px-0">
-            <a href="https://cryptonews.com/news/uk-city-minister-asks-regulators-to-embrace-some-risk-taking-in-financial-markets.htm"
+            <a href="https://cryptonews.com/news/solana-nfts-eclipse-ethereum-in-trading-volume-amid-surge.htm"
                class="article__image article__image--sm-wider">
                 <div class="small-image-list img-sized">
                     <img
-                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
-                        data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701238813-1700041256-uk-media-library-original-1.jpeg"
-                        alt="UK City Minister Asks Regulators to Embrace Some Risk-Taking in Financial Markets"
+                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzYwIDY3NiI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2MCIgaGVpZ2h0PSI2NzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBY0FDQURBUkVBQWhFQkF4RUIvOFFBSHdBQUFRVUJBUUVCQVFFQUFBQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkFBQWdFREF3SUVBd1VGQkFRQUFBRjlBUUlEQUFRUkJSSWhNVUVHRTFGaEJ5SnhGREtCa2FFSUkwS3h3UlZTMGZBa00ySnlnZ2tLRmhjWUdSb2xKaWNvS1NvME5UWTNPRGs2UTBSRlJrZElTVXBUVkZWV1YxaFpXbU5rWldabmFHbHFjM1IxZG5kNGVYcURoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1SGk0K1RsNXVmbzZlcng4dlAwOWZiMytQbjYvOFFBSHdFQUF3RUJBUUVCQVFFQkFRQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkVBQWdFQ0JBUURCQWNGQkFRQUFRSjNBQUVDQXhFRUJTRXhCaEpCVVFkaGNSTWlNb0VJRkVLUm9iSEJDU016VXZBVlluTFJDaFlrTk9FbDhSY1lHUm9tSnlncEtqVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnb09FaFlhSGlJbUtrcE9VbFphWG1KbWFvcU9rcGFhbnFLbXFzck8wdGJhM3VMbTZ3c1BFeGNiSHlNbkswdFBVMWRiWDJObmE0dVBrNWVibjZPbnE4dlAwOWZiMytQbjYvOW9BREFNQkFBSVJBeEVBUHdENmYwKzllUzhaU2VNMStncDZuNExPS1VUb1JXaHpESlgyTG1vbkxsVnpXbkhubFlyMjkxNXI0cmpwVjNPVmowSytHVk9Oem45SzR2M3o2MTB4M09lZnduU3lYQ1JMa210cm5JbGN6YnpVeEl1MU9hemw3eXNiMDA0dTVOcGtSQTNIdlVRcEtPcHBWcnltck01UVhoZ3ZYd2VjMU43TTE1YnhOSkxsN3RzTTNGWGU1bGJsTkcydFlJOEZtQk5Xa2pHVW16VWhranhoU0tzeWFaNXJyakdHK1lvY2MxeHkzUFZwNm9xcnFFNjlIcWVabW5JaC93RGExei96ME5ITXllU0owSGhxK21tbEFkODF2QnM1cXNVa2YvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"
+                        data-src="https://cryptonews.com/wp-content/uploads/2023/12/1702102987-1701614583-f584725c05.jpeg"
+                        alt="Solana NFTs Eclipse Ethereum in Trading Volume Amid Surge"
                         data-sizes="auto"
                         class="lazyload "
                     />
@@ -924,91 +1022,10 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
         <div class="col-8">
             <div class="article__badge article__badge--xs">
                             <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/altcoin-news/">  Altcoin News                </a>
-                                <div class="article__badge-date" data-utctime="2023-11-29 06:23:11"></div>
+                                <div class="article__badge-date" data-utctime="2023-12-09 11:00:46"></div>
             </div>
 
-            <a href="https://cryptonews.com/news/uk-city-minister-asks-regulators-to-embrace-some-risk-taking-in-financial-markets.htm"  class="article__title article__title--recommended mb-0">UK City Minister Asks Regulators to Embrace Some Risk-Taking in Financial Markets</a>        </div>
-    </div>
-</div>
-
-
-<div id="post-137434" class="col-12 col-md-6 col-lg-12 mb-20">
-    <div class="row">
-        <div class="col-4 px-0">
-            <a href="https://cryptonews.com/news/kyberswaps-47-million-hacker-to-propose-deal-in-upcoming-statement.htm"
-               class="article__image article__image--sm-wider">
-                <div class="small-image-list img-sized">
-                    <img
-                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFBQWdNQUFBQUFBQUFBQUFBQUFBQUFCZ2dFQlFmL3hBQWxFQUFCQWdVREJBTUFBQUFBQUFBQUFBQUJBZ01BQkFVR0VRY1NZUWdUSWpFaFFWSC94QUFaQVFBQ0F3RUFBQUFBQUFBQUFBQUFBQUFFQlFJREJnRC94QUFmRVFBQ0FnSURBUUVCQUFBQUFBQUFBQUFCQWdBRUF4RVRGQ0VTRlVILzJnQU1Bd0VBQWhFREVRQS9BRXRvbWt5cWlRZ2ZKTU4rOG9nUDZDeS9mNmVaN1psRFNqbmlKSmVVeWFYZ1pCYzBCcURDU3BiS2dCeEJIYlNFOXRkU2hxV21Ec21GSjIrUWlQZFNWbThnL3NPOU5Md1NKNXRicEczSTl3bnNWdmcrUkhtcjhaOGpSVWE5S003SUlLeTJWWWhXUVZndS9pUmJodXlrTGtITzJFWng5Q09ETWZKM0lXOGk3M2JjMHNpYWRVTWJjeGNsZDNNZ3VCOGg4bVMwTjljdExoU0RnaU5QbUFadEdhVE1BemV3anAxNVZCcndEaHdPWUdlc2hHNVE5WkNOd3hwbFptWitUVjNGbjErd2h6S01iNkV6MmNjYjZFemU5WnBhRnVBR05EUlVFYk0wTkJRdzJaLy8yUT09Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg=="
-                        data-src="https://cryptonews.com/wp-content/uploads/2023/11/1700727023-kyberswap.png"
-                        alt="KyberSwap&#8217;s $47 Million Hacker to Propose Deal in Upcoming Statement"
-                        data-sizes="auto"
-                        class="lazyload "
-                    />
-                </div>
-            </a>
-        </div>
-        <div class="col-8">
-            <div class="article__badge article__badge--xs">
-                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/blockchain-news/">  Blockchain News                </a>
-                                <div class="article__badge-date" data-utctime="2023-11-29 06:17:51"></div>
-            </div>
-
-            <a href="https://cryptonews.com/news/kyberswaps-47-million-hacker-to-propose-deal-in-upcoming-statement.htm"  class="article__title article__title--recommended mb-0">KyberSwap&#8217;s $47 Million Hacker to Propose Deal in Upcoming Statement</a>        </div>
-    </div>
-</div>
-
-
-<div id="post-137427" class="col-12 col-md-6 col-lg-12 mb-20">
-    <div class="row">
-        <div class="col-4 px-0">
-            <a href="https://cryptonews.com/news/legendary-investor-and-bitcoin-skeptic-charlie-munger-dies-at-99.htm"
-               class="article__image article__image--sm-wider">
-                <div class="small-image-list img-sized">
-                    <img
-                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFCQUFNQkFBQUFBQUFBQUFBQUFBQUFCZ01GQndUL3hBQWdFQUFDQVFRREFRRUJBQUFBQUFBQUFBQUJBZ1FBQXdVU0JoRWhZU0l5LzhRQUdnRUFBd0FEQVFBQUFBQUFBQUFBQUFBQUF3UUZBQUVHQXYvRUFDQVJBQUlDQVFRREFRQUFBQUFBQUFBQUFBQUJBZ01SQkFVVElSSVZNVkgvMmdBTUF3RUFBaEVERVFBL0FGTi9pdHlJQ3pEOGltM3V5UlE1OEZWTGF6SFE5c094OXIxWHV5a3pjZFFtVjF1WXQ1OVVJTk9leWhnSnpvdW9YRzVVeGRnaDZOQ2U1MS9wcm1Rb25aSnNoajNBL29pb0YrajhmZ3JPdkh3em1SeCtkTmtPQnRxVFVhYWRiRTNsSFZoK0pTb2NwV2NFanVzVXBTTVdXYTdqY2hHeCtPVldVYkFVU0dsc213c2Eyd1pDOHMxMlUxNVBzb1BzbmkzZEdQUUZKMjZXdVhiQnlyVEZlSWcyNVVjdTQ5SHl1ZnZpcXA0aUx5U2o4RC9KaVkyeUlmS3Y2RktTeXhpcnMvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"
-                        data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701237840-charlie-munger-1.jpg"
-                        alt="Legendary Investor and Bitcoin Skeptic Charlie Munger Dies at 99"
-                        data-sizes="auto"
-                        class="lazyload "
-                    />
-                </div>
-            </a>
-        </div>
-        <div class="col-8">
-            <div class="article__badge article__badge--xs">
-                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/">  News                </a>
-                                <div class="article__badge-date" data-utctime="2023-11-29 06:06:25"></div>
-            </div>
-
-            <a href="https://cryptonews.com/news/legendary-investor-and-bitcoin-skeptic-charlie-munger-dies-at-99.htm"  class="article__title article__title--recommended mb-0">Legendary Investor and Bitcoin Skeptic Charlie Munger Dies at 99</a>        </div>
-    </div>
-</div>
-
-
-<div id="post-137429" class="col-12 col-md-6 col-lg-12 mb-20">
-    <div class="row">
-        <div class="col-4 px-0">
-            <a href="https://cryptonews.com/news/bitfinexs-tokenized-bond-falls-short-of-investment-target-raises-only-1-5m-of-expected-10m.htm"
-               class="article__image article__image--sm-wider">
-                <div class="small-image-list img-sized">
-                    <img
-                        src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzYwIDY3NiI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2MCIgaGVpZ2h0PSI2NzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBY0FDQURBUkVBQWhFQkF4RUIvOFFBSHdBQUFRVUJBUUVCQVFFQUFBQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkFBQWdFREF3SUVBd1VGQkFRQUFBRjlBUUlEQUFRUkJSSWhNVUVHRTFGaEJ5SnhGREtCa2FFSUkwS3h3UlZTMGZBa00ySnlnZ2tLRmhjWUdSb2xKaWNvS1NvME5UWTNPRGs2UTBSRlJrZElTVXBUVkZWV1YxaFpXbU5rWldabmFHbHFjM1IxZG5kNGVYcURoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1SGk0K1RsNXVmbzZlcng4dlAwOWZiMytQbjYvOFFBSHdFQUF3RUJBUUVCQVFFQkFRQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkVBQWdFQ0JBUURCQWNGQkFRQUFRSjNBQUVDQXhFRUJTRXhCaEpCVVFkaGNSTWlNb0VJRkVLUm9iSEJDU016VXZBVlluTFJDaFlrTk9FbDhSY1lHUm9tSnlncEtqVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnb09FaFlhSGlJbUtrcE9VbFphWG1KbWFvcU9rcGFhbnFLbXFzck8wdGJhM3VMbTZ3c1BFeGNiSHlNbkswdFBVMWRiWDJObmE0dVBrNWVibjZPbnE4dlAwOWZiMytQbjYvOW9BREFNQkFBSVJBeEVBUHdENmYwKzllUzhaU2VNMStncDZuNExPS1VUb1JXaHpESlgyTG1vbkxsVnpXbkhubFlyMjkxNXI0cmpwVjNPVmowSytHVk9Oem45SzR2M3o2MTB4M09lZnduU3lYQ1JMa210cm5JbGN6YnpVeEl1MU9hemw3eXNiMDA0dTVOcGtSQTNIdlVRcEtPcHBWcnltck01UVhoZ3ZYd2VjMU43TTE1YnhOSkxsN3RzTTNGWGU1bGJsTkcydFlJOEZtQk5Xa2pHVW16VWhranhoU0tzeWFaNXJyakdHK1lvY2MxeHkzUFZwNm9xcnFFNjlIcWVabW5JaC93RGExei96ME5ITXllU0owSGhxK21tbEFkODF2QnM1cXNVa2YvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"
-                        data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701237717-bitfinex___media_library_original_999_665.jpeg"
-                        alt="Bitfinex&#8217;s Tokenized Bond Falls Short of Investment Target, Raises Only $1.5M of Expected $10M"
-                        data-sizes="auto"
-                        class="lazyload "
-                    />
-                </div>
-            </a>
-        </div>
-        <div class="col-8">
-            <div class="article__badge article__badge--xs">
-                            <a class="article__badge article__badge--xs" href="https://cryptonews.com/news/altcoin-news/">  Altcoin News                </a>
-                                <div class="article__badge-date" data-utctime="2023-11-29 06:04:55"></div>
-            </div>
-
-            <a href="https://cryptonews.com/news/bitfinexs-tokenized-bond-falls-short-of-investment-target-raises-only-1-5m-of-expected-10m.htm"  class="article__title article__title--recommended mb-0">Bitfinex&#8217;s Tokenized Bond Falls Short of Investment Target, Raises Only $1.5M of Expected $10M</a>        </div>
+            <a href="https://cryptonews.com/news/solana-nfts-eclipse-ethereum-in-trading-volume-amid-surge.htm"  class="article__title article__title--recommended mb-0">Solana NFTs Eclipse Ethereum in Trading Volume Amid Surge</a>        </div>
     </div>
 </div>
 
@@ -1024,76 +1041,46 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
                 Similar News            </h3>
             <div class="row">
                 
-<div id="post-137453" class="col-12 col-md-6 col-lg-4 col-xl-3 post-137453 post type-post status-publish format-standard has-post-thumbnail hentry category-blockchain-news tag-blockchain tag-ethereum editors-jai-pratap">
+<div id="post-140284" class="col-12 col-md-6 col-lg-4 col-xl-3 post-140284 post type-post status-publish format-standard has-post-thumbnail hentry category-blockchain-news category-exclusives category-features category-news tag-adoption tag-blockchain tag-community tag-cryptocurrency tag-regulation tag-united-states tag-us-crypto-policy editors-rachel-wolfson">
     <article class="mb-30">
         <div class="row">
             <div class="col-4 col-md-12">
-                <a href="https://cryptonews.com/news/forbes-latest-under-30-list-data-will-be-listed-on-ethereum.htm"
+                <a href="https://cryptonews.com/news/us-states-collaborate-to-drive-blockchain-and-cryptocurrency-adoption-2.htm"
+                   class="article__image article__image--sm-wider mb-15  ">
+                    <div class="img-sized">
+                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzYwIDY3NiI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2MCIgaGVpZ2h0PSI2NzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBY0FDQURBUkVBQWhFQkF4RUIvOFFBSHdBQUFRVUJBUUVCQVFFQUFBQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkFBQWdFREF3SUVBd1VGQkFRQUFBRjlBUUlEQUFRUkJSSWhNVUVHRTFGaEJ5SnhGREtCa2FFSUkwS3h3UlZTMGZBa00ySnlnZ2tLRmhjWUdSb2xKaWNvS1NvME5UWTNPRGs2UTBSRlJrZElTVXBUVkZWV1YxaFpXbU5rWldabmFHbHFjM1IxZG5kNGVYcURoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1SGk0K1RsNXVmbzZlcng4dlAwOWZiMytQbjYvOFFBSHdFQUF3RUJBUUVCQVFFQkFRQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkVBQWdFQ0JBUURCQWNGQkFRQUFRSjNBQUVDQXhFRUJTRXhCaEpCVVFkaGNSTWlNb0VJRkVLUm9iSEJDU016VXZBVlluTFJDaFlrTk9FbDhSY1lHUm9tSnlncEtqVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnb09FaFlhSGlJbUtrcE9VbFphWG1KbWFvcU9rcGFhbnFLbXFzck8wdGJhM3VMbTZ3c1BFeGNiSHlNbkswdFBVMWRiWDJObmE0dVBrNWVibjZPbnE4dlAwOWZiMytQbjYvOW9BREFNQkFBSVJBeEVBUHdENmYwKzllUzhaU2VNMStncDZuNExPS1VUb1JXaHpESlgyTG1vbkxsVnpXbkhubFlyMjkxNXI0cmpwVjNPVmowSytHVk9Oem45SzR2M3o2MTB4M09lZnduU3lYQ1JMa210cm5JbGN6YnpVeEl1MU9hemw3eXNiMDA0dTVOcGtSQTNIdlVRcEtPcHBWcnltck01UVhoZ3ZYd2VjMU43TTE1YnhOSkxsN3RzTTNGWGU1bGJsTkcydFlJOEZtQk5Xa2pHVW16VWhranhoU0tzeWFaNXJyakdHK1lvY2MxeHkzUFZwNm9xcnFFNjlIcWVabW5JaC93RGExei96ME5ITXllU0owSGhxK21tbEFkODF2QnM1cXNVa2YvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"
+                             data-src="https://cryptonews.com/wp-content/uploads/2023/12/1702037992-1700160134-us-congress.png"
+                             alt="US States Collaborate to Drive Blockchain and Cryptocurrency Adoption"
+                             class="lazyload img-fluid" data-sizes="auto"
+                             sizes="300px">
+                    </div>
+                </a>
+            </div>
+            <div class="col-8 col-md-12">
+                <div class="article__badge article__badge--sm ">
+					                        <a class="article__badge article__badge--sm"
+                           href="https://cryptonews.com/news/blockchain-news/">  Blockchain News </a>
+					
+                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-12-08 17:47:39"></div>
+                </div>
+
+				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/us-states-collaborate-to-drive-blockchain-and-cryptocurrency-adoption-2.htm" rel="bookmark">US States Collaborate to Drive Blockchain and Cryptocurrency Adoption</a></h4>            </div>
+        </div>
+    </article>
+
+</div>
+
+
+<div id="post-140457" class="col-12 col-md-6 col-lg-4 col-xl-3 post-140457 post type-post status-publish format-standard has-post-thumbnail hentry category-altcoin-news tag-bingx tag-bitcoin tag-bitkub tag-bitmain tag-canaan tag-halving tag-investment tag-market tag-mining tag-tether tag-thailand tag-trading tag-uk tag-usa tag-usdt">
+    <article class="mb-30">
+        <div class="row">
+            <div class="col-4 col-md-12">
+                <a href="https://cryptonews.com/news/top-miners-spend-1-2-billion-in-pre-halving-machine-shopping-spree-more-news.htm"
                    class="article__image article__image--sm-wider mb-15  ">
                     <div class="img-sized">
                         <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFCQUFNQkFBQUFBQUFBQUFBQUFBQUFCZ01GQndUL3hBQWdFQUFDQVFRREFRRUJBQUFBQUFBQUFBQUJBZ1FBQXdVU0JoRWhZU0l5LzhRQUdnRUFBd0FEQVFBQUFBQUFBQUFBQUFBQUF3UUZBQUVHQXYvRUFDQVJBQUlDQVFRREFRQUFBQUFBQUFBQUFBQUJBZ01SQkFVVElSSVZNVkgvMmdBTUF3RUFBaEVERVFBL0FGTi9pdHlJQ3pEOGltM3V5UlE1OEZWTGF6SFE5c094OXIxWHV5a3pjZFFtVjF1WXQ1OVVJTk9leWhnSnpvdW9YRzVVeGRnaDZOQ2U1MS9wcm1Rb25aSnNoajNBL29pb0YrajhmZ3JPdkh3em1SeCtkTmtPQnRxVFVhYWRiRTNsSFZoK0pTb2NwV2NFanVzVXBTTVdXYTdqY2hHeCtPVldVYkFVU0dsc213c2Eyd1pDOHMxMlUxNVBzb1BzbmkzZEdQUUZKMjZXdVhiQnlyVEZlSWcyNVVjdTQ5SHl1ZnZpcXA0aUx5U2o4RC9KaVkyeUlmS3Y2RktTeXhpcnMvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"
-                             data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701241839-ethereum-forbes.jpg"
-                             alt="Forbes’ Latest “Under 30” List Data Will be Listed on Ethereum"
-                             class="lazyload img-fluid" data-sizes="auto"
-                             sizes="300px">
-                    </div>
-                </a>
-            </div>
-            <div class="col-8 col-md-12">
-                <div class="article__badge article__badge--sm ">
-					                        <a class="article__badge article__badge--sm"
-                           href="https://cryptonews.com/news/blockchain-news/">  Blockchain News </a>
-					
-                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-11-29 07:12:49"></div>
-                </div>
-
-				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/forbes-latest-under-30-list-data-will-be-listed-on-ethereum.htm" rel="bookmark">Forbes’ Latest “Under 30” List Data Will be Listed on Ethereum</a></h4>            </div>
-        </div>
-    </article>
-
-</div>
-
-
-<div id="post-137227" class="col-12 col-md-6 col-lg-4 col-xl-3 post-137227 post type-post status-publish format-standard has-post-thumbnail hentry category-blockchain-news category-news tag-tax tag-ukraine editors-tim-alper">
-    <article class="mb-30">
-        <div class="row">
-            <div class="col-4 col-md-12">
-                <a href="https://cryptonews.com/news/ukrainian-lawmakers-mull-two-crypto-tax-bills.htm"
-                   class="article__image article__image--sm-wider mb-15  ">
-                    <div class="img-sized">
-                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgOTEyIDYwOCI+Cgk8aW1hZ2Ugd2lkdGg9IjkxMiIgaGVpZ2h0PSI2MDgiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBVkFDQURBUkVBQWhFQkF4RUIvOFFBR0FBQUF3RUJBQUFBQUFBQUFBQUFBQUFBQndnSkJRYi94QUFuRUFBQkFnWUJBd1FEQUFBQUFBQUFBQUFCQWdNQUJBVUdCeEVTSVNJeENCTVZVUlJCWWYvRUFCa0JBQU1CQVFFQUFBQUFBQUFBQUFBQUFBRUNBd1FBQmYvRUFCd1JBQUlEQUFNQkFBQUFBQUFBQUFBQUFBQUJBZ01SRWlFeFFmL2FBQXdEQVFBQ0VRTVJBRDhBbmxUc2dUbSt3a24rUlRjQ2RQVEwvckV5dExMWE1rbldoSGNnakJZeHQycVZTbktkbW1WN1VOallqSFpZejA2SUpyc0dtWGFmVjdhbjNIa05MUzJEdllFVnJucGx1amo2QmZqQzBtNTZiYi9JVDJLSTh3Wk1sWG4wYzdFSHB2cDFWbVdaejJrcVIwUGlJOG40VmFReGxVdGlrMlpTMElTMGhBU1BxR2NkV2p3bTQ5QUV6djhBQjFTMm4xcFMyWFFrL1VUaHVnc2VpazR3Vjc2NWRCN2VvNmlORE0wU2plRUd2ajdiWlVnOGp4SG1JdEZET3p6WFgyS0M4NGpvb0EvdUhUQjRUNHZ6SlZXZWNtSlpTOXQ3STF5aDR4UWprei8vMlE9PSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
-                             data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701184727-adobestock_112839740.jpeg"
-                             alt="Ukrainian Lawmakers Mull Two Crypto Tax Bills"
-                             class="lazyload img-fluid" data-sizes="auto"
-                             sizes="300px">
-                    </div>
-                </a>
-            </div>
-            <div class="col-8 col-md-12">
-                <div class="article__badge article__badge--sm ">
-					                        <a class="article__badge article__badge--sm"
-                           href="https://cryptonews.com/news/blockchain-news/">  Blockchain News </a>
-					
-                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-11-29 00:30:38"></div>
-                </div>
-
-				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/ukrainian-lawmakers-mull-two-crypto-tax-bills.htm" rel="bookmark">Ukrainian Lawmakers Mull Two Crypto Tax Bills</a></h4>            </div>
-        </div>
-    </article>
-
-</div>
-
-
-<div id="post-137121" class="col-12 col-md-6 col-lg-4 col-xl-3 post-137121 post type-post status-publish format-standard has-post-thumbnail hentry category-altcoin-news tag-adoption tag-ai tag-blockchain tag-brazil tag-bybit tag-cbdc tag-hong-kong tag-investing tag-investment tag-iot tag-ledger tag-regulation tag-scam-fraud tag-singapore tag-stablecoin tag-trading tag-uk tag-usa editors-sead-fadilpasic">
-    <article class="mb-30">
-        <div class="row">
-            <div class="col-4 col-md-12">
-                <a href="https://cryptonews.com/news/today-in-crypto-hong-kong-will-use-all-available-methods-to-fight-crypto-scams-americans-are-much-more-open-to-potential-of-crypto-than-brits.htm"
-                   class="article__image article__image--sm-wider mb-15  ">
-                    <div class="img-sized">
-                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
-                             data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701179776-adobestock-vitalii-vodolazskyi-1-scaled.jpeg"
-                             alt="Today in Crypto: Hong Kong Will Use &#8216;All Available Methods&#8217; to Fight Crypto Scams, Americans are &#8216;Much More Open to Potential of Crypto Than Brits&#8217;"
+                             data-src="https://cryptonews.com/wp-content/uploads/2023/12/1702042771-adobestock-arinahabich-1-scaled.jpeg"
+                             alt="Top Miners Spend $1.2 Billion In Pre-Halving Machine Shopping Spree + More News"
                              class="lazyload img-fluid" data-sizes="auto"
                              sizes="300px">
                     </div>
@@ -1104,26 +1091,26 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
 					                        <a class="article__badge article__badge--sm"
                            href="https://cryptonews.com/news/altcoin-news/">  Altcoin News </a>
 					
-                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-11-28 14:00:43"></div>
+                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-12-08 14:00:58"></div>
                 </div>
 
-				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/today-in-crypto-hong-kong-will-use-all-available-methods-to-fight-crypto-scams-americans-are-much-more-open-to-potential-of-crypto-than-brits.htm" rel="bookmark">Today in Crypto: Hong Kong Will Use &#8216;All Available Methods&#8217; to Fight Crypto Scams, Americans are &#8216;Much More Open to Potential of Crypto Than Brits&#8217;</a></h4>            </div>
+				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/top-miners-spend-1-2-billion-in-pre-halving-machine-shopping-spree-more-news.htm" rel="bookmark">Top Miners Spend $1.2 Billion In Pre-Halving Machine Shopping Spree + More News</a></h4>            </div>
         </div>
     </article>
 
 </div>
 
 
-<div id="post-137064" class="col-12 col-md-6 col-lg-4 col-xl-3 post-137064 post type-post status-publish format-standard has-post-thumbnail hentry category-nft-news tag-bitcoin tag-blockchain tag-ethereum tag-exodus tag-magic-eden tag-marketplace tag-nft tag-non-fungible-token tag-polygon tag-solana tag-wallet editors-sead-fadilpasic">
+<div id="post-140374" class="col-12 col-md-6 col-lg-4 col-xl-3 post-140374 post type-post status-publish format-standard has-post-thumbnail hentry category-blockchain-news tag-ai tag-blockchain tag-futureverse tag-gaming tag-metaverse tag-nft tag-non-fungible-token tag-reebok tag-sport tag-web3 editors-sead-fadilpasic">
     <article class="mb-30">
         <div class="row">
             <div class="col-4 col-md-12">
-                <a href="https://cryptonews.com/news/first-of-its-kind-nft-centric-wallet-by-magic-eden-set-to-transform-digital-collecting-nfts-making-a-comeback.htm"
+                <a href="https://cryptonews.com/news/reeboks-blockchain-powered-gaming-experience-set-to-transform-fashion.htm"
                    class="article__image article__image--sm-wider mb-15  ">
                     <div class="img-sized">
-                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgMTI4MCA4NTQiPgoJPGltYWdlIHdpZHRoPSIxMjgwIiBoZWlnaHQ9Ijg1NCIgeGxpbms6aHJlZj0iZGF0YTppbWFnZS9qcGVnO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvMndCREFBTUNBZ01DQWdNREF3TUVBd01FQlFnRkJRUUVCUW9IQndZSURBb01EQXNLQ3dzTkRoSVFEUTRSRGdzTEVCWVFFUk1VRlJVVkRBOFhHQllVR0JJVUZSVC8yd0JEQVFNRUJBVUVCUWtGQlFrVURRc05GQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJUL3dBQVJDQUFWQUNBREFSRUFBaEVCQXhFQi84UUFHQUFBQWdNQUFBQUFBQUFBQUFBQUFBQUFCZ2dFQlFmL3hBQWxFQUFCQWdVREJBTUFBQUFBQUFBQUFBQUJBZ01BQkFVR0VRY1NZUWdUSWpFaFFWSC94QUFaQVFBQ0F3RUFBQUFBQUFBQUFBQUFBQUFFQlFJREJnRC94QUFmRVFBQ0FnSURBUUVCQUFBQUFBQUFBQUFCQWdBRUF4RVRGQ0VTRlVILzJnQU1Bd0VBQWhFREVRQS9BRXRvbWt5cWlRZ2ZKTU4rOG9nUDZDeS9mNmVaN1psRFNqbmlKSmVVeWFYZ1pCYzBCcURDU3BiS2dCeEJIYlNFOXRkU2hxV21Ec21GSjIrUWlQZFNWbThnL3NPOU5Md1NKNXRicEczSTl3bnNWdmcrUkhtcjhaOGpSVWE5S003SUlLeTJWWWhXUVZndS9pUmJodXlrTGtITzJFWng5Q09ETWZKM0lXOGk3M2JjMHNpYWRVTWJjeGNsZDNNZ3VCOGg4bVMwTjljdExoU0RnaU5QbUFadEdhVE1BemV3anAxNVZCcndEaHdPWUdlc2hHNVE5WkNOd3hwbFptWitUVjNGbjErd2h6S01iNkV6MmNjYjZFemU5WnBhRnVBR05EUlVFYk0wTkJRdzJaLy8yUT09Ij4KCTwvaW1hZ2U+Cjwvc3ZnPg=="
-                             data-src="https://cryptonews.com/wp-content/uploads/2023/11/1701181266-imgpsh_fullsize_anim.png"
-                             alt="First-of-its-Kind NFT-Centric Wallet by Magic Eden Set to Transform Digital Collecting – NFTs Making a Comeback"
+                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNDYwOCAyNTkyIj4KCTxpbWFnZSB3aWR0aD0iNDYwOCIgaGVpZ2h0PSIyNTkyIiB4bGluazpocmVmPSJkYXRhOmltYWdlL2pwZWc7YmFzZTY0LC85ai80QUFRU2taSlJnQUJBUUFBQVFBQkFBRC8yd0JEQUFNQ0FnTUNBZ01EQXdNRUF3TUVCUWdGQlFRRUJRb0hCd1lJREFvTURBc0tDd3NORGhJUURRNFJEZ3NMRUJZUUVSTVVGUlVWREE4WEdCWVVHQklVRlJULzJ3QkRBUU1FQkFVRUJRa0ZCUWtVRFFzTkZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlQvd0FBUkNBQVNBQ0FEQVJFQUFoRUJBeEVCLzhRQUdBQUJBQU1CQUFBQUFBQUFBQUFBQUFBQUJRSUVCZ2oveEFBbEVBQUJBd01EQlFBREFBQUFBQUFBQUFBQkFnTUVBQVVSQmlFaUVoTVVNVkVWY1pIL3hBQVpBUUFEQVFFQkFBQUFBQUFBQUFBQUFBQUNCQVVBQXdIL3hBQWRFUUFEQVFFQkFBTUJBQUFBQUFBQUFBQUFBUUlERVNFRUVqRkIvOW9BREFNQkFBSVJBeEVBUHdEdGxwYUc0eGM2OGJWbWwrQlQxaEVmVURmbG5LL1JxVnF2cStsTE5kWEE3VitwV3JsSFZHQkJ5TVVzOWUrSWFqSG5vSm9helBRcC9kUmtKSnpUMkRiRjkrQ0Z4bnlBRngyeWZsQ3RhWm94UVF4YVpzY0xkV0ZiNzBscmRVT1p4TWxXUGFaTWlVWEZKSlRtdmZqNXVuNkZyYWxlRzV0anY0K0prSTVBVmF6elNJdWx1aWtsSU4xM0FQS3BzL2hWZzExd2FSNENlQ2ZYeWk0Z1A2SFJHa2RsWEJQOHBySkM5c2lFam9XTURINnJxempKLzlrPSI+Cgk8L2ltYWdlPgo8L3N2Zz4="
+                             data-src="https://cryptonews.com/wp-content/uploads/2023/12/1702032484-reebok-impact-hero-image-1.png"
+                             alt="Reebok&#8217;s Blockchain-Powered Gaming Experience Set to Transform Fashion"
                              class="lazyload img-fluid" data-sizes="auto"
                              sizes="300px">
                     </div>
@@ -1132,12 +1119,42 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
             <div class="col-8 col-md-12">
                 <div class="article__badge article__badge--sm ">
 					                        <a class="article__badge article__badge--sm"
-                           href="https://cryptonews.com/news/nft-news/">  NFT News </a>
+                           href="https://cryptonews.com/news/blockchain-news/">  Blockchain News </a>
 					
-                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-11-28 11:40:13"></div>
+                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-12-08 11:25:29"></div>
                 </div>
 
-				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/first-of-its-kind-nft-centric-wallet-by-magic-eden-set-to-transform-digital-collecting-nfts-making-a-comeback.htm" rel="bookmark">First-of-its-Kind NFT-Centric Wallet by Magic Eden Set to Transform Digital Collecting – NFTs Making a Comeback</a></h4>            </div>
+				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/reeboks-blockchain-powered-gaming-experience-set-to-transform-fashion.htm" rel="bookmark">Reebok&#8217;s Blockchain-Powered Gaming Experience Set to Transform Fashion</a></h4>            </div>
+        </div>
+    </article>
+
+</div>
+
+
+<div id="post-140078" class="col-12 col-md-6 col-lg-4 col-xl-3 post-140078 post type-post status-publish format-standard has-post-thumbnail hentry category-bitcoin-news tag-adoption tag-bitcoin tag-gaming tag-market editors-sead-fadilpasic">
+    <article class="mb-30">
+        <div class="row">
+            <div class="col-4 col-md-12">
+                <a href="https://cryptonews.com/news/bitcoin-boost-gta-vi-trailer-leak-features-buy-btc-message.htm"
+                   class="article__image article__image--sm-wider mb-15  ">
+                    <div class="img-sized">
+                        <img src="data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgNzYwIDY3NiI+Cgk8aW1hZ2Ugd2lkdGg9Ijc2MCIgaGVpZ2h0PSI2NzYiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRQUFBUUFCQUFELzJ3QkRBQU1DQWdNQ0FnTURBd01FQXdNRUJRZ0ZCUVFFQlFvSEJ3WUlEQW9NREFzS0N3c05EaElRRFE0UkRnc0xFQllRRVJNVUZSVVZEQThYR0JZVUdCSVVGUlQvMndCREFRTUVCQVVFQlFrRkJRa1VEUXNORkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCVC93QUFSQ0FBY0FDQURBUkVBQWhFQkF4RUIvOFFBSHdBQUFRVUJBUUVCQVFFQUFBQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkFBQWdFREF3SUVBd1VGQkFRQUFBRjlBUUlEQUFRUkJSSWhNVUVHRTFGaEJ5SnhGREtCa2FFSUkwS3h3UlZTMGZBa00ySnlnZ2tLRmhjWUdSb2xKaWNvS1NvME5UWTNPRGs2UTBSRlJrZElTVXBUVkZWV1YxaFpXbU5rWldabmFHbHFjM1IxZG5kNGVYcURoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1SGk0K1RsNXVmbzZlcng4dlAwOWZiMytQbjYvOFFBSHdFQUF3RUJBUUVCQVFFQkFRQUFBQUFBQUFFQ0F3UUZCZ2NJQ1FvTC84UUF0UkVBQWdFQ0JBUURCQWNGQkFRQUFRSjNBQUVDQXhFRUJTRXhCaEpCVVFkaGNSTWlNb0VJRkVLUm9iSEJDU016VXZBVlluTFJDaFlrTk9FbDhSY1lHUm9tSnlncEtqVTJOemc1T2tORVJVWkhTRWxLVTFSVlZsZFlXVnBqWkdWbVoyaHBhbk4wZFhaM2VIbDZnb09FaFlhSGlJbUtrcE9VbFphWG1KbWFvcU9rcGFhbnFLbXFzck8wdGJhM3VMbTZ3c1BFeGNiSHlNbkswdFBVMWRiWDJObmE0dVBrNWVibjZPbnE4dlAwOWZiMytQbjYvOW9BREFNQkFBSVJBeEVBUHdENmYwKzllUzhaU2VNMStncDZuNExPS1VUb1JXaHpESlgyTG1vbkxsVnpXbkhubFlyMjkxNXI0cmpwVjNPVmowSytHVk9Oem45SzR2M3o2MTB4M09lZnduU3lYQ1JMa210cm5JbGN6YnpVeEl1MU9hemw3eXNiMDA0dTVOcGtSQTNIdlVRcEtPcHBWcnltck01UVhoZ3ZYd2VjMU43TTE1YnhOSkxsN3RzTTNGWGU1bGJsTkcydFlJOEZtQk5Xa2pHVW16VWhranhoU0tzeWFaNXJyakdHK1lvY2MxeHkzUFZwNm9xcnFFNjlIcWVabW5JaC93RGExei96ME5ITXllU0owSGhxK21tbEFkODF2QnM1cXNVa2YvL1oiPgoJPC9pbWFnZT4KPC9zdmc+"
+                             data-src="https://cryptonews.com/wp-content/uploads/2023/12/1701943561-screenshot-2023-12-07-105744.png"
+                             alt="Bitcoin Boost: GTA VI Trailer Leak Features &#8216;Buy BTC&#8217; Message"
+                             class="lazyload img-fluid" data-sizes="auto"
+                             sizes="300px">
+                    </div>
+                </a>
+            </div>
+            <div class="col-8 col-md-12">
+                <div class="article__badge article__badge--sm ">
+					                        <a class="article__badge article__badge--sm"
+                           href="https://cryptonews.com/news/bitcoin-news/">  Bitcoin News </a>
+					
+                    <div class="article__badge-date d-md-inline-block" data-utctime="2023-12-07 11:05:13"></div>
+                </div>
+
+				<h4><a class="article__title article__title--md article__title--featured" href="https://cryptonews.com/news/bitcoin-boost-gta-vi-trailer-leak-features-buy-btc-message.htm" rel="bookmark">Bitcoin Boost: GTA VI Trailer Leak Features &#8216;Buy BTC&#8217; Message</a></h4>            </div>
         </div>
     </article>
 
@@ -1215,30 +1232,30 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
 </li>
 <li id="menu-item-119722" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119722"><a href="/videos/" class="header-links__item fs-16">Videos</a>
 <ul class="sub-menu">
-	<li id="menu-item-119723" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119723"><a href="/video_categories/bitcoin/" class="header-links__item fs-16">Bitcoin Videos</a></li>
-	<li id="menu-item-119724" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119724"><a href="/video_categories/ethereum/" class="header-links__item fs-16">Ethereum Videos</a></li>
-	<li id="menu-item-119725" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119725"><a href="/video_categories/defi-videos/" class="header-links__item fs-16">DeFi Videos</a></li>
-	<li id="menu-item-119726" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119726"><a href="/video_categories/altcoin/" class="header-links__item fs-16">Altcoin Videos</a></li>
-	<li id="menu-item-119727" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119727"><a href="/video_categories/blockchain/" class="header-links__item fs-16">Blockchain Videos</a></li>
-	<li id="menu-item-119728" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119728"><a href="/video_categories/market/" class="header-links__item fs-16">Market Videos</a></li>
-	<li id="menu-item-119729" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119729"><a href="/video_categories/cryptosecurity/" class="header-links__item fs-16">Security Videos</a></li>
-	<li id="menu-item-119730" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119730"><a href="/video_categories/trading/" class="header-links__item fs-16">Trading Videos</a></li>
-	<li id="menu-item-119731" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119731"><a href="/video_categories/icos/" class="header-links__item fs-16">ICO Videos</a></li>
+	<li id="menu-item-119723" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119723"><a href="/videos/bitcoin/" class="header-links__item fs-16">Bitcoin Videos</a></li>
+	<li id="menu-item-119724" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119724"><a href="/videos/ethereum/" class="header-links__item fs-16">Ethereum Videos</a></li>
+	<li id="menu-item-119725" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119725"><a href="/videos/defi-videos/" class="header-links__item fs-16">DeFi Videos</a></li>
+	<li id="menu-item-119726" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119726"><a href="/videos/altcoin/" class="header-links__item fs-16">Altcoin Videos</a></li>
+	<li id="menu-item-119727" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119727"><a href="/videos/blockchain/" class="header-links__item fs-16">Blockchain Videos</a></li>
+	<li id="menu-item-119728" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119728"><a href="/videos/market/" class="header-links__item fs-16">Market Videos</a></li>
+	<li id="menu-item-119729" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119729"><a href="/videos/cryptosecurity/" class="header-links__item fs-16">Security Videos</a></li>
+	<li id="menu-item-119730" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119730"><a href="/videos/trading/" class="header-links__item fs-16">Trading Videos</a></li>
+	<li id="menu-item-119731" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119731"><a href="/videos/icos/" class="header-links__item fs-16">ICO Videos</a></li>
 </ul>
 </li>
 <li id="menu-item-119732" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119732"><a href="/guides/" class="header-links__item fs-16">Guides</a>
 <ul class="sub-menu">
-	<li id="menu-item-119733" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119733"><a href="/guide_categories/bitcoin/" class="header-links__item fs-16">Bitcoin</a></li>
-	<li id="menu-item-119734" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119734"><a href="/guide_categories/ethereum/" class="header-links__item fs-16">Ethereum</a></li>
-	<li id="menu-item-119735" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119735"><a href="/guide_categories/nft/" class="header-links__item fs-16">NFT</a></li>
-	<li id="menu-item-119736" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119736"><a href="/guide_categories/defi-guides/" class="header-links__item fs-16">Defi Guides</a></li>
-	<li id="menu-item-119737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119737"><a href="/guide_categories/altcoins/" class="header-links__item fs-16">Altcoins</a></li>
-	<li id="menu-item-119738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119738"><a href="/guide_categories/blockchain/" class="header-links__item fs-16">Blockchain</a></li>
-	<li id="menu-item-119739" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119739"><a href="/guide_categories/cryptocurrency/" class="header-links__item fs-16">Cryptocurrency</a></li>
-	<li id="menu-item-119740" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119740"><a href="/guide_categories/deals/" class="header-links__item fs-16">Deals</a></li>
-	<li id="menu-item-119741" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119741"><a href="/guide_categories/icos/" class="header-links__item fs-16">ICOs / STOs / IEOs</a></li>
-	<li id="menu-item-119742" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119742"><a href="/guide_categories/trading-tools/" class="header-links__item fs-16">Trading Tools</a></li>
-	<li id="menu-item-119743" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119743"><a href="/guide_categories/wallet-guides/" class="header-links__item fs-16">Wallet Guides</a></li>
+	<li id="menu-item-119733" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119733"><a href="/guides/bitcoin/" class="header-links__item fs-16">Bitcoin</a></li>
+	<li id="menu-item-119734" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119734"><a href="/guides/ethereum/" class="header-links__item fs-16">Ethereum</a></li>
+	<li id="menu-item-119735" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119735"><a href="/guides/nft/" class="header-links__item fs-16">NFT</a></li>
+	<li id="menu-item-119736" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119736"><a href="/guides/defi-guides/" class="header-links__item fs-16">Defi Guides</a></li>
+	<li id="menu-item-119737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119737"><a href="/guides/altcoins/" class="header-links__item fs-16">Altcoins</a></li>
+	<li id="menu-item-119738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119738"><a href="/guides/blockchain/" class="header-links__item fs-16">Blockchain</a></li>
+	<li id="menu-item-119739" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119739"><a href="/guides/cryptocurrency/" class="header-links__item fs-16">Cryptocurrency</a></li>
+	<li id="menu-item-119740" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119740"><a href="/guides/deals/" class="header-links__item fs-16">Deals</a></li>
+	<li id="menu-item-119741" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119741"><a href="/guides/icos/" class="header-links__item fs-16">ICOs / STOs / IEOs</a></li>
+	<li id="menu-item-119742" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119742"><a href="/guides/trading-tools/" class="header-links__item fs-16">Trading Tools</a></li>
+	<li id="menu-item-119743" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119743"><a href="/guides/wallet-guides/" class="header-links__item fs-16">Wallet Guides</a></li>
 </ul>
 </li>
 <li id="menu-item-119744" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-119744"><a href="#" class="header-links__item fs-16">Recommended</a>
@@ -1301,30 +1318,30 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
 
 <div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="/videos/"><b>Videos</b></a></div>
 <div class='menu-list-links header-menu__dropdown-children'>
-	<a class="mb-10 heading"  href="/video_categories/bitcoin/"><b>Bitcoin Videos</b></a>
-	<a class="mb-10 heading"  href="/video_categories/ethereum/"><b>Ethereum Videos</b></a>
-	<a class="mb-10 heading"  href="/video_categories/defi-videos/"><b>DeFi Videos</b></a>
-	<a class="mb-10 heading"  href="/video_categories/altcoin/"><b>Altcoin Videos</b></a>
-	<a class="mb-10 heading"  href="/video_categories/blockchain/"><b>Blockchain Videos</b></a>
-	<a class="mb-10 heading"  href="/video_categories/market/"><b>Market Videos</b></a>
-	<a class="mb-10 heading"  href="/video_categories/cryptosecurity/"><b>Security Videos</b></a>
-	<a class="mb-10 heading"  href="/video_categories/trading/"><b>Trading Videos</b></a>
-	<a class="mb-10 heading"  href="/video_categories/icos/"><b>ICO Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/bitcoin/"><b>Bitcoin Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/ethereum/"><b>Ethereum Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/defi-videos/"><b>DeFi Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/altcoin/"><b>Altcoin Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/blockchain/"><b>Blockchain Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/market/"><b>Market Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/cryptosecurity/"><b>Security Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/trading/"><b>Trading Videos</b></a>
+	<a class="mb-10 heading"  href="/videos/icos/"><b>ICO Videos</b></a>
 </div>
 
 <div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="/guides/"><b>Guides</b></a></div>
 <div class='menu-list-links header-menu__dropdown-children'>
-	<a class="mb-10 heading"  href="/guide_categories/bitcoin/"><b>Bitcoin</b></a>
-	<a class="mb-10 heading"  href="/guide_categories/ethereum/"><b>Ethereum</b></a>
-	<a class="mb-10 heading"  href="/guide_categories/nft/"><b>NFT</b></a>
-	<a class="mb-10 heading"  href="/guide_categories/defi-guides/"><b>Defi Guides</b></a>
-	<a class="mb-10 heading"  href="/guide_categories/altcoins/"><b>Altcoins</b></a>
-	<a class="mb-10 heading"  href="/guide_categories/blockchain/"><b>Blockchain</b></a>
-	<a class="mb-10 heading"  href="/guide_categories/cryptocurrency/"><b>Cryptocurrency</b></a>
-	<a class="mb-10 heading"  href="/guide_categories/deals/"><b>Deals</b></a>
-	<a class="mb-10 heading"  href="/guide_categories/icos/"><b>ICOs / STOs / IEOs</b></a>
-	<a class="mb-10 heading"  href="/guide_categories/trading-tools/"><b>Trading Tools</b></a>
-	<a class="mb-10 heading"  href="/guide_categories/wallet-guides/"><b>Wallet Guides</b></a>
+	<a class="mb-10 heading"  href="/guides/bitcoin/"><b>Bitcoin</b></a>
+	<a class="mb-10 heading"  href="/guides/ethereum/"><b>Ethereum</b></a>
+	<a class="mb-10 heading"  href="/guides/nft/"><b>NFT</b></a>
+	<a class="mb-10 heading"  href="/guides/defi-guides/"><b>Defi Guides</b></a>
+	<a class="mb-10 heading"  href="/guides/altcoins/"><b>Altcoins</b></a>
+	<a class="mb-10 heading"  href="/guides/blockchain/"><b>Blockchain</b></a>
+	<a class="mb-10 heading"  href="/guides/cryptocurrency/"><b>Cryptocurrency</b></a>
+	<a class="mb-10 heading"  href="/guides/deals/"><b>Deals</b></a>
+	<a class="mb-10 heading"  href="/guides/icos/"><b>ICOs / STOs / IEOs</b></a>
+	<a class="mb-10 heading"  href="/guides/trading-tools/"><b>Trading Tools</b></a>
+	<a class="mb-10 heading"  href="/guides/wallet-guides/"><b>Wallet Guides</b></a>
 </div>
 
 <div class="header-menu__dropdown-heading"><a class="mb-10 heading"  href="#"><b>Recommended</b></a></div>
@@ -1369,66 +1386,9 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
                 </div>
                 <div class="col-12 col-md-6 text-center text-md-right">
                     <div class="socials socials--large socials--h-white">
-                                                    <a href="https://www.facebook.com/cryptonewscom-720874761445956" rel="nofollow noopener"  target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                                    <path fill="#CCC"
-                                          d="M8.854 4.155H7.072V2.97c.131-1.119 1.981-.907 1.981-.907V.138H9.05C8.986.123 5.37-.735 4.653 2.017l-.001.002-.006.018c-.113.345-.105 1.92-.103 2.118H3v2.107h1.64v5.732h2.388V6.262h1.827l.205-2.107h-.205z"/>
-                                </svg>
-                            </a>
-                            <a href="https://twitter.com/Cryptonews" rel="nofollow noopener"  target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                                    <path fill="#CCC" fill-rule="evenodd"
-                                          d="M10.771 3.429c.156 3.462-2.427 7.323-6.997 7.323-1.39 0-2.685-.407-3.774-1.107 1.306.155 2.609-.208 3.645-1.019-1.078-.019-1.987-.73-2.3-1.71.385.074.765.053 1.111-.042C1.272 6.637.454 5.57.482 4.43c.332.184.71.295 1.115.308C.5 4.005.19 2.557.835 1.45 2.05 2.94 3.863 3.92 5.91 4.022 5.55 2.482 6.718 1 8.308 1c.708 0 1.347.298 1.797.778.56-.112 1.087-.316 1.564-.599-.185.575-.576 1.059-1.083 1.363.498-.06.972-.192 1.413-.388-.33.494-.746.928-1.228 1.275"/>
-                                </svg>
-                            </a>
-                            <a href="https://www.youtube.com/channel/UCq1LxxUw6DVELFN0wOmLLQw?disable_polymer=true" rel="nofollow noopener"  target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                                    <path fill="#CCC"
-                                          d="M4.55 8.219V4.447l3.618 1.886L4.55 8.219zm7.333-4.583c-.103-.876-.313-1.13-.46-1.247-.238-.185-.668-.25-1.243-.29C9.255 2.038 7.69 2 5.997 2c-1.695 0-3.258.038-4.182.1-.575.04-1.006.105-1.243.29-.148.116-.357.37-.462 1.246-.148 1.26-.148 4.134 0 5.395.104.874.313 1.129.46 1.245.238.187.669.25 1.244.29.924.062 2.487.1 4.182.1 1.695 0 3.258-.038 4.183-.1.575-.04 1.005-.103 1.243-.29.148-.116.357-.371.46-1.245.148-1.261.148-4.135 0-5.395z"
-                                          fill-rule="evenodd"/>
-                                </svg>
-                            </a>
-                            <a href="https://www.linkedin.com/company/cryptonewscom/" rel="nofollow noopener" target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                                    <path d="M11.9939 12h-2.464V7.8c0-1.151-.438-1.794-1.349-1.794-.991 0-1.508.669-1.508 1.794V12h-2.375V4h2.375v1.078s.714-1.322 2.41-1.322c1.697 0 2.911 1.036 2.911 3.179V12zm-10.53-9.048c-.808 0-1.464-.66-1.464-1.476C-.0001.661.6559 0 1.4639 0c.809 0 1.465.661 1.465 1.476 0 .816-.656 1.476-1.465 1.476zM.2379 12h2.477V4H.2379v8z"
-                                          fill="#CCC" fill-rule="evenodd"/>
-                                </svg>
-                            </a>
-                            <a href="https://t.me/cryptonews_official" rel="nofollow noopener"  target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                                    <path fill="#CCC"
-                                          d="M.558 5.152L11.196 1.05c.495-.178.925.12.765.868l.001-.001-1.81 8.532c-.134.605-.495.752-.998.467L6.395 8.883l-1.33 1.282c-.147.147-.272.27-.556.27l.196-2.805 5.111-4.62c.223-.194-.05-.305-.343-.11L3.156 6.879l-2.723-.85c-.59-.188-.603-.591.126-.876"
-                                          fill-rule="evenodd"/>
-                                </svg>
-                            </a>
-                            <a href="https://cryptonews.com/contact-us/">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                                    <path fill="#CCC"
-                                          d="M0 2.727v6.854c0 .373.273.675.649.675h10.696c.376 0 .649-.306.649-.675V2.727c0-.409-.244-.727-.65-.727H.65C.23 2 0 2.326 0 2.727m.988.597c0-.165.099-.26.259-.26.099 0 3.986 2.463 4.22 2.607l.609.38c.193-.13.387-.24.587-.375.408-.26 4.038-2.612 4.138-2.612.16 0 .26.095.26.26 0 .174-.337.348-.557.482-1.378.841-2.756 1.757-4.122 2.628-.08.054-.233.17-.35.151-.128-.019-4.083-2.56-4.802-2.983-.108-.064-.242-.123-.242-.278"
-                                          fill-rule="evenodd"/>
-                                </svg>
-                            </a>
-                            <a href="/news/feed" target="_blank">
-                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  width="12" height="12"
-                                     viewBox="0 0 12 12" style="enable-background:new 0 0 12 12;" xml:space="preserve">
-                        <style type="text/css">
-                            .st0{fill:#CCCCCC;}
-                        </style>
-                                    <g>
-                                        <g>
-                                            <path class="st0" d="M1.6,8.9C0.7,8.9,0,9.6,0,10.4S0.7,12,1.6,12s1.6-0.7,1.6-1.6S2.4,8.9,1.6,8.9z"/>
-                                            <path class="st0" d="M0.3,4.5c-0.1,0-0.1,0-0.2,0.1C0,4.6,0,4.6,0,4.7v2C0,6.8,0.1,6.9,0.2,7C2.9,7.1,4.9,9.1,5,11.8
-                                 c0,0.1,0.1,0.2,0.2,0.2h2c0.1,0,0.1,0,0.2-0.1c0,0,0.1-0.1,0.1-0.2C7.5,9.8,6.7,8,5.3,6.7C4,5.3,2.2,4.5,0.3,4.5z"/>
-                                            <path class="st0" d="M8.5,3.5C6.3,1.3,3.4,0.1,0.3,0C0.2,0,0.1,0,0.1,0.1C0,0.1,0,0.2,0,0.2v2c0,0.1,0.1,0.2,0.2,0.2
-                                 c5,0.1,9.1,4.3,9.3,9.3c0,0.1,0.1,0.2,0.2,0.2h2c0.1,0,0.1,0,0.2-0.1c0,0,0.1-0.1,0.1-0.2C11.9,8.6,10.7,5.7,8.5,3.5z"/>
-                                        </g>
-                                    </g>
-                     </svg>
-                            </a>
-	                                                        <a href="https://www.instagram.com/cryptonewscom/" rel="nofollow noopener"  target="_blank">
-			                        <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>				                                                        </a>
-		                                                                    </div>
-                </div>
+
+	
+	</div>                </div>
             </div>
         </div>
     </div>
@@ -1468,7 +1428,7 @@ var crypto_bm_ajax_handler = {"id":"1","url":"https:\/\/cryptonews.com\/wp-admin
     </script>
             <script type="rocketlazyloadscript">
             window.cid = 26845        </script>
-        <script type="rocketlazyloadscript" data-rocket-src="https://cryptonews.com/wp-content/themes/cryptonews/assets/js/frontend.js?ver=1.1688466991" id="frontend-js-js" defer></script>
+        <script type="rocketlazyloadscript" data-rocket-src="https://cryptonews.com/wp-content/themes/cryptonews/assets/js/frontend.js?ver=1.1701870935" id="frontend-js-js" defer></script>
 <script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
 "use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
 </script>
@@ -1483,7 +1443,7 @@ var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$
 <script id="ajax-data-load-js-extra">
 var site_vars = {"url":"https:\/\/cryptonews.com\/wp-admin\/admin-ajax.php"};
 </script>
-<script type="rocketlazyloadscript" data-rocket-src="https://cryptonews.com/wp-content/themes/cryptonews/js/ajax-data-load.js?ver=6.4.1" id="ajax-data-load-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://cryptonews.com/wp-content/themes/cryptonews/js/ajax-data-load.js?ver=1.1701870935" id="ajax-data-load-js" defer></script>
 
 <!-- Shortcodes Ultimate custom CSS - start -->
 <style type="text/css">
@@ -1580,7 +1540,7 @@ if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_c
 <!--
 Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com
 
-Retrieved 11010 objects (1 MB) from Redis using PhpRedis (v5.3.7).
+Retrieved 11555 objects (1 MB) from Redis using PhpRedis (v5.3.7).
 -->
 
-<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1701243013 -->
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
