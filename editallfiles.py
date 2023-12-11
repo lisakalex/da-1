@@ -37,7 +37,7 @@ def insert_in_head(read_file1):
     soup = BeautifulSoup("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js\"></script>", features='html.parser')
     script = soup.script
 
-    soup = BeautifulSoup("<script defer src=\"/assets/js/me.js\"></script>", features='html.parser')
+    soup = BeautifulSoup("<script src=\"/assets/js/me.js\"></script>", features='html.parser')
     script1 = soup.script
 
     soup = BeautifulSoup("<link href=\"/assets/css/style.css\" rel=\"stylesheet\">", features='html.parser')

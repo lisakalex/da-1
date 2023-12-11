@@ -17,7 +17,8 @@ start_time = time.time()
 start_time1 = time.time()
 count_replace = 0
 try:
-    headers = {'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36'}
+    headers = {
+        'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36'}
     source = requests.get('https://cryptonews.com/', headers=headers, timeout=None)
 
 except Exception as e:
@@ -38,8 +39,10 @@ if source.status_code == 200:
     count_replace = count_replace + 1
 
     with open('count_download.txt', "a") as file:
-        file.write(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(round(time.time() - start_time, 3)) + ' /index.html\n')
-        print(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(round(time.time() - start_time, 3)) + ' /index.html')
+        file.write(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(
+            round(time.time() - start_time, 3)) + ' /index.html\n')
+        print(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(
+            round(time.time() - start_time, 3)) + ' /index.html')
 
 soup = BeautifulSoup(source.text, features="html.parser")
 sub_menu = soup.findAll('ul', class_='sub-menu')
@@ -47,7 +50,8 @@ sub_menu = soup.findAll('ul', class_='sub-menu')
 for a in sub_menu[12].findAll('a'):
     link = a.get('href')
     try:
-        headers = {'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36'}
+        headers = {
+            'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36'}
         source = requests.get(link, headers=headers, timeout=None)
 
     except Exception as e:
@@ -62,8 +66,10 @@ for a in sub_menu[12].findAll('a'):
         count_replace = count_replace + 1
 
         with open('count_download.txt', "a") as file:
-            file.write(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(round(time.time() - start_time, 3)) + ' ' + link + '\n')
-            print(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(round(time.time() - start_time, 3)) + ' ' + link)
+            file.write(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(
+                round(time.time() - start_time, 3)) + ' ' + link + '\n')
+            print(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(
+                round(time.time() - start_time, 3)) + ' ' + link)
 
 shutil.copyfile('./a/cryptonews.com/index.html', './kak-index.html')  # used to update recommended
 shutil.copytree('./replace/', './a/cryptonews.com/', dirs_exist_ok=True)
@@ -73,7 +79,8 @@ def download_file(f1):
     start_time = time.time()
     source = None
     global count_replace
-    headers = {'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36'}
+    headers = {
+        'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36'}
     try:
         source = requests.get('https://cryptonews.com' + f1, headers=headers, timeout=None)
 
@@ -87,8 +94,10 @@ def download_file(f1):
 
         count_replace = count_replace + 1
         with open('count_download.txt', "a") as file:
-            file.write(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(round(time.time() - start_time, 3)) + ' ' + f1 + 'index.html\n')
-            print(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(round(time.time() - start_time, 3)) + ' ' + f1 + 'index.html')
+            file.write(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(
+                round(time.time() - start_time, 3)) + ' ' + f1 + 'index.html\n')
+            print(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(
+                round(time.time() - start_time, 3)) + ' ' + f1 + 'index.html')
 
     for i in range(2, 10):
         start_time = time.time()
@@ -111,8 +120,10 @@ def download_file(f1):
 
             count_replace = count_replace + 1
             with open('count_download.txt', "a") as file:
-                file.write(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(round(time.time() - start_time, 3)) + ' ' + f1 + 'page/' + str(i) + '/index.html\n')
-                print(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(round(time.time() - start_time, 3)) + ' ' + f1 + 'page/' + str(i) + '/index.html')
+                file.write(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(
+                    round(time.time() - start_time, 3)) + ' ' + f1 + 'page/' + str(i) + '/index.html\n')
+                print(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(
+                    round(time.time() - start_time, 3)) + ' ' + f1 + 'page/' + str(i) + '/index.html')
 
         soup = BeautifulSoup(source.text, features="html.parser")
         article = soup.findAll('article')
@@ -140,8 +151,10 @@ def download_file(f1):
                     pass
                 count_replace = count_replace + 1
                 with open('count_download.txt', "a") as file:
-                    file.write(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(round(time.time() - start_time, 3)) + ' ' + article + '\n')
-                    print(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(round(time.time() - start_time, 3)) + ' ' + article)
+                    file.write(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(
+                        round(time.time() - start_time, 3)) + ' ' + article + '\n')
+                    print(str(count_replace) + ' ' + str(source.status_code) + ' ' + str(
+                        round(time.time() - start_time, 3)) + ' ' + article)
 
 
 file_list = ['/news/',

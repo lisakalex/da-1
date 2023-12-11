@@ -151,7 +151,7 @@ $(function () {
             setSite('#025360', 'Kanit')
         }
 
-        if (hostname === 'huy.com' || hostname === 'xxx.xx' || hostname === 'xxx.xx') {
+        if (hostname === 'huy.com' || hostname === 'da.com' || hostname === 'xxx.xx') {
             setSite('pink', 'Oswald')
         }
 

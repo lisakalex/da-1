@@ -8,7 +8,7 @@
 #* * * * * /usr/bin/php8.1 /var/www/hyip.com/public_html/pay_cron.php
 #* * * * * /bin/bash -l -c 'date > ~/cron-test.txt'
 #* * * * * /var/www/hyip.com/public_html/sh/get_top.py
-0 7 * * * cd /var/www/da.com/a/ && wget -i ./download.txt
-0 7 * * * cd /var/www/da.com/ && ./downloadfiles.py
+#0 7 * * * cd /var/www/da.com/a/ && wget -i ./download.txt
+#0 7 * * * cd /var/www/da.com/ && ./downloadfiles.py
 #0 19 * * * cd /var/www/da-1.com/ && ./editallfiles.py
 #* * * * * cd /var/www/da-1.com/ && ./tor-1.py
