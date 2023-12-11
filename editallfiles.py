@@ -1,11 +1,9 @@
 #!/home/al/.venv/bin/python3
 import glob2
 from bs4 import BeautifulSoup
-import requests
 import time
 import shutil
 from datetime import datetime
-from pathlib import Path
 
 # https://beautiful-soup-4.readthedocs.io/en/latest/
 
@@ -34,7 +32,8 @@ def replace_header_footer(read_file1):
 
 
 def insert_in_head(read_file1):
-    soup = BeautifulSoup("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js\"></script>", features='html.parser')
+    soup = BeautifulSoup("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js\"></script>",
+                         features='html.parser')
     script = soup.script
 
     soup = BeautifulSoup("<script src=\"/assets/js/me.js\"></script>", features='html.parser')
