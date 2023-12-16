@@ -1,6 +1,28 @@
 12581 ./a/cryptonews.com/news/best-nft-gambling-sites.htm
 <a href="/" class="header__logo">
 /home/al/books/other/www.gnu.org/software/wget/manual/wget.html
+
+~~~
+Count The Files By Extension Recursively
+https://www.2daygeek.com/how-to-count-files-by-extension-in-linux/
+
+Count The Files By Specific Extension Recursively Using ls
+ls -lR | grep --count \.html$
+
+Count All The Files Extension Recursively
+find . -type f | sed -n 's/..*\.//p' | sort | uniq -c
+
+Recursively counting all files
+find . -type f | wc -l
+
+~~~
+count all words Recursively (Grep Recursive and Count)
+https://stackoverflow.com/questions/884591/grep-recursive-and-count
+
+grep -roh "https://cryptonews.com" | grep -v "^Binary.*matches$" | grep -c ^
+
+this gives closer result to Intellij
+grep -r "word" * | tee >(wc -l)
 index.html
 did="16" 300X250-mobile.jpg
 did="11" 970x250.jpg
@@ -375,3 +397,77 @@ time 5.97 min
 gandon
 gandon
 gandon
+
+~~~
+extend the trial period of JetBrains IDE
+https://www.quora.com/Is-there-a-way-to-extend-the-trial-period-of-JetBrains-IDE
+
+#########
+
+for product in IntelliJIdea WebStorm DataGrip PhpStorm CLion PyCharm GoLand RubyMine; do
+
+echo "Resetting trial period for $product"
+echo "removing evaluation key..."
+
+rm -rf ~/.config/$product*/eval
+
+# Above path not working on latest version. Fixed below
+
+rm -rf ~/.config/JetBrains/$product*/eval
+
+echo "removing all evlsprt properties in options.xml..."
+
+sed -i 's/evlsprt//' ~/.config/$product*/options/other.xml
+
+# Above path not working on latest version. Fixed below
+
+sed -i 's/evlsprt//' ~/.config/JetBrains/$product*/options/other.xml
+
+echo
+
+done
+
+echo "removing userPrefs files..."
+
+rm -rf ~/.java/.userPrefs
+
+#########
+
+Happy Coding :)
+
+~~~
+https://blog.cpming.top/p/permanent-trial-jetbrains-product
+
+~~~
+https://stackoverflow.com/questions/26584948/how-do-i-remove-my-intellij-license-in-2019-3
+For Linux to reset current 30 days expiration license, you must run code:
+
+rm ~/.config/JetBrains/IntelliJIdea2019.3/options/other.xml
+rm -rf ~/.config/JetBrains/IntelliJIdea2019.3/eval/*
+rm -rf .java/.userPrefs
+
+~~~
+cd ~/.config/JetBrains/PyCharm2020.1
+rm eval/PyCharm201.evaluation.key
+sed -i '/evlsprt/d' options/other.xml
+cd ~/.java/.userPrefs/jetbrains
+rm -rf pycharm*
+
+~~~
+wget --no-clobber  --no-timestamping https://www.allhyipmonitors.com/
+
+~~~
+[Errno 21] Is a directory: './a/cryptonews.com/news/altcoin-news/page/3/'
+346 200 0.718 /news/altcoin-news/page/3/
+[Errno 21] Is a directory: './a/cryptonews.com/news/altcoin-news/page/5/'
+347 200 1.54 /news/altcoin-news/page/5/
+[Errno 21] Is a directory: './a/cryptonews.com/news/altcoin-news/page/6/'
+348 200 1.327 /news/altcoin-news/page/6/
+[Errno 21] Is a directory: './a/cryptonews.com/news/altcoin-news/page/386/'
+349 200 1.536 /news/altcoin-news/page/386/
+[Errno 21] Is a directory: './a/cryptonews.com/news/altcoin-news/page/5/'
+350 200 0.715 /news/altcoin-news/page/5/
+351 200 0.616 /news/bitcoin-news/index.html
+
+<a class="article__badge article__badge--sm" href="https://cryptonews.com/news/bitcoin-news/">  Bitcoin News </a>
+'https://cryptonews.com/news/sec-chair-gensler-discusses-impact-of-court-rulings-on-reevaluating-bitcoin-etf-decisions.htm'

@@ -14,10 +14,10 @@ $(function () {
 
         document.title = siteName;
 
-        try {
-            document.querySelector("#frontend-js-js").remove();
-        } catch (err) {
-        }
+        // try {
+        //     document.querySelector("#frontend-js-js").remove();
+        // } catch (err) {
+        // }
 
         try {
             document.querySelector('[data-clickout-type="native_table_box_processed"]').remove(); // lower advert
@@ -113,27 +113,36 @@ $(function () {
             "<script defer=\"\" src=\"/assets/js/cookieconsent-init.js\"></script>" +
             "<script defer=\"\" src=\"/assets/js/frontend.js\"></script>");
 
-        $("#menu-header > li:nth-child(11) > ul").load("/kak-index.html #menu-header > li:nth-child(9) > ul > li", function () { // fix recommended
-            try {
-                document.querySelectorAll("a").forEach((e) => { // edit links
-                    if (e.href.search('/ext/') === -1) {
-                        e.href = e.href.replace("https://cryptonews.com", "");
-                    }
-                });
-            } catch (err) {
-            }
-        });
+        // $("#menu-header > li:nth-child(11) > ul").load("/kak-index.html #menu-header > li:nth-child(9) > ul > li", function () { // fix recommended
+        //     try {
+        //         document.querySelectorAll("a").forEach((e) => { // edit links
+        //             if (e.href.search('/ext/') === -1) {
+        //                 e.href = e.href.replace("https://cryptonews.com", "");
+        //             }
+        //         });
+        //     } catch (err) {
+        //     }
+        // });
+        //
+        // $("#menu-item-119744 > ul").load("/kak-index.html #menu-item-119744 > ul > li", function () { // fix recommended footer
+        //     try {
+        //         document.querySelectorAll("a").forEach((e) => { // edit links
+        //             if (e.href.search('/ext/') === -1) {
+        //                 e.href = e.href.replace("https://cryptonews.com", "");
+        //             }
+        //         });
+        //     } catch (err) {
+        //     }
+        // });
 
-        $("#menu-item-119744 > ul").load("/kak-index.html #menu-item-119744 > ul > li", function () { // fix recommended footer
-            try {
-                document.querySelectorAll("a").forEach((e) => { // edit links
-                    if (e.href.search('/ext/') === -1) {
-                        e.href = e.href.replace("https://cryptonews.com", "");
-                    }
-                });
-            } catch (err) {
-            }
-        });
+        try {
+            document.querySelectorAll("a").forEach((e) => { // edit links
+                if (e.href.search('/ext/') === -1) {
+                    e.href = e.href.replace("https://cryptonews.com", "");
+                }
+            });
+        } catch (err) {
+        }
 
         try {
             document.querySelectorAll('.me-mailto').forEach((e) => {
@@ -155,7 +164,7 @@ $(function () {
             setSite('pink', 'Oswald')
         }
 
-        if (hostname === 'huy-1.com' || hostname === 'xxx.xx' || hostname === 'xxx.xx') {
+        if (hostname === 'huy-1.com' || hostname === 'da.com' || hostname === 'xxx.xx') {
             setSite('red', 'Playfair Display')
         }
 

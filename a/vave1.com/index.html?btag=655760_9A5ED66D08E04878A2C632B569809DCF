@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+        <script>
+        window.language = 'en';
+        window.locale = 'en_GB';
+        window.localeIso = 'en_GB';
+        window.langIso = 'en';
+        window.betradarIso = 'en';
+        window.languages = {"en":{"id":2,"iso":"en","locale":"en_GB","name":"English","short_name":"en","url":"en","primary":"1","flag_image":"https:\/\/d2j4tzbt95ugsz.cloudfront.net\/site\/upload\/flag_icon\/4939e7de-5383-4ca0-a39e-35c0c58b5b72\/1672404085_lang.webp"},"ru":{"id":88,"iso":"ru","locale":"ru_RU","name":"\u0420\u0443\u0441\u0441\u043a\u0438\u0439","short_name":"ru","url":"ru","primary":"0","flag_image":"https:\/\/d2j4tzbt95ugsz.cloudfront.net\/site\/upload\/flag_icon\/4f05adb7-0c8e-4f79-889c-ac40caa57e7b\/1672404100_lang.webp"},"es":{"id":36,"iso":"es","locale":"es_ES","name":"Espa\u00f1ol","short_name":"ES","url":"es","primary":"0","flag_image":"https:\/\/d2j4tzbt95ugsz.cloudfront.net\/site\/upload\/flag_icon\/250a6cab-395a-415e-b9be-c062fda43589\/1672404184_lang.webp"},"cn":{"id":98,"iso":"zh","locale":"zh_CN","name":"\u6c49\u8bed","short_name":"cn","url":"cn","primary":"0","flag_image":"https:\/\/d2j4tzbt95ugsz.cloudfront.net\/site\/upload\/flag_icon\/14e2b00c-acbb-4a33-bbb6-261952ce2253\/1672404289_lang.webp"}};
+        window.primaryLanguage = 'en';
+        window.isTextPage = false;
+        window.isFrontRender = false;
+        window.isExternalResource = false;
+        window.paths = [{"label":"terms","path":"\/information\/terms-and-conditions"},{"label":"privacy","path":"\/information\/privacy-policy"},{"label":"Test_page","path":"\/prematch\/basketball"},{"label":"contacts","path":"\/help\/contacts"},{"label":"responsible-gaming","path":"\/help\/responsible-gaming"}];
+        window.sidebarMenu = [{"id":6,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"About Vave","slug":"information","link":"https:\/\/vave1.com\/information","label":null,"display_order":0,"template":"about-us","footerIconUrl":null,"children":[{"id":13,"is_external_resource":false,"is_add_nofollow_for_link":false,"name":"Terms and Conditions","slug":"information\/terms-and-conditions","link":"https:\/\/vave1.com\/information\/terms-and-conditions","label":"terms","display_order":1,"template":"terms","footerIconUrl":null,"children":[]},{"id":126,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"General Bonuses Terms","slug":"information\/bonus-terms","link":"https:\/\/vave1.com\/information\/bonus-terms","label":null,"display_order":4,"template":"text","footerIconUrl":null,"children":[]},{"id":14,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Privacy Policy","slug":"information\/privacy-policy","link":"https:\/\/vave1.com\/information\/privacy-policy","label":"privacy","display_order":5,"template":"text","footerIconUrl":null,"children":[]},{"id":30,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"About Us","slug":"information\/about-us","link":"https:\/\/vave1.com\/information\/about-us","label":null,"display_order":5,"template":"text","footerIconUrl":null,"children":[]},{"id":482,"is_external_resource":true,"is_add_nofollow_for_link":false,"name":"Affiliates","slug":"information\/test-tournament","link":"https:\/\/vavepartners.com\/","label":null,"display_order":6,"template":"promotion","footerIconUrl":null,"children":[]},{"id":491,"is_external_resource":true,"is_add_nofollow_for_link":false,"name":"Ambassadors","slug":"information\/test-tournament2","link":"https:\/\/ambassadors.vave.com\/","label":null,"display_order":7,"template":null,"footerIconUrl":null,"children":[]}]},{"id":421,"is_external_resource":false,"is_add_nofollow_for_link":false,"name":"Casino Games","slug":"casino","link":"https:\/\/vave1.com\/casino","label":null,"display_order":1,"template":"help","footerIconUrl":null,"children":[{"id":433,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Popular Slots","slug":"casino\/popular","link":"https:\/\/vave1.com\/casino\/popular","label":null,"display_order":0,"template":null,"footerIconUrl":null,"children":[]},{"id":434,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"New Slots","slug":"casino\/new","link":"https:\/\/vave1.com\/casino\/new","label":null,"display_order":0,"template":null,"footerIconUrl":null,"children":[]},{"id":479,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Bonus Buy","slug":"casino\/bonus-buy","link":"https:\/\/vave1.com\/casino\/bonus-buy","label":null,"display_order":3,"template":null,"footerIconUrl":null,"children":[]}]},{"id":4,"is_external_resource":false,"is_add_nofollow_for_link":false,"name":"Sports Betting","slug":"prematch","link":"https:\/\/vave1.com\/prematch","label":null,"display_order":2,"template":"about-us","footerIconUrl":null,"children":[{"id":9,"is_external_resource":false,"is_add_nofollow_for_link":false,"name":"Soccer Betting","slug":"prematch\/football","link":"https:\/\/vave1.com\/prematch\/football","label":null,"display_order":2,"template":null,"footerIconUrl":null,"children":[]},{"id":10,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Basketball Betting","slug":"prematch\/basketball","link":"https:\/\/vave1.com\/prematch\/basketball","label":"Test_page","display_order":2,"template":null,"footerIconUrl":null,"children":[]},{"id":11,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Tennis Betting","slug":"prematch\/tennis","link":"https:\/\/vave1.com\/prematch\/tennis","label":null,"display_order":3,"template":null,"footerIconUrl":null,"children":[]}]},{"id":8,"is_external_resource":false,"is_add_nofollow_for_link":false,"name":"Community","slug":"social-networks","link":"https:\/\/vave1.com\/social-networks","label":null,"display_order":4,"template":"social-networks","footerIconUrl":null,"children":[{"id":19,"is_external_resource":true,"is_add_nofollow_for_link":false,"name":"Twitter","slug":"social-networks\/twitter","link":"https:\/\/twitter.com\/official_vave","label":null,"display_order":0,"template":null,"footerIconUrl":"https:\/\/d2j4tzbt95ugsz.cloudfront.net\/site\/upload\/page_footer_icon\/ed1ce7bb-63b4-497f-b296-8b17d9c5fc97\/1684232491_twiter.svg","children":[]},{"id":483,"is_external_resource":true,"is_add_nofollow_for_link":false,"name":"Telegram","slug":"social-networks\/telegram","link":"https:\/\/t.me\/vave_official","label":null,"display_order":0,"template":null,"footerIconUrl":"https:\/\/d2j4tzbt95ugsz.cloudfront.net\/site\/upload\/page_footer_icon\/5aa84700-0916-4cd9-9b9c-50090b5deaca\/1681735670_telegram.svg","children":[]},{"id":484,"is_external_resource":true,"is_add_nofollow_for_link":false,"name":"Discord","slug":"social-networks\/discord","link":"https:\/\/discord.gg\/WSGDVbyUxb","label":null,"display_order":0,"template":null,"footerIconUrl":null,"children":[]},{"id":487,"is_external_resource":true,"is_add_nofollow_for_link":false,"name":"Blog","slug":"social-networks\/blog","link":"https:\/\/vave.com\/blog\/","label":null,"display_order":0,"template":null,"footerIconUrl":null,"children":[]},{"id":489,"is_external_resource":true,"is_add_nofollow_for_link":false,"name":"Instagram","slug":"social-networks\/instagram","link":"https:\/\/www.instagram.com\/official.vave\/","label":null,"display_order":0,"template":null,"footerIconUrl":null,"children":[]}]},{"id":7,"is_external_resource":false,"is_add_nofollow_for_link":false,"name":"Help","slug":"help","link":"https:\/\/vave1.com\/help","label":null,"display_order":5,"template":"help","footerIconUrl":null,"children":[{"id":447,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"FAQ","slug":"help\/faq","link":"https:\/\/vave1.com\/help\/faq","label":null,"display_order":0,"template":"faq","footerIconUrl":null,"children":[]},{"id":478,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"General Sportsbook","slug":"help\/sportsbook-rules","link":"https:\/\/vave1.com\/help\/sportsbook-rules","label":null,"display_order":0,"template":"text","footerIconUrl":null,"children":[]},{"id":16,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Betting Rules","slug":"help\/betting-rules","link":"https:\/\/vave1.com\/help\/betting-rules","label":null,"display_order":1,"template":"betting-rules","footerIconUrl":null,"children":[]},{"id":15,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Contact Us","slug":"help\/contacts","link":"https:\/\/vave1.com\/help\/contacts","label":"contacts","display_order":2,"template":null,"footerIconUrl":null,"children":[]},{"id":12,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Responsible Gaming","slug":"help\/responsible-gaming","link":"https:\/\/vave1.com\/help\/responsible-gaming","label":"responsible-gaming","display_order":3,"template":"text","footerIconUrl":null,"children":[]},{"id":29,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Sources of Information","slug":"help\/information-source","link":"https:\/\/vave1.com\/help\/information-source","label":null,"display_order":4,"template":"text","footerIconUrl":null,"children":[]},{"id":485,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"About Cryptocurrencies","slug":"help\/crypto","link":"https:\/\/vave1.com\/help\/crypto","label":null,"display_order":4,"template":"text","footerIconUrl":null,"children":[]}]}];
+        window.footerMenu = [{"id":6,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"About Vave","slug":"information","link":"https:\/\/vave1.com\/information","label":null,"display_order":0,"template":"about-us","footerIconUrl":null,"children":[{"id":13,"is_external_resource":false,"is_add_nofollow_for_link":false,"name":"Terms and Conditions","slug":"information\/terms-and-conditions","link":"https:\/\/vave1.com\/information\/terms-and-conditions","label":"terms","display_order":1,"template":"terms","footerIconUrl":null,"children":[]},{"id":126,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"General Bonuses Terms","slug":"information\/bonus-terms","link":"https:\/\/vave1.com\/information\/bonus-terms","label":null,"display_order":4,"template":"text","footerIconUrl":null,"children":[]},{"id":14,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Privacy Policy","slug":"information\/privacy-policy","link":"https:\/\/vave1.com\/information\/privacy-policy","label":"privacy","display_order":5,"template":"text","footerIconUrl":null,"children":[]},{"id":30,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"About Us","slug":"information\/about-us","link":"https:\/\/vave1.com\/information\/about-us","label":null,"display_order":5,"template":"text","footerIconUrl":null,"children":[]},{"id":482,"is_external_resource":true,"is_add_nofollow_for_link":false,"name":"Affiliates","slug":"information\/test-tournament","link":"https:\/\/vavepartners.com\/","label":null,"display_order":6,"template":"promotion","footerIconUrl":null,"children":[]},{"id":491,"is_external_resource":true,"is_add_nofollow_for_link":false,"name":"Ambassadors","slug":"information\/test-tournament2","link":"https:\/\/ambassadors.vave.com\/","label":null,"display_order":7,"template":null,"footerIconUrl":null,"children":[]}]},{"id":421,"is_external_resource":false,"is_add_nofollow_for_link":false,"name":"Casino Games","slug":"casino","link":"https:\/\/vave1.com\/casino","label":null,"display_order":1,"template":"help","footerIconUrl":null,"children":[{"id":433,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Popular Slots","slug":"casino\/popular","link":"https:\/\/vave1.com\/casino\/popular","label":null,"display_order":0,"template":null,"footerIconUrl":null,"children":[]},{"id":434,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"New Slots","slug":"casino\/new","link":"https:\/\/vave1.com\/casino\/new","label":null,"display_order":0,"template":null,"footerIconUrl":null,"children":[]},{"id":479,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Bonus Buy","slug":"casino\/bonus-buy","link":"https:\/\/vave1.com\/casino\/bonus-buy","label":null,"display_order":3,"template":null,"footerIconUrl":null,"children":[]}]},{"id":4,"is_external_resource":false,"is_add_nofollow_for_link":false,"name":"Sports Betting","slug":"prematch","link":"https:\/\/vave1.com\/prematch","label":null,"display_order":2,"template":"about-us","footerIconUrl":null,"children":[{"id":9,"is_external_resource":false,"is_add_nofollow_for_link":false,"name":"Soccer Betting","slug":"prematch\/football","link":"https:\/\/vave1.com\/prematch\/football","label":null,"display_order":2,"template":null,"footerIconUrl":null,"children":[]},{"id":10,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Basketball Betting","slug":"prematch\/basketball","link":"https:\/\/vave1.com\/prematch\/basketball","label":"Test_page","display_order":2,"template":null,"footerIconUrl":null,"children":[]},{"id":11,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Tennis Betting","slug":"prematch\/tennis","link":"https:\/\/vave1.com\/prematch\/tennis","label":null,"display_order":3,"template":null,"footerIconUrl":null,"children":[]}]},{"id":8,"is_external_resource":false,"is_add_nofollow_for_link":false,"name":"Community","slug":"social-networks","link":"https:\/\/vave1.com\/social-networks","label":null,"display_order":4,"template":"social-networks","footerIconUrl":null,"children":[{"id":19,"is_external_resource":true,"is_add_nofollow_for_link":false,"name":"Twitter","slug":"social-networks\/twitter","link":"https:\/\/twitter.com\/official_vave","label":null,"display_order":0,"template":null,"footerIconUrl":"https:\/\/d2j4tzbt95ugsz.cloudfront.net\/site\/upload\/page_footer_icon\/ed1ce7bb-63b4-497f-b296-8b17d9c5fc97\/1684232491_twiter.svg","children":[]},{"id":483,"is_external_resource":true,"is_add_nofollow_for_link":false,"name":"Telegram","slug":"social-networks\/telegram","link":"https:\/\/t.me\/vave_official","label":null,"display_order":0,"template":null,"footerIconUrl":"https:\/\/d2j4tzbt95ugsz.cloudfront.net\/site\/upload\/page_footer_icon\/5aa84700-0916-4cd9-9b9c-50090b5deaca\/1681735670_telegram.svg","children":[]},{"id":484,"is_external_resource":true,"is_add_nofollow_for_link":false,"name":"Discord","slug":"social-networks\/discord","link":"https:\/\/discord.gg\/WSGDVbyUxb","label":null,"display_order":0,"template":null,"footerIconUrl":null,"children":[]},{"id":487,"is_external_resource":true,"is_add_nofollow_for_link":false,"name":"Blog","slug":"social-networks\/blog","link":"https:\/\/vave.com\/blog\/","label":null,"display_order":0,"template":null,"footerIconUrl":null,"children":[]},{"id":489,"is_external_resource":true,"is_add_nofollow_for_link":false,"name":"Instagram","slug":"social-networks\/instagram","link":"https:\/\/www.instagram.com\/official.vave\/","label":null,"display_order":0,"template":null,"footerIconUrl":null,"children":[]}]},{"id":7,"is_external_resource":false,"is_add_nofollow_for_link":false,"name":"Help","slug":"help","link":"https:\/\/vave1.com\/help","label":null,"display_order":5,"template":"help","footerIconUrl":null,"children":[{"id":447,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"FAQ","slug":"help\/faq","link":"https:\/\/vave1.com\/help\/faq","label":null,"display_order":0,"template":"faq","footerIconUrl":null,"children":[]},{"id":478,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"General Sportsbook","slug":"help\/sportsbook-rules","link":"https:\/\/vave1.com\/help\/sportsbook-rules","label":null,"display_order":0,"template":"text","footerIconUrl":null,"children":[]},{"id":16,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Betting Rules","slug":"help\/betting-rules","link":"https:\/\/vave1.com\/help\/betting-rules","label":null,"display_order":1,"template":"betting-rules","footerIconUrl":null,"children":[]},{"id":15,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Contact Us","slug":"help\/contacts","link":"https:\/\/vave1.com\/help\/contacts","label":"contacts","display_order":2,"template":null,"footerIconUrl":null,"children":[]},{"id":12,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Responsible Gaming","slug":"help\/responsible-gaming","link":"https:\/\/vave1.com\/help\/responsible-gaming","label":"responsible-gaming","display_order":3,"template":"text","footerIconUrl":null,"children":[]},{"id":29,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"Sources of Information","slug":"help\/information-source","link":"https:\/\/vave1.com\/help\/information-source","label":null,"display_order":4,"template":"text","footerIconUrl":null,"children":[]},{"id":485,"is_external_resource":false,"is_add_nofollow_for_link":true,"name":"About Cryptocurrencies","slug":"help\/crypto","link":"https:\/\/vave1.com\/help\/crypto","label":null,"display_order":4,"template":"text","footerIconUrl":null,"children":[]}]}];
+        window.apiEndpoint = 'https://platform.vave1.com';
+        window.mercureEndpoint = 'https://mercure.vave1.com/.well-known/mercure';
+        window.promotionBonusId = '';
+        window.promotionTournamentId = '';
+        window.landingSetup = {
+            title: 'Vave - Crypto Sports Betting &amp; Casino'
+        }
+        window.isMobile = false;
+        window.logoLink = '';
+            </script>
+
+            
+        <base href="/">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Vave - Crypto Sports Betting &amp; Casino</title>
+
+    <meta name="description" content="Vave is a legit online bookmaker and casino that offers over 30 sports for betting, houndreds of slots and dealer games. Deposit crypto and get winnings in no time!">
+
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="https://vave1.com/assets/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://vave1.com/assets/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://vave1.com/assets/favicon.png">
+    <link rel="shortcut icon" href="https://vave1.com/assets/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,900&display=swap&subset=cyrillic"
+          rel="stylesheet">
+
+
+    <style>
+        body.animation-start #text-page {
+            display: none
+        }
+    </style>
+
+            <link rel="stylesheet" href="/app/styles.cb4d795d5596d30c.css"/>
+            <link rel="stylesheet" href="/app/main.3a2a159d9e9a20f9.css"/>
+    
+    <link rel="canonical" href="https://vave.com"/>
+
+    <script src="https://casino.cur.a8r.games/public/sg.js"></script>
+    <script src="https://cdn.seon.io/js/v4/agent.js"></script>
+    <script src="/configuration.js"></script>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NHVW79P');</script>
+<!-- End Google Tag Manager -->
+
+<meta name="google-site-verification" content="WV6u7nhLrd1UsbXyVi75mXFow7MVZYx5Dm7q9mDLZsg" />
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "f79269ed-c175-446b-9b22-449f5515792b",
+        notifyButton: {
+          enable: true,
+        },
+      });
+      OneSignal.showNativePrompt();
+    });
+</script>
+
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://vave1.com/","name":"Best Online Bookmaker » Bet Legally","description":"Safest online betting and gambling 🍀 One of the best bookmaker sites in the world. All major sports, best betting odds. Sign up for a welcome bonus!"}}]},{"@context":"https://schema.org","@type":"Organization","url":"https://vave.com","description":"Vave is a legit online bookmaker and casino that offers over 30 sports for betting, houndreds of slots and dealer games. Deposit crypto and get winnings in no time!","logo":"https://d2j4tzbt95ugsz.cloudfront.net/site/upload/setting/6f0e80c4-f8c4-4739-b6f8-bea5b879b36d/1658757812_logo_white.png"}]</script>
+    
+</head>
+
+<body class="animation-start ">
+            <div id="content" class="text_page-">
+            <div id="platform">
+                
+            </div>
+            <div id="text-page-content">
+                                                            
+                                                                        </div>
+            <footer id="footer" class="footer">
+  <div class="footer__content"></div>
+  <div class="footer__validators">
+        <a href="https://cryptogambling.org/" target="_blank"><img alt="validator" title="" src="https://d2j4tzbt95ugsz.cloudfront.net/site/upload/provider_logo/cgf2.png" /></a>
+
+  </div>
+</footer>
+
+<script>
+  window.footerInfoContent = "<p><span>&nbsp;<\/span><\/p>"
+</script>
+        </div>
+
+        <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHVW79P"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<script>
+        ;(function (a, b, c, d, e, f) {
+          a[e]=a[e]||[];a.x=b.createElement(c);a.y=b.getElementsByTagName(c)[0];x.src=d+"?id="+f;x.setAttribute("data-srtmn",e);y.parentNode.insertBefore(x,y);
+      }(window, document, "script", "https://tm.ads.sportradar.com/dist/tag-manager.js", "srtmCommands", "STM-AAAAJV"));
+</script>
+
+<script type="text/javascript">
+// 86acbd31cd7c09cf30acb66d2fbedc91daa48b86:1573737685.7614238
+!function(n,t,c,e,u){function r(n){try{f=n(u)}catch(n){return h=n,void i(p,n)}i(s,f)}function i(n,t){for(var c=0;c<n.length;c++)d(n[c],t);
+}function o(n,t){return n&&(f?d(n,f):s.push(n)),t&&(h?d(t,h):p.push(t)),l}function a(n){return o(!1,n)}function d(t,c){
+n.setTimeout(function(){t(c)},0)}var f,h,s=[],p=[],l={then:o,catch:a,_setup:r};n[e]=l;var v=t.createElement("script");
+v.src=c,v.async=!0,v.id="_uasdk",v.rel=e,t.head.appendChild(v)}(window,document,'https://aswpsdkus.com/notify/v1/ua-sdk.min.js',
+  'UA', {
+    vapidPublicKey: 'BIkSbWklJhZ_8m0QT1ZcHX48JjINjdF-xkN7bchgUbGW3xLOwZf110D5ueApnFSwc_xoyjdZYBQve6tjZKmqrhY=',
+    appKey: 'hcMG0DMOQmucSxVrclKItQ',
+    token: 'MTpoY01HMERNT1FtdWNTeFZyY2xLSXRROllWZHNzd3NfNlB6c05paEw0VTlmWUE2MXQxVGJqMWtibHFFYnVza1NfdDA'
+  });
+
+UA.then(function(sdk) {
+  console.log(sdk); // Returns String
+})
+
+</script>
+
+
+
+  <!-- Start of LiveChat (www.livechatinc.com) code -->
+<lazyScript style="display: none">
+    window.__lc = window.__lc || {};
+    window.__lc.license = 9054575;
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+  </lazyScript>
+  <noscript><a href="https://www.livechatinc.com/chat-with/9054575/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+    <!-- End of LiveChat code -->
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-181877965-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-181877965-1');
+</script>
+
+<script type="text/javascript">
+  var _cio = _cio || [];
+  (function() {
+    var a,b,c;a=function(f){return function(){_cio.push([f].
+    concat(Array.prototype.slice.call(arguments,0)))}};b=["load","identify",
+    "sidentify","track","page"];for(c=0;c<b.length;c++){_cio[b[c]]=a(b[c])};
+    var t = document.createElement('script'),
+        s = document.getElementsByTagName('script')[0];
+    t.async = true;
+    t.id    = 'cio-tracker';
+    t.setAttribute('data-site-id', 'ed4d851ba903ab8c0517');
+    t.src = 'https://assets.customer.io/assets/track.js';
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+<script>
+(function(a,b,c,d,e,f,g,h,i){a[e]||(i=a[e]=function(){(a[e].q=a[e].q||[]).push(arguments)},i.l=1*new Date,i.o=f,
+g=b.createElement(c),h=b.getElementsByTagName(c)[0],g.async=1,g.src=d,g.setAttribute("n",e),h.parentNode.insertBefore(g,h)
+)})(window,document,"script", "https://ws-cdn001.akamaized.net/7693683943e78a298c36d469e68b47d8/widgetloader", "SIR", {
+theme: false, // using custom theme
+language: window.betradarIso
+});
+</script>
+
+            
+    <script>
+    (function() {
+        function createScript(url, attributes) {
+            var script = document.createElement('script');
+            script.src = url;
+
+            var attrs = attributes.split(' ');
+            attrs.forEach(function(attr) {
+                var arr = attr.split('=');
+                var value = arr[1]||'';
+
+                script.setAttribute(arr[0], value.replace(/"/g,'') || "");
+            });
+            script.setAttribute('crossorigin', "");
+
+            return script;
+        }
+
+        function appendScripts() {
+            let scripts = {"styles1":{"name":"\/app\/styles.ac0a7faf30260f33.js","attributes":"defer type=\"module\""},"main1":{"name":"\/app\/main.2ab5f78c446b0922.js","attributes":"defer type=\"module\""},"polyfills0":{"name":"\/app\/polyfills.91036212813fe19f.js","attributes":"defer type=\"module\""},"runtime0":{"name":"\/app\/runtime.bbc7b629af0cfed3.js","attributes":"defer type=\"module\""},"vendor0":{"name":"\/app\/vendor.c2a3649302ecc9a0.js","attributes":"defer type=\"module\""}};
+            Object.keys(scripts).forEach(function(key){
+                var script =  createScript(scripts[key].name, scripts[key].attributes || "");
+                document.body.appendChild(script);
+            });
+        }
+
+        function getTranslationsCallback(translations) {
+            try {
+                var translationsJson = JSON.parse(translations);
+                window.translates = translationsJson.data;
+            } catch (e) {
+                window.translates = {}
+            }
+        }
+
+        function appSetupCallBack(setup) {
+            try {
+                const setupJSON = JSON.parse(setup);
+                window.applicationSetup = setupJSON.data || null;
+            } catch (e) {
+                window.applicationSetup = null;
+            }
+        }
+
+        async function makeHttpRequest({ url }) {
+            var request = new XMLHttpRequest();
+            return new Promise((resolve, reject) => {
+                request.onload = function () {
+                    if (request.status >= 200 && request.status < 300) {
+                        var response = this.responseText;
+                        resolve(response);
+                    } else {
+                        reject(null);
+                    }
+                };
+                request.open('GET', url);
+                request.send();
+            });
+        }
+        async function getTranslations() {
+            return makeHttpRequest({ url:  '/api/translation/get?locale=en_GB'})
+        }
+
+        async function getSettings() {
+            return makeHttpRequest({ url:  window.apiEndpoint + '/api/v2/configurations'});
+        }
+
+        async function getAppSetup() {
+            return {
+                translations: await getTranslations(),
+                applicationSetup: await getSettings(),
+            }
+        }
+
+        getAppSetup().then(function(data)  {
+            const { translations, applicationSetup } = data;
+            getTranslationsCallback(translations);
+            appSetupCallBack(applicationSetup);
+            appendScripts();
+        }).catch(function(e) {
+            window.translates = {};
+            window.applicationSetup = null;
+            appendScripts();
+        });
+    })();
+</script>
+
+</body>
+</html>

@@ -1,5 +1,4 @@
-#!/home/al/.venv/bin/python3
-
+#!/home/al/.da-1/bin/python3.10
 from selenium.webdriver.chrome.options import Options
 from fake_useragent import UserAgent
 from xvfbwrapper import Xvfb
