@@ -81,7 +81,6 @@ count_replace = 0
 # shutil.copytree('./replace/', './a/cryptonews.com/', dirs_exist_ok=True)
 
 
-
 def download_file(f1):
     start_time = time.time()
     source = None
@@ -171,32 +170,31 @@ def download_file(f1):
                                 round(time.time() - start_time, 3)) + ' ' + aa)
 
 
-file_list = ['/news/',
-             '/news/altcoin-news/',
-             '/news/bitcoin-news/',
-             '/news/blockchain-news/',
-             '/news/cryptonews-deals/',
-             '/news/defi-news/',
-             '/news/ethereum-news/',
-             '/news/finance-news/',
-             '/news/ico-news/',
-             '/news/industry-talk/',
-             '/news/nft-news/',
-             '/news/press-releases/',
-             '/news/price-predictions/',
-             '/news/sponsored/',
-             '/news/technology-news/',
-             '/exclusives/',
-             '/exclusives/features/',
-             '/exclusives/opinions/',
-             '/exclusives/people/']
-
-             # '/exclusives/editors/',
-             # '/exclusives/coins/',
-             # '/exclusives/guides/',
-             # '/exclusives/reviews/',
-             # '/exclusives/review_categories/',
-             # '/exclusives/guide_categories/']
+file_list = [
+    # '/news/altcoin-news/',
+    # '/news/bitcoin-news/',
+    # '/news/blockchain-news/',
+    # '/news/cryptonews-deals/',
+    # '/news/defi-news/',
+    # '/news/ethereum-news/',
+    # '/news/finance-news/',
+    # '/news/ico-news/',
+    # '/news/industry-talk/',
+    # '/news/nft-news/',
+    # '/news/press-releases/',
+    # '/news/price-predictions/',
+    # '/news/sponsored/',
+    # '/news/technology-news/',
+    # '/exclusives/',
+    # '/exclusives/features/',
+    # '/exclusives/opinions/',
+    # '/exclusives/people/',
+    '/exclusives/editors/']
+# '/exclusives/coins/',
+# '/exclusives/guides/',
+# '/exclusives/reviews/',
+# '/exclusives/review_categories/',
+# '/exclusives/guide_categories/']
 
 for f in file_list:
     download_file(f)

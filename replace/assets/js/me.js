@@ -107,7 +107,7 @@ $(function () {
             "\n" +
             "  gtag('config', 'G-0WB7KX709G');\n" +
             "</script>" +
-            "<link href=\"/assets/images/favicon.png\" rel=\"shortcut icon\"/>" +
+            // "<link href=\"/assets/images/favicon.png\" rel=\"shortcut icon\"/>" +
             "<link href=\"https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css\" rel=\"stylesheet\"/>" +
             "<script defer=\"\" src=\"/assets/js/cookieconsent.js\"></script>" +
             "<script defer=\"\" src=\"/assets/js/cookieconsent-init.js\"></script>" +

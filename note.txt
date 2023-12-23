@@ -471,3 +471,5 @@ wget --no-clobber  --no-timestamping https://www.allhyipmonitors.com/
 
 <a class="article__badge article__badge--sm" href="https://cryptonews.com/news/bitcoin-news/">  Bitcoin News </a>
 'https://cryptonews.com/news/sec-chair-gensler-discusses-impact-of-court-rulings-on-reevaluating-bitcoin-etf-decisions.htm'
+
+https://cryptonews.com/news/taiwan-police-target-crypto-influencers-linked-to-polymarket-election-betting.htm
