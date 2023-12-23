@@ -152,7 +152,7 @@ $(function () {
         }
 
         try {
-            document.querySelector(".header__logo > img").src = "/assets/images/" + hostname + ".svg";
+            document.querySelector(".header__logo > img").src = "/assets/images/logos/" + hostname + ".svg";
         } catch (err) {
         }
 
