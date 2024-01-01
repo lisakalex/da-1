@@ -1,5 +1,4 @@
-#!/home/al/.venv/bin/python3
-
+#!/home/al/.venv/bin/python3.10
 from selenium.webdriver.chrome.options import Options
 from fake_useragent import UserAgent
 from xvfbwrapper import Xvfb
@@ -11,6 +10,7 @@ from stem.control import Controller
 from stem import Signal
 import time
 from datetime import datetime
+from selenium.webdriver.chrome.service import Service
 
 
 def get_current_ip():
@@ -25,18 +25,24 @@ def get_current_ip():
     options.headless = True
 
     # driver = webdriver.Chrome(options=options, executable_path="/var/www/da-1.com/html/test/click-iframe/chromedriver")
-    driver = webdriver.Chrome(options=options, executable_path="./chromedriver")
+    # driver = webdriver.Chrome(options=options, executable_path="./chromedriver")
     # driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
+    service = Service(executable_path='./chromedriver')
+    driver = webdriver.Chrome(service=service, options=options)
     print(datetime.today().strftime('%H:%M:%S'))
-    with open('zuy1', "w") as file:
+    with open('zuy1', "a") as file:
         file.write(datetime.today().strftime('%Y-%m-%d %H:%M:%S') + ' tor\n')
 
-    url = "http://da-1.com/test/click-iframe/a.html"
-    # url = "https://www.amkamdam.com/test/click-iframe/a.html"
+    # url = "http://da-1.com/test/click-iframe/a.html"
+    url = "https://www.amkamdam.com/test/click-iframe/a.html"
     driver.get(url)
     try:
         driver.switch_to.frame('google_ads_iframe')
         WebDriverWait(driver, 10).until(ec.element_to_be_clickable((By.XPATH, '//*[@id="abgl"]'))).click()
+
+        # for i in range(3):
+        #     driver.get("https://www.amkamdam.com/")
+
     finally:
         driver.quit()
         display.stop()
@@ -49,7 +55,8 @@ def renew_tor_ip():
 
 
 if __name__ == "__main__":
-    for i in range(3):
+    for i in range(2):
+        # while True:
         get_current_ip()
         renew_tor_ip()
-        time.sleep(3)
+        # time.sleep(3)

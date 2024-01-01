@@ -161,11 +161,11 @@ $(function () {
         }
 
         if (hostname === 'huy.com' || hostname === 'xxx.xx' || hostname === 'xxx.xx') {
-            setSite('pink', 'Oswald')
+            setSite('#e83e8c', 'Oswald')
         }
 
         if (hostname === 'huy-1.com' || hostname === 'da.com' || hostname === 'xxx.xx') {
-            setSite('red', 'Playfair Display')
+            setSite('#0c611f', 'Playfair Display')
         }
 
         // change to site name
